@@ -7,18 +7,24 @@ const { computeDistrictDayStock, computeDistrictDayCash, computeDistrictFullCash
 
 const GOOGLE_SHEET_ID = '1n8DwEI5F5VyJFM3VA7k8_AOARXIcVRzKcn1XaSYqG44';
 const GOOGLE_SHEET_URL = `https://docs.google.com/spreadsheets/d/${GOOGLE_SHEET_ID}/edit?usp=sharing`;
+const PERMANENT_WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbwnLK1x-VkqpS6abXZs_UUBNArLJ8H2B8FnKnQ3o5_tCprIcct-Qh98QA5N8YLkbJQARA/exec';
+
+function getActiveWebhookUrl() {
+  return (db.googleSheetsConfig && db.googleSheetsConfig.webhookUrl) || PERMANENT_WEBHOOK_URL;
+}
 
 /**
  * Send payload to Google Sheets Webhook
  */
 function sendWebhook(webhookUrl, payload) {
+  const targetUrl = webhookUrl || getActiveWebhookUrl();
   return new Promise((resolve, reject) => {
-    if (!webhookUrl) {
+    if (!targetUrl) {
       return resolve({ success: false, message: 'No webhook URL configured' });
     }
 
     try {
-      const parsedUrl = new URL(webhookUrl);
+      const parsedUrl = new URL(targetUrl);
       const postData = JSON.stringify(payload);
       const isHttps = parsedUrl.protocol === 'https:';
       const client = isHttps ? https : http;
@@ -122,23 +128,20 @@ function buildDistrictSyncPayload(district, date) {
  * Sync all 12 districts for a date
  */
 async function syncAllDistrictsToSheets(date) {
-  const webhookUrl = (db.googleSheetsConfig && db.googleSheetsConfig.webhookUrl) || null;
+  const webhookUrl = getActiveWebhookUrl();
   const results = [];
 
   for (const dist of DISTRICTS) {
     const payload = buildDistrictSyncPayload(dist, date);
-    if (webhookUrl) {
-      const res = await sendWebhook(webhookUrl, payload);
-      results.push({ district: dist, success: res.success });
-    } else {
-      results.push({ district: dist, status: 'Queued (Awaiting Webhook URL)' });
-    }
+    const res = await sendWebhook(webhookUrl, payload);
+    results.push({ district: dist, success: res.success });
   }
 
   // Update sync timestamp in db
   if (!db.googleSheetsConfig) db.googleSheetsConfig = {};
   db.googleSheetsConfig.lastSyncTimestamp = new Date().toISOString();
   db.googleSheetsConfig.lastSyncDate = date;
+  db.googleSheetsConfig.webhookUrl = webhookUrl;
   saveDb();
 
   return {
@@ -154,7 +157,7 @@ async function syncAllDistrictsToSheets(date) {
  * Trigger sync on live events (order added, cash payment, stock edit)
  */
 async function triggerLiveEventSync(district, date, eventType, eventData) {
-  const webhookUrl = (db.googleSheetsConfig && db.googleSheetsConfig.webhookUrl) || null;
+  const webhookUrl = getActiveWebhookUrl();
   if (!webhookUrl) return;
 
   const payload = {
@@ -173,6 +176,8 @@ async function triggerLiveEventSync(district, date, eventType, eventData) {
 module.exports = {
   GOOGLE_SHEET_ID,
   GOOGLE_SHEET_URL,
+  PERMANENT_WEBHOOK_URL,
+  getActiveWebhookUrl,
   buildDistrictSyncPayload,
   syncAllDistrictsToSheets,
   triggerLiveEventSync,

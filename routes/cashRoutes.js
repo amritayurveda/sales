@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const { db, saveDb, logActivity } = require('../config/db');
 const { authenticateToken, requireAdmin, enforceDistrictAccess } = require('../middleware/auth');
+const { triggerLiveEventSync } = require('../services/googleSheetsSync');
 const { computeDistrictDayCash } = require('../utils/cashRollover');
 const { getServerToday } = require('../middleware/sameDayCheck');
 
@@ -56,6 +57,9 @@ router.post('/admin-payment', authenticateToken, requireAdmin, (req, res) => {
   );
 
   saveDb();
+
+  // Trigger live background sync to Google Sheet
+  triggerLiveEventSync(district, date, 'CASH_PAYMENT', newSettlement);
 
   const updatedCash = computeDistrictDayCash(db, district, date);
 

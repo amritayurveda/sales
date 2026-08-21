@@ -5,6 +5,7 @@ const { db, saveDb, logActivity } = require('../config/db');
 const { authenticateToken, enforceDistrictAccess } = require('../middleware/auth');
 const { getServerToday, enforceSameDayForDealers } = require('../middleware/sameDayCheck');
 const { calculateDC } = require('../utils/dcCalculator');
+const { triggerLiveEventSync } = require('../services/googleSheetsSync');
 
 // 1. Create a customer order (Direct Product + Fully Editable Price)
 router.post(
@@ -87,6 +88,9 @@ router.post(
     );
 
     saveDb();
+
+    // Trigger live background sync to Google Sheet
+    triggerLiveEventSync(district, date, 'NEW_ORDER', newOrder);
 
     res.status(201).json({
       message: `Order ${orderNo} recorded successfully`,
