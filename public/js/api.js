@@ -321,6 +321,29 @@ const API = {
     return this.request('/sheets/script-template');
   },
 
+  // Stock Transfers & Dispatch System
+  async dispatchStock(district, productId, qty, challanNo, note) {
+    return this.request('/inventory/dispatch-stock', {
+      method: 'POST',
+      body: JSON.stringify({ district, productId, qty, challanNo, note })
+    });
+  },
+
+  async getDistrictTransfers(district) {
+    return this.request(`/inventory/transfers/${encodeURIComponent(district)}`);
+  },
+
+  async getAllTransfersAdmin() {
+    return this.request('/inventory/admin/all-transfers');
+  },
+
+  async acceptStockTransfer(transferId, date) {
+    return this.request(`/inventory/accept-stock/${encodeURIComponent(transferId)}`, {
+      method: 'POST',
+      body: JSON.stringify({ date })
+    });
+  },
+
   // Activity Logs
   async getActivityLogs(filters = {}) {
     const params = new URLSearchParams();

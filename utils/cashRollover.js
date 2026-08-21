@@ -96,35 +96,44 @@ function computeDistrictDayStock(db, district, targetDate) {
     const ordersBefore = allOrders.filter(o => o.productId === p.productId && o.date < targetDate);
     const salesBefore = ordersBefore.reduce((sum, o) => sum + (Number(o.qty) || 0), 0);
 
+    // Dynamically resolve latest Master Product name & schemes
+    const master = (db.products || []).find(mp => mp.id === p.productId || mp.name.toUpperCase() === (p.name || '').toUpperCase());
+    const prodName = master ? master.name : p.name;
+    const prodSchemes = (master && master.schemes && master.schemes.length > 0) ? master.schemes : (p.schemes || []);
+
     // Mila inward before today
     let milaBefore = 0;
     Object.keys(milaMap).forEach(key => {
       const [dist, d, pid] = key.split(':');
-      if (dist === district && pid === p.productId && d < targetDate) {
-        milaBefore += (Number(milaMap[key]) || 0);
+      if (dist === district && d < targetDate) {
+        if (pid === p.productId || pid === p.id || pid === p.name || (master && pid === master.id)) {
+          milaBefore += (Number(milaMap[key]) || 0);
+        }
       }
     });
 
     const openingStock = Math.round((baseStock - salesBefore + milaBefore) * 10) / 10;
 
     // 3. Orders today
-    const ordersToday = allOrders.filter(o => o.productId === p.productId && o.date === targetDate);
+    const ordersToday = allOrders.filter(o => (o.productId === p.productId || o.productId === p.id || (master && o.productId === master.id)) && o.date === targetDate);
     const saleQty = ordersToday.reduce((sum, o) => sum + (Number(o.qty) || 0), 0);
 
     // 4. Remain stock
     const remainStock = Math.round((openingStock - saleQty) * 10) / 10;
 
     // 5. Mila inward today
-    const milaKey = `${district}:${targetDate}:${p.productId}`;
-    const milaQty = Number(milaMap[milaKey]) || 0;
+    let milaQty = 0;
+    Object.keys(milaMap).forEach(key => {
+      const [dist, d, pid] = key.split(':');
+      if (dist === district && d === targetDate) {
+        if (pid === p.productId || pid === p.id || pid === p.name || (master && pid === master.id)) {
+          milaQty += (Number(milaMap[key]) || 0);
+        }
+      }
+    });
 
     // 6. Closing stock
     const closingStock = Math.round((remainStock + milaQty) * 10) / 10;
-
-    // Dynamically resolve latest Master Product name & schemes
-    const master = (db.products || []).find(mp => mp.id === p.productId || mp.name.toUpperCase() === (p.name || '').toUpperCase());
-    const prodName = master ? master.name : p.name;
-    const prodSchemes = (master && master.schemes && master.schemes.length > 0) ? master.schemes : (p.schemes || []);
 
     return {
       id: p.id,

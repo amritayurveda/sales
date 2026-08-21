@@ -147,6 +147,26 @@ async function initPostgresTables() {
       );
     `);
 
+    // 10. Admin to District Stock Transfers & Dealer Receipt Table
+    await client.query(`
+      CREATE TABLE IF NOT EXISTS stock_transfers (
+        id VARCHAR(64) PRIMARY KEY,
+        transfer_no VARCHAR(64) UNIQUE NOT NULL,
+        district VARCHAR(64) NOT NULL,
+        product_id VARCHAR(64) NOT NULL,
+        product_name VARCHAR(128) NOT NULL,
+        qty NUMERIC NOT NULL,
+        status VARCHAR(32) NOT NULL DEFAULT 'PENDING_ACCEPTANCE',
+        challan_no VARCHAR(64),
+        note TEXT,
+        dispatched_by VARCHAR(64) NOT NULL,
+        dispatched_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+        received_by VARCHAR(64),
+        received_at TIMESTAMP WITH TIME ZONE,
+        received_date DATE
+      );
+    `);
+
     // 10. Key-Value Settings & State Cache Table
     await client.query(`
       CREATE TABLE IF NOT EXISTS app_state (

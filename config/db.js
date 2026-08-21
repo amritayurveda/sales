@@ -125,7 +125,8 @@ let db = {
   sales: {},
   ledgers: {},
   activityLogs: [],
-  googleSheetsConfig: {}
+  googleSheetsConfig: {},
+  stockTransfers: []
 };
 
 async function saveDb() {

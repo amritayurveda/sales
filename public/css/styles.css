@@ -1011,6 +1011,72 @@ tfoot td {
 }
 
 /* =========================================================
+   INCOMING STOCK TRANSFERS (ADMIN DISPATCH -> DEALER INWARD)
+   ========================================================= */
+.incoming-stock-card {
+  background: #FFFDF0;
+  border: 2px solid #E6D275;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(184, 134, 59, 0.15);
+  margin-bottom: 16px;
+}
+
+.incoming-stock-header {
+  background: #FFE873;
+  padding: 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13.5px;
+  color: #5C4B00;
+  font-weight: 700;
+}
+
+.incoming-stock-list {
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.incoming-stock-item {
+  background: #FFF;
+  border: 1px solid #E6D275;
+  border-radius: 8px;
+  padding: 12px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn-accept-stock {
+  height: 44px;
+  padding: 0 18px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 8px;
+  background: #2D6A12;
+  color: #FFF;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 2px 6px rgba(45,106,18,0.3);
+  transition: all 0.15s ease;
+}
+.btn-accept-stock:hover {
+  background: #23540E;
+  transform: translateY(-1px);
+}
+.btn-accept-stock:active {
+  transform: scale(0.98);
+}
+
+/* =========================================================
    MOBILE-FIRST FAST ORDER & RESPONSIVE DEALER INTERFACE
    ========================================================= */
 

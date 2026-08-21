@@ -294,16 +294,18 @@
     updateDateDisplay();
 
     try {
-      // 1. Parallel loading of Stock Register, Rolling Day Cash, and Full Historical Ledger
-      const [stockRes, cashRes, historyRes] = await Promise.all([
+      // 1. Parallel loading of Stock Register, Rolling Day Cash, Full Historical Ledger, and Inward Transfers
+      const [stockRes, cashRes, historyRes, transfersRes] = await Promise.all([
         API.getDistrictDayStock(state.currentDistrict, state.currentDate),
         API.getDailyCashLedger(state.currentDistrict, state.currentDate),
-        API.getDistrictFullCashHistory(state.currentDistrict)
+        API.getDistrictFullCashHistory(state.currentDistrict),
+        API.getDistrictTransfers(state.currentDistrict).catch(() => ({ pendingTransfers: [], pendingCount: 0 }))
       ]);
 
       state.dayStock = stockRes;
       state.dayCash = cashRes;
       state.districtFullCash = historyRes;
+      state.districtTransfers = transfersRes;
       state.customerOrders = cashRes.orders || [];
       state.isReadOnly = (state.user.role !== 'admin' && state.currentDate !== state.serverToday);
 
@@ -328,27 +330,20 @@
     const banner = $('statusBanner');
     if (!banner) return;
 
-    if (state.user.role === 'admin') {
-      banner.className = 'status-banner live';
-      banner.innerHTML = `
-        <div>🛡️ <strong>Administrator Mode</strong>: Viewing <strong>${escapeHtml(state.currentDistrict)}</strong> (${state.currentDate}) — Full scheme configuration, stock editing, and cash settlement authority.</div>
-        <div class="hint mono">Admin Override Active</div>
-      `;
-      return;
-    }
-
     if (state.isReadOnly) {
-      banner.className = 'status-banner readonly';
+      banner.className = 'status-banner warning';
       banner.innerHTML = `
-        <div>🔒 <strong>Read-Only Historical Report</strong>: Viewing records for ${state.currentDate}. Input is locked for past dates.</div>
-        <button class="btn btn-secondary btn-sm" onclick="jumpToToday()">Switch to Today (${state.serverToday})</button>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <span style="font-size:18px;">🔒</span>
+          <div>
+            <strong>Historical View (${state.currentDate}):</strong>
+            <span> You are viewing past historical reports for <strong>${state.currentDistrict}</strong>. Sales entries and stock modifications are locked for past dates.</span>
+          </div>
+        </div>
       `;
     } else {
-      banner.className = 'status-banner live';
-      banner.innerHTML = `
-        <div>🟢 <strong>Live Sales Register (Today)</strong>: Recording sales for <strong>${escapeHtml(state.currentDistrict)}</strong>. Select scheme, enter customer mobile, and click Add.</div>
-        <div class="hint mono">Instant Auto-Save</div>
-      `;
+      banner.className = 'status-banner';
+      banner.innerHTML = '';
     }
   }
 
@@ -357,6 +352,7 @@
     const main = $('mainContent');
     const cash = state.dayCash || { opCash: 0, todaySalesNet: 0, totalAccumulated: 0, adminCashPaid: 0, closingCash: 0 };
     const stock = state.dayStock || { products: [], inwardNote: '' };
+    const pendingTransfers = (state.districtTransfers && state.districtTransfers.pendingTransfers) ? state.districtTransfers.pendingTransfers : [];
 
     if (!state.dealerView) state.dealerView = 'home';
 
@@ -387,6 +383,7 @@
           </button>
           <button class="dealer-subtab-btn ${state.dealerView === 'stock' ? 'active' : ''}" onclick="switchDealerView('stock')">
             <span>📦</span> <span>Stock (${stock.products.length})</span>
+            ${pendingTransfers.length > 0 ? `<span class="mila-tag" style="background:#FFE873;color:#5C4B00;font-size:10px;">+${pendingTransfers.length} In-Transit</span>` : ''}
           </button>
           <button class="dealer-subtab-btn ${state.dealerView === 'cash' ? 'active' : ''}" onclick="switchDealerView('cash')">
             <span>💰</span> <span>Cash (₹${fmt(cash.closingCash)})</span>
@@ -407,10 +404,40 @@
       </div>
     `;
 
+    // Incoming Stock Shipments Alert Banner (For Dealers)
+    const incomingShipmentsHtml = pendingTransfers.length === 0 ? '' : `
+      <div class="incoming-stock-card">
+        <div class="incoming-stock-header">
+          <span>📦 <strong>${pendingTransfers.length} Incoming Stock Shipment(s) Dispatched by Admin</strong></span>
+          <span class="type-pill Opening" style="font-size:11px;">🟡 In-Transit (Pending Receipt)</span>
+        </div>
+        <div class="incoming-stock-list">
+          ${pendingTransfers.map(t => `
+            <div class="incoming-stock-item">
+              <div>
+                <strong style="font-size:15px;color:var(--ink);">${escapeHtml(t.productName)}</strong>
+                <span class="mono" style="font-size:14px;font-weight:700;color:var(--good);margin-left:8px;">+${t.qty} Units</span>
+                <div style="font-size:12px;color:var(--ink-soft);margin-top:4px;">
+                  Dispatched on <strong>${t.dispatchedAt.slice(0, 10)}</strong> by <strong>${escapeHtml(t.dispatchedBy)}</strong> • Ref: <code class="mono">${t.transferNo}</code>
+                  ${t.challanNo ? ` • Challan/Tracking: <strong>${escapeHtml(t.challanNo)}</strong>` : ''}
+                  ${t.note ? ` • Note: <em>"${escapeHtml(t.note)}"</em>` : ''}
+                </div>
+              </div>
+              <button class="btn-accept-stock" onclick="dealerAcceptStockTransfer('${t.id}', '${escapeHtml(t.productName)}', ${t.qty})">
+                ✅ Receive &amp; Add Stock (+${t.qty})
+              </button>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+
     // 1. HOME VIEW: CLEAN ADD SALES & TODAY'S ORDERS
     if (state.dealerView === 'home') {
       contentHtml = `
         <div style="display:grid;grid-template-columns:1fr;gap:16px;">
+          ${incomingShipmentsHtml}
+
           <!-- Mobile-Optimized Fast Order Card -->
           <div class="fast-order-box">
             <div class="fast-order-header">
@@ -1100,6 +1127,7 @@
       <div class="card" style="margin-bottom:20px;">
         <div class="admin-nav">
           <button class="admin-tab ${state.adminTab === 'matrix' ? 'active' : ''}" onclick="switchAdminTab('matrix')">📊 12-District Matrix</button>
+          <button class="admin-tab ${state.adminTab === 'dispatch' ? 'active' : ''}" onclick="switchAdminTab('dispatch')">🚚 Stock Dispatch &amp; In-Transit</button>
           <button class="admin-tab ${state.adminTab === 'sheets' ? 'active' : ''}" onclick="switchAdminTab('sheets')">📈 Google Sheets Database</button>
           <button class="admin-tab ${state.adminTab === 'schemes' ? 'active' : ''}" onclick="switchAdminTab('schemes')">📦 Master Product &amp; Prices</button>
           <button class="admin-tab ${state.adminTab === 'dc' ? 'active' : ''}" onclick="switchAdminTab('dc')">🚚 District DC Settings</button>
@@ -1112,6 +1140,8 @@
 
     if (state.adminTab === 'matrix') {
       await loadAdminMatrix();
+    } else if (state.adminTab === 'dispatch') {
+      await loadAdminDispatch();
     } else if (state.adminTab === 'sheets') {
       await loadAdminSheets();
     } else if (state.adminTab === 'schemes') {
@@ -1655,8 +1685,207 @@
         showToast(res.message, 'success');
         loadAdminDcSettings();
       } catch (err) {
-        showToast(err.message, 'error');
+  };
+
+  // ================= ADMIN STOCK DISPATCH & IN-TRANSIT SHIPMENTS =================
+  async function loadAdminDispatch() {
+    const container = $('adminTabContent');
+    container.innerHTML = '<div style="padding:30px;text-align:center;">Loading Stock Dispatches...</div>';
+
+    try {
+      const [mastersRes, transfersRes] = await Promise.all([
+        API.getMasterProducts(),
+        API.getAllTransfersAdmin()
+      ]);
+
+      const products = mastersRes.products || [];
+      const pending = transfersRes.pendingTransfers || [];
+      const accepted = transfersRes.acceptedTransfers || [];
+
+      let html = `
+        <div style="display:grid;grid-template-columns:1fr;gap:20px;">
+          <!-- 1. Dispatch New Stock Form -->
+          <div class="card" style="border:2px solid var(--brass);background:#FAF7EE;padding:18px;border-radius:10px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+              <div>
+                <h3 style="margin:0;font-size:16px;color:var(--brass-deep);">🚚 Dispatch New Stock to Any District</h3>
+                <span style="font-size:12px;color:var(--ink-soft);">Stock remains In-Transit until the dealer receives and accepts it in their app.</span>
+              </div>
+            </div>
+
+            <form onsubmit="submitAdminDispatchStock(event)" style="display:grid;grid-template-columns:1.5fr 2fr 1fr 1.5fr 1.5fr auto;gap:10px;align-items:flex-end;">
+              <div>
+                <label class="field-label">Destination District *</label>
+                <select id="dispatchDistrict" class="input-lg" required>
+                  <option value="">-- Select District --</option>
+                  ${DISTRICTS.map(d => `<option value="${d}">${d}</option>`).join('')}
+                </select>
+              </div>
+
+              <div>
+                <label class="field-label">Select Master Product *</label>
+                <select id="dispatchProduct" class="input-lg" required>
+                  <option value="">-- Choose Product --</option>
+                  ${products.map(p => `<option value="${p.id}">${escapeHtml(p.name)}</option>`).join('')}
+                </select>
+              </div>
+
+              <div>
+                <label class="field-label">Quantity *</label>
+                <input type="number" id="dispatchQty" class="input-lg mono" placeholder="Qty" min="1" step="1" required style="font-weight:700;">
+              </div>
+
+              <div>
+                <label class="field-label">Challan / Tracking #</label>
+                <input type="text" id="dispatchChallan" class="input-lg" placeholder="e.g. CH-9082">
+              </div>
+
+              <div>
+                <label class="field-label">Dispatch Note (Optional)</label>
+                <input type="text" id="dispatchNote" class="input-lg" placeholder="e.g. Sent via VRL">
+              </div>
+
+              <div>
+                <button type="submit" id="dispatchBtn" class="btn-add-order" style="height:48px;padding:0 20px;">
+                  🚚 Dispatch Stock
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- 2. Active In-Transit Shipments (Awaiting Dealer Receipt) -->
+          <div class="card">
+            <div class="card-header excel-head-yellow" style="display:flex;justify-content:space-between;align-items:center;">
+              <h3 style="margin:0;font-size:15px;">🟡 ACTIVE IN-TRANSIT SHIPMENTS (PENDING DEALER RECEIPT)</h3>
+              <span class="mono" style="font-weight:700;font-size:12px;">${pending.length} SHIPMENT(S) IN-TRANSIT</span>
+            </div>
+
+            <div class="table-wrap" style="max-height:350px;">
+              <table>
+                <thead class="excel-head-yellow">
+                  <tr>
+                    <th>TRANSFER #</th>
+                    <th>DESTINATION</th>
+                    <th>PRODUCT NAME</th>
+                    <th style="text-align:right;">DISPATCHED QTY</th>
+                    <th>CHALLAN / TRACKING</th>
+                    <th>DISPATCHED AT</th>
+                    <th>DISPATCHED BY</th>
+                    <th style="text-align:center;">STATUS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${pending.length === 0 ? `
+                    <tr><td colspan="8" style="padding:30px;text-align:center;color:var(--ink-soft);">No pending shipments in-transit. All dispatched stock has been received by dealers.</td></tr>
+                  ` : pending.map(t => `
+                    <tr>
+                      <td class="mono"><strong>${escapeHtml(t.transferNo)}</strong></td>
+                      <td><strong>📍 ${escapeHtml(t.district)}</strong></td>
+                      <td class="prod-name"><strong>${escapeHtml(t.productName)}</strong></td>
+                      <td style="text-align:right;font-weight:700;color:var(--good);" class="mono">+${t.qty} Units</td>
+                      <td>${t.challanNo ? `<code>${escapeHtml(t.challanNo)}</code>` : '—'}</td>
+                      <td class="mono" style="font-size:11px;color:var(--ink-soft);">${t.dispatchedAt.slice(0, 16).replace('T', ' ')}</td>
+                      <td style="font-size:12px;">${escapeHtml(t.dispatchedBy)}</td>
+                      <td style="text-align:center;">
+                        <span class="type-pill Opening" style="background:#FFF8E6;color:#C07000;border:1px solid #F5DCA3;">🟡 In-Transit</span>
+                      </td>
+                    </tr>
+                  `).join('')}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- 3. Completed / Accepted Delivery History -->
+          <div class="card">
+            <div class="card-header" style="background:#FAF7EE;display:flex;justify-content:space-between;align-items:center;">
+              <h3 style="margin:0;font-size:15px;color:var(--ink);">✅ DELIVERED &amp; ACCEPTED STOCK HISTORY</h3>
+              <span class="mono" style="font-size:12px;color:var(--ink-soft);">${accepted.length} completed deliveries</span>
+            </div>
+
+            <div class="table-wrap" style="max-height:350px;">
+              <table>
+                <thead>
+                  <tr>
+                    <th>TRANSFER #</th>
+                    <th>DISTRICT</th>
+                    <th>PRODUCT</th>
+                    <th style="text-align:right;">RECEIVED QTY</th>
+                    <th>RECEIVED BY (DEALER)</th>
+                    <th>RECEIVED DATE</th>
+                    <th style="text-align:center;">STATUS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${accepted.length === 0 ? `
+                    <tr><td colspan="7" style="padding:20px;text-align:center;color:var(--ink-soft);">No completed deliveries yet.</td></tr>
+                  ` : accepted.map(t => `
+                    <tr>
+                      <td class="mono">${escapeHtml(t.transferNo)}</td>
+                      <td>📍 ${escapeHtml(t.district)}</td>
+                      <td><strong>${escapeHtml(t.productName)}</strong></td>
+                      <td style="text-align:right;font-weight:700;color:var(--good);" class="mono">+${t.qty} Units</td>
+                      <td>👤 ${escapeHtml(t.receivedBy || 'Dealer')}</td>
+                      <td class="mono">${t.receivedDate || (t.receivedAt ? t.receivedAt.slice(0, 10) : '—')}</td>
+                      <td style="text-align:center;">
+                        <span class="type-pill Sale" style="background:#EAF4DE;color:var(--good);border:1px solid #C4DEB0;">✅ Received</span>
+                      </td>
+                    </tr>
+                  `).join('')}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      `;
+
+      container.innerHTML = html;
+    } catch (err) {
+      container.innerHTML = `<div style="color:var(--danger);padding:20px;">Failed to load Stock Dispatch: ${err.message}</div>`;
+    }
+  }
+
+  window.submitAdminDispatchStock = async (e) => {
+    e.preventDefault();
+    const btn = $('dispatchBtn');
+    const district = $('dispatchDistrict').value;
+    const productId = $('dispatchProduct').value;
+    const qty = parseFloat($('dispatchQty').value);
+    const challanNo = ($('dispatchChallan').value || '').trim();
+    const note = ($('dispatchNote').value || '').trim();
+
+    if (!district || !productId || isNaN(qty) || qty <= 0) {
+      alert('Please select district, product, and a valid quantity');
+      return;
+    }
+
+    if (btn) {
+      btn.disabled = true;
+      btn.textContent = 'Dispatching...';
+    }
+
+    try {
+      const res = await API.dispatchStock(district, productId, qty, challanNo, note);
+      showToast(res.message, 'success');
+      await loadAdminDispatch();
+    } catch (err) {
+      showToast(err.message, 'error');
+      if (btn) {
+        btn.disabled = false;
+        btn.textContent = '🚚 Dispatch Stock';
       }
+    }
+  };
+
+  window.dealerAcceptStockTransfer = async (transferId, prodName, qty) => {
+    if (!confirm(`Confirm Receipt of Stock Shipment?\n\nProduct: ${prodName}\nQuantity: +${qty} Units\n\nThis will add +${qty} units directly into ${state.currentDistrict}'s stock.`)) return;
+
+    try {
+      const res = await API.acceptStockTransfer(transferId, state.currentDate);
+      showToast(res.message, 'success');
+      await loadDistrictData();
+    } catch (err) {
+      showToast('Error accepting stock: ' + err.message, 'error');
     }
   };
 
