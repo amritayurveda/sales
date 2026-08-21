@@ -6,15 +6,24 @@
     "Kota", "Faridabad", "Gurgaon", "Rewari", "Muzaffarnagar", "Shamli"
   ];
 
+  function getTodayDateStr() {
+    const d = new Date();
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  }
+
   const state = {
     user: null,
-    serverToday: new Date().toISOString().slice(0, 10),
-    currentDate: "2026-08-20", // Default to seeded date matching Excel
+    serverToday: getTodayDateStr(),
+    currentDate: getTodayDateStr(), // Always auto-selects TODAY's date for everyone
     currentDistrict: "Chittorgarh",
     dayStock: null,
     dayCash: null,
     customerOrders: [],
     isReadOnly: false,
+    dealerView: 'home',
     adminTab: 'matrix',
     adminOverviewData: null
   };
@@ -54,7 +63,8 @@
       try {
         const res = await API.getMe();
         state.user = res.user;
-        state.serverToday = res.serverToday || new Date().toISOString().slice(0, 10);
+        state.serverToday = res.serverToday || getTodayDateStr();
+        state.currentDate = state.serverToday; // Auto-select today date for everyone
         if (state.user.role === 'dealer' && state.user.district) {
           state.currentDistrict = state.user.district;
         }
@@ -123,7 +133,8 @@
         const res = await API.login(u, p);
         API.setToken(res.token);
         state.user = res.user;
-        state.serverToday = res.serverToday || new Date().toISOString().slice(0, 10);
+        state.serverToday = res.serverToday || getTodayDateStr();
+        state.currentDate = state.serverToday; // Auto-select today date for everyone
         if (state.user.role === 'dealer' && state.user.district) {
           state.currentDistrict = state.user.district;
         }
