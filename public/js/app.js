@@ -408,26 +408,44 @@
     const incomingShipmentsHtml = pendingTransfers.length === 0 ? '' : `
       <div class="incoming-stock-card">
         <div class="incoming-stock-header">
-          <span>📦 <strong>${pendingTransfers.length} Incoming Stock Shipment(s) Dispatched by Admin</strong></span>
+          <span>📦 <strong>${pendingTransfers.length} Incoming Stock Consignment(s) Dispatched by Admin</strong></span>
           <span class="type-pill Opening" style="font-size:11px;">🟡 In-Transit (Pending Receipt)</span>
         </div>
         <div class="incoming-stock-list">
-          ${pendingTransfers.map(t => `
-            <div class="incoming-stock-item">
-              <div>
-                <strong style="font-size:15px;color:var(--ink);">${escapeHtml(t.productName)}</strong>
-                <span class="mono" style="font-size:14px;font-weight:700;color:var(--good);margin-left:8px;">+${t.qty} Units</span>
-                <div style="font-size:12px;color:var(--ink-soft);margin-top:4px;">
-                  Dispatched on <strong>${t.dispatchedAt.slice(0, 10)}</strong> by <strong>${escapeHtml(t.dispatchedBy)}</strong> • Ref: <code class="mono">${t.transferNo}</code>
-                  ${t.challanNo ? ` • Challan/Tracking: <strong>${escapeHtml(t.challanNo)}</strong>` : ''}
-                  ${t.note ? ` • Note: <em>"${escapeHtml(t.note)}"</em>` : ''}
-                </div>
+          ${pendingTransfers.map(t => {
+            const hasItems = t.items && Array.isArray(t.items) && t.items.length > 0;
+            const totalUnits = t.totalUnits || t.qty;
+            const itemsHtml = hasItems ? `
+              <div class="incoming-item-chips">
+                ${t.items.map(it => `
+                  <span class="inward-item-badge">
+                    <strong>${escapeHtml(it.productName)}</strong>: <span class="mono" style="color:var(--good);font-weight:700;">+${it.qty} Units</span>
+                  </span>
+                `).join('')}
               </div>
-              <button class="btn-accept-stock" onclick="dealerAcceptStockTransfer('${t.id}', '${escapeHtml(t.productName)}', ${t.qty})">
-                ✅ Receive &amp; Add Stock (+${t.qty})
-              </button>
-            </div>
-          `).join('')}
+            ` : '';
+
+            const title = hasItems
+              ? `Consignment Ref: ${t.transferNo} (${t.items.length} Products • ${totalUnits} Total Units)`
+              : `${escapeHtml(t.productName)} (+${t.qty} Units)`;
+
+            return `
+              <div class="incoming-stock-item">
+                <div style="flex:1;">
+                  <strong style="font-size:15px;color:var(--ink);">${title}</strong>
+                  ${itemsHtml}
+                  <div style="font-size:12px;color:var(--ink-soft);margin-top:6px;">
+                    Dispatched on <strong>${t.dispatchedAt.slice(0, 10)}</strong> by <strong>${escapeHtml(t.dispatchedBy)}</strong> • Ref: <code class="mono">${t.transferNo}</code>
+                    ${t.challanNo ? ` • Challan/Tracking: <strong>${escapeHtml(t.challanNo)}</strong>` : ''}
+                    ${t.note ? ` • Note: <em>"${escapeHtml(t.note)}"</em>` : ''}
+                  </div>
+                </div>
+                <button class="btn-accept-stock" onclick="dealerAcceptStockTransfer('${t.id}', '${escapeHtml(t.transferNo)}', ${totalUnits})">
+                  ✅ Receive &amp; Add Stock (+${totalUnits} Units)
+                </button>
+              </div>
+            `;
+          }).join('')}
         </div>
       </div>
     `;
@@ -1700,55 +1718,79 @@
       ]);
 
       const products = mastersRes.products || [];
+      state.dispatchMasterProducts = products;
+
       const pending = transfersRes.pendingTransfers || [];
       const accepted = transfersRes.acceptedTransfers || [];
 
       let html = `
         <div style="display:grid;grid-template-columns:1fr;gap:20px;">
-          <!-- 1. Dispatch New Stock Form -->
-          <div class="card" style="border:2px solid var(--brass);background:#FAF7EE;padding:18px;border-radius:10px;">
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+          <!-- 1. Dispatch Multi-Product Stock Form -->
+          <div class="card" style="border:2px solid var(--brass);background:#FAF7EE;padding:20px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.04);">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:10px;">
               <div>
-                <h3 style="margin:0;font-size:16px;color:var(--brass-deep);">🚚 Dispatch New Stock to Any District</h3>
-                <span style="font-size:12px;color:var(--ink-soft);">Stock remains In-Transit until the dealer receives and accepts it in their app.</span>
+                <h3 style="margin:0;font-size:17px;color:var(--brass-deep);">🚚 Dispatch Multi-Product Stock Consignment</h3>
+                <span style="font-size:12.5px;color:var(--ink-soft);">Add multiple products and custom quantities in one single shipment/challan.</span>
+              </div>
+              <div id="dispatchSummaryBadge" class="scheme-pill-badge" style="font-size:12.5px;padding:4px 10px;background:#FFE873;color:#5C4B00;border:1px solid #E6D275;">
+                📦 Consignment: 0 Products • 0 Units
               </div>
             </div>
 
-            <form onsubmit="submitAdminDispatchStock(event)" style="display:grid;grid-template-columns:1.5fr 2fr 1fr 1.5fr 1.5fr auto;gap:10px;align-items:flex-end;">
-              <div>
-                <label class="field-label">Destination District *</label>
-                <select id="dispatchDistrict" class="input-lg" required>
-                  <option value="">-- Select District --</option>
-                  ${DISTRICTS.map(d => `<option value="${d}">${d}</option>`).join('')}
-                </select>
+            <form onsubmit="submitAdminDispatchStock(event)">
+              <!-- Destination, Challan & Notes -->
+              <div style="display:grid;grid-template-columns:1.5fr 1.5fr 2fr;gap:12px;margin-bottom:16px;">
+                <div>
+                  <label class="field-label">1. Destination District *</label>
+                  <select id="dispatchDistrict" class="input-lg" required>
+                    <option value="">-- Select Destination District --</option>
+                    ${DISTRICTS.map(d => `<option value="${d}">${d}</option>`).join('')}
+                  </select>
+                </div>
+
+                <div>
+                  <label class="field-label">2. Challan / Bilty / Tracking #</label>
+                  <input type="text" id="dispatchChallan" class="input-lg" placeholder="e.g. CH-9082 / VRL-4891">
+                </div>
+
+                <div>
+                  <label class="field-label">3. Consignment Dispatch Note (Optional)</label>
+                  <input type="text" id="dispatchNote" class="input-lg" placeholder="e.g. Sent via SafeExpress parcel">
+                </div>
               </div>
 
-              <div>
-                <label class="field-label">Select Master Product *</label>
-                <select id="dispatchProduct" class="input-lg" required>
-                  <option value="">-- Choose Product --</option>
-                  ${products.map(p => `<option value="${p.id}">${escapeHtml(p.name)}</option>`).join('')}
-                </select>
+              <!-- Product Item Rows -->
+              <div style="background:#FFF;border:1px solid var(--line);border-radius:8px;padding:12px;margin-bottom:14px;">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+                  <strong style="font-size:13px;color:var(--ink-soft);text-transform:uppercase;">Products in this Consignment:</strong>
+                  <button type="button" class="btn btn-secondary btn-sm" onclick="addDispatchItemRow()" style="font-weight:700;">
+                    ➕ Add Another Product
+                  </button>
+                </div>
+
+                <div id="dispatchItemsContainer">
+                  <div class="dispatch-item-row" id="drow_initial">
+                    <div>
+                      <select class="input-lg dispatch-prod-select" required onchange="updateDispatchSummary()">
+                        <option value="">-- Select Product --</option>
+                        ${products.map(p => `<option value="${p.id}">${escapeHtml(p.name)}</option>`).join('')}
+                      </select>
+                    </div>
+                    <div>
+                      <input type="number" class="input-lg mono dispatch-prod-qty" placeholder="Quantity" min="1" step="1" required style="font-weight:700;" oninput="updateDispatchSummary()">
+                    </div>
+                    <div>
+                      <button type="button" class="btn btn-danger btn-sm" onclick="removeDispatchItemRow('drow_initial')" title="Remove Product">
+                        ✕
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              <div>
-                <label class="field-label">Quantity *</label>
-                <input type="number" id="dispatchQty" class="input-lg mono" placeholder="Qty" min="1" step="1" required style="font-weight:700;">
-              </div>
-
-              <div>
-                <label class="field-label">Challan / Tracking #</label>
-                <input type="text" id="dispatchChallan" class="input-lg" placeholder="e.g. CH-9082">
-              </div>
-
-              <div>
-                <label class="field-label">Dispatch Note (Optional)</label>
-                <input type="text" id="dispatchNote" class="input-lg" placeholder="e.g. Sent via VRL">
-              </div>
-
-              <div>
-                <button type="submit" id="dispatchBtn" class="btn-add-order" style="height:48px;padding:0 20px;">
-                  🚚 Dispatch Stock
+              <div style="display:flex;justify-content:flex-end;">
+                <button type="submit" id="dispatchBtn" class="btn-add-order" style="height:50px;padding:0 28px;font-size:15px;">
+                  🚚 Dispatch Entire Consignment
                 </button>
               </div>
             </form>
@@ -1758,17 +1800,17 @@
           <div class="card">
             <div class="card-header excel-head-yellow" style="display:flex;justify-content:space-between;align-items:center;">
               <h3 style="margin:0;font-size:15px;">🟡 ACTIVE IN-TRANSIT SHIPMENTS (PENDING DEALER RECEIPT)</h3>
-              <span class="mono" style="font-weight:700;font-size:12px;">${pending.length} SHIPMENT(S) IN-TRANSIT</span>
+              <span class="mono" style="font-weight:700;font-size:12px;">${pending.length} CONSIGNMENT(S) IN-TRANSIT</span>
             </div>
 
-            <div class="table-wrap" style="max-height:350px;">
+            <div class="table-wrap" style="max-height:380px;">
               <table>
                 <thead class="excel-head-yellow">
                   <tr>
-                    <th>TRANSFER #</th>
+                    <th>CONSIGNMENT #</th>
                     <th>DESTINATION</th>
-                    <th>PRODUCT NAME</th>
-                    <th style="text-align:right;">DISPATCHED QTY</th>
+                    <th>PRODUCTS &amp; MANIFEST</th>
+                    <th style="text-align:right;">TOTAL UNITS</th>
                     <th>CHALLAN / TRACKING</th>
                     <th>DISPATCHED AT</th>
                     <th>DISPATCHED BY</th>
@@ -1777,21 +1819,31 @@
                 </thead>
                 <tbody>
                   ${pending.length === 0 ? `
-                    <tr><td colspan="8" style="padding:30px;text-align:center;color:var(--ink-soft);">No pending shipments in-transit. All dispatched stock has been received by dealers.</td></tr>
-                  ` : pending.map(t => `
-                    <tr>
-                      <td class="mono"><strong>${escapeHtml(t.transferNo)}</strong></td>
-                      <td><strong>📍 ${escapeHtml(t.district)}</strong></td>
-                      <td class="prod-name"><strong>${escapeHtml(t.productName)}</strong></td>
-                      <td style="text-align:right;font-weight:700;color:var(--good);" class="mono">+${t.qty} Units</td>
-                      <td>${t.challanNo ? `<code>${escapeHtml(t.challanNo)}</code>` : '—'}</td>
-                      <td class="mono" style="font-size:11px;color:var(--ink-soft);">${t.dispatchedAt.slice(0, 16).replace('T', ' ')}</td>
-                      <td style="font-size:12px;">${escapeHtml(t.dispatchedBy)}</td>
-                      <td style="text-align:center;">
-                        <span class="type-pill Opening" style="background:#FFF8E6;color:#C07000;border:1px solid #F5DCA3;">🟡 In-Transit</span>
-                      </td>
-                    </tr>
-                  `).join('')}
+                    <tr><td colspan="8" style="padding:30px;text-align:center;color:var(--ink-soft);">No pending consignments in-transit. All dispatched stock has been received by dealers.</td></tr>
+                  ` : pending.map(t => {
+                    const hasItems = t.items && Array.isArray(t.items) && t.items.length > 0;
+                    const totalUnits = t.totalUnits || t.qty;
+                    const itemsHtml = hasItems ? `
+                      <div class="incoming-item-chips">
+                        ${t.items.map(it => `<span class="inward-item-badge"><strong>${escapeHtml(it.productName)}</strong>: <span class="mono" style="color:var(--good);font-weight:700;">+${it.qty}</span></span>`).join('')}
+                      </div>
+                    ` : `<strong>${escapeHtml(t.productName)}</strong>`;
+
+                    return `
+                      <tr>
+                        <td class="mono"><strong>${escapeHtml(t.transferNo)}</strong></td>
+                        <td><strong>📍 ${escapeHtml(t.district)}</strong></td>
+                        <td class="prod-name">${itemsHtml}</td>
+                        <td style="text-align:right;font-weight:700;color:var(--good);" class="mono">+${totalUnits} Units</td>
+                        <td>${t.challanNo ? `<code>${escapeHtml(t.challanNo)}</code>` : '—'}</td>
+                        <td class="mono" style="font-size:11px;color:var(--ink-soft);">${t.dispatchedAt.slice(0, 16).replace('T', ' ')}</td>
+                        <td style="font-size:12px;">${escapeHtml(t.dispatchedBy)}</td>
+                        <td style="text-align:center;">
+                          <span class="type-pill Opening" style="background:#FFF8E6;color:#C07000;border:1px solid #F5DCA3;">🟡 In-Transit</span>
+                        </td>
+                      </tr>
+                    `;
+                  }).join('')}
                 </tbody>
               </table>
             </div>
@@ -1801,17 +1853,17 @@
           <div class="card">
             <div class="card-header" style="background:#FAF7EE;display:flex;justify-content:space-between;align-items:center;">
               <h3 style="margin:0;font-size:15px;color:var(--ink);">✅ DELIVERED &amp; ACCEPTED STOCK HISTORY</h3>
-              <span class="mono" style="font-size:12px;color:var(--ink-soft);">${accepted.length} completed deliveries</span>
+              <span class="mono" style="font-size:12px;color:var(--ink-soft);">${accepted.length} completed consignments</span>
             </div>
 
-            <div class="table-wrap" style="max-height:350px;">
+            <div class="table-wrap" style="max-height:380px;">
               <table>
                 <thead>
                   <tr>
-                    <th>TRANSFER #</th>
+                    <th>CONSIGNMENT #</th>
                     <th>DISTRICT</th>
-                    <th>PRODUCT</th>
-                    <th style="text-align:right;">RECEIVED QTY</th>
+                    <th>RECEIVED ITEMS</th>
+                    <th style="text-align:right;">TOTAL UNITS</th>
                     <th>RECEIVED BY (DEALER)</th>
                     <th>RECEIVED DATE</th>
                     <th style="text-align:center;">STATUS</th>
@@ -1819,20 +1871,30 @@
                 </thead>
                 <tbody>
                   ${accepted.length === 0 ? `
-                    <tr><td colspan="7" style="padding:20px;text-align:center;color:var(--ink-soft);">No completed deliveries yet.</td></tr>
-                  ` : accepted.map(t => `
-                    <tr>
-                      <td class="mono">${escapeHtml(t.transferNo)}</td>
-                      <td>📍 ${escapeHtml(t.district)}</td>
-                      <td><strong>${escapeHtml(t.productName)}</strong></td>
-                      <td style="text-align:right;font-weight:700;color:var(--good);" class="mono">+${t.qty} Units</td>
-                      <td>👤 ${escapeHtml(t.receivedBy || 'Dealer')}</td>
-                      <td class="mono">${t.receivedDate || (t.receivedAt ? t.receivedAt.slice(0, 10) : '—')}</td>
-                      <td style="text-align:center;">
-                        <span class="type-pill Sale" style="background:#EAF4DE;color:var(--good);border:1px solid #C4DEB0;">✅ Received</span>
-                      </td>
-                    </tr>
-                  `).join('')}
+                    <tr><td colspan="7" style="padding:20px;text-align:center;color:var(--ink-soft);">No completed consignments yet.</td></tr>
+                  ` : accepted.map(t => {
+                    const hasItems = t.items && Array.isArray(t.items) && t.items.length > 0;
+                    const totalUnits = t.totalUnits || t.qty;
+                    const itemsHtml = hasItems ? `
+                      <div class="incoming-item-chips">
+                        ${t.items.map(it => `<span class="inward-item-badge"><strong>${escapeHtml(it.productName)}</strong>: <span class="mono" style="color:var(--good);font-weight:700;">+${it.qty}</span></span>`).join('')}
+                      </div>
+                    ` : `<strong>${escapeHtml(t.productName)}</strong>`;
+
+                    return `
+                      <tr>
+                        <td class="mono">${escapeHtml(t.transferNo)}</td>
+                        <td>📍 ${escapeHtml(t.district)}</td>
+                        <td>${itemsHtml}</td>
+                        <td style="text-align:right;font-weight:700;color:var(--good);" class="mono">+${totalUnits} Units</td>
+                        <td>👤 ${escapeHtml(t.receivedBy || 'Dealer')}</td>
+                        <td class="mono">${t.receivedDate || (t.receivedAt ? t.receivedAt.slice(0, 10) : '—')}</td>
+                        <td style="text-align:center;">
+                          <span class="type-pill Sale" style="background:#EAF4DE;color:var(--good);border:1px solid #C4DEB0;">✅ Received</span>
+                        </td>
+                      </tr>
+                    `;
+                  }).join('')}
                 </tbody>
               </table>
             </div>
@@ -1841,52 +1903,133 @@
       `;
 
       container.innerHTML = html;
+      updateDispatchSummary();
     } catch (err) {
       container.innerHTML = `<div style="color:var(--danger);padding:20px;">Failed to load Stock Dispatch: ${err.message}</div>`;
     }
   }
 
+  window.addDispatchItemRow = () => {
+    const container = $('dispatchItemsContainer');
+    if (!container || !state.dispatchMasterProducts) return;
+
+    const rowId = 'drow_' + Date.now() + Math.random().toString(36).slice(2, 5);
+    const div = document.createElement('div');
+    div.className = 'dispatch-item-row';
+    div.id = rowId;
+    div.innerHTML = `
+      <div>
+        <select class="input-lg dispatch-prod-select" required onchange="updateDispatchSummary()">
+          <option value="">-- Select Product --</option>
+          ${state.dispatchMasterProducts.map(p => `<option value="${p.id}">${escapeHtml(p.name)}</option>`).join('')}
+        </select>
+      </div>
+      <div>
+        <input type="number" class="input-lg mono dispatch-prod-qty" placeholder="Quantity" min="1" step="1" required style="font-weight:700;" oninput="updateDispatchSummary()">
+      </div>
+      <div>
+        <button type="button" class="btn btn-danger btn-sm" onclick="removeDispatchItemRow('${rowId}')" title="Remove Product">
+          ✕
+        </button>
+      </div>
+    `;
+    container.appendChild(div);
+    updateDispatchSummary();
+  };
+
+  window.removeDispatchItemRow = (rowId) => {
+    const row = $(rowId);
+    if (row) {
+      const container = $('dispatchItemsContainer');
+      if (container && container.children.length > 1) {
+        row.remove();
+        updateDispatchSummary();
+      } else {
+        alert('Consignment must contain at least one product row');
+      }
+    }
+  };
+
+  window.updateDispatchSummary = () => {
+    const rows = document.querySelectorAll('.dispatch-item-row');
+    let totalItems = 0;
+    let totalUnits = 0;
+
+    rows.forEach(r => {
+      const sel = r.querySelector('.dispatch-prod-select');
+      const qtyInput = r.querySelector('.dispatch-prod-qty');
+      const q = parseFloat(qtyInput ? qtyInput.value : 0) || 0;
+      if (sel && sel.value && q > 0) {
+        totalItems++;
+        totalUnits += q;
+      }
+    });
+
+    const badge = $('dispatchSummaryBadge');
+    if (badge) {
+      badge.textContent = `📦 Consignment: ${totalItems} Product(s) • ${totalUnits} Total Units`;
+    }
+  };
+
   window.submitAdminDispatchStock = async (e) => {
     e.preventDefault();
     const btn = $('dispatchBtn');
     const district = $('dispatchDistrict').value;
-    const productId = $('dispatchProduct').value;
-    const qty = parseFloat($('dispatchQty').value);
     const challanNo = ($('dispatchChallan').value || '').trim();
     const note = ($('dispatchNote').value || '').trim();
 
-    if (!district || !productId || isNaN(qty) || qty <= 0) {
-      alert('Please select district, product, and a valid quantity');
+    if (!district) {
+      alert('Please select a destination district');
       return;
     }
 
+    const rows = document.querySelectorAll('.dispatch-item-row');
+    const items = [];
+
+    rows.forEach(r => {
+      const sel = r.querySelector('.dispatch-prod-select');
+      const qtyInput = r.querySelector('.dispatch-prod-qty');
+      const pid = sel ? sel.value : '';
+      const q = parseFloat(qtyInput ? qtyInput.value : 0) || 0;
+      if (pid && q > 0) {
+        items.push({ productId: pid, qty: q });
+      }
+    });
+
+    if (items.length === 0) {
+      alert('Please add at least one product and specify quantity > 0');
+      return;
+    }
+
+    const totalUnits = items.reduce((sum, it) => sum + it.qty, 0);
+
     if (btn) {
       btn.disabled = true;
-      btn.textContent = 'Dispatching...';
+      btn.textContent = 'Dispatching Consignment...';
     }
 
     try {
-      const res = await API.dispatchStock(district, productId, qty, challanNo, note);
-      showToast(res.message, 'success');
+      const res = await API.dispatchStock(district, items, challanNo, note);
+      showToast(res.message || `Dispatched ${items.length} products (${totalUnits} units) to ${district}`, 'success');
       await loadAdminDispatch();
     } catch (err) {
       showToast(err.message, 'error');
       if (btn) {
         btn.disabled = false;
-        btn.textContent = '🚚 Dispatch Stock';
+        btn.textContent = '🚚 Dispatch Entire Consignment';
       }
     }
   };
 
-  window.dealerAcceptStockTransfer = async (transferId, prodName, qty) => {
-    if (!confirm(`Confirm Receipt of Stock Shipment?\n\nProduct: ${prodName}\nQuantity: +${qty} Units\n\nThis will add +${qty} units directly into ${state.currentDistrict}'s stock.`)) return;
+  window.dealerAcceptStockTransfer = async (transferId, transferNo, totalUnits) => {
+    if (!confirm(`Confirm Receipt of Stock Consignment?\n\nConsignment Ref: ${transferNo}\nTotal Quantity: +${totalUnits} Units\n\nThis will add all products and quantities directly into ${state.currentDistrict}'s stock register.`)) return;
 
     try {
       const res = await API.acceptStockTransfer(transferId, state.currentDate);
       showToast(res.message, 'success');
       await loadDistrictData();
     } catch (err) {
-      showToast('Error accepting stock: ' + err.message, 'error');
+      showToast('Error accepting consignment: ' + err.message, 'error');
     }
   };
 

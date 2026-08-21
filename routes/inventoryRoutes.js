@@ -342,24 +342,50 @@ router.post('/inward-notes', authenticateToken, requireAdmin, (req, res) => {
 
 // ================= STOCK DISPATCH & DEALER INWARD ACCEPTANCE SYSTEM =================
 
-// 13. Admin: Dispatch Stock to Any District (Status: PENDING_ACCEPTANCE)
+// 13. Admin: Dispatch Multi-Product Stock Consignment to Any District (Status: PENDING_ACCEPTANCE)
 router.post('/dispatch-stock', authenticateToken, requireAdmin, async (req, res) => {
-  const { district, productId, qty, challanNo, note } = req.body;
+  const { district, productId, qty, items, challanNo, note } = req.body;
 
-  if (!district || !productId) {
-    return res.status(400).json({ error: 'District and Product are required' });
+  if (!district) {
+    return res.status(400).json({ error: 'Destination District is required' });
   }
 
-  const dispatchQty = Number(qty);
-  if (isNaN(dispatchQty) || dispatchQty <= 0) {
-    return res.status(400).json({ error: 'Valid positive quantity is required' });
+  // Parse items array or single product
+  let parsedItems = [];
+  if (items && Array.isArray(items) && items.length > 0) {
+    for (const it of items) {
+      const q = Number(it.qty);
+      if (it.productId && !isNaN(q) && q > 0) {
+        const master = (db.products || []).find(p => p.id === it.productId || p.name.toUpperCase() === String(it.productId).toUpperCase());
+        const distItem = (db.districtProducts[district] || []).find(p => p.productId === it.productId || p.id === it.productId || p.name.toUpperCase() === String(it.productId).toUpperCase());
+        const prodName = (master && master.name) || (distItem && distItem.name) || it.name || it.productId;
+        const prodId = (distItem && (distItem.productId || distItem.id)) || (master && master.id) || it.productId;
+        parsedItems.push({
+          productId: prodId,
+          productName: prodName,
+          qty: q
+        });
+      }
+    }
+  } else if (productId && !isNaN(Number(qty)) && Number(qty) > 0) {
+    const q = Number(qty);
+    const master = (db.products || []).find(p => p.id === productId || p.name.toUpperCase() === String(productId).toUpperCase());
+    const distItem = (db.districtProducts[district] || []).find(p => p.productId === productId || p.id === productId || p.name.toUpperCase() === String(productId).toUpperCase());
+    const prodName = (master && master.name) || (distItem && distItem.name) || productId;
+    const prodId = (distItem && (distItem.productId || distItem.id)) || (master && master.id) || productId;
+    parsedItems.push({
+      productId: prodId,
+      productName: prodName,
+      qty: q
+    });
   }
 
-  // Find Product Name & ID
-  const master = (db.products || []).find(p => p.id === productId || p.name.toUpperCase() === String(productId).toUpperCase());
-  const distItem = (db.districtProducts[district] || []).find(p => p.productId === productId || p.id === productId || p.name.toUpperCase() === String(productId).toUpperCase());
-  const prodName = (master && master.name) || (distItem && distItem.name) || productId;
-  const prodId = (distItem && (distItem.productId || distItem.id)) || (master && master.id) || productId;
+  if (parsedItems.length === 0) {
+    return res.status(400).json({ error: 'At least one valid product and positive quantity is required' });
+  }
+
+  const totalUnits = parsedItems.reduce((sum, it) => sum + it.qty, 0);
+  const summaryTitle = parsedItems.map(i => `${i.productName} (${i.qty})`).join(', ');
 
   const now = new Date();
   const transferId = 'trf_' + Date.now() + Math.random().toString(36).slice(2, 6);
@@ -369,9 +395,11 @@ router.post('/dispatch-stock', authenticateToken, requireAdmin, async (req, res)
     id: transferId,
     transferNo,
     district,
-    productId: prodId,
-    productName: prodName,
-    qty: dispatchQty,
+    productId: parsedItems[0].productId,
+    productName: summaryTitle,
+    qty: totalUnits,
+    totalUnits,
+    items: parsedItems,
     status: 'PENDING_ACCEPTANCE', // Waiting for dealer receipt
     challanNo: (challanNo || '').trim(),
     note: (note || '').trim(),
@@ -391,21 +419,21 @@ router.post('/dispatch-stock', authenticateToken, requireAdmin, async (req, res)
     req.user.role,
     district,
     'STOCK_DISPATCHED',
-    `Dispatched ${dispatchQty} units of ${prodName} to ${district} [${transferNo}] (Status: In-Transit / Pending Dealer Acceptance)`
+    `Dispatched ${totalUnits} units (${parsedItems.length} products: ${summaryTitle}) to ${district} [${transferNo}] (Status: In-Transit)`
   );
 
   await saveDb();
 
   // Save to Neon PostgreSQL stock_transfers table
   pool.query(
-    `INSERT INTO stock_transfers (id, transfer_no, district, product_id, product_name, qty, status, challan_no, note, dispatched_by, dispatched_at)
-     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11)
+    `INSERT INTO stock_transfers (id, transfer_no, district, product_id, product_name, qty, items, total_units, status, challan_no, note, dispatched_by, dispatched_at)
+     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)
      ON CONFLICT (id) DO NOTHING`,
-    [transfer.id, transfer.transferNo, transfer.district, transfer.productId, transfer.productName, transfer.qty, transfer.status, transfer.challanNo, transfer.note, transfer.dispatchedBy, transfer.dispatchedAt]
+    [transfer.id, transfer.transferNo, transfer.district, transfer.productId, transfer.productName, transfer.qty, JSON.stringify(transfer.items), transfer.totalUnits, transfer.status, transfer.challanNo, transfer.note, transfer.dispatchedBy, transfer.dispatchedAt]
   ).catch(err => console.error('Postgres transfer insert error:', err.message));
 
   res.status(201).json({
-    message: `Stock transfer ${transferNo} created for ${district}. Waiting for dealer to receive.`,
+    message: `Stock consignment ${transferNo} (${parsedItems.length} products • ${totalUnits} units) dispatched to ${district}. Waiting for dealer to receive.`,
     transfer
   });
 });
@@ -441,7 +469,7 @@ router.get('/admin/all-transfers', authenticateToken, requireAdmin, (req, res) =
   });
 });
 
-// 16. Dealer: Receive & Accept Stock Transfer (Adds stock to district + records Mila Inward)
+// 16. Dealer: Receive & Accept Multi-Product Stock Transfer (Adds stock to district + records Mila Inward)
 router.post('/accept-stock/:transferId', authenticateToken, async (req, res) => {
   const { transferId } = req.params;
   const { date } = req.body;
@@ -465,39 +493,50 @@ router.post('/accept-stock/:transferId', authenticateToken, async (req, res) => 
 
   const now = new Date();
   const district = transfer.district;
-  const productId = transfer.productId;
-  const qty = Number(transfer.qty) || 0;
 
-  // 1. Ensure district has product entry and increment stock
+  // Resolve item list (supports both new multi-product format and legacy single product)
+  const itemsToAccept = (transfer.items && Array.isArray(transfer.items) && transfer.items.length > 0)
+    ? transfer.items
+    : [ { productId: transfer.productId, productName: transfer.productName, qty: Number(transfer.qty) || 0 } ];
+
   if (!db.districtProducts) db.districtProducts = {};
   if (!db.districtProducts[district]) db.districtProducts[district] = [];
-
-  let distProd = db.districtProducts[district].find(p => p.productId === productId || p.id === productId || p.name.toUpperCase() === transfer.productName.toUpperCase());
-
-  if (!distProd) {
-    // Auto-allocate from master
-    const master = (db.products || []).find(p => p.id === productId || p.name.toUpperCase() === transfer.productName.toUpperCase());
-    distProd = {
-      id: 'dp_' + district.toLowerCase().slice(0, 3) + '_' + Date.now().toString(36),
-      productId: master ? master.id : productId,
-      name: master ? master.name : transfer.productName,
-      schemePrice: (master && master.schemes && master.schemes[0]) ? master.schemes[0].price : 2500,
-      stockAllocated: qty,
-      currentStock: qty,
-      schemes: master ? master.schemes : []
-    };
-    db.districtProducts[district].push(distProd);
-  } else {
-    distProd.currentStock = (distProd.currentStock || 0) + qty;
-  }
-
-  // 2. Add to Mila (Inward) stock register for this date
   if (!db.milaStock) db.milaStock = {};
-  const targetProdId = distProd ? (distProd.productId || distProd.id) : productId;
-  const milaKey = `${district}:${receiveDate}:${targetProdId}`;
-  db.milaStock[milaKey] = (Number(db.milaStock[milaKey]) || 0) + qty;
 
-  // 3. Mark transfer as ACCEPTED
+  const acceptedSummary = [];
+
+  itemsToAccept.forEach(item => {
+    const q = Number(item.qty) || 0;
+    if (q <= 0) return;
+
+    let distProd = db.districtProducts[district].find(p => p.productId === item.productId || p.id === item.productId || p.name.toUpperCase() === item.productName.toUpperCase());
+
+    if (!distProd) {
+      // Auto-allocate from master
+      const master = (db.products || []).find(p => p.id === item.productId || p.name.toUpperCase() === item.productName.toUpperCase());
+      distProd = {
+        id: 'dp_' + district.toLowerCase().slice(0, 3) + '_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 5),
+        productId: master ? master.id : item.productId,
+        name: master ? master.name : item.productName,
+        schemePrice: (master && master.schemes && master.schemes[0]) ? master.schemes[0].price : 2500,
+        stockAllocated: q,
+        currentStock: q,
+        schemes: master ? master.schemes : []
+      };
+      db.districtProducts[district].push(distProd);
+    } else {
+      distProd.currentStock = (distProd.currentStock || 0) + q;
+    }
+
+    // Add to Mila Inward register
+    const targetProdId = distProd ? (distProd.productId || distProd.id) : item.productId;
+    const milaKey = `${district}:${receiveDate}:${targetProdId}`;
+    db.milaStock[milaKey] = (Number(db.milaStock[milaKey]) || 0) + q;
+
+    acceptedSummary.push(`${distProd.name} (+${q})`);
+  });
+
+  // Mark transfer as ACCEPTED
   transfer.status = 'ACCEPTED';
   transfer.receivedBy = req.user.username;
   transfer.receivedAt = now.toISOString();
@@ -509,7 +548,7 @@ router.post('/accept-stock/:transferId', authenticateToken, async (req, res) => 
     req.user.role,
     district,
     'STOCK_ACCEPTED',
-    `Dealer ${req.user.username} received and accepted ${qty} units of ${transfer.productName} [${transfer.transferNo}] into ${district}`
+    `Dealer ${req.user.username} received and accepted shipment [${transfer.transferNo}] (${acceptedSummary.join(', ')}) into ${district}`
   );
 
   await saveDb();
@@ -523,9 +562,9 @@ router.post('/accept-stock/:transferId', authenticateToken, async (req, res) => 
   ).catch(err => console.error('Postgres transfer update error:', err.message));
 
   res.json({
-    message: `Successfully received ${qty} units of ${transfer.productName}! Added to ${district} stock.`,
+    message: `Successfully received consignment [${transfer.transferNo}]! (${acceptedSummary.join(', ')}) added to ${district} stock.`,
     transfer,
-    newCurrentStock: distProd.currentStock
+    acceptedItems: acceptedSummary
   });
 });
 

@@ -153,9 +153,11 @@ async function initPostgresTables() {
         id VARCHAR(64) PRIMARY KEY,
         transfer_no VARCHAR(64) UNIQUE NOT NULL,
         district VARCHAR(64) NOT NULL,
-        product_id VARCHAR(64) NOT NULL,
-        product_name VARCHAR(128) NOT NULL,
-        qty NUMERIC NOT NULL,
+        product_id VARCHAR(64),
+        product_name VARCHAR(255),
+        qty NUMERIC,
+        items JSONB,
+        total_units NUMERIC,
         status VARCHAR(32) NOT NULL DEFAULT 'PENDING_ACCEPTANCE',
         challan_no VARCHAR(64),
         note TEXT,
@@ -165,6 +167,8 @@ async function initPostgresTables() {
         received_at TIMESTAMP WITH TIME ZONE,
         received_date DATE
       );
+      ALTER TABLE stock_transfers ADD COLUMN IF NOT EXISTS items JSONB;
+      ALTER TABLE stock_transfers ADD COLUMN IF NOT EXISTS total_units NUMERIC;
     `);
 
     // 10. Key-Value Settings & State Cache Table

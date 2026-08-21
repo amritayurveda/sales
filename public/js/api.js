@@ -322,10 +322,28 @@ const API = {
   },
 
   // Stock Transfers & Dispatch System
-  async dispatchStock(district, productId, qty, challanNo, note) {
+  async dispatchStock(district, itemsOrProductId, qtyOrChallan, challanNo, note) {
+    let payload = {};
+    if (Array.isArray(itemsOrProductId)) {
+      payload = {
+        district,
+        items: itemsOrProductId,
+        challanNo: qtyOrChallan,
+        note: challanNo
+      };
+    } else {
+      payload = {
+        district,
+        productId: itemsOrProductId,
+        qty: qtyOrChallan,
+        challanNo,
+        note
+      };
+    }
+
     return this.request('/inventory/dispatch-stock', {
       method: 'POST',
-      body: JSON.stringify({ district, productId, qty, challanNo, note })
+      body: JSON.stringify(payload)
     });
   },
 
