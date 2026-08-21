@@ -7,13 +7,15 @@ const { getServerToday, enforceSameDayForDealers } = require('../middleware/same
 const { calculateDC } = require('../utils/dcCalculator');
 const { triggerLiveEventSync } = require('../services/googleSheetsSync');
 
+const { pool } = require('../config/postgres');
+
 // 1. Create a customer order (Direct Product + Fully Editable Price)
 router.post(
   ['/create-order', '/create-scheme-order'],
   authenticateToken,
   enforceDistrictAccess,
   enforceSameDayForDealers,
-  (req, res) => {
+  async (req, res) => {
     const { district, date, productId, price, qty, customerMobile, customerName, schemeName, note } = req.body;
 
     if (!district || !productId) {
@@ -46,7 +48,13 @@ router.post(
       dcRate = priceNum <= 1500 ? 200 : 250;
     }
 
-    const netAmount = priceNum - dcRate;
+    const totalAmount = priceNum * orderQty;
+    const netAmount = totalAmount - dcRate;
+
+    // 3. Deduct stock
+    if (item) {
+      item.currentStock = Math.max(0, (item.currentStock || 0) - orderQty);
+    }
 
     // 3. Create Order Record
     const orderId = 'ord_' + Date.now() + Math.random().toString(36).slice(2, 6);
@@ -66,7 +74,7 @@ router.post(
       qty: orderQty,
       unitPrice: priceNum,
       dcRate,
-      totalAmount: priceNum,
+      totalAmount: totalAmount,
       netAmount,
       customerMobile: cleanMobile,
       customerName: cleanCustomerName,
@@ -87,7 +95,15 @@ router.post(
       `Order ${orderNo}: Sold ${prodName} (Price: ₹${priceNum}, DC: ₹${dcRate}, Net: ₹${netAmount}) to ${cleanCustomerName} [${cleanMobile}]`
     );
 
-    saveDb();
+    await saveDb();
+
+    // Insert directly into Neon PostgreSQL customer_orders table
+    pool.query(
+      `INSERT INTO customer_orders (id, order_no, district, order_date, order_time, product_id, product_name, qty, unit_price, dc_rate, net_amount, customer_mobile, customer_name, note, dealer_username, created_at)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16)
+       ON CONFLICT (id) DO NOTHING`,
+      [newOrder.id, newOrder.orderNo, newOrder.district, newOrder.date, newOrder.time, newOrder.productId, newOrder.productName, newOrder.qty, newOrder.unitPrice, newOrder.dcRate, newOrder.netAmount, newOrder.customerMobile, newOrder.customerName, newOrder.note, newOrder.dealerUsername, newOrder.createdAt]
+    ).catch(err => console.error('Postgres order insert error:', err.message));
 
     // Trigger live background sync to Google Sheet
     triggerLiveEventSync(district, date, 'NEW_ORDER', newOrder);

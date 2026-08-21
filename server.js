@@ -5,7 +5,7 @@ const cors = require('cors');
 const { initDb } = require('./config/db');
 
 // Initialize database
-initDb();
+initDb().catch(err => console.error('Database initialization warning:', err.message));
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -41,13 +41,19 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Internal server error', details: err.message });
 });
 
-if (require.main === module) {
+async function startServer() {
+  await initDb();
   app.listen(PORT, () => {
     console.log(`=================================================`);
     console.log(`Sales Register Pro Server running at:`);
     console.log(`http://localhost:${PORT}`);
+    console.log(`Connected to Neon PostgreSQL Database!`);
     console.log(`=================================================`);
   });
+}
+
+if (require.main === module) {
+  startServer();
 }
 
 module.exports = app;

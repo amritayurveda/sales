@@ -106,23 +106,26 @@ const DISTRICT_SLUGS = {
   "Shamli": "dealer_shamli"
 };
 
+const { pool, initPostgresTables } = require('./postgres');
+
 let db = {
   users: [],
   products: [],
-  districtProducts: {}, // district -> [ { id, productId, name, schemePrice, stockAllocated, currentStock, schemes: [] } ]
+  districtProducts: {},
   dcRules: {},
   customerOrders: [],
   inventoryLogs: [],
   cashSettlements: [],
-  milaStock: {},        // keyed by `${district}:${date}:${productId}` -> qty
-  inwardNotes: {},      // keyed by `${district}:${date}` -> text
-  baseOpeningCash: {},  // keyed by `${district}` -> base opening cash
+  milaStock: {},
+  inwardNotes: {},
+  baseOpeningCash: {},
   sales: {},
   ledgers: {},
-  activityLogs: []
+  activityLogs: [],
+  googleSheetsConfig: {}
 };
 
-function saveDb() {
+async function saveDb() {
   try {
     if (!fs.existsSync(DATA_DIR)) {
       fs.mkdirSync(DATA_DIR, { recursive: true });
@@ -130,6 +133,13 @@ function saveDb() {
     const tempFile = DB_FILE + '.tmp';
     fs.writeFileSync(tempFile, JSON.stringify(db, null, 2), 'utf8');
     fs.renameSync(tempFile, DB_FILE);
+
+    // Persist to Neon PostgreSQL Database
+    await pool.query(
+      `INSERT INTO app_state (key, value, updated_at) VALUES ('main_state', $1, NOW())
+       ON CONFLICT (key) DO UPDATE SET value = $1, updated_at = NOW()`,
+      [JSON.stringify(db)]
+    );
   } catch (err) {
     console.error('Error saving database:', err);
   }
@@ -154,22 +164,25 @@ function logActivity(userId, username, role, district, action, details) {
     db.activityLogs = db.activityLogs.slice(0, 1000);
   }
 
+  // Insert to Neon PostgreSQL activity_logs table
+  pool.query(
+    `INSERT INTO activity_logs (id, user_id, username, role, district, action, details, created_at)
+     VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
+    [entry.id, entry.userId, entry.username, entry.role, entry.district, entry.action, entry.details, entry.timestamp]
+  ).catch(err => console.error('Neon PostgreSQL log activity error:', err.message));
+
   saveDb();
   return entry;
 }
 
-function initDb() {
-  if (!fs.existsSync(DATA_DIR)) {
-    fs.mkdirSync(DATA_DIR, { recursive: true });
-  }
-
+// Synchronous baseline load
+function loadLocalDatabase() {
   if (fs.existsSync(DB_FILE)) {
     try {
       const content = fs.readFileSync(DB_FILE, 'utf8');
       const loaded = JSON.parse(content);
       Object.keys(db).forEach(k => delete db[k]);
       Object.assign(db, loaded);
-
       if (!db.districtProducts) db.districtProducts = {};
       if (!db.customerOrders) db.customerOrders = [];
       if (!db.inventoryLogs) db.inventoryLogs = [];
@@ -181,17 +194,45 @@ function initDb() {
       if (!db.dcRules || Object.keys(db.dcRules).length === 0) {
         db.dcRules = JSON.parse(JSON.stringify(DEFAULT_DC_RULES));
       }
-
       ensureDistrictSchemes();
-      saveDb();
-      console.log('Database loaded and validated successfully.');
     } catch (e) {
-      console.error('Error reading existing database, initializing new:', e);
       seedInitialData();
     }
   } else {
-    console.log('Database not found. Initializing with default data...');
     seedInitialData();
+  }
+}
+
+// Initial baseline load
+loadLocalDatabase();
+
+async function initDb() {
+  if (!fs.existsSync(DATA_DIR)) {
+    fs.mkdirSync(DATA_DIR, { recursive: true });
+  }
+
+  try {
+    // 1. Initialize PostgreSQL tables on Neon Tech
+    await initPostgresTables();
+
+    // 2. Try loading from Neon PostgreSQL first
+    const pgRes = await pool.query("SELECT value FROM app_state WHERE key = 'main_state' LIMIT 1");
+    if (pgRes.rows.length > 0 && pgRes.rows[0].value) {
+      const loaded = typeof pgRes.rows[0].value === 'string' ? JSON.parse(pgRes.rows[0].value) : pgRes.rows[0].value;
+      if (loaded.users && loaded.users.length > 0) {
+        Object.keys(db).forEach(k => delete db[k]);
+        Object.assign(db, loaded);
+        console.log('✅ Loaded data successfully from Neon PostgreSQL database!');
+        ensureDistrictSchemes();
+        return db;
+      }
+    }
+
+    // If Postgres was empty, push local state to Postgres
+    await saveDb();
+    console.log('✅ Initialized & Synced clean state to Neon PostgreSQL!');
+  } catch (err) {
+    console.error('Neon PostgreSQL initialization check warning:', err.message);
   }
 
   return db;
