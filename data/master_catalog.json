@@ -1,0 +1,3667 @@
+[
+  {
+    "id": "prod_1",
+    "name": "AAROGYA NETRAM",
+    "defaultPrice": 3600,
+    "schemes": [
+      {
+        "id": "SC01093",
+        "code": "SC01093",
+        "name": "SC01093 - Aarogya Netram (₹3,600)",
+        "desc": "Aarogya Netram",
+        "qty": 1,
+        "price": 3600,
+        "dc": 250
+      },
+      {
+        "id": "SC01113",
+        "code": "SC01113",
+        "name": "SC01113 - Aarogya Netram (₹3,100)",
+        "desc": "Aarogya Netram",
+        "qty": 1,
+        "price": 3100,
+        "dc": 250
+      },
+      {
+        "id": "SC01137",
+        "code": "SC01137",
+        "name": "SC01137 - Aarogya Netram (₹2,700)",
+        "desc": "Aarogya Netram",
+        "qty": 1,
+        "price": 2700,
+        "dc": 250
+      },
+      {
+        "id": "SC01106",
+        "code": "SC01106",
+        "name": "SC01106 - Aarogya Netram (₹2,500)",
+        "desc": "Aarogya Netram",
+        "qty": 1,
+        "price": 2500,
+        "dc": 250
+      },
+      {
+        "id": "SC01599",
+        "code": "SC01599",
+        "name": "SC01599 - Aarogya Netram (₹2,300)",
+        "desc": "Aarogya Netram",
+        "qty": 1,
+        "price": 2300,
+        "dc": 250
+      },
+      {
+        "id": "SC01167",
+        "code": "SC01167",
+        "name": "SC01167 - Aarogya Netram (₹2,100)",
+        "desc": "Aarogya Netram",
+        "qty": 1,
+        "price": 2100,
+        "dc": 250
+      },
+      {
+        "id": "SC01566",
+        "code": "SC01566",
+        "name": "SC01566 - Aarogya Netram (₹2,099)",
+        "desc": "Aarogya Netram",
+        "qty": 1,
+        "price": 2099,
+        "dc": 250
+      },
+      {
+        "id": "SC01569",
+        "code": "SC01569",
+        "name": "SC01569 - Aarogya Netram (₹1,999)",
+        "desc": "Aarogya Netram",
+        "qty": 1,
+        "price": 1999,
+        "dc": 250
+      },
+      {
+        "id": "SC01209",
+        "code": "SC01209",
+        "name": "SC01209 - Aarogya Netram (₹1,800)",
+        "desc": "Aarogya Netram",
+        "qty": 1,
+        "price": 1800,
+        "dc": 250
+      },
+      {
+        "id": "SC01577",
+        "code": "SC01577",
+        "name": "SC01577 - Aarogya Netram (₹1,699)",
+        "desc": "Aarogya Netram",
+        "qty": 1,
+        "price": 1699,
+        "dc": 250
+      },
+      {
+        "id": "SC01498",
+        "code": "SC01498",
+        "name": "SC01498 - Aarogya Netram (₹1,499)",
+        "desc": "Aarogya Netram",
+        "qty": 1,
+        "price": 1499,
+        "dc": 170
+      },
+      {
+        "id": "SC01575",
+        "code": "SC01575",
+        "name": "SC01575 - Aarogya Netram (₹1,300)",
+        "desc": "Aarogya Netram",
+        "qty": 1,
+        "price": 1300,
+        "dc": 170
+      },
+      {
+        "id": "SC01311",
+        "code": "SC01311",
+        "name": "SC01311 - Aarogya Netram Eyedrop (₹1,100)",
+        "desc": "Aarogya Netram Eyedrop",
+        "qty": 1,
+        "price": 1100,
+        "dc": 170
+      }
+    ]
+  },
+  {
+    "id": "prod_2",
+    "name": "ALCOBAN PLUS",
+    "defaultPrice": 3100,
+    "schemes": [
+      {
+        "id": "SC00001",
+        "code": "SC00001",
+        "name": "SC00001 - Alcoban Plus (₹3,100)",
+        "desc": "Alcoban Plus",
+        "qty": 1,
+        "price": 3100,
+        "dc": 250
+      },
+      {
+        "id": "SC00790",
+        "code": "SC00790",
+        "name": "SC00790 - Alcoban 3 Bottle (₹1,960)",
+        "desc": "Alcoban 3 Bottle",
+        "qty": 1,
+        "price": 1960,
+        "dc": 250
+      },
+      {
+        "id": "SC00033",
+        "code": "SC00033",
+        "name": "SC00033 - Alcoban Plus (₹1,690)",
+        "desc": "Alcoban Plus",
+        "qty": 1,
+        "price": 1690,
+        "dc": 250
+      },
+      {
+        "id": "BESC00587",
+        "code": "BESC00587",
+        "name": "BESC00587 - Web Alcoban Plus (₹1,420)",
+        "desc": "Web Alcoban Plus",
+        "qty": 1,
+        "price": 1420,
+        "dc": 170
+      },
+      {
+        "id": "SC00777",
+        "code": "SC00777",
+        "name": "SC00777 - Alcoban 3 Bottle (₹1,420)",
+        "desc": "Alcoban 3 Bottle",
+        "qty": 1,
+        "price": 1420,
+        "dc": 170
+      },
+      {
+        "id": "SC00044",
+        "code": "SC00044",
+        "name": "SC00044 - Alcoban Plus (₹1,300)",
+        "desc": "Alcoban Plus",
+        "qty": 1,
+        "price": 1300,
+        "dc": 170
+      },
+      {
+        "id": "BESC00565",
+        "code": "BESC00565",
+        "name": "BESC00565 - Web Alcoban Plus (₹1,240)",
+        "desc": "Web Alcoban Plus",
+        "qty": 1,
+        "price": 1240,
+        "dc": 170
+      }
+    ]
+  },
+  {
+    "id": "prod_3",
+    "name": "CURE VISION",
+    "defaultPrice": 3900,
+    "schemes": [
+      {
+        "id": "SC00211",
+        "code": "SC00211",
+        "name": "SC00211 - Sure Vision (₹3,900)",
+        "desc": "Sure Vision",
+        "qty": 1,
+        "price": 3900,
+        "dc": 250
+      },
+      {
+        "id": "SC01552",
+        "code": "SC01552",
+        "name": "SC01552 - Cure Vision (₹3,600)",
+        "desc": "Cure Vision",
+        "qty": 1,
+        "price": 3600,
+        "dc": 250
+      },
+      {
+        "id": "SC01556",
+        "code": "SC01556",
+        "name": "SC01556 - Cure Vision (₹2,990)",
+        "desc": "Cure Vision",
+        "qty": 1,
+        "price": 2990,
+        "dc": 250
+      },
+      {
+        "id": "SC01557",
+        "code": "SC01557",
+        "name": "SC01557 - Cure Vision (₹2,990)",
+        "desc": "Cure Vision",
+        "qty": 1,
+        "price": 2990,
+        "dc": 250
+      },
+      {
+        "id": "SC01553",
+        "code": "SC01553",
+        "name": "SC01553 - Cure Vision (₹2,500)",
+        "desc": "Cure Vision",
+        "qty": 1,
+        "price": 2500,
+        "dc": 250
+      },
+      {
+        "id": "SC01572",
+        "code": "SC01572",
+        "name": "SC01572 - Cure Vision (₹1,999)",
+        "desc": "Cure Vision",
+        "qty": 1,
+        "price": 1999,
+        "dc": 250
+      },
+      {
+        "id": "SC01559",
+        "code": "SC01559",
+        "name": "SC01559 - Cure Vision (₹1,499)",
+        "desc": "Cure Vision",
+        "qty": 1,
+        "price": 1499,
+        "dc": 170
+      }
+    ]
+  },
+  {
+    "id": "prod_4",
+    "name": "DAMADAR OIL",
+    "defaultPrice": 3985,
+    "schemes": [
+      {
+        "id": "SC00606",
+        "code": "SC00606",
+        "name": "SC00606 - Damdar Oil (₹3,985)",
+        "desc": "Damdar Oil",
+        "qty": 1,
+        "price": 3985,
+        "dc": 250
+      },
+      {
+        "id": "BESC00498",
+        "code": "BESC00498",
+        "name": "BESC00498 - Damdar Oil (₹3,940)",
+        "desc": "Damdar Oil",
+        "qty": 1,
+        "price": 3940,
+        "dc": 250
+      },
+      {
+        "id": "SC00128",
+        "code": "SC00128",
+        "name": "SC00128 - Dhuan Dhaar Plus (₹3,900)",
+        "desc": "Dhuan Dhaar Plus",
+        "qty": 1,
+        "price": 3900,
+        "dc": 250
+      },
+      {
+        "id": "BESC00156",
+        "code": "BESC00156",
+        "name": "BESC00156 - Damdar Oil (₹3,900)",
+        "desc": "Damdar Oil",
+        "qty": 1,
+        "price": 3900,
+        "dc": 250
+      },
+      {
+        "id": "BESC00248",
+        "code": "BESC00248",
+        "name": "BESC00248 - Damdar Oil (₹3,800)",
+        "desc": "Damdar Oil",
+        "qty": 1,
+        "price": 3800,
+        "dc": 250
+      },
+      {
+        "id": "SC00530",
+        "code": "SC00530",
+        "name": "SC00530 - Damdar Oil (₹3,760)",
+        "desc": "Damdar Oil",
+        "qty": 1,
+        "price": 3760,
+        "dc": 250
+      },
+      {
+        "id": "BESC00131",
+        "code": "BESC00131",
+        "name": "BESC00131 - Dhuan Dhaar Plus (₹3,700)",
+        "desc": "Dhuan Dhaar Plus",
+        "qty": 1,
+        "price": 3700,
+        "dc": 250
+      },
+      {
+        "id": "BESC00157",
+        "code": "BESC00157",
+        "name": "BESC00157 - Damdar Oil (₹3,700)",
+        "desc": "Damdar Oil",
+        "qty": 1,
+        "price": 3700,
+        "dc": 250
+      },
+      {
+        "id": "SC00003",
+        "code": "SC00003",
+        "name": "SC00003 - Dhuan Dhaar Plus (₹3,600)",
+        "desc": "Dhuan Dhaar Plus",
+        "qty": 1,
+        "price": 3600,
+        "dc": 250
+      },
+      {
+        "id": "SC00607",
+        "code": "SC00607",
+        "name": "SC00607 - Damdar Oil (₹3,580)",
+        "desc": "Damdar Oil",
+        "qty": 1,
+        "price": 3580,
+        "dc": 250
+      },
+      {
+        "id": "BESC00247",
+        "code": "BESC00247",
+        "name": "BESC00247 - Damdar Oil (₹3,550)",
+        "desc": "Damdar Oil",
+        "qty": 1,
+        "price": 3550,
+        "dc": 250
+      },
+      {
+        "id": "BESC00362",
+        "code": "BESC00362",
+        "name": "BESC00362 - CS Damdar Oil COD (₹3,550)",
+        "desc": "CS Damdar Oil COD",
+        "qty": 1,
+        "price": 3550,
+        "dc": 250
+      },
+      {
+        "id": "BESC00163",
+        "code": "BESC00163",
+        "name": "BESC00163 - Damdar Oil (₹3,450)",
+        "desc": "Damdar Oil",
+        "qty": 1,
+        "price": 3450,
+        "dc": 250
+      },
+      {
+        "id": "SC00609",
+        "code": "SC00609",
+        "name": "SC00609 - Damdar Oil (₹3,355)",
+        "desc": "Damdar Oil",
+        "qty": 1,
+        "price": 3355,
+        "dc": 250
+      },
+      {
+        "id": "BESC00104",
+        "code": "BESC00104",
+        "name": "BESC00104 - Dhuan Dhaar Plus (₹3,300)",
+        "desc": "Dhuan Dhaar Plus",
+        "qty": 1,
+        "price": 3300,
+        "dc": 250
+      },
+      {
+        "id": "SC00306",
+        "code": "SC00306",
+        "name": "SC00306 - SMS Damdar Oil (₹3,250)",
+        "desc": "SMS Damdar Oil",
+        "qty": 1,
+        "price": 3250,
+        "dc": 250
+      },
+      {
+        "id": "BESC00049",
+        "code": "BESC00049",
+        "name": "BESC00049 - Dhuan Dhaar Plus (₹3,240)",
+        "desc": "Dhuan Dhaar Plus",
+        "qty": 1,
+        "price": 3240,
+        "dc": 250
+      },
+      {
+        "id": "SC00799",
+        "code": "SC00799",
+        "name": "SC00799 - Damdar Oil (₹3,130)",
+        "desc": "Damdar Oil",
+        "qty": 1,
+        "price": 3130,
+        "dc": 250
+      },
+      {
+        "id": "BESC00167",
+        "code": "BESC00167",
+        "name": "BESC00167 - FSD Damdar Oil (₹2,999)",
+        "desc": "FSD Damdar Oil",
+        "qty": 1,
+        "price": 2999,
+        "dc": 250
+      },
+      {
+        "id": "BESC00296",
+        "code": "BESC00296",
+        "name": "BESC00296 - Web Damdar Oil (₹2,999)",
+        "desc": "Web Damdar Oil",
+        "qty": 1,
+        "price": 2999,
+        "dc": 250
+      },
+      {
+        "id": "BESC00533",
+        "code": "BESC00533",
+        "name": "BESC00533 - Damdar IND (₹2,999)",
+        "desc": "Damdar IND",
+        "qty": 1,
+        "price": 2999,
+        "dc": 250
+      },
+      {
+        "id": "BESC00087",
+        "code": "BESC00087",
+        "name": "BESC00087 - FSD  Dhuandhaar Plus (₹2,950)",
+        "desc": "FSD  Dhuandhaar Plus",
+        "qty": 1,
+        "price": 2950,
+        "dc": 250
+      },
+      {
+        "id": "SC00610",
+        "code": "SC00610",
+        "name": "SC00610 - Damdar Oil (₹2,950)",
+        "desc": "Damdar Oil",
+        "qty": 1,
+        "price": 2950,
+        "dc": 250
+      },
+      {
+        "id": "SC00612",
+        "code": "SC00612",
+        "name": "SC00612 - Damdar Oil (₹2,770)",
+        "desc": "Damdar Oil",
+        "qty": 1,
+        "price": 2770,
+        "dc": 250
+      },
+      {
+        "id": "BESC00191",
+        "code": "BESC00191",
+        "name": "BESC00191 - FSD Damdar Oil (₹2,699)",
+        "desc": "FSD Damdar Oil",
+        "qty": 1,
+        "price": 2699,
+        "dc": 250
+      },
+      {
+        "id": "BESC00297",
+        "code": "BESC00297",
+        "name": "BESC00297 - Web Damdar Oil (₹2,699)",
+        "desc": "Web Damdar Oil",
+        "qty": 1,
+        "price": 2699,
+        "dc": 250
+      },
+      {
+        "id": "BESC00354",
+        "code": "BESC00354",
+        "name": "BESC00354 - CS Damdar Oil COD (₹2,699)",
+        "desc": "CS Damdar Oil COD",
+        "qty": 1,
+        "price": 2699,
+        "dc": 250
+      },
+      {
+        "id": "BESC00266",
+        "code": "BESC00266",
+        "name": "BESC00266 - FSD Damdar Oil (₹2,599)",
+        "desc": "FSD Damdar Oil",
+        "qty": 1,
+        "price": 2599,
+        "dc": 250
+      },
+      {
+        "id": "BESC00269",
+        "code": "BESC00269",
+        "name": "BESC00269 - FSD Mahadamdar Oil (₹2,599)",
+        "desc": "FSD Mahadamdar Oil",
+        "qty": 1,
+        "price": 2599,
+        "dc": 250
+      },
+      {
+        "id": "BESC00300",
+        "code": "BESC00300",
+        "name": "BESC00300 - Web Damdar Oil (₹2,599)",
+        "desc": "Web Damdar Oil",
+        "qty": 1,
+        "price": 2599,
+        "dc": 250
+      },
+      {
+        "id": "BESC00119",
+        "code": "BESC00119",
+        "name": "BESC00119 - FSD Dhuan Dhaar Plus (₹2,500)",
+        "desc": "FSD Dhuan Dhaar Plus",
+        "qty": 1,
+        "price": 2500,
+        "dc": 250
+      },
+      {
+        "id": "SC00614",
+        "code": "SC00614",
+        "name": "SC00614 - Damdar Oil (₹2,500)",
+        "desc": "Damdar Oil",
+        "qty": 1,
+        "price": 2500,
+        "dc": 250
+      },
+      {
+        "id": "BESC00348",
+        "code": "BESC00348",
+        "name": "BESC00348 - CS Damdar Oil COD (₹2,499)",
+        "desc": "CS Damdar Oil COD",
+        "qty": 1,
+        "price": 2499,
+        "dc": 250
+      },
+      {
+        "id": "BESC00534",
+        "code": "BESC00534",
+        "name": "BESC00534 - Damdar IN (₹2,499)",
+        "desc": "Damdar IN",
+        "qty": 1,
+        "price": 2499,
+        "dc": 250
+      },
+      {
+        "id": "BESC00267",
+        "code": "BESC00267",
+        "name": "BESC00267 - FSD Damdar Oil (₹2,299)",
+        "desc": "FSD Damdar Oil",
+        "qty": 1,
+        "price": 2299,
+        "dc": 250
+      },
+      {
+        "id": "BESC00301",
+        "code": "BESC00301",
+        "name": "BESC00301 - Web Damdar Oil (₹2,299)",
+        "desc": "Web Damdar Oil",
+        "qty": 1,
+        "price": 2299,
+        "dc": 250
+      },
+      {
+        "id": "BESC00347",
+        "code": "BESC00347",
+        "name": "BESC00347 - CS Damdar Oil COD (₹2,299)",
+        "desc": "CS Damdar Oil COD",
+        "qty": 1,
+        "price": 2299,
+        "dc": 250
+      },
+      {
+        "id": "SC00615",
+        "code": "SC00615",
+        "name": "SC00615 - Damdar Oil (₹2,275)",
+        "desc": "Damdar Oil",
+        "qty": 1,
+        "price": 2275,
+        "dc": 250
+      },
+      {
+        "id": "SC00779",
+        "code": "SC00779",
+        "name": "SC00779 - Dhuan Dhaar Plus (₹2,140)",
+        "desc": "Dhuan Dhaar Plus",
+        "qty": 1,
+        "price": 2140,
+        "dc": 250
+      },
+      {
+        "id": "BESC00032",
+        "code": "BESC00032",
+        "name": "BESC00032 - Dhuan Dhaar Plus (₹2,100)",
+        "desc": "Dhuan Dhaar Plus",
+        "qty": 1,
+        "price": 2100,
+        "dc": 250
+      },
+      {
+        "id": "BESC00381",
+        "code": "BESC00381",
+        "name": "BESC00381 - FSD Mahadamdar Oil (₹1,999)",
+        "desc": "FSD Mahadamdar Oil",
+        "qty": 1,
+        "price": 1999,
+        "dc": 250
+      },
+      {
+        "id": "BESC00520",
+        "code": "BESC00520",
+        "name": "BESC00520 - FSD ExtraS damdar (₹1,999)",
+        "desc": "FSD ExtraS damdar",
+        "qty": 1,
+        "price": 1999,
+        "dc": 250
+      },
+      {
+        "id": "BESC00524",
+        "code": "BESC00524",
+        "name": "BESC00524 - CS Damdar Extra (₹1,999)",
+        "desc": "CS Damdar Extra",
+        "qty": 1,
+        "price": 1999,
+        "dc": 250
+      },
+      {
+        "id": "SC00788",
+        "code": "SC00788",
+        "name": "SC00788 - Damdar Oil (₹1,996)",
+        "desc": "Damdar Oil",
+        "qty": 1,
+        "price": 1996,
+        "dc": 250
+      },
+      {
+        "id": "SC00066",
+        "code": "SC00066",
+        "name": "SC00066 - Dhuan Dhaar Plus (₹1,960)",
+        "desc": "Dhuan Dhaar Plus",
+        "qty": 1,
+        "price": 1960,
+        "dc": 250
+      },
+      {
+        "id": "SC00780",
+        "code": "SC00780",
+        "name": "SC00780 - Dhuan Dhaar Plus (₹1,600)",
+        "desc": "Dhuan Dhaar Plus",
+        "qty": 1,
+        "price": 1600,
+        "dc": 250
+      }
+    ]
+  },
+  {
+    "id": "prod_5",
+    "name": "DRINK STOP AYURVEDIC",
+    "defaultPrice": 3985,
+    "schemes": [
+      {
+        "id": "SC00625",
+        "code": "SC00625",
+        "name": "SC00625 - Ramban Drink Stop (₹3,985)",
+        "desc": "Ramban Drink Stop",
+        "qty": 1,
+        "price": 3985,
+        "dc": 250
+      },
+      {
+        "id": "BESC00499",
+        "code": "BESC00499",
+        "name": "BESC00499 - Ramban Drinkstop (₹3,940)",
+        "desc": "Ramban Drinkstop",
+        "qty": 1,
+        "price": 3940,
+        "dc": 250
+      },
+      {
+        "id": "BESC00568",
+        "code": "BESC00568",
+        "name": "BESC00568 - M Ramban Drinkstop (₹3,940)",
+        "desc": "M Ramban Drinkstop",
+        "qty": 1,
+        "price": 3940,
+        "dc": 250
+      },
+      {
+        "id": "BESC00233",
+        "code": "BESC00233",
+        "name": "BESC00233 - Ramban Drinkstop (₹3,800)",
+        "desc": "Ramban Drinkstop",
+        "qty": 1,
+        "price": 3800,
+        "dc": 250
+      },
+      {
+        "id": "SC00626",
+        "code": "SC00626",
+        "name": "SC00626 - Ramban Drink Stop (₹3,760)",
+        "desc": "Ramban Drink Stop",
+        "qty": 1,
+        "price": 3760,
+        "dc": 250
+      },
+      {
+        "id": "BESC00100",
+        "code": "BESC00100",
+        "name": "BESC00100 - Drink Stop Ayurvedic Drops (₹3,700)",
+        "desc": "Drink Stop Ayurvedic Drops",
+        "qty": 1,
+        "price": 3700,
+        "dc": 250
+      },
+      {
+        "id": "BESC00500",
+        "code": "BESC00500",
+        "name": "BESC00500 - Ramban Drinkstop (₹3,700)",
+        "desc": "Ramban Drinkstop",
+        "qty": 1,
+        "price": 3700,
+        "dc": 250
+      },
+      {
+        "id": "BESC00567",
+        "code": "BESC00567",
+        "name": "BESC00567 - M Ramban Drinkstop (₹3,700)",
+        "desc": "M Ramban Drinkstop",
+        "qty": 1,
+        "price": 3700,
+        "dc": 250
+      },
+      {
+        "id": "SC00627",
+        "code": "SC00627",
+        "name": "SC00627 - Ramban Drink Stop (₹3,580)",
+        "desc": "Ramban Drink Stop",
+        "qty": 1,
+        "price": 3580,
+        "dc": 250
+      },
+      {
+        "id": "BESC00234",
+        "code": "BESC00234",
+        "name": "BESC00234 - Ramban Drinkstop (₹3,550)",
+        "desc": "Ramban Drinkstop",
+        "qty": 1,
+        "price": 3550,
+        "dc": 250
+      },
+      {
+        "id": "SC00629",
+        "code": "SC00629",
+        "name": "SC00629 - Ramban Drink Stop (₹3,355)",
+        "desc": "Ramban Drink Stop",
+        "qty": 1,
+        "price": 3355,
+        "dc": 250
+      },
+      {
+        "id": "SC00308",
+        "code": "SC00308",
+        "name": "SC00308 - SMS-Ramban Drink Stop (₹3,250)",
+        "desc": "SMS-Ramban Drink Stop",
+        "qty": 1,
+        "price": 3250,
+        "dc": 250
+      },
+      {
+        "id": "SC00807",
+        "code": "SC00807",
+        "name": "SC00807 - Ramban Drink Stop (₹3,130)",
+        "desc": "Ramban Drink Stop",
+        "qty": 1,
+        "price": 3130,
+        "dc": 250
+      },
+      {
+        "id": "BESC00316",
+        "code": "BESC00316",
+        "name": "BESC00316 - FSD Ramban Drink Stop (₹2,999)",
+        "desc": "FSD Ramban Drink Stop",
+        "qty": 1,
+        "price": 2999,
+        "dc": 250
+      },
+      {
+        "id": "SC00630",
+        "code": "SC00630",
+        "name": "SC00630 - Ramban Drink Stop (₹2,950)",
+        "desc": "Ramban Drink Stop",
+        "qty": 1,
+        "price": 2950,
+        "dc": 250
+      },
+      {
+        "id": "SC00632",
+        "code": "SC00632",
+        "name": "SC00632 - Ramban Drink Stop (₹2,770)",
+        "desc": "Ramban Drink Stop",
+        "qty": 1,
+        "price": 2770,
+        "dc": 250
+      },
+      {
+        "id": "BESC00317",
+        "code": "BESC00317",
+        "name": "BESC00317 - FSD Ramban Drink Stop (₹2,650)",
+        "desc": "FSD Ramban Drink Stop",
+        "qty": 1,
+        "price": 2650,
+        "dc": 250
+      },
+      {
+        "id": "BESC00147",
+        "code": "BESC00147",
+        "name": "BESC00147 - FSD Drink Stop Ayurvedic Drops (₹2,500)",
+        "desc": "FSD Drink Stop Ayurvedic Drops",
+        "qty": 1,
+        "price": 2500,
+        "dc": 250
+      },
+      {
+        "id": "SC00536",
+        "code": "SC00536",
+        "name": "SC00536 - IN Ramban Drinkstop (₹2,500)",
+        "desc": "IN Ramban Drinkstop",
+        "qty": 1,
+        "price": 2500,
+        "dc": 250
+      },
+      {
+        "id": "SC00634",
+        "code": "SC00634",
+        "name": "SC00634 - Ramban Drink Stop (₹2,500)",
+        "desc": "Ramban Drink Stop",
+        "qty": 1,
+        "price": 2500,
+        "dc": 250
+      },
+      {
+        "id": "BESC00481",
+        "code": "BESC00481",
+        "name": "BESC00481 - FSD Ramban Drink Stop (₹2,299)",
+        "desc": "FSD Ramban Drink Stop",
+        "qty": 1,
+        "price": 2299,
+        "dc": 250
+      },
+      {
+        "id": "SC00635",
+        "code": "SC00635",
+        "name": "SC00635 - Ramban Drink Stop (₹2,275)",
+        "desc": "Ramban Drink Stop",
+        "qty": 1,
+        "price": 2275,
+        "dc": 250
+      },
+      {
+        "id": "BESC00507",
+        "code": "BESC00507",
+        "name": "BESC00507 - CS Ramban Drinkstop COD (₹2,250)",
+        "desc": "CS Ramban Drinkstop COD",
+        "qty": 1,
+        "price": 2250,
+        "dc": 250
+      },
+      {
+        "id": "SC00278",
+        "code": "SC00278",
+        "name": "SC00278 - FSD Drink Stop Ayurvedic Drops (₹1,999)",
+        "desc": "FSD Drink Stop Ayurvedic Drops",
+        "qty": 1,
+        "price": 1999,
+        "dc": 250
+      }
+    ]
+  },
+  {
+    "id": "prod_6",
+    "name": "EVERESTER",
+    "defaultPrice": 2499,
+    "schemes": [
+      {
+        "id": "SC00258",
+        "code": "SC00258",
+        "name": "SC00258 - Everester (₹2,499)",
+        "desc": "Everester",
+        "qty": 1,
+        "price": 2499,
+        "dc": 250
+      },
+      {
+        "id": "BESC00328",
+        "code": "BESC00328",
+        "name": "BESC00328 - Everester COD (₹1,999)",
+        "desc": "Everester COD",
+        "qty": 1,
+        "price": 1999,
+        "dc": 250
+      },
+      {
+        "id": "BESC00570",
+        "code": "BESC00570",
+        "name": "BESC00570 - Web Everester (₹1,699)",
+        "desc": "Web Everester",
+        "qty": 1,
+        "price": 1699,
+        "dc": 250
+      },
+      {
+        "id": "BESC00571",
+        "code": "BESC00571",
+        "name": "BESC00571 - Web Everester (₹1,600)",
+        "desc": "Web Everester",
+        "qty": 1,
+        "price": 1600,
+        "dc": 250
+      },
+      {
+        "id": "SC00722",
+        "code": "SC00722",
+        "name": "SC00722 - Everester (₹1,600)",
+        "desc": "Everester",
+        "qty": 1,
+        "price": 1600,
+        "dc": 250
+      },
+      {
+        "id": "SC00723",
+        "code": "SC00723",
+        "name": "SC00723 - Everester (₹1,420)",
+        "desc": "Everester",
+        "qty": 1,
+        "price": 1420,
+        "dc": 170
+      },
+      {
+        "id": "BESC00564",
+        "code": "BESC00564",
+        "name": "BESC00564 - Web Everester (₹1,240)",
+        "desc": "Web Everester",
+        "qty": 1,
+        "price": 1240,
+        "dc": 170
+      },
+      {
+        "id": "SC00724",
+        "code": "SC00724",
+        "name": "SC00724 - Everester (₹1,240)",
+        "desc": "Everester",
+        "qty": 1,
+        "price": 1240,
+        "dc": 170
+      }
+    ]
+  },
+  {
+    "id": "prod_7",
+    "name": "GUT AROGYA / SUPRAGUT",
+    "defaultPrice": 4300,
+    "schemes": [
+      {
+        "id": "BESC00203",
+        "code": "BESC00203",
+        "name": "BESC00203 - Supragut 70 (₹4,300)",
+        "desc": "Supragut 70",
+        "qty": 1,
+        "price": 4300,
+        "dc": 250
+      },
+      {
+        "id": "BESC00204",
+        "code": "BESC00204",
+        "name": "BESC00204 - Supragut 70 (₹3,990)",
+        "desc": "Supragut 70",
+        "qty": 1,
+        "price": 3990,
+        "dc": 250
+      },
+      {
+        "id": "SC00726",
+        "code": "SC00726",
+        "name": "SC00726 - Supragut 70 (₹3,985)",
+        "desc": "Supragut 70",
+        "qty": 1,
+        "price": 3985,
+        "dc": 250
+      },
+      {
+        "id": "SC00727",
+        "code": "SC00727",
+        "name": "SC00727 - Supragut 70 (₹3,760)",
+        "desc": "Supragut 70",
+        "qty": 1,
+        "price": 3760,
+        "dc": 250
+      },
+      {
+        "id": "SC01130",
+        "code": "SC01130",
+        "name": "SC01130 - GUT AROGYA (₹3,600)",
+        "desc": "GUT AROGYA",
+        "qty": 1,
+        "price": 3600,
+        "dc": 250
+      },
+      {
+        "id": "BESC00275",
+        "code": "BESC00275",
+        "name": "BESC00275 - FSD Supragut 70 (₹3,600)",
+        "desc": "FSD Supragut 70",
+        "qty": 1,
+        "price": 3600,
+        "dc": 250
+      },
+      {
+        "id": "SC00728",
+        "code": "SC00728",
+        "name": "SC00728 - Supragut 70 (₹3,580)",
+        "desc": "Supragut 70",
+        "qty": 1,
+        "price": 3580,
+        "dc": 250
+      },
+      {
+        "id": "SC00730",
+        "code": "SC00730",
+        "name": "SC00730 - Supragut 70 (₹3,355)",
+        "desc": "Supragut 70",
+        "qty": 1,
+        "price": 3355,
+        "dc": 250
+      },
+      {
+        "id": "SC01462",
+        "code": "SC01462",
+        "name": "SC01462 - GUT AROGYA (₹3,100)",
+        "desc": "GUT AROGYA",
+        "qty": 1,
+        "price": 3100,
+        "dc": 250
+      },
+      {
+        "id": "BESC00228",
+        "code": "BESC00228",
+        "name": "BESC00228 - Supragut 70 (₹2,999)",
+        "desc": "Supragut 70",
+        "qty": 1,
+        "price": 2999,
+        "dc": 250
+      },
+      {
+        "id": "BESC00276",
+        "code": "BESC00276",
+        "name": "BESC00276 - FSD Supragut 70 (₹2,999)",
+        "desc": "FSD Supragut 70",
+        "qty": 1,
+        "price": 2999,
+        "dc": 250
+      },
+      {
+        "id": "SC00731",
+        "code": "SC00731",
+        "name": "SC00731 - Supragut 70 (₹2,950)",
+        "desc": "Supragut 70",
+        "qty": 1,
+        "price": 2950,
+        "dc": 250
+      },
+      {
+        "id": "SC00733",
+        "code": "SC00733",
+        "name": "SC00733 - Supragut 70 (₹2,770)",
+        "desc": "Supragut 70",
+        "qty": 1,
+        "price": 2770,
+        "dc": 250
+      },
+      {
+        "id": "SC01463",
+        "code": "SC01463",
+        "name": "SC01463 - GUT AROGYA (₹2,700)",
+        "desc": "GUT AROGYA",
+        "qty": 1,
+        "price": 2700,
+        "dc": 250
+      },
+      {
+        "id": "BESC00277",
+        "code": "BESC00277",
+        "name": "BESC00277 - FSD Supragut 70 (₹2,599)",
+        "desc": "FSD Supragut 70",
+        "qty": 1,
+        "price": 2599,
+        "dc": 250
+      },
+      {
+        "id": "BESC00298",
+        "code": "BESC00298",
+        "name": "BESC00298 - Web Supragut 70 (₹2,599)",
+        "desc": "Web Supragut 70",
+        "qty": 1,
+        "price": 2599,
+        "dc": 250
+      },
+      {
+        "id": "BESC00352",
+        "code": "BESC00352",
+        "name": "BESC00352 - CS Supragut 70 COD (₹2,599)",
+        "desc": "CS Supragut 70 COD",
+        "qty": 1,
+        "price": 2599,
+        "dc": 250
+      },
+      {
+        "id": "BESC00591",
+        "code": "BESC00591",
+        "name": "BESC00591 - Supragut 70 Full Pack (₹2,599)",
+        "desc": "Supragut 70 Full Pack",
+        "qty": 1,
+        "price": 2599,
+        "dc": 250
+      },
+      {
+        "id": "SC01464",
+        "code": "SC01464",
+        "name": "SC01464 - GUT AROGYA (₹2,500)",
+        "desc": "GUT AROGYA",
+        "qty": 1,
+        "price": 2500,
+        "dc": 250
+      },
+      {
+        "id": "SC00735",
+        "code": "SC00735",
+        "name": "SC00735 - Supragut 70 (₹2,500)",
+        "desc": "Supragut 70",
+        "qty": 1,
+        "price": 2500,
+        "dc": 250
+      },
+      {
+        "id": "BESC00597",
+        "code": "BESC00597",
+        "name": "BESC00597 - Web Supragut 70 (₹2,299)",
+        "desc": "Web Supragut 70",
+        "qty": 1,
+        "price": 2299,
+        "dc": 250
+      },
+      {
+        "id": "SC00736",
+        "code": "SC00736",
+        "name": "SC00736 - Supragut 70 (₹2,275)",
+        "desc": "Supragut 70",
+        "qty": 1,
+        "price": 2275,
+        "dc": 250
+      },
+      {
+        "id": "SC01490",
+        "code": "SC01490",
+        "name": "SC01490 - GUT AROGYA (₹2,100)",
+        "desc": "GUT AROGYA",
+        "qty": 1,
+        "price": 2100,
+        "dc": 250
+      },
+      {
+        "id": "SC01571",
+        "code": "SC01571",
+        "name": "SC01571 - GUT AROGYA (₹1,999)",
+        "desc": "GUT AROGYA",
+        "qty": 1,
+        "price": 1999,
+        "dc": 250
+      },
+      {
+        "id": "BESC00592",
+        "code": "BESC00592",
+        "name": "BESC00592 - Web Supragut 70 (₹1,960)",
+        "desc": "Web Supragut 70",
+        "qty": 1,
+        "price": 1960,
+        "dc": 250
+      },
+      {
+        "id": "SC00737",
+        "code": "SC00737",
+        "name": "SC00737 - Supragut 70 (₹1,960)",
+        "desc": "Supragut 70",
+        "qty": 1,
+        "price": 1960,
+        "dc": 250
+      },
+      {
+        "id": "SC01492",
+        "code": "SC01492",
+        "name": "SC01492 - GUT AROGYA (₹1,899)",
+        "desc": "GUT AROGYA",
+        "qty": 1,
+        "price": 1899,
+        "dc": 250
+      },
+      {
+        "id": "SC01512",
+        "code": "SC01512",
+        "name": "SC01512 - GUT AROGYA (₹1,800)",
+        "desc": "GUT AROGYA",
+        "qty": 1,
+        "price": 1800,
+        "dc": 250
+      },
+      {
+        "id": "SC01465",
+        "code": "SC01465",
+        "name": "SC01465 - GUT AROGYA (₹1,700)",
+        "desc": "GUT AROGYA",
+        "qty": 1,
+        "price": 1700,
+        "dc": 250
+      },
+      {
+        "id": "SC01501",
+        "code": "SC01501",
+        "name": "SC01501 - GUT AROGYA (₹1,499)",
+        "desc": "GUT AROGYA",
+        "qty": 1,
+        "price": 1499,
+        "dc": 170
+      },
+      {
+        "id": "SC01584",
+        "code": "SC01584",
+        "name": "SC01584 - GUT AROGYA (₹1,300)",
+        "desc": "GUT AROGYA",
+        "qty": 1,
+        "price": 1300,
+        "dc": 170
+      }
+    ]
+  },
+  {
+    "id": "prod_8",
+    "name": "HANUMAN CHALISA YANTRA (HCY)",
+    "defaultPrice": 4300,
+    "schemes": [
+      {
+        "id": "BESC00208",
+        "code": "BESC00208",
+        "name": "BESC00208 - Hanuman Chalisa Yantra (₹4,300)",
+        "desc": "Hanuman Chalisa Yantra",
+        "qty": 1,
+        "price": 4300,
+        "dc": 250
+      },
+      {
+        "id": "SC00209",
+        "code": "SC00209",
+        "name": "SC00209 - Hanuman Chalisa Yantra (₹3,990)",
+        "desc": "Hanuman Chalisa Yantra",
+        "qty": 1,
+        "price": 3990,
+        "dc": 250
+      },
+      {
+        "id": "SC01330",
+        "code": "SC01330",
+        "name": "SC01330 - HCY WITH CHAIN (₹3,100)",
+        "desc": "HCY WITH CHAIN",
+        "qty": 1,
+        "price": 3100,
+        "dc": 250
+      },
+      {
+        "id": "SC00152",
+        "code": "SC00152",
+        "name": "SC00152 - Hanuman Chalisa Yantra (₹2,999)",
+        "desc": "Hanuman Chalisa Yantra",
+        "qty": 1,
+        "price": 2999,
+        "dc": 250
+      },
+      {
+        "id": "SC01104",
+        "code": "SC01104",
+        "name": "SC01104 - HCY WITH CHAIN (₹2,700)",
+        "desc": "HCY WITH CHAIN",
+        "qty": 1,
+        "price": 2700,
+        "dc": 250
+      },
+      {
+        "id": "SC01546",
+        "code": "SC01546",
+        "name": "SC01546 - HCY WITH CHAIN (₹2,500)",
+        "desc": "HCY WITH CHAIN",
+        "qty": 1,
+        "price": 2500,
+        "dc": 250
+      },
+      {
+        "id": "BESC00153",
+        "code": "BESC00153",
+        "name": "BESC00153 - Hanuman Chalisa Yantra (₹2,499)",
+        "desc": "Hanuman Chalisa Yantra",
+        "qty": 1,
+        "price": 2499,
+        "dc": 250
+      },
+      {
+        "id": "SC00709",
+        "code": "SC00709",
+        "name": "SC00709 - Hanuman Chalisa Yantra (₹2,455)",
+        "desc": "Hanuman Chalisa Yantra",
+        "qty": 1,
+        "price": 2455,
+        "dc": 250
+      },
+      {
+        "id": "BESC00545",
+        "code": "BESC00545",
+        "name": "BESC00545 - Web Hanuman Chalisa Yantra (₹2,299)",
+        "desc": "Web Hanuman Chalisa Yantra",
+        "qty": 1,
+        "price": 2299,
+        "dc": 250
+      },
+      {
+        "id": "SC00710",
+        "code": "SC00710",
+        "name": "SC00710 - Hanuman Chalisa Yantra (₹2,275)",
+        "desc": "Hanuman Chalisa Yantra",
+        "qty": 1,
+        "price": 2275,
+        "dc": 250
+      },
+      {
+        "id": "SC01372",
+        "code": "SC01372",
+        "name": "SC01372 - HCY WITH CHAIN (₹2,100)",
+        "desc": "HCY WITH CHAIN",
+        "qty": 1,
+        "price": 2100,
+        "dc": 250
+      },
+      {
+        "id": "SC00712",
+        "code": "SC00712",
+        "name": "SC00712 - Hanuman Chalisa Yantra (₹1,960)",
+        "desc": "Hanuman Chalisa Yantra",
+        "qty": 1,
+        "price": 1960,
+        "dc": 250
+      },
+      {
+        "id": "SC01499",
+        "code": "SC01499",
+        "name": "SC01499 - HCY WITH CHAIN (₹1,499)",
+        "desc": "HCY WITH CHAIN",
+        "qty": 1,
+        "price": 1499,
+        "dc": 170
+      }
+    ]
+  },
+  {
+    "id": "prod_9",
+    "name": "HARJOD",
+    "defaultPrice": 4300,
+    "schemes": [
+      {
+        "id": "SC00160",
+        "code": "SC00160",
+        "name": "SC00160 - Harjod (₹4,300)",
+        "desc": "Harjod",
+        "qty": 1,
+        "price": 4300,
+        "dc": 250
+      },
+      {
+        "id": "BESC00339",
+        "code": "BESC00339",
+        "name": "BESC00339 - Harjod (₹3,800)",
+        "desc": "Harjod",
+        "qty": 1,
+        "price": 3800,
+        "dc": 250
+      },
+      {
+        "id": "BESC00338",
+        "code": "BESC00338",
+        "name": "BESC00338 - Harjod (₹3,550)",
+        "desc": "Harjod",
+        "qty": 1,
+        "price": 3550,
+        "dc": 250
+      },
+      {
+        "id": "BESC00484",
+        "code": "BESC00484",
+        "name": "BESC00484 - CS Harjod COD (₹2,499)",
+        "desc": "CS Harjod COD",
+        "qty": 1,
+        "price": 2499,
+        "dc": 250
+      }
+    ]
+  },
+  {
+    "id": "prod_10",
+    "name": "HIGHTONIC",
+    "defaultPrice": 3985,
+    "schemes": [
+      {
+        "id": "SC00636",
+        "code": "SC00636",
+        "name": "SC00636 - Hightonic (₹3,985)",
+        "desc": "Hightonic",
+        "qty": 1,
+        "price": 3985,
+        "dc": 250
+      },
+      {
+        "id": "BESC00602",
+        "code": "BESC00602",
+        "name": "BESC00602 - Hightonic (₹3,940)",
+        "desc": "Hightonic",
+        "qty": 1,
+        "price": 3940,
+        "dc": 250
+      },
+      {
+        "id": "SC00604",
+        "code": "SC00604",
+        "name": "SC00604 - Hightonic (₹3,760)",
+        "desc": "Hightonic",
+        "qty": 1,
+        "price": 3760,
+        "dc": 250
+      },
+      {
+        "id": "SC00637",
+        "code": "SC00637",
+        "name": "SC00637 - Hightonic (₹3,580)",
+        "desc": "Hightonic",
+        "qty": 1,
+        "price": 3580,
+        "dc": 250
+      },
+      {
+        "id": "SC00639",
+        "code": "SC00639",
+        "name": "SC00639 - Hightonic (₹3,355)",
+        "desc": "Hightonic",
+        "qty": 1,
+        "price": 3355,
+        "dc": 250
+      },
+      {
+        "id": "SC00810",
+        "code": "SC00810",
+        "name": "SC00810 - Hightonic (₹3,130)",
+        "desc": "Hightonic",
+        "qty": 1,
+        "price": 3130,
+        "dc": 250
+      },
+      {
+        "id": "SC00640",
+        "code": "SC00640",
+        "name": "SC00640 - Hightonic (₹2,950)",
+        "desc": "Hightonic",
+        "qty": 1,
+        "price": 2950,
+        "dc": 250
+      },
+      {
+        "id": "SC00642",
+        "code": "SC00642",
+        "name": "SC00642 - Hightonic (₹2,770)",
+        "desc": "Hightonic",
+        "qty": 1,
+        "price": 2770,
+        "dc": 250
+      },
+      {
+        "id": "SC00644",
+        "code": "SC00644",
+        "name": "SC00644 - Hightonic (₹2,500)",
+        "desc": "Hightonic",
+        "qty": 1,
+        "price": 2500,
+        "dc": 250
+      },
+      {
+        "id": "SC00645",
+        "code": "SC00645",
+        "name": "SC00645 - Hightonic (₹2,275)",
+        "desc": "Hightonic",
+        "qty": 1,
+        "price": 2275,
+        "dc": 250
+      },
+      {
+        "id": "SC00646",
+        "code": "SC00646",
+        "name": "SC00646 - Hightonic (₹1,960)",
+        "desc": "Hightonic",
+        "qty": 1,
+        "price": 1960,
+        "dc": 250
+      }
+    ]
+  },
+  {
+    "id": "prod_11",
+    "name": "KALA GHODA",
+    "defaultPrice": 1999,
+    "schemes": [
+      {
+        "id": "SC01576",
+        "code": "SC01576",
+        "name": "SC01576 - Kala Ghoda Combo (₹1,999)",
+        "desc": "Kala Ghoda Combo",
+        "qty": 1,
+        "price": 1999,
+        "dc": 250
+      }
+    ]
+  },
+  {
+    "id": "prod_12",
+    "name": "MONEY RATNAM",
+    "defaultPrice": 5200,
+    "schemes": [
+      {
+        "id": "BESC00226",
+        "code": "BESC00226",
+        "name": "BESC00226 - Money Ratnam (₹5,200)",
+        "desc": "Money Ratnam",
+        "qty": 1,
+        "price": 5200,
+        "dc": 250
+      },
+      {
+        "id": "BESC00235",
+        "code": "BESC00235",
+        "name": "BESC00235 - Money Ratnam (₹4,900)",
+        "desc": "Money Ratnam",
+        "qty": 1,
+        "price": 4900,
+        "dc": 250
+      },
+      {
+        "id": "BESC00324",
+        "code": "BESC00324",
+        "name": "BESC00324 - Money Ratnam (₹4,600)",
+        "desc": "Money Ratnam",
+        "qty": 1,
+        "price": 4600,
+        "dc": 250
+      },
+      {
+        "id": "SC00324",
+        "code": "SC00324",
+        "name": "SC00324 - Money Ratnam (₹4,500)",
+        "desc": "Money Ratnam",
+        "qty": 1,
+        "price": 4500,
+        "dc": 250
+      },
+      {
+        "id": "BESC00224",
+        "code": "BESC00224",
+        "name": "BESC00224 - Money Ratnam (₹4,300)",
+        "desc": "Money Ratnam",
+        "qty": 1,
+        "price": 4300,
+        "dc": 250
+      },
+      {
+        "id": "BESC00265",
+        "code": "BESC00265",
+        "name": "BESC00265 - FSD Money Ratnam (₹4,300)",
+        "desc": "FSD Money Ratnam",
+        "qty": 1,
+        "price": 4300,
+        "dc": 250
+      },
+      {
+        "id": "BESC00325",
+        "code": "BESC00325",
+        "name": "BESC00325 - Money Ratnam (₹4,200)",
+        "desc": "Money Ratnam",
+        "qty": 1,
+        "price": 4200,
+        "dc": 250
+      },
+      {
+        "id": "BESC00355",
+        "code": "BESC00355",
+        "name": "BESC00355 - Money Ratnam (₹3,999)",
+        "desc": "Money Ratnam",
+        "qty": 1,
+        "price": 3999,
+        "dc": 250
+      },
+      {
+        "id": "SC00674",
+        "code": "SC00674",
+        "name": "SC00674 - Money Ratnam (₹3,985)",
+        "desc": "Money Ratnam",
+        "qty": 1,
+        "price": 3985,
+        "dc": 250
+      },
+      {
+        "id": "BESC00365",
+        "code": "BESC00365",
+        "name": "BESC00365 - Money Ratnam (₹3,940)",
+        "desc": "Money Ratnam",
+        "qty": 1,
+        "price": 3940,
+        "dc": 250
+      },
+      {
+        "id": "SC00675",
+        "code": "SC00675",
+        "name": "SC00675 - Money Ratnam (₹3,760)",
+        "desc": "Money Ratnam",
+        "qty": 1,
+        "price": 3760,
+        "dc": 250
+      },
+      {
+        "id": "BESC00501",
+        "code": "BESC00501",
+        "name": "BESC00501 - Money Ratnam (₹3,700)",
+        "desc": "Money Ratnam",
+        "qty": 1,
+        "price": 3700,
+        "dc": 250
+      },
+      {
+        "id": "BESC00240",
+        "code": "BESC00240",
+        "name": "BESC00240 - Money Ratnam (₹3,599)",
+        "desc": "Money Ratnam",
+        "qty": 1,
+        "price": 3599,
+        "dc": 250
+      },
+      {
+        "id": "SC00676",
+        "code": "SC00676",
+        "name": "SC00676 - Money Ratnam (₹3,580)",
+        "desc": "Money Ratnam",
+        "qty": 1,
+        "price": 3580,
+        "dc": 250
+      },
+      {
+        "id": "BESC00518",
+        "code": "BESC00518",
+        "name": "BESC00518 - Money Ratnam (₹3,500)",
+        "desc": "Money Ratnam",
+        "qty": 1,
+        "price": 3500,
+        "dc": 250
+      },
+      {
+        "id": "BESC00530",
+        "code": "BESC00530",
+        "name": "BESC00530 - Money Ratnam (₹3,499)",
+        "desc": "Money Ratnam",
+        "qty": 1,
+        "price": 3499,
+        "dc": 250
+      },
+      {
+        "id": "SC00678",
+        "code": "SC00678",
+        "name": "SC00678 - Money Ratnam (₹3,355)",
+        "desc": "Money Ratnam",
+        "qty": 1,
+        "price": 3355,
+        "dc": 250
+      },
+      {
+        "id": "SC00822",
+        "code": "SC00822",
+        "name": "SC00822 - Money Ratnam (₹3,130)",
+        "desc": "Money Ratnam",
+        "qty": 1,
+        "price": 3130,
+        "dc": 250
+      },
+      {
+        "id": "BESC00264",
+        "code": "BESC00264",
+        "name": "BESC00264 - Money Ratnam (₹2,999)",
+        "desc": "Money Ratnam",
+        "qty": 1,
+        "price": 2999,
+        "dc": 250
+      },
+      {
+        "id": "BESC00409",
+        "code": "BESC00409",
+        "name": "BESC00409 - CS Money Ratnam COD (₹2,999)",
+        "desc": "CS Money Ratnam COD",
+        "qty": 1,
+        "price": 2999,
+        "dc": 250
+      },
+      {
+        "id": "BESC00479",
+        "code": "BESC00479",
+        "name": "BESC00479 - FSD Money Ratnam (₹2,999)",
+        "desc": "FSD Money Ratnam",
+        "qty": 1,
+        "price": 2999,
+        "dc": 250
+      },
+      {
+        "id": "SC00518",
+        "code": "SC00518",
+        "name": "SC00518 - Money Ratnam (₹2,950)",
+        "desc": "Money Ratnam",
+        "qty": 1,
+        "price": 2950,
+        "dc": 250
+      },
+      {
+        "id": "SC00680",
+        "code": "SC00680",
+        "name": "SC00680 - Money Ratnam (₹2,770)",
+        "desc": "Money Ratnam",
+        "qty": 1,
+        "price": 2770,
+        "dc": 250
+      },
+      {
+        "id": "SC00537",
+        "code": "SC00537",
+        "name": "SC00537 - IN Money Ratnam (₹2,500)",
+        "desc": "IN Money Ratnam",
+        "qty": 1,
+        "price": 2500,
+        "dc": 250
+      },
+      {
+        "id": "SC00682",
+        "code": "SC00682",
+        "name": "SC00682 - Money Ratnam (₹2,500)",
+        "desc": "Money Ratnam",
+        "qty": 1,
+        "price": 2500,
+        "dc": 250
+      },
+      {
+        "id": "BESC00480",
+        "code": "BESC00480",
+        "name": "BESC00480 - FSD Money Ratnam (₹2,499)",
+        "desc": "FSD Money Ratnam",
+        "qty": 1,
+        "price": 2499,
+        "dc": 250
+      },
+      {
+        "id": "BESC00526",
+        "code": "BESC00526",
+        "name": "BESC00526 - CS Money Ratnam (₹2,499)",
+        "desc": "CS Money Ratnam",
+        "qty": 1,
+        "price": 2499,
+        "dc": 250
+      },
+      {
+        "id": "SC00683",
+        "code": "SC00683",
+        "name": "SC00683 - Money Ratnam (₹2,275)",
+        "desc": "Money Ratnam",
+        "qty": 1,
+        "price": 2275,
+        "dc": 250
+      },
+      {
+        "id": "SC00824",
+        "code": "SC00824",
+        "name": "SC00824 - Money Ratnam (₹1,960)",
+        "desc": "Money Ratnam",
+        "qty": 1,
+        "price": 1960,
+        "dc": 250
+      }
+    ]
+  },
+  {
+    "id": "prod_13",
+    "name": "NONI D CARE",
+    "defaultPrice": 3800,
+    "schemes": [
+      {
+        "id": "BESC00472",
+        "code": "BESC00472",
+        "name": "BESC00472 - CS Noni D Care 1+1+1 COD (₹3,800)",
+        "desc": "CS Noni D Care 1+1+1 COD",
+        "qty": 1,
+        "price": 3800,
+        "dc": 250
+      },
+      {
+        "id": "BESC00471",
+        "code": "BESC00471",
+        "name": "BESC00471 - CS Noni D Care 1+1+1 COD (₹3,600)",
+        "desc": "CS Noni D Care 1+1+1 COD",
+        "qty": 1,
+        "price": 3600,
+        "dc": 250
+      },
+      {
+        "id": "BESC00796",
+        "code": "BESC00796",
+        "name": "BESC00796 - Noni D Care 500ml 1+1+1 (₹3,490)",
+        "desc": "Noni D Care 500ml 1+1+1",
+        "qty": 1,
+        "price": 3490,
+        "dc": 250
+      },
+      {
+        "id": "SC00830",
+        "code": "SC00830",
+        "name": "SC00830 - Noni D Care 500ml 1+1 (₹3,400)",
+        "desc": "Noni D Care 500ml 1+1",
+        "qty": 1,
+        "price": 3400,
+        "dc": 250
+      },
+      {
+        "id": "SC00833",
+        "code": "SC00833",
+        "name": "SC00833 - Noni D Care 500ml 1+1 (₹3,220)",
+        "desc": "Noni D Care 500ml 1+1",
+        "qty": 1,
+        "price": 3220,
+        "dc": 250
+      },
+      {
+        "id": "BESC00470",
+        "code": "BESC00470",
+        "name": "BESC00470 - CS Noni D Care 1+1+1 COD (₹2,999)",
+        "desc": "CS Noni D Care 1+1+1 COD",
+        "qty": 1,
+        "price": 2999,
+        "dc": 250
+      },
+      {
+        "id": "BESC00737",
+        "code": "BESC00737",
+        "name": "BESC00737 - Noni D Care 500ml 1+1+1 (₹2,950)",
+        "desc": "Noni D Care 500ml 1+1+1",
+        "qty": 1,
+        "price": 2950,
+        "dc": 250
+      },
+      {
+        "id": "SC00831",
+        "code": "SC00831",
+        "name": "SC00831 - Noni D Care 500ml 1+1 (₹2,950)",
+        "desc": "Noni D Care 500ml 1+1",
+        "qty": 1,
+        "price": 2950,
+        "dc": 250
+      },
+      {
+        "id": "BESC00738",
+        "code": "BESC00738",
+        "name": "BESC00738 - Noni D Care 500ml 1+1+1 (₹2,770)",
+        "desc": "Noni D Care 500ml 1+1+1",
+        "qty": 1,
+        "price": 2770,
+        "dc": 250
+      },
+      {
+        "id": "SC00836",
+        "code": "SC00836",
+        "name": "SC00836 - Noni D Care 500ml 1+1 (₹2,770)",
+        "desc": "Noni D Care 500ml 1+1",
+        "qty": 1,
+        "price": 2770,
+        "dc": 250
+      },
+      {
+        "id": "BESC00469",
+        "code": "BESC00469",
+        "name": "BESC00469 - CS Noni D Care 1+1+1 COD (₹2,599)",
+        "desc": "CS Noni D Care 1+1+1 COD",
+        "qty": 1,
+        "price": 2599,
+        "dc": 250
+      },
+      {
+        "id": "BESC00739",
+        "code": "BESC00739",
+        "name": "BESC00739 - Noni D Care 500ml 1+1+1 (₹2,590)",
+        "desc": "Noni D Care 500ml 1+1+1",
+        "qty": 1,
+        "price": 2590,
+        "dc": 250
+      },
+      {
+        "id": "SC00837",
+        "code": "SC00837",
+        "name": "SC00837 - Noni D Care 500ml 1+1 (₹2,500)",
+        "desc": "Noni D Care 500ml 1+1",
+        "qty": 1,
+        "price": 2500,
+        "dc": 250
+      },
+      {
+        "id": "SC00742",
+        "code": "SC00742",
+        "name": "SC00742 - Noni D Care 500ml 1+1 (₹2,320)",
+        "desc": "Noni D Care 500ml 1+1",
+        "qty": 1,
+        "price": 2320,
+        "dc": 250
+      },
+      {
+        "id": "BESC00467",
+        "code": "BESC00467",
+        "name": "BESC00467 - CS Noni D Care 1+1 COD (₹1,999)",
+        "desc": "CS Noni D Care 1+1 COD",
+        "qty": 1,
+        "price": 1999,
+        "dc": 250
+      },
+      {
+        "id": "SC00743",
+        "code": "SC00743",
+        "name": "SC00743 - Noni D Care 500ml 1+1 (₹1,960)",
+        "desc": "Noni D Care 500ml 1+1",
+        "qty": 1,
+        "price": 1960,
+        "dc": 250
+      },
+      {
+        "id": "BESC00551",
+        "code": "BESC00551",
+        "name": "BESC00551 - Web Noni D Care 2 Bottle (₹1,600)",
+        "desc": "Web Noni D Care 2 Bottle",
+        "qty": 1,
+        "price": 1600,
+        "dc": 250
+      }
+    ]
+  },
+  {
+    "id": "prod_14",
+    "name": "OTHER AYURVEDIC PRODUCTS",
+    "defaultPrice": 1960,
+    "schemes": [
+      {
+        "id": "BESC00584",
+        "code": "BESC00584",
+        "name": "BESC00584 - Web TribaSlim Oil Plus (₹1,960)",
+        "desc": "Web TribaSlim Oil Plus",
+        "qty": 1,
+        "price": 1960,
+        "dc": 250
+      }
+    ]
+  },
+  {
+    "id": "prod_15",
+    "name": "PEEDA BHASM",
+    "defaultPrice": 3600,
+    "schemes": [
+      {
+        "id": "SC00968",
+        "code": "SC00968",
+        "name": "SC00968 - Peeda Bhasm (₹3,600)",
+        "desc": "Peeda Bhasm",
+        "qty": 1,
+        "price": 3600,
+        "dc": 250
+      },
+      {
+        "id": "SC01021",
+        "code": "SC01021",
+        "name": "SC01021 - Peeda Bhasm (₹2,700)",
+        "desc": "Peeda Bhasm",
+        "qty": 1,
+        "price": 2700,
+        "dc": 250
+      },
+      {
+        "id": "SC00984",
+        "code": "SC00984",
+        "name": "SC00984 - Peeda Bhasm (₹2,500)",
+        "desc": "Peeda Bhasm",
+        "qty": 1,
+        "price": 2500,
+        "dc": 250
+      },
+      {
+        "id": "SC00989",
+        "code": "SC00989",
+        "name": "SC00989 - Peeda Bhasm (₹2,100)",
+        "desc": "Peeda Bhasm",
+        "qty": 1,
+        "price": 2100,
+        "dc": 250
+      },
+      {
+        "id": "SC01573",
+        "code": "SC01573",
+        "name": "SC01573 - Peeda Bhasm (₹1,999)",
+        "desc": "Peeda Bhasm",
+        "qty": 1,
+        "price": 1999,
+        "dc": 250
+      },
+      {
+        "id": "SC01502",
+        "code": "SC01502",
+        "name": "SC01502 - Peeda Bhasm (₹1,499)",
+        "desc": "Peeda Bhasm",
+        "qty": 1,
+        "price": 1499,
+        "dc": 170
+      },
+      {
+        "id": "SC01496",
+        "code": "SC01496",
+        "name": "SC01496 - Peeda Bhasm Single Pack (₹1,199)",
+        "desc": "Peeda Bhasm Single Pack",
+        "qty": 1,
+        "price": 1199,
+        "dc": 170
+      },
+      {
+        "id": "SC01057",
+        "code": "SC01057",
+        "name": "SC01057 - Peeda Bhasm Single Pack (₹990)",
+        "desc": "Peeda Bhasm Single Pack",
+        "qty": 1,
+        "price": 990,
+        "dc": 170
+      },
+      {
+        "id": "SC01184",
+        "code": "SC01184",
+        "name": "SC01184 - Peeda Bhasm Single Pack (₹599)",
+        "desc": "Peeda Bhasm Single Pack",
+        "qty": 1,
+        "price": 599,
+        "dc": 170
+      }
+    ]
+  },
+  {
+    "id": "prod_16",
+    "name": "PILES BHASM",
+    "defaultPrice": 3600,
+    "schemes": [
+      {
+        "id": "SC01527",
+        "code": "SC01527",
+        "name": "SC01527 - Piles Bhasm 45 (₹3,600)",
+        "desc": "Piles Bhasm 45",
+        "qty": 1,
+        "price": 3600,
+        "dc": 250
+      },
+      {
+        "id": "SC00974",
+        "code": "SC00974",
+        "name": "SC00974 - Piles Bhasm 45 (₹2,990)",
+        "desc": "Piles Bhasm 45",
+        "qty": 1,
+        "price": 2990,
+        "dc": 250
+      },
+      {
+        "id": "SC01518",
+        "code": "SC01518",
+        "name": "SC01518 - Piles Bhasm 45 New (₹2,990)",
+        "desc": "Piles Bhasm 45 New",
+        "qty": 1,
+        "price": 2990,
+        "dc": 250
+      },
+      {
+        "id": "SC01591",
+        "code": "SC01591",
+        "name": "SC01591 - Piles Bhasm 45 New (₹2,700)",
+        "desc": "Piles Bhasm 45 New",
+        "qty": 1,
+        "price": 2700,
+        "dc": 250
+      },
+      {
+        "id": "SC01587",
+        "code": "SC01587",
+        "name": "SC01587 - Piles Bhasm 45 New (₹2,500)",
+        "desc": "Piles Bhasm 45 New",
+        "qty": 1,
+        "price": 2500,
+        "dc": 250
+      },
+      {
+        "id": "SC01597",
+        "code": "SC01597",
+        "name": "SC01597 - Piles Bhasm 45 New (₹2,300)",
+        "desc": "Piles Bhasm 45 New",
+        "qty": 1,
+        "price": 2300,
+        "dc": 250
+      },
+      {
+        "id": "SC01522",
+        "code": "SC01522",
+        "name": "SC01522 - Piles Bhasm 45 New (₹2,100)",
+        "desc": "Piles Bhasm 45 New",
+        "qty": 1,
+        "price": 2100,
+        "dc": 250
+      },
+      {
+        "id": "SC01581",
+        "code": "SC01581",
+        "name": "SC01581 - Piles Bhasm 45 New (₹1,999)",
+        "desc": "Piles Bhasm 45 New",
+        "qty": 1,
+        "price": 1999,
+        "dc": 250
+      },
+      {
+        "id": "SC01523",
+        "code": "SC01523",
+        "name": "SC01523 - Piles Bhasm 45 New (₹1,800)",
+        "desc": "Piles Bhasm 45 New",
+        "qty": 1,
+        "price": 1800,
+        "dc": 250
+      },
+      {
+        "id": "SC01570",
+        "code": "SC01570",
+        "name": "SC01570 - Piles Bhasm 45 New (₹1,699)",
+        "desc": "Piles Bhasm 45 New",
+        "qty": 1,
+        "price": 1699,
+        "dc": 250
+      },
+      {
+        "id": "SC01560",
+        "code": "SC01560",
+        "name": "SC01560 - Piles Bhasm 45 New (₹1,499)",
+        "desc": "Piles Bhasm 45 New",
+        "qty": 1,
+        "price": 1499,
+        "dc": 170
+      }
+    ]
+  },
+  {
+    "id": "prod_17",
+    "name": "PUSHTIVARDHNAM",
+    "defaultPrice": 3985,
+    "schemes": [
+      {
+        "id": "SC00647",
+        "code": "SC00647",
+        "name": "SC00647 - Pushtivardhnam (₹3,985)",
+        "desc": "Pushtivardhnam",
+        "qty": 1,
+        "price": 3985,
+        "dc": 250
+      },
+      {
+        "id": "BESC00575",
+        "code": "BESC00575",
+        "name": "BESC00575 - Pushtivardhnam (₹3,940)",
+        "desc": "Pushtivardhnam",
+        "qty": 1,
+        "price": 3940,
+        "dc": 250
+      },
+      {
+        "id": "SC00648",
+        "code": "SC00648",
+        "name": "SC00648 - Pushtivardhnam (₹3,760)",
+        "desc": "Pushtivardhnam",
+        "qty": 1,
+        "price": 3760,
+        "dc": 250
+      },
+      {
+        "id": "BESC00576",
+        "code": "BESC00576",
+        "name": "BESC00576 - Pushtivardhnam (₹3,700)",
+        "desc": "Pushtivardhnam",
+        "qty": 1,
+        "price": 3700,
+        "dc": 250
+      },
+      {
+        "id": "SC00649",
+        "code": "SC00649",
+        "name": "SC00649 - Pushtivardhnam (₹3,580)",
+        "desc": "Pushtivardhnam",
+        "qty": 1,
+        "price": 3580,
+        "dc": 250
+      },
+      {
+        "id": "SC00651",
+        "code": "SC00651",
+        "name": "SC00651 - Pushtivardhnam (₹3,355)",
+        "desc": "Pushtivardhnam",
+        "qty": 1,
+        "price": 3355,
+        "dc": 250
+      },
+      {
+        "id": "SC00814",
+        "code": "SC00814",
+        "name": "SC00814 - Pushtivardhnam (₹3,130)",
+        "desc": "Pushtivardhnam",
+        "qty": 1,
+        "price": 3130,
+        "dc": 250
+      },
+      {
+        "id": "BESC00598",
+        "code": "BESC00598",
+        "name": "BESC00598 - FSD Pushtivardhnam (₹2,999)",
+        "desc": "FSD Pushtivardhnam",
+        "qty": 1,
+        "price": 2999,
+        "dc": 250
+      },
+      {
+        "id": "SC00652",
+        "code": "SC00652",
+        "name": "SC00652 - Pushtivardhnam (₹2,950)",
+        "desc": "Pushtivardhnam",
+        "qty": 1,
+        "price": 2950,
+        "dc": 250
+      },
+      {
+        "id": "SC00654",
+        "code": "SC00654",
+        "name": "SC00654 - Pushtivardhnam (₹2,770)",
+        "desc": "Pushtivardhnam",
+        "qty": 1,
+        "price": 2770,
+        "dc": 250
+      },
+      {
+        "id": "BESC00599",
+        "code": "BESC00599",
+        "name": "BESC00599 - FSD Pushtivardhnam (₹2,699)",
+        "desc": "FSD Pushtivardhnam",
+        "qty": 1,
+        "price": 2699,
+        "dc": 250
+      },
+      {
+        "id": "SC00656",
+        "code": "SC00656",
+        "name": "SC00656 - Pushtivardhnam (₹2,500)",
+        "desc": "Pushtivardhnam",
+        "qty": 1,
+        "price": 2500,
+        "dc": 250
+      },
+      {
+        "id": "SC00657",
+        "code": "SC00657",
+        "name": "SC00657 - Pushtivardhnam (₹2,275)",
+        "desc": "Pushtivardhnam",
+        "qty": 1,
+        "price": 2275,
+        "dc": 250
+      },
+      {
+        "id": "SC00658",
+        "code": "SC00658",
+        "name": "SC00658 - Pushtivardhnam (₹1,960)",
+        "desc": "Pushtivardhnam",
+        "qty": 1,
+        "price": 1960,
+        "dc": 250
+      }
+    ]
+  },
+  {
+    "id": "prod_18",
+    "name": "RAJVILAS",
+    "defaultPrice": 3050,
+    "schemes": [
+      {
+        "id": "BESC00250",
+        "code": "BESC00250",
+        "name": "BESC00250 - RajVilas (₹3,050)",
+        "desc": "RajVilas",
+        "qty": 1,
+        "price": 3050,
+        "dc": 250
+      },
+      {
+        "id": "SC00794",
+        "code": "SC00794",
+        "name": "SC00794 - Rajvilas (₹3,040)",
+        "desc": "Rajvilas",
+        "qty": 1,
+        "price": 3040,
+        "dc": 250
+      },
+      {
+        "id": "BESC00531",
+        "code": "BESC00531",
+        "name": "BESC00531 - RajVilas (₹2,999)",
+        "desc": "RajVilas",
+        "qty": 1,
+        "price": 2999,
+        "dc": 250
+      },
+      {
+        "id": "BESC00092",
+        "code": "BESC00092",
+        "name": "BESC00092 - RajVilas (₹2,950)",
+        "desc": "RajVilas",
+        "qty": 1,
+        "price": 2950,
+        "dc": 250
+      },
+      {
+        "id": "BESC00279",
+        "code": "BESC00279",
+        "name": "BESC00279 - FSD Rajvilas (₹2,950)",
+        "desc": "FSD Rajvilas",
+        "qty": 1,
+        "price": 2950,
+        "dc": 250
+      },
+      {
+        "id": "SC00795",
+        "code": "SC00795",
+        "name": "SC00795 - Rajvilas (₹2,770)",
+        "desc": "Rajvilas",
+        "qty": 1,
+        "price": 2770,
+        "dc": 250
+      },
+      {
+        "id": "BESC00249",
+        "code": "BESC00249",
+        "name": "BESC00249 - Rajvilas (₹2,750)",
+        "desc": "Rajvilas",
+        "qty": 1,
+        "price": 2750,
+        "dc": 250
+      },
+      {
+        "id": "BESC00105",
+        "code": "BESC00105",
+        "name": "BESC00105 - RAJVILAS (₹2,650)",
+        "desc": "RAJVILAS",
+        "qty": 1,
+        "price": 2650,
+        "dc": 250
+      },
+      {
+        "id": "BESC00280",
+        "code": "BESC00280",
+        "name": "BESC00280 - FSD Rajvilas (₹2,650)",
+        "desc": "FSD Rajvilas",
+        "qty": 1,
+        "price": 2650,
+        "dc": 250
+      },
+      {
+        "id": "BESC00190",
+        "code": "BESC00190",
+        "name": "BESC00190 - FSD RajVilas (₹2,499)",
+        "desc": "FSD RajVilas",
+        "qty": 1,
+        "price": 2499,
+        "dc": 250
+      },
+      {
+        "id": "SC00699",
+        "code": "SC00699",
+        "name": "SC00699 - Rajvilas (₹2,455)",
+        "desc": "Rajvilas",
+        "qty": 1,
+        "price": 2455,
+        "dc": 250
+      },
+      {
+        "id": "SC00700",
+        "code": "SC00700",
+        "name": "SC00700 - Rajvilas (₹2,275)",
+        "desc": "Rajvilas",
+        "qty": 1,
+        "price": 2275,
+        "dc": 250
+      },
+      {
+        "id": "BESC00281",
+        "code": "BESC00281",
+        "name": "BESC00281 - FSD Rajvilas (₹1,999)",
+        "desc": "FSD Rajvilas",
+        "qty": 1,
+        "price": 1999,
+        "dc": 250
+      },
+      {
+        "id": "BESC00356",
+        "code": "BESC00356",
+        "name": "BESC00356 - CS RajVilas COD (₹1,999)",
+        "desc": "CS RajVilas COD",
+        "qty": 1,
+        "price": 1999,
+        "dc": 250
+      },
+      {
+        "id": "BESC00582",
+        "code": "BESC00582",
+        "name": "BESC00582 - Web Rajvilas (₹1,960)",
+        "desc": "Web Rajvilas",
+        "qty": 1,
+        "price": 1960,
+        "dc": 250
+      },
+      {
+        "id": "SC00701",
+        "code": "SC00701",
+        "name": "SC00701 - Rajvilas (₹1,960)",
+        "desc": "Rajvilas",
+        "qty": 1,
+        "price": 1960,
+        "dc": 250
+      },
+      {
+        "id": "BESC00604",
+        "code": "BESC00604",
+        "name": "BESC00604 - Web Rajvilas (₹1,690)",
+        "desc": "Web Rajvilas",
+        "qty": 1,
+        "price": 1690,
+        "dc": 250
+      },
+      {
+        "id": "SC00702",
+        "code": "SC00702",
+        "name": "SC00702 - Rajvilas (₹1,690)",
+        "desc": "Rajvilas",
+        "qty": 1,
+        "price": 1690,
+        "dc": 250
+      }
+    ]
+  },
+  {
+    "id": "prod_19",
+    "name": "RSO RARE SLIMMING OIL",
+    "defaultPrice": 3600,
+    "schemes": [
+      {
+        "id": "SC00995",
+        "code": "SC00995",
+        "name": "SC00995 - RSO PLUS (₹3,600)",
+        "desc": "RSO PLUS",
+        "qty": 1,
+        "price": 3600,
+        "dc": 250
+      },
+      {
+        "id": "SC01011",
+        "code": "SC01011",
+        "name": "SC01011 - RSO Rare Slimming Oil (₹3,100)",
+        "desc": "RSO Rare Slimming Oil",
+        "qty": 1,
+        "price": 3100,
+        "dc": 250
+      },
+      {
+        "id": "SC01079",
+        "code": "SC01079",
+        "name": "SC01079 - RSO Rare Slimming Oil (₹2,700)",
+        "desc": "RSO Rare Slimming Oil",
+        "qty": 1,
+        "price": 2700,
+        "dc": 250
+      },
+      {
+        "id": "SC01493",
+        "code": "SC01493",
+        "name": "SC01493 - RSO Rare Slimming Oil (₹2,500)",
+        "desc": "RSO Rare Slimming Oil",
+        "qty": 1,
+        "price": 2500,
+        "dc": 250
+      },
+      {
+        "id": "SC01598",
+        "code": "SC01598",
+        "name": "SC01598 - RSO Rare Slimming Oil (₹2,300)",
+        "desc": "RSO Rare Slimming Oil",
+        "qty": 1,
+        "price": 2300,
+        "dc": 250
+      },
+      {
+        "id": "SC01567",
+        "code": "SC01567",
+        "name": "SC01567 - RSO Rare Slimming Oil (₹2,299)",
+        "desc": "RSO Rare Slimming Oil",
+        "qty": 1,
+        "price": 2299,
+        "dc": 250
+      },
+      {
+        "id": "SC01494",
+        "code": "SC01494",
+        "name": "SC01494 - RSO PLUS (₹2,100)",
+        "desc": "RSO PLUS",
+        "qty": 1,
+        "price": 2100,
+        "dc": 250
+      },
+      {
+        "id": "SC01568",
+        "code": "SC01568",
+        "name": "SC01568 - RSO Rare Slimming Oil (₹1,999)",
+        "desc": "RSO Rare Slimming Oil",
+        "qty": 1,
+        "price": 1999,
+        "dc": 250
+      },
+      {
+        "id": "SC01510",
+        "code": "SC01510",
+        "name": "SC01510 - RSO Rare Slimming Oil (₹1,800)",
+        "desc": "RSO Rare Slimming Oil",
+        "qty": 1,
+        "price": 1800,
+        "dc": 250
+      },
+      {
+        "id": "SC01520",
+        "code": "SC01520",
+        "name": "SC01520 - RSO Single Pack - Rare Slimming Oil (₹1,700)",
+        "desc": "RSO Single Pack - Rare Slimming Oil",
+        "qty": 1,
+        "price": 1700,
+        "dc": 250
+      },
+      {
+        "id": "SC01578",
+        "code": "SC01578",
+        "name": "SC01578 - RSO Rare Slimming Oil (₹1,699)",
+        "desc": "RSO Rare Slimming Oil",
+        "qty": 1,
+        "price": 1699,
+        "dc": 250
+      },
+      {
+        "id": "SC01565",
+        "code": "SC01565",
+        "name": "SC01565 - RSO Single Pack (₹1,529)",
+        "desc": "RSO Single Pack",
+        "qty": 1,
+        "price": 1529,
+        "dc": 250
+      },
+      {
+        "id": "SC01495",
+        "code": "SC01495",
+        "name": "SC01495 - RSO Single Pack (₹1,500)",
+        "desc": "RSO Single Pack",
+        "qty": 1,
+        "price": 1500,
+        "dc": 170
+      },
+      {
+        "id": "SC01500",
+        "code": "SC01500",
+        "name": "SC01500 - RSO Rare Slimming Oil (₹1,499)",
+        "desc": "RSO Rare Slimming Oil",
+        "qty": 1,
+        "price": 1499,
+        "dc": 170
+      },
+      {
+        "id": "SC01558",
+        "code": "SC01558",
+        "name": "SC01558 - RSO Rare Slimming Oil (₹1,300)",
+        "desc": "RSO Rare Slimming Oil",
+        "qty": 1,
+        "price": 1300,
+        "dc": 170
+      },
+      {
+        "id": "SC01513",
+        "code": "SC01513",
+        "name": "SC01513 - RSO Single Pack - Rare Slimming Oil (₹1,200)",
+        "desc": "RSO Single Pack - Rare Slimming Oil",
+        "qty": 1,
+        "price": 1200,
+        "dc": 170
+      }
+    ]
+  },
+  {
+    "id": "prod_20",
+    "name": "SANDHI SUDHA",
+    "defaultPrice": 1700,
+    "schemes": [
+      {
+        "id": "BESC00379",
+        "code": "BESC00379",
+        "name": "BESC00379 - CS Sandhi Sudha Plus COD (₹1,700)",
+        "desc": "CS Sandhi Sudha Plus COD",
+        "qty": 1,
+        "price": 1700,
+        "dc": 250
+      }
+    ]
+  },
+  {
+    "id": "prod_21",
+    "name": "SLIMTONIC",
+    "defaultPrice": 4900,
+    "schemes": [
+      {
+        "id": "SC00323",
+        "code": "SC00323",
+        "name": "SC00323 - Slimtonic (₹4,900)",
+        "desc": "Slimtonic",
+        "qty": 1,
+        "price": 4900,
+        "dc": 250
+      },
+      {
+        "id": "BESC00326",
+        "code": "BESC00326",
+        "name": "BESC00326 - Slimtonic (₹4,500)",
+        "desc": "Slimtonic",
+        "qty": 1,
+        "price": 4500,
+        "dc": 250
+      },
+      {
+        "id": "SC00315",
+        "code": "SC00315",
+        "name": "SC00315 - Slimtonic (₹4,300)",
+        "desc": "Slimtonic",
+        "qty": 1,
+        "price": 4300,
+        "dc": 250
+      },
+      {
+        "id": "BESC00327",
+        "code": "BESC00327",
+        "name": "BESC00327 - Slimtonic (₹4,100)",
+        "desc": "Slimtonic",
+        "qty": 1,
+        "price": 4100,
+        "dc": 250
+      },
+      {
+        "id": "SC00659",
+        "code": "SC00659",
+        "name": "SC00659 - Slimtonic (₹3,985)",
+        "desc": "Slimtonic",
+        "qty": 1,
+        "price": 3985,
+        "dc": 250
+      },
+      {
+        "id": "BESC00364",
+        "code": "BESC00364",
+        "name": "BESC00364 - Slimtonic (₹3,940)",
+        "desc": "Slimtonic",
+        "qty": 1,
+        "price": 3940,
+        "dc": 250
+      },
+      {
+        "id": "SC00660",
+        "code": "SC00660",
+        "name": "SC00660 - Slimtonic (₹3,760)",
+        "desc": "Slimtonic",
+        "qty": 1,
+        "price": 3760,
+        "dc": 250
+      },
+      {
+        "id": "BESC00477",
+        "code": "BESC00477",
+        "name": "BESC00477 - Slimtonic (₹3,700)",
+        "desc": "Slimtonic",
+        "qty": 1,
+        "price": 3700,
+        "dc": 250
+      },
+      {
+        "id": "BESC00345",
+        "code": "BESC00345",
+        "name": "BESC00345 - FSD Slimtonic (₹3,600)",
+        "desc": "FSD Slimtonic",
+        "qty": 1,
+        "price": 3600,
+        "dc": 250
+      },
+      {
+        "id": "SC00661",
+        "code": "SC00661",
+        "name": "SC00661 - Slimtonic (₹3,580)",
+        "desc": "Slimtonic",
+        "qty": 1,
+        "price": 3580,
+        "dc": 250
+      },
+      {
+        "id": "BESC00482",
+        "code": "BESC00482",
+        "name": "BESC00482 - FSD Slimtonic (₹3,399)",
+        "desc": "FSD Slimtonic",
+        "qty": 1,
+        "price": 3399,
+        "dc": 250
+      },
+      {
+        "id": "SC00663",
+        "code": "SC00663",
+        "name": "SC00663 - Slimtonic (₹3,355)",
+        "desc": "Slimtonic",
+        "qty": 1,
+        "price": 3355,
+        "dc": 250
+      },
+      {
+        "id": "SC00818",
+        "code": "SC00818",
+        "name": "SC00818 - Slimtonic (₹3,130)",
+        "desc": "Slimtonic",
+        "qty": 1,
+        "price": 3130,
+        "dc": 250
+      },
+      {
+        "id": "BESC00483",
+        "code": "BESC00483",
+        "name": "BESC00483 - FSD Slimtonic (₹2,999)",
+        "desc": "FSD Slimtonic",
+        "qty": 1,
+        "price": 2999,
+        "dc": 250
+      },
+      {
+        "id": "SC00843",
+        "code": "SC00843",
+        "name": "SC00843 - Slimtonic (₹2,999)",
+        "desc": "Slimtonic",
+        "qty": 1,
+        "price": 2999,
+        "dc": 250
+      },
+      {
+        "id": "SC00664",
+        "code": "SC00664",
+        "name": "SC00664 - Slimtonic (₹2,950)",
+        "desc": "Slimtonic",
+        "qty": 1,
+        "price": 2950,
+        "dc": 250
+      },
+      {
+        "id": "SC00666",
+        "code": "SC00666",
+        "name": "SC00666 - Slimtonic (₹2,770)",
+        "desc": "Slimtonic",
+        "qty": 1,
+        "price": 2770,
+        "dc": 250
+      },
+      {
+        "id": "SC00539",
+        "code": "SC00539",
+        "name": "SC00539 - IN Slimtonic (₹2,500)",
+        "desc": "IN Slimtonic",
+        "qty": 1,
+        "price": 2500,
+        "dc": 250
+      },
+      {
+        "id": "SC00668",
+        "code": "SC00668",
+        "name": "SC00668 - Slimtonic (₹2,500)",
+        "desc": "Slimtonic",
+        "qty": 1,
+        "price": 2500,
+        "dc": 250
+      },
+      {
+        "id": "BESC00528",
+        "code": "BESC00528",
+        "name": "BESC00528 - FSD Slimtonic (₹2,499)",
+        "desc": "FSD Slimtonic",
+        "qty": 1,
+        "price": 2499,
+        "dc": 250
+      },
+      {
+        "id": "SC00669",
+        "code": "SC00669",
+        "name": "SC00669 - Slimtonic (₹2,275)",
+        "desc": "Slimtonic",
+        "qty": 1,
+        "price": 2275,
+        "dc": 250
+      },
+      {
+        "id": "BESC00563",
+        "code": "BESC00563",
+        "name": "BESC00563 - Web Slimtonic 2 Bottle (₹1,960)",
+        "desc": "Web Slimtonic 2 Bottle",
+        "qty": 1,
+        "price": 1960,
+        "dc": 250
+      },
+      {
+        "id": "SC00670",
+        "code": "SC00670",
+        "name": "SC00670 - Slimtonic 500ml 1+1 (₹1,960)",
+        "desc": "Slimtonic 500ml 1+1",
+        "qty": 1,
+        "price": 1960,
+        "dc": 250
+      },
+      {
+        "id": "SC00842",
+        "code": "SC00842",
+        "name": "SC00842 - Slimtonic Double Bottle (₹1,800)",
+        "desc": "Slimtonic Double Bottle",
+        "qty": 1,
+        "price": 1800,
+        "dc": 250
+      },
+      {
+        "id": "SC00672",
+        "code": "SC00672",
+        "name": "SC00672 - Slimtonic 500ml (₹1,420)",
+        "desc": "Slimtonic 500ml",
+        "qty": 1,
+        "price": 1420,
+        "dc": 170
+      },
+      {
+        "id": "BESC00579",
+        "code": "BESC00579",
+        "name": "BESC00579 - Web Slimtonic Single (₹1,330)",
+        "desc": "Web Slimtonic Single",
+        "qty": 1,
+        "price": 1330,
+        "dc": 170
+      },
+      {
+        "id": "SC00841",
+        "code": "SC00841",
+        "name": "SC00841 - Slimtonic Single Bottle (₹1,300)",
+        "desc": "Slimtonic Single Bottle",
+        "qty": 1,
+        "price": 1300,
+        "dc": 170
+      },
+      {
+        "id": "BESC00562",
+        "code": "BESC00562",
+        "name": "BESC00562 - Web Slimtonic Single (₹1,240)",
+        "desc": "Web Slimtonic Single",
+        "qty": 1,
+        "price": 1240,
+        "dc": 170
+      }
+    ]
+  },
+  {
+    "id": "prod_22",
+    "name": "SWARN VILAS",
+    "defaultPrice": 3985,
+    "schemes": [
+      {
+        "id": "SC00687",
+        "code": "SC00687",
+        "name": "SC00687 - Swarn Vilas (₹3,985)",
+        "desc": "Swarn Vilas",
+        "qty": 1,
+        "price": 3985,
+        "dc": 250
+      },
+      {
+        "id": "BESC00463",
+        "code": "BESC00463",
+        "name": "BESC00463 - Swarn Vilas (₹3,940)",
+        "desc": "Swarn Vilas",
+        "qty": 1,
+        "price": 3940,
+        "dc": 250
+      },
+      {
+        "id": "BESC00439",
+        "code": "BESC00439",
+        "name": "BESC00439 - Swarn Vilas (₹3,800)",
+        "desc": "Swarn Vilas",
+        "qty": 1,
+        "price": 3800,
+        "dc": 250
+      },
+      {
+        "id": "SC00688",
+        "code": "SC00688",
+        "name": "SC00688 - Swarn Vilas (₹3,760)",
+        "desc": "Swarn Vilas",
+        "qty": 1,
+        "price": 3760,
+        "dc": 250
+      },
+      {
+        "id": "BESC00473",
+        "code": "BESC00473",
+        "name": "BESC00473 - Swarn Vilas (₹3,700)",
+        "desc": "Swarn Vilas",
+        "qty": 1,
+        "price": 3700,
+        "dc": 250
+      },
+      {
+        "id": "SC00689",
+        "code": "SC00689",
+        "name": "SC00689 - Swarn Vilas (₹3,580)",
+        "desc": "Swarn Vilas",
+        "qty": 1,
+        "price": 3580,
+        "dc": 250
+      },
+      {
+        "id": "BESC00478",
+        "code": "BESC00478",
+        "name": "BESC00478 - Swarn Vilas (₹3,550)",
+        "desc": "Swarn Vilas",
+        "qty": 1,
+        "price": 3550,
+        "dc": 250
+      },
+      {
+        "id": "BESC00503",
+        "code": "BESC00503",
+        "name": "BESC00503 - Swarn Vilas (₹3,500)",
+        "desc": "Swarn Vilas",
+        "qty": 1,
+        "price": 3500,
+        "dc": 250
+      },
+      {
+        "id": "BESC00532",
+        "code": "BESC00532",
+        "name": "BESC00532 - Swarn Vilas (₹3,499)",
+        "desc": "Swarn Vilas",
+        "qty": 1,
+        "price": 3499,
+        "dc": 250
+      },
+      {
+        "id": "SC00691",
+        "code": "SC00691",
+        "name": "SC00691 - Swarn Vilas (₹3,355)",
+        "desc": "Swarn Vilas",
+        "qty": 1,
+        "price": 3355,
+        "dc": 250
+      },
+      {
+        "id": "SC00826",
+        "code": "SC00826",
+        "name": "SC00826 - Swarn Vilas (₹3,130)",
+        "desc": "Swarn Vilas",
+        "qty": 1,
+        "price": 3130,
+        "dc": 250
+      },
+      {
+        "id": "BESC00504",
+        "code": "BESC00504",
+        "name": "BESC00504 - FSD Swarn Vilas (₹2,999)",
+        "desc": "FSD Swarn Vilas",
+        "qty": 1,
+        "price": 2999,
+        "dc": 250
+      },
+      {
+        "id": "BESC00525",
+        "code": "BESC00525",
+        "name": "BESC00525 - CS Swarn Vilas (₹2,999)",
+        "desc": "CS Swarn Vilas",
+        "qty": 1,
+        "price": 2999,
+        "dc": 250
+      },
+      {
+        "id": "SC00692",
+        "code": "SC00692",
+        "name": "SC00692 - Swarn Vilas (₹2,950)",
+        "desc": "Swarn Vilas",
+        "qty": 1,
+        "price": 2950,
+        "dc": 250
+      },
+      {
+        "id": "SC00694",
+        "code": "SC00694",
+        "name": "SC00694 - Swarn Vilas (₹2,770)",
+        "desc": "Swarn Vilas",
+        "qty": 1,
+        "price": 2770,
+        "dc": 250
+      },
+      {
+        "id": "SC00538",
+        "code": "SC00538",
+        "name": "SC00538 - IN Swarn Vilas (₹2,500)",
+        "desc": "IN Swarn Vilas",
+        "qty": 1,
+        "price": 2500,
+        "dc": 250
+      },
+      {
+        "id": "SC00696",
+        "code": "SC00696",
+        "name": "SC00696 - Swarn Vilas (₹2,500)",
+        "desc": "Swarn Vilas",
+        "qty": 1,
+        "price": 2500,
+        "dc": 250
+      },
+      {
+        "id": "SC00697",
+        "code": "SC00697",
+        "name": "SC00697 - Swarn Vilas (₹2,275)",
+        "desc": "Swarn Vilas",
+        "qty": 1,
+        "price": 2275,
+        "dc": 250
+      },
+      {
+        "id": "SC00698",
+        "code": "SC00698",
+        "name": "SC00698 - Swarn Vilas (₹1,960)",
+        "desc": "Swarn Vilas",
+        "qty": 1,
+        "price": 1960,
+        "dc": 250
+      }
+    ]
+  },
+  {
+    "id": "prod_23",
+    "name": "TRIBAL BLACK HAIR OIL",
+    "defaultPrice": 3940,
+    "schemes": [
+      {
+        "id": "BESC00071",
+        "code": "BESC00071",
+        "name": "BESC00071 - Tribal Black Hair Oil (₹3,940)",
+        "desc": "Tribal Black Hair Oil",
+        "qty": 1,
+        "price": 3940,
+        "dc": 250
+      },
+      {
+        "id": "BESC00073",
+        "code": "BESC00073",
+        "name": "BESC00073 - Tribal Black Hair Oil (₹3,700)",
+        "desc": "Tribal Black Hair Oil",
+        "qty": 1,
+        "price": 3700,
+        "dc": 250
+      },
+      {
+        "id": "SC00078",
+        "code": "SC00078",
+        "name": "SC00078 - Tribal Black Hair Oil (₹3,600)",
+        "desc": "Tribal Black Hair Oil",
+        "qty": 1,
+        "price": 3600,
+        "dc": 250
+      },
+      {
+        "id": "BESC00542",
+        "code": "BESC00542",
+        "name": "BESC00542 - Tribal Black Oil (₹3,500)",
+        "desc": "Tribal Black Oil",
+        "qty": 1,
+        "price": 3500,
+        "dc": 250
+      },
+      {
+        "id": "BESC00082",
+        "code": "BESC00082",
+        "name": "BESC00082 - FSD Tribal Black Hair Oil (₹3,400)",
+        "desc": "FSD Tribal Black Hair Oil",
+        "qty": 1,
+        "price": 3400,
+        "dc": 250
+      },
+      {
+        "id": "SC00080",
+        "code": "SC00080",
+        "name": "SC00080 - Tribal Black Hair Oil (₹3,330)",
+        "desc": "Tribal Black Hair Oil",
+        "qty": 1,
+        "price": 3330,
+        "dc": 250
+      },
+      {
+        "id": "BESC00125",
+        "code": "BESC00125",
+        "name": "BESC00125 - Web Tribal Black Hair Oil (₹2,999)",
+        "desc": "Web Tribal Black Hair Oil",
+        "qty": 1,
+        "price": 2999,
+        "dc": 250
+      },
+      {
+        "id": "BESC00084",
+        "code": "BESC00084",
+        "name": "BESC00084 - Tribal Black Hair Oil (₹2,950)",
+        "desc": "Tribal Black Hair Oil",
+        "qty": 1,
+        "price": 2950,
+        "dc": 250
+      },
+      {
+        "id": "BESC00282",
+        "code": "BESC00282",
+        "name": "BESC00282 - FSD Tribal Black Hair Oil (₹2,950)",
+        "desc": "FSD Tribal Black Hair Oil",
+        "qty": 1,
+        "price": 2950,
+        "dc": 250
+      },
+      {
+        "id": "BESC00205",
+        "code": "BESC00205",
+        "name": "BESC00205 - Tribal Black Hair Oil (₹2,900)",
+        "desc": "Tribal Black Hair Oil",
+        "qty": 1,
+        "price": 2900,
+        "dc": 250
+      },
+      {
+        "id": "BESC00118",
+        "code": "BESC00118",
+        "name": "BESC00118 - FSD Tribal Black Hair Oil (₹2,500)",
+        "desc": "FSD Tribal Black Hair Oil",
+        "qty": 1,
+        "price": 2500,
+        "dc": 250
+      },
+      {
+        "id": "BESC00206",
+        "code": "BESC00206",
+        "name": "BESC00206 - Tribal Black Hair Oil (₹2,500)",
+        "desc": "Tribal Black Hair Oil",
+        "qty": 1,
+        "price": 2500,
+        "dc": 250
+      },
+      {
+        "id": "BESC00213",
+        "code": "BESC00213",
+        "name": "BESC00213 - Web Tribal Black Hair Oil (₹1,999)",
+        "desc": "Web Tribal Black Hair Oil",
+        "qty": 1,
+        "price": 1999,
+        "dc": 250
+      },
+      {
+        "id": "BESC00283",
+        "code": "BESC00283",
+        "name": "BESC00283 - FSD Tribal Black Hair Oil (₹1,999)",
+        "desc": "FSD Tribal Black Hair Oil",
+        "qty": 1,
+        "price": 1999,
+        "dc": 250
+      }
+    ]
+  },
+  {
+    "id": "prod_24",
+    "name": "TSO (TRIBAL SLIMMING OIL)",
+    "defaultPrice": 3800,
+    "schemes": [
+      {
+        "id": "SC00247",
+        "code": "SC00247",
+        "name": "SC00247 - TRIBAL SLIMMING OIL PLUS (₹3,800)",
+        "desc": "TRIBAL SLIMMING OIL PLUS",
+        "qty": 1,
+        "price": 3800,
+        "dc": 250
+      },
+      {
+        "id": "BESC00123",
+        "code": "BESC00123",
+        "name": "BESC00123 - TSO+ (Tribal Slimming Oil) (₹3,700)",
+        "desc": "TSO+ (Tribal Slimming Oil)",
+        "qty": 1,
+        "price": 3700,
+        "dc": 250
+      },
+      {
+        "id": "BESC00135",
+        "code": "BESC00135",
+        "name": "BESC00135 - TRIBAL SLIMMING OIL PLUS (₹3,700)",
+        "desc": "TRIBAL SLIMMING OIL PLUS",
+        "qty": 1,
+        "price": 3700,
+        "dc": 250
+      },
+      {
+        "id": "SC00246",
+        "code": "SC00246",
+        "name": "SC00246 - TRIBAL SLIMMING OIL PLUS (₹3,550)",
+        "desc": "TRIBAL SLIMMING OIL PLUS",
+        "qty": 1,
+        "price": 3550,
+        "dc": 250
+      },
+      {
+        "id": "SC00165",
+        "code": "SC00165",
+        "name": "SC00165 - TRIBAL SLIMMING OIL PLUS (₹3,450)",
+        "desc": "TRIBAL SLIMMING OIL PLUS",
+        "qty": 1,
+        "price": 3450,
+        "dc": 250
+      },
+      {
+        "id": "BESC00129",
+        "code": "BESC00129",
+        "name": "BESC00129 - Web TSO (Tribal Slimming Oil 1+1) (₹2,499)",
+        "desc": "Web TSO (Tribal Slimming Oil 1+1)",
+        "qty": 1,
+        "price": 2499,
+        "dc": 250
+      },
+      {
+        "id": "SC00102",
+        "code": "SC00102",
+        "name": "SC00102 - Tribal Slimming Oil  1+1 (₹2,200)",
+        "desc": "Tribal Slimming Oil  1+1",
+        "qty": 1,
+        "price": 2200,
+        "dc": 250
+      },
+      {
+        "id": "BESC00065",
+        "code": "BESC00065",
+        "name": "BESC00065 - Tribal Slimming Oil  1+1 (₹2,100)",
+        "desc": "Tribal Slimming Oil  1+1",
+        "qty": 1,
+        "price": 2100,
+        "dc": 250
+      },
+      {
+        "id": "SC00199",
+        "code": "SC00199",
+        "name": "SC00199 - Tribal Slimming Oil  1+1 (₹1,977)",
+        "desc": "Tribal Slimming Oil  1+1",
+        "qty": 1,
+        "price": 1977,
+        "dc": 250
+      },
+      {
+        "id": "BESC00559",
+        "code": "BESC00559",
+        "name": "BESC00559 - Web TSO 2 Bottle (₹1,960)",
+        "desc": "Web TSO 2 Bottle",
+        "qty": 1,
+        "price": 1960,
+        "dc": 250
+      },
+      {
+        "id": "SC00787",
+        "code": "SC00787",
+        "name": "SC00787 - TSO 1+1 (₹1,960)",
+        "desc": "TSO 1+1",
+        "qty": 1,
+        "price": 1960,
+        "dc": 250
+      },
+      {
+        "id": "BESC00207",
+        "code": "BESC00207",
+        "name": "BESC00207 - Tribal Slimming Oil (₹1,900)",
+        "desc": "Tribal Slimming Oil",
+        "qty": 1,
+        "price": 1900,
+        "dc": 250
+      },
+      {
+        "id": "SC00784",
+        "code": "SC00784",
+        "name": "SC00784 - TSO (₹1,600)",
+        "desc": "TSO",
+        "qty": 1,
+        "price": 1600,
+        "dc": 250
+      },
+      {
+        "id": "SC00785",
+        "code": "SC00785",
+        "name": "SC00785 - TSO 1+1 (₹1,600)",
+        "desc": "TSO 1+1",
+        "qty": 1,
+        "price": 1600,
+        "dc": 250
+      },
+      {
+        "id": "SC00262",
+        "code": "SC00262",
+        "name": "SC00262 - Tribal Slimming Oil Single Bottle (₹1,499)",
+        "desc": "Tribal Slimming Oil Single Bottle",
+        "qty": 1,
+        "price": 1499,
+        "dc": 170
+      },
+      {
+        "id": "BESC00585",
+        "code": "BESC00585",
+        "name": "BESC00585 - Web TSO Single (₹1,420)",
+        "desc": "Web TSO Single",
+        "qty": 1,
+        "price": 1420,
+        "dc": 170
+      },
+      {
+        "id": "BESC00578",
+        "code": "BESC00578",
+        "name": "BESC00578 - Web TSO Single (₹1,330)",
+        "desc": "Web TSO Single",
+        "qty": 1,
+        "price": 1330,
+        "dc": 170
+      }
+    ]
+  },
+  {
+    "id": "prod_25",
+    "name": "UDAR SANJIVANI",
+    "defaultPrice": 3900,
+    "schemes": [
+      {
+        "id": "SC00171",
+        "code": "SC00171",
+        "name": "SC00171 - Udar Sanjivani (₹3,900)",
+        "desc": "Udar Sanjivani",
+        "qty": 1,
+        "price": 3900,
+        "dc": 250
+      },
+      {
+        "id": "SC00020",
+        "code": "SC00020",
+        "name": "SC00020 - Udar Sanjivani (₹3,600)",
+        "desc": "Udar Sanjivani",
+        "qty": 1,
+        "price": 3600,
+        "dc": 250
+      },
+      {
+        "id": "SC00019",
+        "code": "SC00019",
+        "name": "SC00019 - Udar Sanjivani (₹2,500)",
+        "desc": "Udar Sanjivani",
+        "qty": 1,
+        "price": 2500,
+        "dc": 250
+      },
+      {
+        "id": "SC00017",
+        "code": "SC00017",
+        "name": "SC00017 - Udar Sanjivani (₹2,100)",
+        "desc": "Udar Sanjivani",
+        "qty": 1,
+        "price": 2100,
+        "dc": 250
+      },
+      {
+        "id": "SC00018",
+        "code": "SC00018",
+        "name": "SC00018 - Udar Sanjivani (₹1,999)",
+        "desc": "Udar Sanjivani",
+        "qty": 1,
+        "price": 1999,
+        "dc": 250
+      },
+      {
+        "id": "BESC00561",
+        "code": "BESC00561",
+        "name": "BESC00561 - Web Udar Sanjivani Pack of 2 (₹1,960)",
+        "desc": "Web Udar Sanjivani Pack of 2",
+        "qty": 1,
+        "price": 1960,
+        "dc": 250
+      },
+      {
+        "id": "SC00704",
+        "code": "SC00704",
+        "name": "SC00704 - Udar Sanjivani Single 1+1 (₹1,960)",
+        "desc": "Udar Sanjivani Single 1+1",
+        "qty": 1,
+        "price": 1960,
+        "dc": 250
+      },
+      {
+        "id": "BESC00569",
+        "code": "BESC00569",
+        "name": "BESC00569 - Web Udar Sanjivani 2 Bottle (₹1,800)",
+        "desc": "Web Udar Sanjivani 2 Bottle",
+        "qty": 1,
+        "price": 1800,
+        "dc": 250
+      },
+      {
+        "id": "BESC00031",
+        "code": "BESC00031",
+        "name": "BESC00031 - Udar Sanjivani (₹1,700)",
+        "desc": "Udar Sanjivani",
+        "qty": 1,
+        "price": 1700,
+        "dc": 250
+      },
+      {
+        "id": "SC00706",
+        "code": "SC00706",
+        "name": "SC00706 - Udar Sanjivani Single (₹1,690)",
+        "desc": "Udar Sanjivani Single",
+        "qty": 1,
+        "price": 1690,
+        "dc": 250
+      },
+      {
+        "id": "BESC00548",
+        "code": "BESC00548",
+        "name": "BESC00548 - Web Udar Sanjivani 2 Bottle (₹1,600)",
+        "desc": "Web Udar Sanjivani 2 Bottle",
+        "qty": 1,
+        "price": 1600,
+        "dc": 250
+      },
+      {
+        "id": "BESC00586",
+        "code": "BESC00586",
+        "name": "BESC00586 - Web Udar Sanjivani Single (₹1,420)",
+        "desc": "Web Udar Sanjivani Single",
+        "qty": 1,
+        "price": 1420,
+        "dc": 170
+      },
+      {
+        "id": "SC00707",
+        "code": "SC00707",
+        "name": "SC00707 - Udar Sanjivani Single (₹1,420)",
+        "desc": "Udar Sanjivani Single",
+        "qty": 1,
+        "price": 1420,
+        "dc": 170
+      },
+      {
+        "id": "BESC00577",
+        "code": "BESC00577",
+        "name": "BESC00577 - Web Udar Sanjivani Single (₹1,330)",
+        "desc": "Web Udar Sanjivani Single",
+        "qty": 1,
+        "price": 1330,
+        "dc": 170
+      },
+      {
+        "id": "BESC00560",
+        "code": "BESC00560",
+        "name": "BESC00560 - Web Udar Sanjivani Single (₹1,240)",
+        "desc": "Web Udar Sanjivani Single",
+        "qty": 1,
+        "price": 1240,
+        "dc": 170
+      }
+    ]
+  },
+  {
+    "id": "prod_26",
+    "name": "ZERO ADDICTION / NASHA SHUNYAM",
+    "defaultPrice": 3600,
+    "schemes": [
+      {
+        "id": "SC01222",
+        "code": "SC01222",
+        "name": "SC01222 - Nasha Shunyam (₹3,600)",
+        "desc": "Nasha Shunyam",
+        "qty": 1,
+        "price": 3600,
+        "dc": 250
+      },
+      {
+        "id": "SC01589",
+        "code": "SC01589",
+        "name": "SC01589 - Zero Addiction Advanced (₹3,600)",
+        "desc": "Zero Addiction Advanced",
+        "qty": 1,
+        "price": 3600,
+        "dc": 250
+      },
+      {
+        "id": "SC01590",
+        "code": "SC01590",
+        "name": "SC01590 - Zero Addiction Advanced (₹3,100)",
+        "desc": "Zero Addiction Advanced",
+        "qty": 1,
+        "price": 3100,
+        "dc": 250
+      },
+      {
+        "id": "SC01391",
+        "code": "SC01391",
+        "name": "SC01391 - Nasha Shunyam (₹2,700)",
+        "desc": "Nasha Shunyam",
+        "qty": 1,
+        "price": 2700,
+        "dc": 250
+      },
+      {
+        "id": "SC01593",
+        "code": "SC01593",
+        "name": "SC01593 - Zero Addiction Advanced (₹2,700)",
+        "desc": "Zero Addiction Advanced",
+        "qty": 1,
+        "price": 2700,
+        "dc": 250
+      },
+      {
+        "id": "SC01242",
+        "code": "SC01242",
+        "name": "SC01242 - Nasha Shunyam (₹2,500)",
+        "desc": "Nasha Shunyam",
+        "qty": 1,
+        "price": 2500,
+        "dc": 250
+      },
+      {
+        "id": "SC01592",
+        "code": "SC01592",
+        "name": "SC01592 - Zero Addiction Advanced (₹2,500)",
+        "desc": "Zero Addiction Advanced",
+        "qty": 1,
+        "price": 2500,
+        "dc": 250
+      },
+      {
+        "id": "SC01600",
+        "code": "SC01600",
+        "name": "SC01600 - Zero Addiction Advanced (₹2,300)",
+        "desc": "Zero Addiction Advanced",
+        "qty": 1,
+        "price": 2300,
+        "dc": 250
+      },
+      {
+        "id": "SC01235",
+        "code": "SC01235",
+        "name": "SC01235 - Nasha Shunyam (₹2,100)",
+        "desc": "Nasha Shunyam",
+        "qty": 1,
+        "price": 2100,
+        "dc": 250
+      },
+      {
+        "id": "SC01611",
+        "code": "SC01611",
+        "name": "SC01611 - Zero Addiction Advanced (₹2,100)",
+        "desc": "Zero Addiction Advanced",
+        "qty": 1,
+        "price": 2100,
+        "dc": 250
+      },
+      {
+        "id": "SC01610",
+        "code": "SC01610",
+        "name": "SC01610 - Zero Addiction Advanced (₹1,999)",
+        "desc": "Zero Addiction Advanced",
+        "qty": 1,
+        "price": 1999,
+        "dc": 250
+      },
+      {
+        "id": "SC01596",
+        "code": "SC01596",
+        "name": "SC01596 - Zero Addiction Advanced (₹1,800)",
+        "desc": "Zero Addiction Advanced",
+        "qty": 1,
+        "price": 1800,
+        "dc": 250
+      },
+      {
+        "id": "SC01491",
+        "code": "SC01491",
+        "name": "SC01491 - Nasha Shunyam (₹1,300)",
+        "desc": "Nasha Shunyam",
+        "qty": 1,
+        "price": 1300,
+        "dc": 170
+      }
+    ]
+  }
+]

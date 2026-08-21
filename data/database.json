@@ -1,0 +1,7439 @@
+{
+  "users": [
+    {
+      "id": "u_admin",
+      "username": "admin",
+      "name": "System Administrator",
+      "passwordHash": "$2a$10$y1ew5UmzKit4PS6aY.KGB.jdKGOdJoJS8hwNzMczumTq5eqDW9XaO",
+      "role": "admin",
+      "district": null,
+      "createdAt": "2026-08-21T09:39:40.141Z"
+    },
+    {
+      "id": "u_dealer_1",
+      "username": "dealer_chittorgarh",
+      "name": "Chittorgarh Dealer",
+      "passwordHash": "$2a$10$y1ew5UmzKit4PS6aY.KGB.zRVvn/eh56IrpQam9iArahExuSQSHz2",
+      "role": "dealer",
+      "district": "Chittorgarh",
+      "createdAt": "2026-08-21T09:39:40.142Z"
+    },
+    {
+      "id": "u_dealer_2",
+      "username": "dealer_alwar",
+      "name": "Alwar Dealer",
+      "passwordHash": "$2a$10$y1ew5UmzKit4PS6aY.KGB.zRVvn/eh56IrpQam9iArahExuSQSHz2",
+      "role": "dealer",
+      "district": "Alwar",
+      "createdAt": "2026-08-21T09:39:40.142Z"
+    },
+    {
+      "id": "u_dealer_3",
+      "username": "dealer_bikaner",
+      "name": "Bikaner Dealer",
+      "passwordHash": "$2a$10$y1ew5UmzKit4PS6aY.KGB.zRVvn/eh56IrpQam9iArahExuSQSHz2",
+      "role": "dealer",
+      "district": "Bikaner",
+      "createdAt": "2026-08-21T09:39:40.142Z"
+    },
+    {
+      "id": "u_dealer_4",
+      "username": "dealer_uttarakhand",
+      "name": "Uttarakhand Dealer",
+      "passwordHash": "$2a$10$y1ew5UmzKit4PS6aY.KGB.zRVvn/eh56IrpQam9iArahExuSQSHz2",
+      "role": "dealer",
+      "district": "Uttarakhand",
+      "createdAt": "2026-08-21T09:39:40.142Z"
+    },
+    {
+      "id": "u_dealer_5",
+      "username": "dealer_udhamsingh",
+      "name": "Udham Singh Nagar Dealer",
+      "passwordHash": "$2a$10$y1ew5UmzKit4PS6aY.KGB.zRVvn/eh56IrpQam9iArahExuSQSHz2",
+      "role": "dealer",
+      "district": "Udham Singh Nagar",
+      "createdAt": "2026-08-21T09:39:40.142Z"
+    },
+    {
+      "id": "u_dealer_6",
+      "username": "dealer_jodhpur",
+      "name": "Jodhpur Dealer",
+      "passwordHash": "$2a$10$y1ew5UmzKit4PS6aY.KGB.zRVvn/eh56IrpQam9iArahExuSQSHz2",
+      "role": "dealer",
+      "district": "Jodhpur",
+      "createdAt": "2026-08-21T09:39:40.142Z"
+    },
+    {
+      "id": "u_dealer_7",
+      "username": "dealer_kota",
+      "name": "Kota Dealer",
+      "passwordHash": "$2a$10$y1ew5UmzKit4PS6aY.KGB.zRVvn/eh56IrpQam9iArahExuSQSHz2",
+      "role": "dealer",
+      "district": "Kota",
+      "createdAt": "2026-08-21T09:39:40.142Z"
+    },
+    {
+      "id": "u_dealer_8",
+      "username": "dealer_faridabad",
+      "name": "Faridabad Dealer",
+      "passwordHash": "$2a$10$y1ew5UmzKit4PS6aY.KGB.zRVvn/eh56IrpQam9iArahExuSQSHz2",
+      "role": "dealer",
+      "district": "Faridabad",
+      "createdAt": "2026-08-21T09:39:40.142Z"
+    },
+    {
+      "id": "u_dealer_9",
+      "username": "dealer_gurgaon",
+      "name": "Gurgaon Dealer",
+      "passwordHash": "$2a$10$y1ew5UmzKit4PS6aY.KGB.zRVvn/eh56IrpQam9iArahExuSQSHz2",
+      "role": "dealer",
+      "district": "Gurgaon",
+      "createdAt": "2026-08-21T09:39:40.142Z"
+    },
+    {
+      "id": "u_dealer_10",
+      "username": "dealer_rewari",
+      "name": "Rewari Dealer",
+      "passwordHash": "$2a$10$y1ew5UmzKit4PS6aY.KGB.zRVvn/eh56IrpQam9iArahExuSQSHz2",
+      "role": "dealer",
+      "district": "Rewari",
+      "createdAt": "2026-08-21T09:39:40.142Z"
+    },
+    {
+      "id": "u_dealer_11",
+      "username": "dealer_muzaffarnagar",
+      "name": "Muzaffarnagar Dealer",
+      "passwordHash": "$2a$10$y1ew5UmzKit4PS6aY.KGB.zRVvn/eh56IrpQam9iArahExuSQSHz2",
+      "role": "dealer",
+      "district": "Muzaffarnagar",
+      "createdAt": "2026-08-21T09:39:40.142Z"
+    },
+    {
+      "id": "u_dealer_12",
+      "username": "dealer_shamli",
+      "name": "Shamli Dealer",
+      "passwordHash": "$2a$10$y1ew5UmzKit4PS6aY.KGB.zRVvn/eh56IrpQam9iArahExuSQSHz2",
+      "role": "dealer",
+      "district": "Shamli",
+      "createdAt": "2026-08-21T09:39:40.142Z"
+    }
+  ],
+  "products": [
+    {
+      "id": "prod_1",
+      "name": "AAROGYA NETRAM",
+      "isActive": true
+    },
+    {
+      "id": "prod_2",
+      "name": "ALCOBAN PLUS",
+      "isActive": true
+    },
+    {
+      "id": "prod_3",
+      "name": "CURE VISION",
+      "isActive": true
+    },
+    {
+      "id": "prod_4",
+      "name": "DAMADAR OIL",
+      "isActive": true
+    },
+    {
+      "id": "prod_5",
+      "name": "DRINK STOP AYURVEDIC",
+      "isActive": true
+    },
+    {
+      "id": "prod_6",
+      "name": "EVERESTER",
+      "isActive": true
+    },
+    {
+      "id": "prod_7",
+      "name": "GUT AROGYA / SUPRAGUT",
+      "isActive": true
+    },
+    {
+      "id": "prod_8",
+      "name": "HANUMAN CHALISA YANTRA (HCY)",
+      "isActive": true
+    },
+    {
+      "id": "prod_9",
+      "name": "HARJOD",
+      "isActive": true
+    },
+    {
+      "id": "prod_10",
+      "name": "HIGHTONIC",
+      "isActive": true
+    },
+    {
+      "id": "prod_11",
+      "name": "KALA GHODA",
+      "isActive": true
+    },
+    {
+      "id": "prod_12",
+      "name": "MONEY RATNAM",
+      "isActive": true
+    },
+    {
+      "id": "prod_13",
+      "name": "NONI D CARE",
+      "isActive": true
+    },
+    {
+      "id": "prod_14",
+      "name": "OTHER AYURVEDIC PRODUCTS",
+      "isActive": true
+    },
+    {
+      "id": "prod_15",
+      "name": "PEEDA BHASM",
+      "isActive": true
+    },
+    {
+      "id": "prod_16",
+      "name": "PILES BHASM",
+      "isActive": true
+    },
+    {
+      "id": "prod_17",
+      "name": "PUSHTIVARDHNAM",
+      "isActive": true
+    },
+    {
+      "id": "prod_18",
+      "name": "RAJVILAS",
+      "isActive": true
+    },
+    {
+      "id": "prod_19",
+      "name": "RSO RARE SLIMMING OIL",
+      "isActive": true
+    },
+    {
+      "id": "prod_20",
+      "name": "SANDHI SUDHA",
+      "isActive": true
+    },
+    {
+      "id": "prod_21",
+      "name": "SLIMTONIC",
+      "isActive": true
+    },
+    {
+      "id": "prod_22",
+      "name": "SWARN VILAS",
+      "isActive": true
+    },
+    {
+      "id": "prod_23",
+      "name": "TRIBAL BLACK HAIR OIL",
+      "isActive": true
+    },
+    {
+      "id": "prod_24",
+      "name": "TSO (TRIBAL SLIMMING OIL)",
+      "isActive": true
+    },
+    {
+      "id": "prod_25",
+      "name": "UDAR SANJIVANI",
+      "isActive": true
+    },
+    {
+      "id": "prod_26",
+      "name": "ZERO ADDICTION / NASHA SHUNYAM",
+      "isActive": true
+    },
+    {
+      "id": "prod_27",
+      "name": "PLAY MORE",
+      "isActive": true
+    },
+    {
+      "id": "prod_28",
+      "name": "HEIGHT VEDA",
+      "isActive": true
+    },
+    {
+      "id": "prod_29",
+      "name": "ALERGY SAFA",
+      "isActive": true
+    },
+    {
+      "id": "prod_30",
+      "name": "EYE SUTRA",
+      "isActive": true
+    },
+    {
+      "id": "prod_31",
+      "name": "HANUMAN CHALISA YANTRA",
+      "isActive": true
+    },
+    {
+      "id": "prod_32",
+      "name": "GUT AROGYA",
+      "isActive": true
+    },
+    {
+      "id": "prod_33",
+      "name": "ZERO ADDICTION",
+      "isActive": true
+    },
+    {
+      "id": "prod_34",
+      "name": "DRINK STOP",
+      "isActive": true
+    },
+    {
+      "id": "prod_mt2revsjk5z",
+      "name": "AMAR NETRAM",
+      "defaultPrice": 2500,
+      "schemes": [
+        {
+          "id": "sch_prod_mt2revsjk5z_1",
+          "name": "AMAR NETRAM 1",
+          "qty": 1,
+          "price": 2500,
+          "dc": 250
+        }
+      ]
+    },
+    {
+      "id": "prod_mt2rf5wdxm7",
+      "name": "KADWI DAWA",
+      "defaultPrice": 2500,
+      "schemes": [
+        {
+          "id": "sch_prod_mt2rf5wdxm7_1",
+          "name": "KADWI DAWA 1",
+          "qty": 1,
+          "price": 2500,
+          "dc": 250
+        }
+      ]
+    }
+  ],
+  "districtProducts": {
+    "Chittorgarh": [
+      {
+        "id": "dp_chi_p1",
+        "productId": "prod_1",
+        "name": "AAROGYA NETRAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_1_1",
+            "name": "AAROGYA NETRAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_chi_p2",
+        "productId": "prod_2",
+        "name": "ALCOBAN PLUS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_2_1",
+            "name": "ALCOBAN PLUS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_chi_p3",
+        "productId": "prod_3",
+        "name": "CURE VISION",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_3_1",
+            "name": "CURE VISION Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_chi_p4",
+        "productId": "prod_4",
+        "name": "DAMADAR OIL",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_4_1",
+            "name": "DAMADAR OIL Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_chi_p5",
+        "productId": "prod_5",
+        "name": "DRINK STOP AYURVEDIC",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_5_1",
+            "name": "DRINK STOP AYURVEDIC Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_chi_p6",
+        "productId": "prod_6",
+        "name": "EVERESTER",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_6_1",
+            "name": "EVERESTER Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_chi_p7",
+        "productId": "prod_7",
+        "name": "GUT AROGYA / SUPRAGUT",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_7_1",
+            "name": "GUT AROGYA / SUPRAGUT Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_chi_p8",
+        "productId": "prod_8",
+        "name": "HANUMAN CHALISA YANTRA (HCY)",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_8_1",
+            "name": "HANUMAN CHALISA YANTRA (HCY) Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_chi_p9",
+        "productId": "prod_9",
+        "name": "HARJOD",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_9_1",
+            "name": "HARJOD Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_chi_p10",
+        "productId": "prod_10",
+        "name": "HIGHTONIC",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_10_1",
+            "name": "HIGHTONIC Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_chi_p11",
+        "productId": "prod_11",
+        "name": "KALA GHODA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_11_1",
+            "name": "KALA GHODA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_chi_p12",
+        "productId": "prod_12",
+        "name": "MONEY RATNAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_12_1",
+            "name": "MONEY RATNAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_chi_p13",
+        "productId": "prod_13",
+        "name": "NONI D CARE",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_13_1",
+            "name": "NONI D CARE Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_chi_p14",
+        "productId": "prod_14",
+        "name": "OTHER AYURVEDIC PRODUCTS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_14_1",
+            "name": "OTHER AYURVEDIC PRODUCTS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_chi_p15",
+        "productId": "prod_15",
+        "name": "PEEDA BHASM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_15_1",
+            "name": "PEEDA BHASM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_chi_p16",
+        "productId": "prod_16",
+        "name": "PILES BHASM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_16_1",
+            "name": "PILES BHASM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_chi_p17",
+        "productId": "prod_17",
+        "name": "PUSHTIVARDHNAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_17_1",
+            "name": "PUSHTIVARDHNAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_chi_p18",
+        "productId": "prod_18",
+        "name": "RAJVILAS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_18_1",
+            "name": "RAJVILAS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_chi_p19",
+        "productId": "prod_19",
+        "name": "RSO RARE SLIMMING OIL",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_19_1",
+            "name": "RSO RARE SLIMMING OIL Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_chi_p20",
+        "productId": "prod_20",
+        "name": "SANDHI SUDHA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_20_1",
+            "name": "SANDHI SUDHA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_chi_p21",
+        "productId": "prod_21",
+        "name": "SLIMTONIC",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_21_1",
+            "name": "SLIMTONIC Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_chi_p22",
+        "productId": "prod_22",
+        "name": "SWARN VILAS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_22_1",
+            "name": "SWARN VILAS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_chi_p23",
+        "productId": "prod_23",
+        "name": "TRIBAL BLACK HAIR OIL",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_23_1",
+            "name": "TRIBAL BLACK HAIR OIL Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_chi_p24",
+        "productId": "prod_24",
+        "name": "TSO (TRIBAL SLIMMING OIL)",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_24_1",
+            "name": "TSO (TRIBAL SLIMMING OIL) Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_chi_p25",
+        "productId": "prod_25",
+        "name": "UDAR SANJIVANI",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_25_1",
+            "name": "UDAR SANJIVANI Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_chi_p26",
+        "productId": "prod_26",
+        "name": "ZERO ADDICTION / NASHA SHUNYAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_26_1",
+            "name": "ZERO ADDICTION / NASHA SHUNYAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_chi_p29",
+        "productId": "prod_29",
+        "name": "ALERGY SAFA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_29_1",
+            "name": "ALERGY SAFA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_chi_p30",
+        "productId": "prod_30",
+        "name": "EYE SUTRA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_es_1",
+            "name": "EYE SUTRA 1",
+            "qty": 1,
+            "price": 2500,
+            "dc": 170
+          }
+        ]
+      },
+      {
+        "id": "dp_chi_p31",
+        "productId": "prod_31",
+        "name": "HANUMAN CHALISA YANTRA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_31_1",
+            "name": "HANUMAN CHALISA YANTRA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_chi_p32",
+        "productId": "prod_32",
+        "name": "GUT AROGYA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_32_1",
+            "name": "GUT AROGYA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_chi_p33",
+        "productId": "prod_33",
+        "name": "ZERO ADDICTION",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_33_1",
+            "name": "ZERO ADDICTION Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_chi_p34",
+        "productId": "prod_34",
+        "name": "DRINK STOP",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_34_1",
+            "name": "DRINK STOP Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_chi_prod_mt2revsjk5z",
+        "productId": "prod_mt2revsjk5z",
+        "name": "AMAR NETRAM",
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "schemes": [
+          {
+            "id": "sch_prod_mt2revsjk5z_1",
+            "name": "AMAR NETRAM 1",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ],
+        "isActive": true
+      }
+    ],
+    "Alwar": [
+      {
+        "id": "dp_alw_p1",
+        "productId": "prod_1",
+        "name": "AAROGYA NETRAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_1_1",
+            "name": "AAROGYA NETRAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_alw_p2",
+        "productId": "prod_2",
+        "name": "ALCOBAN PLUS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_2_1",
+            "name": "ALCOBAN PLUS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_alw_p3",
+        "productId": "prod_3",
+        "name": "CURE VISION",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_3_1",
+            "name": "CURE VISION Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_alw_p4",
+        "productId": "prod_4",
+        "name": "DAMADAR OIL",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_4_1",
+            "name": "DAMADAR OIL Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_alw_p5",
+        "productId": "prod_5",
+        "name": "DRINK STOP AYURVEDIC",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_5_1",
+            "name": "DRINK STOP AYURVEDIC Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_alw_p6",
+        "productId": "prod_6",
+        "name": "EVERESTER",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_6_1",
+            "name": "EVERESTER Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_alw_p7",
+        "productId": "prod_7",
+        "name": "GUT AROGYA / SUPRAGUT",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_7_1",
+            "name": "GUT AROGYA / SUPRAGUT Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_alw_p8",
+        "productId": "prod_8",
+        "name": "HANUMAN CHALISA YANTRA (HCY)",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_8_1",
+            "name": "HANUMAN CHALISA YANTRA (HCY) Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_alw_p9",
+        "productId": "prod_9",
+        "name": "HARJOD",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_9_1",
+            "name": "HARJOD Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_alw_p10",
+        "productId": "prod_10",
+        "name": "HIGHTONIC",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_10_1",
+            "name": "HIGHTONIC Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_alw_p11",
+        "productId": "prod_11",
+        "name": "KALA GHODA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_11_1",
+            "name": "KALA GHODA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_alw_p12",
+        "productId": "prod_12",
+        "name": "MONEY RATNAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_12_1",
+            "name": "MONEY RATNAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_alw_p13",
+        "productId": "prod_13",
+        "name": "NONI D CARE",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_13_1",
+            "name": "NONI D CARE Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_alw_p14",
+        "productId": "prod_14",
+        "name": "OTHER AYURVEDIC PRODUCTS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_14_1",
+            "name": "OTHER AYURVEDIC PRODUCTS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_alw_p15",
+        "productId": "prod_15",
+        "name": "PEEDA BHASM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_15_1",
+            "name": "PEEDA BHASM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_alw_p16",
+        "productId": "prod_16",
+        "name": "PILES BHASM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_16_1",
+            "name": "PILES BHASM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_alw_p17",
+        "productId": "prod_17",
+        "name": "PUSHTIVARDHNAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_17_1",
+            "name": "PUSHTIVARDHNAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_alw_p18",
+        "productId": "prod_18",
+        "name": "RAJVILAS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_18_1",
+            "name": "RAJVILAS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_alw_p19",
+        "productId": "prod_19",
+        "name": "RSO RARE SLIMMING OIL",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_19_1",
+            "name": "RSO RARE SLIMMING OIL Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_alw_p20",
+        "productId": "prod_20",
+        "name": "SANDHI SUDHA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_20_1",
+            "name": "SANDHI SUDHA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_alw_p21",
+        "productId": "prod_21",
+        "name": "SLIMTONIC",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_21_1",
+            "name": "SLIMTONIC Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_alw_p22",
+        "productId": "prod_22",
+        "name": "SWARN VILAS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_22_1",
+            "name": "SWARN VILAS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_alw_p23",
+        "productId": "prod_23",
+        "name": "TRIBAL BLACK HAIR OIL",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_23_1",
+            "name": "TRIBAL BLACK HAIR OIL Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_alw_p24",
+        "productId": "prod_24",
+        "name": "TSO (TRIBAL SLIMMING OIL)",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_24_1",
+            "name": "TSO (TRIBAL SLIMMING OIL) Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_alw_p25",
+        "productId": "prod_25",
+        "name": "UDAR SANJIVANI",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_25_1",
+            "name": "UDAR SANJIVANI Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_alw_p26",
+        "productId": "prod_26",
+        "name": "ZERO ADDICTION / NASHA SHUNYAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_26_1",
+            "name": "ZERO ADDICTION / NASHA SHUNYAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_alw_p27",
+        "productId": "prod_27",
+        "name": "PLAY MORE",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_pm_1",
+            "name": "PLAY MORE 1",
+            "qty": 1,
+            "price": 2500,
+            "dc": 170
+          }
+        ]
+      },
+      {
+        "id": "dp_alw_p28",
+        "productId": "prod_28",
+        "name": "HEIGHT VEDA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_28_1",
+            "name": "HEIGHT VEDA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_alw_p29",
+        "productId": "prod_29",
+        "name": "ALERGY SAFA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_29_1",
+            "name": "ALERGY SAFA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_alw_p30",
+        "productId": "prod_30",
+        "name": "EYE SUTRA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_es_1",
+            "name": "EYE SUTRA 1",
+            "qty": 1,
+            "price": 2500,
+            "dc": 170
+          }
+        ]
+      },
+      {
+        "id": "dp_alw_p31",
+        "productId": "prod_31",
+        "name": "HANUMAN CHALISA YANTRA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_31_1",
+            "name": "HANUMAN CHALISA YANTRA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_alw_p32",
+        "productId": "prod_32",
+        "name": "GUT AROGYA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_32_1",
+            "name": "GUT AROGYA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_alw_p33",
+        "productId": "prod_33",
+        "name": "ZERO ADDICTION",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_33_1",
+            "name": "ZERO ADDICTION Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_alw_p34",
+        "productId": "prod_34",
+        "name": "DRINK STOP",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_34_1",
+            "name": "DRINK STOP Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      }
+    ],
+    "Bikaner": [
+      {
+        "id": "dp_bik_p1",
+        "productId": "prod_1",
+        "name": "AAROGYA NETRAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_1_1",
+            "name": "AAROGYA NETRAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_bik_p2",
+        "productId": "prod_2",
+        "name": "ALCOBAN PLUS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_2_1",
+            "name": "ALCOBAN PLUS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_bik_p3",
+        "productId": "prod_3",
+        "name": "CURE VISION",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_3_1",
+            "name": "CURE VISION Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_bik_p4",
+        "productId": "prod_4",
+        "name": "DAMADAR OIL",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_4_1",
+            "name": "DAMADAR OIL Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_bik_p5",
+        "productId": "prod_5",
+        "name": "DRINK STOP AYURVEDIC",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_5_1",
+            "name": "DRINK STOP AYURVEDIC Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_bik_p6",
+        "productId": "prod_6",
+        "name": "EVERESTER",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_6_1",
+            "name": "EVERESTER Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_bik_p7",
+        "productId": "prod_7",
+        "name": "GUT AROGYA / SUPRAGUT",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_7_1",
+            "name": "GUT AROGYA / SUPRAGUT Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_bik_p8",
+        "productId": "prod_8",
+        "name": "HANUMAN CHALISA YANTRA (HCY)",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_8_1",
+            "name": "HANUMAN CHALISA YANTRA (HCY) Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_bik_p9",
+        "productId": "prod_9",
+        "name": "HARJOD",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_9_1",
+            "name": "HARJOD Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_bik_p10",
+        "productId": "prod_10",
+        "name": "HIGHTONIC",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_10_1",
+            "name": "HIGHTONIC Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_bik_p11",
+        "productId": "prod_11",
+        "name": "KALA GHODA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_11_1",
+            "name": "KALA GHODA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_bik_p12",
+        "productId": "prod_12",
+        "name": "MONEY RATNAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_12_1",
+            "name": "MONEY RATNAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_bik_p13",
+        "productId": "prod_13",
+        "name": "NONI D CARE",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_13_1",
+            "name": "NONI D CARE Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_bik_p14",
+        "productId": "prod_14",
+        "name": "OTHER AYURVEDIC PRODUCTS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_14_1",
+            "name": "OTHER AYURVEDIC PRODUCTS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_bik_p15",
+        "productId": "prod_15",
+        "name": "PEEDA BHASM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_15_1",
+            "name": "PEEDA BHASM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_bik_p16",
+        "productId": "prod_16",
+        "name": "PILES BHASM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_16_1",
+            "name": "PILES BHASM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_bik_p17",
+        "productId": "prod_17",
+        "name": "PUSHTIVARDHNAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_17_1",
+            "name": "PUSHTIVARDHNAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_bik_p18",
+        "productId": "prod_18",
+        "name": "RAJVILAS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_18_1",
+            "name": "RAJVILAS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_bik_p19",
+        "productId": "prod_19",
+        "name": "RSO RARE SLIMMING OIL",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_19_1",
+            "name": "RSO RARE SLIMMING OIL Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_bik_p20",
+        "productId": "prod_20",
+        "name": "SANDHI SUDHA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_20_1",
+            "name": "SANDHI SUDHA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_bik_p21",
+        "productId": "prod_21",
+        "name": "SLIMTONIC",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_21_1",
+            "name": "SLIMTONIC Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_bik_p22",
+        "productId": "prod_22",
+        "name": "SWARN VILAS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_22_1",
+            "name": "SWARN VILAS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_bik_p23",
+        "productId": "prod_23",
+        "name": "TRIBAL BLACK HAIR OIL",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_23_1",
+            "name": "TRIBAL BLACK HAIR OIL Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_bik_p24",
+        "productId": "prod_24",
+        "name": "TSO (TRIBAL SLIMMING OIL)",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_24_1",
+            "name": "TSO (TRIBAL SLIMMING OIL) Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_bik_p25",
+        "productId": "prod_25",
+        "name": "UDAR SANJIVANI",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_25_1",
+            "name": "UDAR SANJIVANI Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_bik_p26",
+        "productId": "prod_26",
+        "name": "ZERO ADDICTION / NASHA SHUNYAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_26_1",
+            "name": "ZERO ADDICTION / NASHA SHUNYAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_bik_p27",
+        "productId": "prod_27",
+        "name": "PLAY MORE",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_pm_1",
+            "name": "PLAY MORE 1",
+            "qty": 1,
+            "price": 2500,
+            "dc": 170
+          }
+        ]
+      },
+      {
+        "id": "dp_bik_p28",
+        "productId": "prod_28",
+        "name": "HEIGHT VEDA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_28_1",
+            "name": "HEIGHT VEDA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_bik_p29",
+        "productId": "prod_29",
+        "name": "ALERGY SAFA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_29_1",
+            "name": "ALERGY SAFA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_bik_p30",
+        "productId": "prod_30",
+        "name": "EYE SUTRA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_es_1",
+            "name": "EYE SUTRA 1",
+            "qty": 1,
+            "price": 2500,
+            "dc": 170
+          }
+        ]
+      },
+      {
+        "id": "dp_bik_p31",
+        "productId": "prod_31",
+        "name": "HANUMAN CHALISA YANTRA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_31_1",
+            "name": "HANUMAN CHALISA YANTRA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_bik_p32",
+        "productId": "prod_32",
+        "name": "GUT AROGYA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_32_1",
+            "name": "GUT AROGYA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_bik_p33",
+        "productId": "prod_33",
+        "name": "ZERO ADDICTION",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_33_1",
+            "name": "ZERO ADDICTION Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_bik_p34",
+        "productId": "prod_34",
+        "name": "DRINK STOP",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_34_1",
+            "name": "DRINK STOP Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      }
+    ],
+    "Uttarakhand": [
+      {
+        "id": "dp_utt_p1",
+        "productId": "prod_1",
+        "name": "AAROGYA NETRAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_1_1",
+            "name": "AAROGYA NETRAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_utt_p2",
+        "productId": "prod_2",
+        "name": "ALCOBAN PLUS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_2_1",
+            "name": "ALCOBAN PLUS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_utt_p3",
+        "productId": "prod_3",
+        "name": "CURE VISION",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_3_1",
+            "name": "CURE VISION Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_utt_p4",
+        "productId": "prod_4",
+        "name": "DAMADAR OIL",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_4_1",
+            "name": "DAMADAR OIL Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_utt_p5",
+        "productId": "prod_5",
+        "name": "DRINK STOP AYURVEDIC",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_5_1",
+            "name": "DRINK STOP AYURVEDIC Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_utt_p6",
+        "productId": "prod_6",
+        "name": "EVERESTER",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_6_1",
+            "name": "EVERESTER Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_utt_p7",
+        "productId": "prod_7",
+        "name": "GUT AROGYA / SUPRAGUT",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_7_1",
+            "name": "GUT AROGYA / SUPRAGUT Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_utt_p8",
+        "productId": "prod_8",
+        "name": "HANUMAN CHALISA YANTRA (HCY)",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_8_1",
+            "name": "HANUMAN CHALISA YANTRA (HCY) Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_utt_p9",
+        "productId": "prod_9",
+        "name": "HARJOD",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_9_1",
+            "name": "HARJOD Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_utt_p10",
+        "productId": "prod_10",
+        "name": "HIGHTONIC",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_10_1",
+            "name": "HIGHTONIC Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_utt_p11",
+        "productId": "prod_11",
+        "name": "KALA GHODA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_11_1",
+            "name": "KALA GHODA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_utt_p12",
+        "productId": "prod_12",
+        "name": "MONEY RATNAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_12_1",
+            "name": "MONEY RATNAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_utt_p13",
+        "productId": "prod_13",
+        "name": "NONI D CARE",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_13_1",
+            "name": "NONI D CARE Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_utt_p14",
+        "productId": "prod_14",
+        "name": "OTHER AYURVEDIC PRODUCTS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_14_1",
+            "name": "OTHER AYURVEDIC PRODUCTS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_utt_p15",
+        "productId": "prod_15",
+        "name": "PEEDA BHASM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_15_1",
+            "name": "PEEDA BHASM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_utt_p16",
+        "productId": "prod_16",
+        "name": "PILES BHASM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_16_1",
+            "name": "PILES BHASM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_utt_p17",
+        "productId": "prod_17",
+        "name": "PUSHTIVARDHNAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_17_1",
+            "name": "PUSHTIVARDHNAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_utt_p18",
+        "productId": "prod_18",
+        "name": "RAJVILAS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_18_1",
+            "name": "RAJVILAS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_utt_p19",
+        "productId": "prod_19",
+        "name": "RSO RARE SLIMMING OIL",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_19_1",
+            "name": "RSO RARE SLIMMING OIL Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_utt_p20",
+        "productId": "prod_20",
+        "name": "SANDHI SUDHA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_20_1",
+            "name": "SANDHI SUDHA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_utt_p21",
+        "productId": "prod_21",
+        "name": "SLIMTONIC",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_21_1",
+            "name": "SLIMTONIC Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_utt_p22",
+        "productId": "prod_22",
+        "name": "SWARN VILAS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_22_1",
+            "name": "SWARN VILAS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_utt_p23",
+        "productId": "prod_23",
+        "name": "TRIBAL BLACK HAIR OIL",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_23_1",
+            "name": "TRIBAL BLACK HAIR OIL Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_utt_p24",
+        "productId": "prod_24",
+        "name": "TSO (TRIBAL SLIMMING OIL)",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_24_1",
+            "name": "TSO (TRIBAL SLIMMING OIL) Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_utt_p25",
+        "productId": "prod_25",
+        "name": "UDAR SANJIVANI",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_25_1",
+            "name": "UDAR SANJIVANI Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_utt_p26",
+        "productId": "prod_26",
+        "name": "ZERO ADDICTION / NASHA SHUNYAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_26_1",
+            "name": "ZERO ADDICTION / NASHA SHUNYAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_utt_p27",
+        "productId": "prod_27",
+        "name": "PLAY MORE",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_pm_1",
+            "name": "PLAY MORE 1",
+            "qty": 1,
+            "price": 2500,
+            "dc": 170
+          }
+        ]
+      },
+      {
+        "id": "dp_utt_p28",
+        "productId": "prod_28",
+        "name": "HEIGHT VEDA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_28_1",
+            "name": "HEIGHT VEDA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_utt_p29",
+        "productId": "prod_29",
+        "name": "ALERGY SAFA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_29_1",
+            "name": "ALERGY SAFA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_utt_p30",
+        "productId": "prod_30",
+        "name": "EYE SUTRA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_es_1",
+            "name": "EYE SUTRA 1",
+            "qty": 1,
+            "price": 2500,
+            "dc": 170
+          }
+        ]
+      },
+      {
+        "id": "dp_utt_p31",
+        "productId": "prod_31",
+        "name": "HANUMAN CHALISA YANTRA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_31_1",
+            "name": "HANUMAN CHALISA YANTRA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_utt_p32",
+        "productId": "prod_32",
+        "name": "GUT AROGYA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_32_1",
+            "name": "GUT AROGYA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_utt_p33",
+        "productId": "prod_33",
+        "name": "ZERO ADDICTION",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_33_1",
+            "name": "ZERO ADDICTION Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_utt_p34",
+        "productId": "prod_34",
+        "name": "DRINK STOP",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_34_1",
+            "name": "DRINK STOP Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      }
+    ],
+    "Udham Singh Nagar": [
+      {
+        "id": "dp_udh_p1",
+        "productId": "prod_1",
+        "name": "AAROGYA NETRAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_1_1",
+            "name": "AAROGYA NETRAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_udh_p2",
+        "productId": "prod_2",
+        "name": "ALCOBAN PLUS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_2_1",
+            "name": "ALCOBAN PLUS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_udh_p3",
+        "productId": "prod_3",
+        "name": "CURE VISION",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_3_1",
+            "name": "CURE VISION Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_udh_p4",
+        "productId": "prod_4",
+        "name": "DAMADAR OIL",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_4_1",
+            "name": "DAMADAR OIL Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_udh_p5",
+        "productId": "prod_5",
+        "name": "DRINK STOP AYURVEDIC",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_5_1",
+            "name": "DRINK STOP AYURVEDIC Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_udh_p6",
+        "productId": "prod_6",
+        "name": "EVERESTER",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_6_1",
+            "name": "EVERESTER Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_udh_p7",
+        "productId": "prod_7",
+        "name": "GUT AROGYA / SUPRAGUT",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_7_1",
+            "name": "GUT AROGYA / SUPRAGUT Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_udh_p8",
+        "productId": "prod_8",
+        "name": "HANUMAN CHALISA YANTRA (HCY)",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_8_1",
+            "name": "HANUMAN CHALISA YANTRA (HCY) Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_udh_p9",
+        "productId": "prod_9",
+        "name": "HARJOD",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_9_1",
+            "name": "HARJOD Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_udh_p10",
+        "productId": "prod_10",
+        "name": "HIGHTONIC",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_10_1",
+            "name": "HIGHTONIC Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_udh_p11",
+        "productId": "prod_11",
+        "name": "KALA GHODA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_11_1",
+            "name": "KALA GHODA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_udh_p12",
+        "productId": "prod_12",
+        "name": "MONEY RATNAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_12_1",
+            "name": "MONEY RATNAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_udh_p13",
+        "productId": "prod_13",
+        "name": "NONI D CARE",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_13_1",
+            "name": "NONI D CARE Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_udh_p14",
+        "productId": "prod_14",
+        "name": "OTHER AYURVEDIC PRODUCTS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_14_1",
+            "name": "OTHER AYURVEDIC PRODUCTS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_udh_p15",
+        "productId": "prod_15",
+        "name": "PEEDA BHASM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_15_1",
+            "name": "PEEDA BHASM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_udh_p16",
+        "productId": "prod_16",
+        "name": "PILES BHASM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_16_1",
+            "name": "PILES BHASM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_udh_p17",
+        "productId": "prod_17",
+        "name": "PUSHTIVARDHNAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_17_1",
+            "name": "PUSHTIVARDHNAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_udh_p18",
+        "productId": "prod_18",
+        "name": "RAJVILAS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_18_1",
+            "name": "RAJVILAS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_udh_p19",
+        "productId": "prod_19",
+        "name": "RSO RARE SLIMMING OIL",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_19_1",
+            "name": "RSO RARE SLIMMING OIL Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_udh_p20",
+        "productId": "prod_20",
+        "name": "SANDHI SUDHA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_20_1",
+            "name": "SANDHI SUDHA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_udh_p21",
+        "productId": "prod_21",
+        "name": "SLIMTONIC",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_21_1",
+            "name": "SLIMTONIC Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_udh_p22",
+        "productId": "prod_22",
+        "name": "SWARN VILAS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_22_1",
+            "name": "SWARN VILAS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_udh_p23",
+        "productId": "prod_23",
+        "name": "TRIBAL BLACK HAIR OIL",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_23_1",
+            "name": "TRIBAL BLACK HAIR OIL Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_udh_p24",
+        "productId": "prod_24",
+        "name": "TSO (TRIBAL SLIMMING OIL)",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_24_1",
+            "name": "TSO (TRIBAL SLIMMING OIL) Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_udh_p25",
+        "productId": "prod_25",
+        "name": "UDAR SANJIVANI",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_25_1",
+            "name": "UDAR SANJIVANI Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_udh_p26",
+        "productId": "prod_26",
+        "name": "ZERO ADDICTION / NASHA SHUNYAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_26_1",
+            "name": "ZERO ADDICTION / NASHA SHUNYAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_udh_p27",
+        "productId": "prod_27",
+        "name": "PLAY MORE",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_pm_1",
+            "name": "PLAY MORE 1",
+            "qty": 1,
+            "price": 2500,
+            "dc": 170
+          }
+        ]
+      },
+      {
+        "id": "dp_udh_p28",
+        "productId": "prod_28",
+        "name": "HEIGHT VEDA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_28_1",
+            "name": "HEIGHT VEDA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_udh_p29",
+        "productId": "prod_29",
+        "name": "ALERGY SAFA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_29_1",
+            "name": "ALERGY SAFA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_udh_p30",
+        "productId": "prod_30",
+        "name": "EYE SUTRA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_es_1",
+            "name": "EYE SUTRA 1",
+            "qty": 1,
+            "price": 2500,
+            "dc": 170
+          }
+        ]
+      },
+      {
+        "id": "dp_udh_p31",
+        "productId": "prod_31",
+        "name": "HANUMAN CHALISA YANTRA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_31_1",
+            "name": "HANUMAN CHALISA YANTRA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_udh_p32",
+        "productId": "prod_32",
+        "name": "GUT AROGYA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_32_1",
+            "name": "GUT AROGYA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_udh_p33",
+        "productId": "prod_33",
+        "name": "ZERO ADDICTION",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_33_1",
+            "name": "ZERO ADDICTION Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_udh_p34",
+        "productId": "prod_34",
+        "name": "DRINK STOP",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_34_1",
+            "name": "DRINK STOP Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      }
+    ],
+    "Jodhpur": [
+      {
+        "id": "dp_jod_p1",
+        "productId": "prod_1",
+        "name": "AAROGYA NETRAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_1_1",
+            "name": "AAROGYA NETRAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_jod_p2",
+        "productId": "prod_2",
+        "name": "ALCOBAN PLUS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_2_1",
+            "name": "ALCOBAN PLUS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_jod_p3",
+        "productId": "prod_3",
+        "name": "CURE VISION",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_3_1",
+            "name": "CURE VISION Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_jod_p4",
+        "productId": "prod_4",
+        "name": "DAMADAR OIL",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_4_1",
+            "name": "DAMADAR OIL Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_jod_p5",
+        "productId": "prod_5",
+        "name": "DRINK STOP AYURVEDIC",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_5_1",
+            "name": "DRINK STOP AYURVEDIC Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_jod_p6",
+        "productId": "prod_6",
+        "name": "EVERESTER",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_6_1",
+            "name": "EVERESTER Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_jod_p7",
+        "productId": "prod_7",
+        "name": "GUT AROGYA / SUPRAGUT",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_7_1",
+            "name": "GUT AROGYA / SUPRAGUT Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_jod_p8",
+        "productId": "prod_8",
+        "name": "HANUMAN CHALISA YANTRA (HCY)",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_8_1",
+            "name": "HANUMAN CHALISA YANTRA (HCY) Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_jod_p9",
+        "productId": "prod_9",
+        "name": "HARJOD",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_9_1",
+            "name": "HARJOD Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_jod_p10",
+        "productId": "prod_10",
+        "name": "HIGHTONIC",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_10_1",
+            "name": "HIGHTONIC Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_jod_p11",
+        "productId": "prod_11",
+        "name": "KALA GHODA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_11_1",
+            "name": "KALA GHODA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_jod_p12",
+        "productId": "prod_12",
+        "name": "MONEY RATNAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_12_1",
+            "name": "MONEY RATNAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_jod_p13",
+        "productId": "prod_13",
+        "name": "NONI D CARE",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_13_1",
+            "name": "NONI D CARE Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_jod_p14",
+        "productId": "prod_14",
+        "name": "OTHER AYURVEDIC PRODUCTS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_14_1",
+            "name": "OTHER AYURVEDIC PRODUCTS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_jod_p15",
+        "productId": "prod_15",
+        "name": "PEEDA BHASM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_15_1",
+            "name": "PEEDA BHASM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_jod_p16",
+        "productId": "prod_16",
+        "name": "PILES BHASM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_16_1",
+            "name": "PILES BHASM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_jod_p17",
+        "productId": "prod_17",
+        "name": "PUSHTIVARDHNAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_17_1",
+            "name": "PUSHTIVARDHNAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_jod_p18",
+        "productId": "prod_18",
+        "name": "RAJVILAS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_18_1",
+            "name": "RAJVILAS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_jod_p19",
+        "productId": "prod_19",
+        "name": "RSO RARE SLIMMING OIL",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_19_1",
+            "name": "RSO RARE SLIMMING OIL Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_jod_p20",
+        "productId": "prod_20",
+        "name": "SANDHI SUDHA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_20_1",
+            "name": "SANDHI SUDHA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_jod_p21",
+        "productId": "prod_21",
+        "name": "SLIMTONIC",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_21_1",
+            "name": "SLIMTONIC Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_jod_p22",
+        "productId": "prod_22",
+        "name": "SWARN VILAS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_22_1",
+            "name": "SWARN VILAS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_jod_p23",
+        "productId": "prod_23",
+        "name": "TRIBAL BLACK HAIR OIL",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_23_1",
+            "name": "TRIBAL BLACK HAIR OIL Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_jod_p24",
+        "productId": "prod_24",
+        "name": "TSO (TRIBAL SLIMMING OIL)",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_24_1",
+            "name": "TSO (TRIBAL SLIMMING OIL) Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_jod_p25",
+        "productId": "prod_25",
+        "name": "UDAR SANJIVANI",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_25_1",
+            "name": "UDAR SANJIVANI Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_jod_p26",
+        "productId": "prod_26",
+        "name": "ZERO ADDICTION / NASHA SHUNYAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_26_1",
+            "name": "ZERO ADDICTION / NASHA SHUNYAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_jod_p27",
+        "productId": "prod_27",
+        "name": "PLAY MORE",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_pm_1",
+            "name": "PLAY MORE 1",
+            "qty": 1,
+            "price": 2500,
+            "dc": 170
+          }
+        ]
+      },
+      {
+        "id": "dp_jod_p28",
+        "productId": "prod_28",
+        "name": "HEIGHT VEDA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_28_1",
+            "name": "HEIGHT VEDA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_jod_p29",
+        "productId": "prod_29",
+        "name": "ALERGY SAFA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_29_1",
+            "name": "ALERGY SAFA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_jod_p30",
+        "productId": "prod_30",
+        "name": "EYE SUTRA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_es_1",
+            "name": "EYE SUTRA 1",
+            "qty": 1,
+            "price": 2500,
+            "dc": 170
+          }
+        ]
+      },
+      {
+        "id": "dp_jod_p31",
+        "productId": "prod_31",
+        "name": "HANUMAN CHALISA YANTRA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_31_1",
+            "name": "HANUMAN CHALISA YANTRA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_jod_p32",
+        "productId": "prod_32",
+        "name": "GUT AROGYA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_32_1",
+            "name": "GUT AROGYA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_jod_p33",
+        "productId": "prod_33",
+        "name": "ZERO ADDICTION",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_33_1",
+            "name": "ZERO ADDICTION Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_jod_p34",
+        "productId": "prod_34",
+        "name": "DRINK STOP",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_34_1",
+            "name": "DRINK STOP Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      }
+    ],
+    "Kota": [
+      {
+        "id": "dp_kot_p1",
+        "productId": "prod_1",
+        "name": "AAROGYA NETRAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_1_1",
+            "name": "AAROGYA NETRAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_kot_p2",
+        "productId": "prod_2",
+        "name": "ALCOBAN PLUS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_2_1",
+            "name": "ALCOBAN PLUS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_kot_p3",
+        "productId": "prod_3",
+        "name": "CURE VISION",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_3_1",
+            "name": "CURE VISION Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_kot_p4",
+        "productId": "prod_4",
+        "name": "DAMADAR OIL",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_4_1",
+            "name": "DAMADAR OIL Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_kot_p5",
+        "productId": "prod_5",
+        "name": "DRINK STOP AYURVEDIC",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_5_1",
+            "name": "DRINK STOP AYURVEDIC Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_kot_p6",
+        "productId": "prod_6",
+        "name": "EVERESTER",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_6_1",
+            "name": "EVERESTER Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_kot_p7",
+        "productId": "prod_7",
+        "name": "GUT AROGYA / SUPRAGUT",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_7_1",
+            "name": "GUT AROGYA / SUPRAGUT Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_kot_p8",
+        "productId": "prod_8",
+        "name": "HANUMAN CHALISA YANTRA (HCY)",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_8_1",
+            "name": "HANUMAN CHALISA YANTRA (HCY) Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_kot_p9",
+        "productId": "prod_9",
+        "name": "HARJOD",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_9_1",
+            "name": "HARJOD Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_kot_p10",
+        "productId": "prod_10",
+        "name": "HIGHTONIC",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_10_1",
+            "name": "HIGHTONIC Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_kot_p11",
+        "productId": "prod_11",
+        "name": "KALA GHODA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_11_1",
+            "name": "KALA GHODA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_kot_p12",
+        "productId": "prod_12",
+        "name": "MONEY RATNAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_12_1",
+            "name": "MONEY RATNAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_kot_p13",
+        "productId": "prod_13",
+        "name": "NONI D CARE",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_13_1",
+            "name": "NONI D CARE Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_kot_p14",
+        "productId": "prod_14",
+        "name": "OTHER AYURVEDIC PRODUCTS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_14_1",
+            "name": "OTHER AYURVEDIC PRODUCTS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_kot_p15",
+        "productId": "prod_15",
+        "name": "PEEDA BHASM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_15_1",
+            "name": "PEEDA BHASM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_kot_p16",
+        "productId": "prod_16",
+        "name": "PILES BHASM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_16_1",
+            "name": "PILES BHASM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_kot_p17",
+        "productId": "prod_17",
+        "name": "PUSHTIVARDHNAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_17_1",
+            "name": "PUSHTIVARDHNAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_kot_p18",
+        "productId": "prod_18",
+        "name": "RAJVILAS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_18_1",
+            "name": "RAJVILAS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_kot_p19",
+        "productId": "prod_19",
+        "name": "RSO RARE SLIMMING OIL",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_19_1",
+            "name": "RSO RARE SLIMMING OIL Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_kot_p20",
+        "productId": "prod_20",
+        "name": "SANDHI SUDHA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_20_1",
+            "name": "SANDHI SUDHA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_kot_p21",
+        "productId": "prod_21",
+        "name": "SLIMTONIC",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_21_1",
+            "name": "SLIMTONIC Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_kot_p22",
+        "productId": "prod_22",
+        "name": "SWARN VILAS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_22_1",
+            "name": "SWARN VILAS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_kot_p23",
+        "productId": "prod_23",
+        "name": "TRIBAL BLACK HAIR OIL",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_23_1",
+            "name": "TRIBAL BLACK HAIR OIL Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_kot_p24",
+        "productId": "prod_24",
+        "name": "TSO (TRIBAL SLIMMING OIL)",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_24_1",
+            "name": "TSO (TRIBAL SLIMMING OIL) Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_kot_p25",
+        "productId": "prod_25",
+        "name": "UDAR SANJIVANI",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_25_1",
+            "name": "UDAR SANJIVANI Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_kot_p26",
+        "productId": "prod_26",
+        "name": "ZERO ADDICTION / NASHA SHUNYAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_26_1",
+            "name": "ZERO ADDICTION / NASHA SHUNYAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_kot_p27",
+        "productId": "prod_27",
+        "name": "PLAY MORE",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_pm_1",
+            "name": "PLAY MORE 1",
+            "qty": 1,
+            "price": 2500,
+            "dc": 170
+          }
+        ]
+      },
+      {
+        "id": "dp_kot_p28",
+        "productId": "prod_28",
+        "name": "HEIGHT VEDA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_28_1",
+            "name": "HEIGHT VEDA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_kot_p29",
+        "productId": "prod_29",
+        "name": "ALERGY SAFA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_29_1",
+            "name": "ALERGY SAFA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_kot_p30",
+        "productId": "prod_30",
+        "name": "EYE SUTRA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_es_1",
+            "name": "EYE SUTRA 1",
+            "qty": 1,
+            "price": 2500,
+            "dc": 170
+          }
+        ]
+      },
+      {
+        "id": "dp_kot_p31",
+        "productId": "prod_31",
+        "name": "HANUMAN CHALISA YANTRA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_31_1",
+            "name": "HANUMAN CHALISA YANTRA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_kot_p32",
+        "productId": "prod_32",
+        "name": "GUT AROGYA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_32_1",
+            "name": "GUT AROGYA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_kot_p33",
+        "productId": "prod_33",
+        "name": "ZERO ADDICTION",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_33_1",
+            "name": "ZERO ADDICTION Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_kot_p34",
+        "productId": "prod_34",
+        "name": "DRINK STOP",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_34_1",
+            "name": "DRINK STOP Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      }
+    ],
+    "Faridabad": [
+      {
+        "id": "dp_far_p1",
+        "productId": "prod_1",
+        "name": "AAROGYA NETRAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_1_1",
+            "name": "AAROGYA NETRAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_far_p2",
+        "productId": "prod_2",
+        "name": "ALCOBAN PLUS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_2_1",
+            "name": "ALCOBAN PLUS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_far_p3",
+        "productId": "prod_3",
+        "name": "CURE VISION",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_3_1",
+            "name": "CURE VISION Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_far_p4",
+        "productId": "prod_4",
+        "name": "DAMADAR OIL",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_4_1",
+            "name": "DAMADAR OIL Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_far_p5",
+        "productId": "prod_5",
+        "name": "DRINK STOP AYURVEDIC",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_5_1",
+            "name": "DRINK STOP AYURVEDIC Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_far_p6",
+        "productId": "prod_6",
+        "name": "EVERESTER",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_6_1",
+            "name": "EVERESTER Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_far_p7",
+        "productId": "prod_7",
+        "name": "GUT AROGYA / SUPRAGUT",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_7_1",
+            "name": "GUT AROGYA / SUPRAGUT Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_far_p8",
+        "productId": "prod_8",
+        "name": "HANUMAN CHALISA YANTRA (HCY)",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_8_1",
+            "name": "HANUMAN CHALISA YANTRA (HCY) Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_far_p9",
+        "productId": "prod_9",
+        "name": "HARJOD",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_9_1",
+            "name": "HARJOD Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_far_p10",
+        "productId": "prod_10",
+        "name": "HIGHTONIC",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_10_1",
+            "name": "HIGHTONIC Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_far_p11",
+        "productId": "prod_11",
+        "name": "KALA GHODA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_11_1",
+            "name": "KALA GHODA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_far_p12",
+        "productId": "prod_12",
+        "name": "MONEY RATNAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_12_1",
+            "name": "MONEY RATNAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_far_p13",
+        "productId": "prod_13",
+        "name": "NONI D CARE",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_13_1",
+            "name": "NONI D CARE Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_far_p14",
+        "productId": "prod_14",
+        "name": "OTHER AYURVEDIC PRODUCTS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_14_1",
+            "name": "OTHER AYURVEDIC PRODUCTS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_far_p15",
+        "productId": "prod_15",
+        "name": "PEEDA BHASM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_15_1",
+            "name": "PEEDA BHASM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_far_p16",
+        "productId": "prod_16",
+        "name": "PILES BHASM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_16_1",
+            "name": "PILES BHASM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_far_p17",
+        "productId": "prod_17",
+        "name": "PUSHTIVARDHNAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_17_1",
+            "name": "PUSHTIVARDHNAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_far_p18",
+        "productId": "prod_18",
+        "name": "RAJVILAS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_18_1",
+            "name": "RAJVILAS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_far_p19",
+        "productId": "prod_19",
+        "name": "RSO RARE SLIMMING OIL",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_19_1",
+            "name": "RSO RARE SLIMMING OIL Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_far_p20",
+        "productId": "prod_20",
+        "name": "SANDHI SUDHA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_20_1",
+            "name": "SANDHI SUDHA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_far_p21",
+        "productId": "prod_21",
+        "name": "SLIMTONIC",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_21_1",
+            "name": "SLIMTONIC Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_far_p22",
+        "productId": "prod_22",
+        "name": "SWARN VILAS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_22_1",
+            "name": "SWARN VILAS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_far_p23",
+        "productId": "prod_23",
+        "name": "TRIBAL BLACK HAIR OIL",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_23_1",
+            "name": "TRIBAL BLACK HAIR OIL Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_far_p24",
+        "productId": "prod_24",
+        "name": "TSO (TRIBAL SLIMMING OIL)",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_24_1",
+            "name": "TSO (TRIBAL SLIMMING OIL) Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_far_p25",
+        "productId": "prod_25",
+        "name": "UDAR SANJIVANI",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_25_1",
+            "name": "UDAR SANJIVANI Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_far_p26",
+        "productId": "prod_26",
+        "name": "ZERO ADDICTION / NASHA SHUNYAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_26_1",
+            "name": "ZERO ADDICTION / NASHA SHUNYAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_far_p27",
+        "productId": "prod_27",
+        "name": "PLAY MORE",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_pm_1",
+            "name": "PLAY MORE 1",
+            "qty": 1,
+            "price": 2500,
+            "dc": 170
+          }
+        ]
+      },
+      {
+        "id": "dp_far_p28",
+        "productId": "prod_28",
+        "name": "HEIGHT VEDA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_28_1",
+            "name": "HEIGHT VEDA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_far_p29",
+        "productId": "prod_29",
+        "name": "ALERGY SAFA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_29_1",
+            "name": "ALERGY SAFA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_far_p30",
+        "productId": "prod_30",
+        "name": "EYE SUTRA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_es_1",
+            "name": "EYE SUTRA 1",
+            "qty": 1,
+            "price": 2500,
+            "dc": 170
+          }
+        ]
+      },
+      {
+        "id": "dp_far_p31",
+        "productId": "prod_31",
+        "name": "HANUMAN CHALISA YANTRA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_31_1",
+            "name": "HANUMAN CHALISA YANTRA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_far_p32",
+        "productId": "prod_32",
+        "name": "GUT AROGYA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_32_1",
+            "name": "GUT AROGYA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_far_p33",
+        "productId": "prod_33",
+        "name": "ZERO ADDICTION",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_33_1",
+            "name": "ZERO ADDICTION Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_far_p34",
+        "productId": "prod_34",
+        "name": "DRINK STOP",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_34_1",
+            "name": "DRINK STOP Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      }
+    ],
+    "Gurgaon": [
+      {
+        "id": "dp_gur_p1",
+        "productId": "prod_1",
+        "name": "AAROGYA NETRAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_1_1",
+            "name": "AAROGYA NETRAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_gur_p2",
+        "productId": "prod_2",
+        "name": "ALCOBAN PLUS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_2_1",
+            "name": "ALCOBAN PLUS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_gur_p3",
+        "productId": "prod_3",
+        "name": "CURE VISION",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_3_1",
+            "name": "CURE VISION Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_gur_p4",
+        "productId": "prod_4",
+        "name": "DAMADAR OIL",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_4_1",
+            "name": "DAMADAR OIL Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_gur_p5",
+        "productId": "prod_5",
+        "name": "DRINK STOP AYURVEDIC",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_5_1",
+            "name": "DRINK STOP AYURVEDIC Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_gur_p6",
+        "productId": "prod_6",
+        "name": "EVERESTER",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_6_1",
+            "name": "EVERESTER Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_gur_p7",
+        "productId": "prod_7",
+        "name": "GUT AROGYA / SUPRAGUT",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_7_1",
+            "name": "GUT AROGYA / SUPRAGUT Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_gur_p8",
+        "productId": "prod_8",
+        "name": "HANUMAN CHALISA YANTRA (HCY)",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_8_1",
+            "name": "HANUMAN CHALISA YANTRA (HCY) Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_gur_p9",
+        "productId": "prod_9",
+        "name": "HARJOD",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_9_1",
+            "name": "HARJOD Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_gur_p10",
+        "productId": "prod_10",
+        "name": "HIGHTONIC",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_10_1",
+            "name": "HIGHTONIC Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_gur_p11",
+        "productId": "prod_11",
+        "name": "KALA GHODA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_11_1",
+            "name": "KALA GHODA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_gur_p12",
+        "productId": "prod_12",
+        "name": "MONEY RATNAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_12_1",
+            "name": "MONEY RATNAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_gur_p13",
+        "productId": "prod_13",
+        "name": "NONI D CARE",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_13_1",
+            "name": "NONI D CARE Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_gur_p14",
+        "productId": "prod_14",
+        "name": "OTHER AYURVEDIC PRODUCTS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_14_1",
+            "name": "OTHER AYURVEDIC PRODUCTS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_gur_p15",
+        "productId": "prod_15",
+        "name": "PEEDA BHASM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_15_1",
+            "name": "PEEDA BHASM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_gur_p16",
+        "productId": "prod_16",
+        "name": "PILES BHASM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_16_1",
+            "name": "PILES BHASM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_gur_p17",
+        "productId": "prod_17",
+        "name": "PUSHTIVARDHNAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_17_1",
+            "name": "PUSHTIVARDHNAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_gur_p18",
+        "productId": "prod_18",
+        "name": "RAJVILAS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_18_1",
+            "name": "RAJVILAS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_gur_p19",
+        "productId": "prod_19",
+        "name": "RSO RARE SLIMMING OIL",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_19_1",
+            "name": "RSO RARE SLIMMING OIL Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_gur_p20",
+        "productId": "prod_20",
+        "name": "SANDHI SUDHA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_20_1",
+            "name": "SANDHI SUDHA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_gur_p21",
+        "productId": "prod_21",
+        "name": "SLIMTONIC",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_21_1",
+            "name": "SLIMTONIC Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_gur_p22",
+        "productId": "prod_22",
+        "name": "SWARN VILAS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_22_1",
+            "name": "SWARN VILAS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_gur_p23",
+        "productId": "prod_23",
+        "name": "TRIBAL BLACK HAIR OIL",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_23_1",
+            "name": "TRIBAL BLACK HAIR OIL Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_gur_p24",
+        "productId": "prod_24",
+        "name": "TSO (TRIBAL SLIMMING OIL)",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_24_1",
+            "name": "TSO (TRIBAL SLIMMING OIL) Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_gur_p25",
+        "productId": "prod_25",
+        "name": "UDAR SANJIVANI",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_25_1",
+            "name": "UDAR SANJIVANI Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_gur_p26",
+        "productId": "prod_26",
+        "name": "ZERO ADDICTION / NASHA SHUNYAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_26_1",
+            "name": "ZERO ADDICTION / NASHA SHUNYAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_gur_p27",
+        "productId": "prod_27",
+        "name": "PLAY MORE",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_pm_1",
+            "name": "PLAY MORE 1",
+            "qty": 1,
+            "price": 2500,
+            "dc": 170
+          }
+        ]
+      },
+      {
+        "id": "dp_gur_p28",
+        "productId": "prod_28",
+        "name": "HEIGHT VEDA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_28_1",
+            "name": "HEIGHT VEDA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_gur_p29",
+        "productId": "prod_29",
+        "name": "ALERGY SAFA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_29_1",
+            "name": "ALERGY SAFA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_gur_p30",
+        "productId": "prod_30",
+        "name": "EYE SUTRA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_es_1",
+            "name": "EYE SUTRA 1",
+            "qty": 1,
+            "price": 2500,
+            "dc": 170
+          }
+        ]
+      },
+      {
+        "id": "dp_gur_p31",
+        "productId": "prod_31",
+        "name": "HANUMAN CHALISA YANTRA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_31_1",
+            "name": "HANUMAN CHALISA YANTRA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_gur_p32",
+        "productId": "prod_32",
+        "name": "GUT AROGYA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_32_1",
+            "name": "GUT AROGYA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_gur_p33",
+        "productId": "prod_33",
+        "name": "ZERO ADDICTION",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_33_1",
+            "name": "ZERO ADDICTION Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_gur_p34",
+        "productId": "prod_34",
+        "name": "DRINK STOP",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_34_1",
+            "name": "DRINK STOP Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      }
+    ],
+    "Rewari": [
+      {
+        "id": "dp_rew_p1",
+        "productId": "prod_1",
+        "name": "AAROGYA NETRAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_1_1",
+            "name": "AAROGYA NETRAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_rew_p2",
+        "productId": "prod_2",
+        "name": "ALCOBAN PLUS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_2_1",
+            "name": "ALCOBAN PLUS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_rew_p3",
+        "productId": "prod_3",
+        "name": "CURE VISION",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_3_1",
+            "name": "CURE VISION Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_rew_p4",
+        "productId": "prod_4",
+        "name": "DAMADAR OIL",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_4_1",
+            "name": "DAMADAR OIL Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_rew_p5",
+        "productId": "prod_5",
+        "name": "DRINK STOP AYURVEDIC",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_5_1",
+            "name": "DRINK STOP AYURVEDIC Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_rew_p6",
+        "productId": "prod_6",
+        "name": "EVERESTER",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_6_1",
+            "name": "EVERESTER Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_rew_p7",
+        "productId": "prod_7",
+        "name": "GUT AROGYA / SUPRAGUT",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_7_1",
+            "name": "GUT AROGYA / SUPRAGUT Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_rew_p8",
+        "productId": "prod_8",
+        "name": "HANUMAN CHALISA YANTRA (HCY)",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_8_1",
+            "name": "HANUMAN CHALISA YANTRA (HCY) Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_rew_p9",
+        "productId": "prod_9",
+        "name": "HARJOD",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_9_1",
+            "name": "HARJOD Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_rew_p10",
+        "productId": "prod_10",
+        "name": "HIGHTONIC",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_10_1",
+            "name": "HIGHTONIC Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_rew_p11",
+        "productId": "prod_11",
+        "name": "KALA GHODA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_11_1",
+            "name": "KALA GHODA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_rew_p12",
+        "productId": "prod_12",
+        "name": "MONEY RATNAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_12_1",
+            "name": "MONEY RATNAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_rew_p13",
+        "productId": "prod_13",
+        "name": "NONI D CARE",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_13_1",
+            "name": "NONI D CARE Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_rew_p14",
+        "productId": "prod_14",
+        "name": "OTHER AYURVEDIC PRODUCTS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_14_1",
+            "name": "OTHER AYURVEDIC PRODUCTS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_rew_p15",
+        "productId": "prod_15",
+        "name": "PEEDA BHASM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_15_1",
+            "name": "PEEDA BHASM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_rew_p16",
+        "productId": "prod_16",
+        "name": "PILES BHASM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_16_1",
+            "name": "PILES BHASM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_rew_p17",
+        "productId": "prod_17",
+        "name": "PUSHTIVARDHNAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_17_1",
+            "name": "PUSHTIVARDHNAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_rew_p18",
+        "productId": "prod_18",
+        "name": "RAJVILAS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_18_1",
+            "name": "RAJVILAS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_rew_p19",
+        "productId": "prod_19",
+        "name": "RSO RARE SLIMMING OIL",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_19_1",
+            "name": "RSO RARE SLIMMING OIL Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_rew_p20",
+        "productId": "prod_20",
+        "name": "SANDHI SUDHA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_20_1",
+            "name": "SANDHI SUDHA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_rew_p21",
+        "productId": "prod_21",
+        "name": "SLIMTONIC",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_21_1",
+            "name": "SLIMTONIC Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_rew_p22",
+        "productId": "prod_22",
+        "name": "SWARN VILAS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_22_1",
+            "name": "SWARN VILAS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_rew_p23",
+        "productId": "prod_23",
+        "name": "TRIBAL BLACK HAIR OIL",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_23_1",
+            "name": "TRIBAL BLACK HAIR OIL Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_rew_p24",
+        "productId": "prod_24",
+        "name": "TSO (TRIBAL SLIMMING OIL)",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_24_1",
+            "name": "TSO (TRIBAL SLIMMING OIL) Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_rew_p25",
+        "productId": "prod_25",
+        "name": "UDAR SANJIVANI",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_25_1",
+            "name": "UDAR SANJIVANI Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_rew_p26",
+        "productId": "prod_26",
+        "name": "ZERO ADDICTION / NASHA SHUNYAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_26_1",
+            "name": "ZERO ADDICTION / NASHA SHUNYAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_rew_p27",
+        "productId": "prod_27",
+        "name": "PLAY MORE",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_pm_1",
+            "name": "PLAY MORE 1",
+            "qty": 1,
+            "price": 2500,
+            "dc": 170
+          }
+        ]
+      },
+      {
+        "id": "dp_rew_p28",
+        "productId": "prod_28",
+        "name": "HEIGHT VEDA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_28_1",
+            "name": "HEIGHT VEDA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_rew_p29",
+        "productId": "prod_29",
+        "name": "ALERGY SAFA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_29_1",
+            "name": "ALERGY SAFA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_rew_p30",
+        "productId": "prod_30",
+        "name": "EYE SUTRA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_es_1",
+            "name": "EYE SUTRA 1",
+            "qty": 1,
+            "price": 2500,
+            "dc": 170
+          }
+        ]
+      },
+      {
+        "id": "dp_rew_p31",
+        "productId": "prod_31",
+        "name": "HANUMAN CHALISA YANTRA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_31_1",
+            "name": "HANUMAN CHALISA YANTRA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_rew_p32",
+        "productId": "prod_32",
+        "name": "GUT AROGYA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_32_1",
+            "name": "GUT AROGYA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_rew_p33",
+        "productId": "prod_33",
+        "name": "ZERO ADDICTION",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_33_1",
+            "name": "ZERO ADDICTION Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_rew_p34",
+        "productId": "prod_34",
+        "name": "DRINK STOP",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_34_1",
+            "name": "DRINK STOP Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      }
+    ],
+    "Muzaffarnagar": [
+      {
+        "id": "dp_muz_p1",
+        "productId": "prod_1",
+        "name": "AAROGYA NETRAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_1_1",
+            "name": "AAROGYA NETRAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_muz_p2",
+        "productId": "prod_2",
+        "name": "ALCOBAN PLUS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_2_1",
+            "name": "ALCOBAN PLUS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_muz_p3",
+        "productId": "prod_3",
+        "name": "CURE VISION",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_3_1",
+            "name": "CURE VISION Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_muz_p4",
+        "productId": "prod_4",
+        "name": "DAMADAR OIL",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_4_1",
+            "name": "DAMADAR OIL Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_muz_p5",
+        "productId": "prod_5",
+        "name": "DRINK STOP AYURVEDIC",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_5_1",
+            "name": "DRINK STOP AYURVEDIC Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_muz_p6",
+        "productId": "prod_6",
+        "name": "EVERESTER",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_6_1",
+            "name": "EVERESTER Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_muz_p7",
+        "productId": "prod_7",
+        "name": "GUT AROGYA / SUPRAGUT",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_7_1",
+            "name": "GUT AROGYA / SUPRAGUT Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_muz_p8",
+        "productId": "prod_8",
+        "name": "HANUMAN CHALISA YANTRA (HCY)",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_8_1",
+            "name": "HANUMAN CHALISA YANTRA (HCY) Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_muz_p9",
+        "productId": "prod_9",
+        "name": "HARJOD",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_9_1",
+            "name": "HARJOD Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_muz_p10",
+        "productId": "prod_10",
+        "name": "HIGHTONIC",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_10_1",
+            "name": "HIGHTONIC Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_muz_p11",
+        "productId": "prod_11",
+        "name": "KALA GHODA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_11_1",
+            "name": "KALA GHODA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_muz_p12",
+        "productId": "prod_12",
+        "name": "MONEY RATNAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_12_1",
+            "name": "MONEY RATNAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_muz_p13",
+        "productId": "prod_13",
+        "name": "NONI D CARE",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_13_1",
+            "name": "NONI D CARE Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_muz_p14",
+        "productId": "prod_14",
+        "name": "OTHER AYURVEDIC PRODUCTS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_14_1",
+            "name": "OTHER AYURVEDIC PRODUCTS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_muz_p15",
+        "productId": "prod_15",
+        "name": "PEEDA BHASM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_15_1",
+            "name": "PEEDA BHASM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_muz_p16",
+        "productId": "prod_16",
+        "name": "PILES BHASM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_16_1",
+            "name": "PILES BHASM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_muz_p17",
+        "productId": "prod_17",
+        "name": "PUSHTIVARDHNAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_17_1",
+            "name": "PUSHTIVARDHNAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_muz_p18",
+        "productId": "prod_18",
+        "name": "RAJVILAS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_18_1",
+            "name": "RAJVILAS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_muz_p19",
+        "productId": "prod_19",
+        "name": "RSO RARE SLIMMING OIL",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_19_1",
+            "name": "RSO RARE SLIMMING OIL Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_muz_p20",
+        "productId": "prod_20",
+        "name": "SANDHI SUDHA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_20_1",
+            "name": "SANDHI SUDHA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_muz_p21",
+        "productId": "prod_21",
+        "name": "SLIMTONIC",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_21_1",
+            "name": "SLIMTONIC Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_muz_p22",
+        "productId": "prod_22",
+        "name": "SWARN VILAS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_22_1",
+            "name": "SWARN VILAS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_muz_p23",
+        "productId": "prod_23",
+        "name": "TRIBAL BLACK HAIR OIL",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_23_1",
+            "name": "TRIBAL BLACK HAIR OIL Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_muz_p24",
+        "productId": "prod_24",
+        "name": "TSO (TRIBAL SLIMMING OIL)",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_24_1",
+            "name": "TSO (TRIBAL SLIMMING OIL) Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_muz_p25",
+        "productId": "prod_25",
+        "name": "UDAR SANJIVANI",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_25_1",
+            "name": "UDAR SANJIVANI Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_muz_p26",
+        "productId": "prod_26",
+        "name": "ZERO ADDICTION / NASHA SHUNYAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_26_1",
+            "name": "ZERO ADDICTION / NASHA SHUNYAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_muz_p27",
+        "productId": "prod_27",
+        "name": "PLAY MORE",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_pm_1",
+            "name": "PLAY MORE 1",
+            "qty": 1,
+            "price": 2500,
+            "dc": 170
+          }
+        ]
+      },
+      {
+        "id": "dp_muz_p28",
+        "productId": "prod_28",
+        "name": "HEIGHT VEDA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_28_1",
+            "name": "HEIGHT VEDA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_muz_p29",
+        "productId": "prod_29",
+        "name": "ALERGY SAFA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_29_1",
+            "name": "ALERGY SAFA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_muz_p30",
+        "productId": "prod_30",
+        "name": "EYE SUTRA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_es_1",
+            "name": "EYE SUTRA 1",
+            "qty": 1,
+            "price": 2500,
+            "dc": 170
+          }
+        ]
+      },
+      {
+        "id": "dp_muz_p31",
+        "productId": "prod_31",
+        "name": "HANUMAN CHALISA YANTRA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_31_1",
+            "name": "HANUMAN CHALISA YANTRA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_muz_p32",
+        "productId": "prod_32",
+        "name": "GUT AROGYA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_32_1",
+            "name": "GUT AROGYA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_muz_p33",
+        "productId": "prod_33",
+        "name": "ZERO ADDICTION",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_33_1",
+            "name": "ZERO ADDICTION Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_muz_p34",
+        "productId": "prod_34",
+        "name": "DRINK STOP",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_34_1",
+            "name": "DRINK STOP Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      }
+    ],
+    "Shamli": [
+      {
+        "id": "dp_sha_p1",
+        "productId": "prod_1",
+        "name": "AAROGYA NETRAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_1_1",
+            "name": "AAROGYA NETRAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_sha_p2",
+        "productId": "prod_2",
+        "name": "ALCOBAN PLUS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_2_1",
+            "name": "ALCOBAN PLUS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_sha_p3",
+        "productId": "prod_3",
+        "name": "CURE VISION",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_3_1",
+            "name": "CURE VISION Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_sha_p4",
+        "productId": "prod_4",
+        "name": "DAMADAR OIL",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_4_1",
+            "name": "DAMADAR OIL Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_sha_p5",
+        "productId": "prod_5",
+        "name": "DRINK STOP AYURVEDIC",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_5_1",
+            "name": "DRINK STOP AYURVEDIC Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_sha_p6",
+        "productId": "prod_6",
+        "name": "EVERESTER",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_6_1",
+            "name": "EVERESTER Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_sha_p7",
+        "productId": "prod_7",
+        "name": "GUT AROGYA / SUPRAGUT",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_7_1",
+            "name": "GUT AROGYA / SUPRAGUT Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_sha_p8",
+        "productId": "prod_8",
+        "name": "HANUMAN CHALISA YANTRA (HCY)",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_8_1",
+            "name": "HANUMAN CHALISA YANTRA (HCY) Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_sha_p9",
+        "productId": "prod_9",
+        "name": "HARJOD",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_9_1",
+            "name": "HARJOD Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_sha_p10",
+        "productId": "prod_10",
+        "name": "HIGHTONIC",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_10_1",
+            "name": "HIGHTONIC Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_sha_p11",
+        "productId": "prod_11",
+        "name": "KALA GHODA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_11_1",
+            "name": "KALA GHODA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_sha_p12",
+        "productId": "prod_12",
+        "name": "MONEY RATNAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_12_1",
+            "name": "MONEY RATNAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_sha_p13",
+        "productId": "prod_13",
+        "name": "NONI D CARE",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_13_1",
+            "name": "NONI D CARE Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_sha_p14",
+        "productId": "prod_14",
+        "name": "OTHER AYURVEDIC PRODUCTS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_14_1",
+            "name": "OTHER AYURVEDIC PRODUCTS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_sha_p15",
+        "productId": "prod_15",
+        "name": "PEEDA BHASM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_15_1",
+            "name": "PEEDA BHASM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_sha_p16",
+        "productId": "prod_16",
+        "name": "PILES BHASM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_16_1",
+            "name": "PILES BHASM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_sha_p17",
+        "productId": "prod_17",
+        "name": "PUSHTIVARDHNAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_17_1",
+            "name": "PUSHTIVARDHNAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_sha_p18",
+        "productId": "prod_18",
+        "name": "RAJVILAS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_18_1",
+            "name": "RAJVILAS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_sha_p19",
+        "productId": "prod_19",
+        "name": "RSO RARE SLIMMING OIL",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_19_1",
+            "name": "RSO RARE SLIMMING OIL Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_sha_p20",
+        "productId": "prod_20",
+        "name": "SANDHI SUDHA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_20_1",
+            "name": "SANDHI SUDHA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_sha_p21",
+        "productId": "prod_21",
+        "name": "SLIMTONIC",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_21_1",
+            "name": "SLIMTONIC Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_sha_p22",
+        "productId": "prod_22",
+        "name": "SWARN VILAS",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_22_1",
+            "name": "SWARN VILAS Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_sha_p23",
+        "productId": "prod_23",
+        "name": "TRIBAL BLACK HAIR OIL",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_23_1",
+            "name": "TRIBAL BLACK HAIR OIL Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_sha_p24",
+        "productId": "prod_24",
+        "name": "TSO (TRIBAL SLIMMING OIL)",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_24_1",
+            "name": "TSO (TRIBAL SLIMMING OIL) Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_sha_p25",
+        "productId": "prod_25",
+        "name": "UDAR SANJIVANI",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_25_1",
+            "name": "UDAR SANJIVANI Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_sha_p26",
+        "productId": "prod_26",
+        "name": "ZERO ADDICTION / NASHA SHUNYAM",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_26_1",
+            "name": "ZERO ADDICTION / NASHA SHUNYAM Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_sha_p27",
+        "productId": "prod_27",
+        "name": "PLAY MORE",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_pm_1",
+            "name": "PLAY MORE 1",
+            "qty": 1,
+            "price": 2500,
+            "dc": 170
+          }
+        ]
+      },
+      {
+        "id": "dp_sha_p28",
+        "productId": "prod_28",
+        "name": "HEIGHT VEDA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_28_1",
+            "name": "HEIGHT VEDA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_sha_p29",
+        "productId": "prod_29",
+        "name": "ALERGY SAFA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_29_1",
+            "name": "ALERGY SAFA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_sha_p30",
+        "productId": "prod_30",
+        "name": "EYE SUTRA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_es_1",
+            "name": "EYE SUTRA 1",
+            "qty": 1,
+            "price": 2500,
+            "dc": 170
+          }
+        ]
+      },
+      {
+        "id": "dp_sha_p31",
+        "productId": "prod_31",
+        "name": "HANUMAN CHALISA YANTRA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_31_1",
+            "name": "HANUMAN CHALISA YANTRA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_sha_p32",
+        "productId": "prod_32",
+        "name": "GUT AROGYA",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_32_1",
+            "name": "GUT AROGYA Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_sha_p33",
+        "productId": "prod_33",
+        "name": "ZERO ADDICTION",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_33_1",
+            "name": "ZERO ADDICTION Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      },
+      {
+        "id": "dp_sha_p34",
+        "productId": "prod_34",
+        "name": "DRINK STOP",
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "isActive": true,
+        "schemes": [
+          {
+            "id": "sch_prod_34_1",
+            "name": "DRINK STOP Standard",
+            "qty": 1,
+            "price": 2500,
+            "dc": 250
+          }
+        ]
+      }
+    ]
+  },
+  "dcRules": {
+    "Chittorgarh": {
+      "type": "threshold",
+      "le": 200,
+      "gt": 250,
+      "threshold": 1500
+    },
+    "Kota": {
+      "type": "threshold",
+      "le": 200,
+      "gt": 250,
+      "threshold": 1500
+    },
+    "Bikaner": {
+      "type": "threshold",
+      "le": 250,
+      "gt": 270,
+      "threshold": 1500
+    },
+    "Alwar": {
+      "type": "flat",
+      "value": 200
+    },
+    "Uttarakhand": {
+      "type": "flat",
+      "value": 200,
+      "overrides": {
+        "Play More": 170,
+        "Fouji": 170,
+        "Height Sutra": 170,
+        "Eye Sutra": 170,
+        "Alergy": 170
+      }
+    },
+    "Udham Singh Nagar": {
+      "type": "threshold",
+      "le": 200,
+      "gt": 250,
+      "threshold": 1500,
+      "overrides": {
+        "Play More": 170,
+        "Fouji": 170,
+        "Height Sutra": 170,
+        "Eye Sutra": 170,
+        "Alergy": 170
+      }
+    },
+    "Faridabad": {
+      "type": "flat",
+      "value": 250
+    },
+    "Rewari": {
+      "type": "flat",
+      "value": 250
+    },
+    "Gurgaon": {
+      "type": "flat",
+      "value": 200
+    },
+    "Jodhpur": {
+      "type": "custom",
+      "value": 200
+    },
+    "Muzaffarnagar": {
+      "type": "custom",
+      "value": 200
+    },
+    "Shamli": {
+      "type": "custom",
+      "value": 200
+    }
+  },
+  "baseOpeningCash": {},
+  "milaStock": {},
+  "inwardNotes": {},
+  "customerOrders": [],
+  "cashSettlements": [],
+  "sales": {},
+  "ledgers": {},
+  "activityLogs": [
+    {
+      "id": "act_1787305380676x1e5",
+      "userId": "u_dealer_1",
+      "username": "dealer_chittorgarh",
+      "role": "dealer",
+      "district": "Chittorgarh",
+      "action": "LOGIN",
+      "details": "User dealer_chittorgarh (dealer - Chittorgarh) logged in",
+      "timestamp": "2026-08-21T09:43:00.676Z"
+    },
+    {
+      "id": "act_1787305370344h1kw",
+      "userId": "u_admin",
+      "username": "admin",
+      "role": "admin",
+      "district": "Chittorgarh",
+      "action": "PRODUCT_DELETED",
+      "details": "Removed product \"HEIGHT VEDA\" from Chittorgarh",
+      "timestamp": "2026-08-21T09:42:50.344Z"
+    },
+    {
+      "id": "act_1787305363688nu30",
+      "userId": "u_admin",
+      "username": "admin",
+      "role": "admin",
+      "district": "Chittorgarh",
+      "action": "PRODUCT_DELETED",
+      "details": "Removed product \"PLAY MORE\" from Chittorgarh",
+      "timestamp": "2026-08-21T09:42:43.688Z"
+    },
+    {
+      "id": "act_1787305354088bg8n",
+      "userId": "u_admin",
+      "username": "admin",
+      "role": "admin",
+      "district": "Chittorgarh",
+      "action": "PRODUCT_ASSIGNED",
+      "details": "Assigned master product \"AMAR NETRAM\" to Chittorgarh with initial stock 0",
+      "timestamp": "2026-08-21T09:42:34.088Z"
+    },
+    {
+      "id": "act_178730528732554e2",
+      "userId": "u_admin",
+      "username": "admin",
+      "role": "admin",
+      "district": null,
+      "action": "MASTER_PRODUCT_CREATED",
+      "details": "Created Master Product \"KADWI DAWA\" with 1 schemes",
+      "timestamp": "2026-08-21T09:41:27.325Z"
+    },
+    {
+      "id": "act_1787305274227rdgj",
+      "userId": "u_admin",
+      "username": "admin",
+      "role": "admin",
+      "district": null,
+      "action": "MASTER_PRODUCT_CREATED",
+      "details": "Created Master Product \"AMAR NETRAM\" with 1 schemes",
+      "timestamp": "2026-08-21T09:41:14.227Z"
+    },
+    {
+      "id": "act_1787305246901374s",
+      "userId": "u_admin",
+      "username": "admin",
+      "role": "admin",
+      "district": null,
+      "action": "LOGIN",
+      "details": "User admin (admin) logged in",
+      "timestamp": "2026-08-21T09:40:46.902Z"
+    },
+    {
+      "id": "act_17873052194888707",
+      "userId": "u_dealer_1",
+      "username": "dealer_chittorgarh",
+      "role": "dealer",
+      "district": "Chittorgarh",
+      "action": "LOGIN",
+      "details": "User dealer_chittorgarh (dealer - Chittorgarh) logged in",
+      "timestamp": "2026-08-21T09:40:19.488Z"
+    },
+    {
+      "id": "act_1787305219297c1xa",
+      "userId": "u_admin",
+      "username": "admin",
+      "role": "admin",
+      "district": null,
+      "action": "LOGIN",
+      "details": "User admin (admin) logged in",
+      "timestamp": "2026-08-21T09:40:19.297Z"
+    }
+  ],
+  "inventoryLogs": []
+}
