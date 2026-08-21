@@ -7345,6 +7345,26 @@
   "ledgers": {},
   "activityLogs": [
     {
+      "id": "act_1787306646513gdbi",
+      "userId": "u_admin",
+      "username": "admin",
+      "role": "admin",
+      "district": null,
+      "action": "SHEETS_CONFIG_UPDATE",
+      "details": "Updated Google Sheets Webhook configuration: https://script.google.com/macros/s/AKfycbz_test/exec",
+      "timestamp": "2026-08-21T10:04:06.513Z"
+    },
+    {
+      "id": "act_1787306646358xu4j",
+      "userId": "u_admin",
+      "username": "admin",
+      "role": "admin",
+      "district": null,
+      "action": "LOGIN",
+      "details": "User admin (admin) logged in",
+      "timestamp": "2026-08-21T10:04:06.361Z"
+    },
+    {
       "id": "act_1787305380676x1e5",
       "userId": "u_dealer_1",
       "username": "dealer_chittorgarh",
@@ -7435,5 +7455,13 @@
       "timestamp": "2026-08-21T09:40:19.297Z"
     }
   ],
-  "inventoryLogs": []
+  "inventoryLogs": [],
+  "googleSheetsConfig": {
+    "webhookUrl": "https://script.google.com/macros/s/AKfycbz_test/exec",
+    "autoSync": true,
+    "sheetId": "1n8DwEI5F5VyJFM3VA7k8_AOARXIcVRzKcn1XaSYqG44",
+    "sheetUrl": "https://docs.google.com/spreadsheets/d/1n8DwEI5F5VyJFM3VA7k8_AOARXIcVRzKcn1XaSYqG44/edit?usp=sharing",
+    "lastSyncTimestamp": "2026-08-21T10:04:10.843Z",
+    "lastSyncDate": "2026-08-21"
+  }
 }

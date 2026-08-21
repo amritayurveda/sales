@@ -291,6 +291,36 @@ const API = {
     });
   },
 
+  // Google Sheets Database Integration
+  async getSheetsConfig() {
+    return this.request('/sheets/config');
+  },
+
+  async updateSheetsConfig(config) {
+    return this.request('/sheets/config', {
+      method: 'POST',
+      body: JSON.stringify(config)
+    });
+  },
+
+  async syncAllToSheets(date) {
+    return this.request('/sheets/sync-all', {
+      method: 'POST',
+      body: JSON.stringify({ date })
+    });
+  },
+
+  async syncDistrictToSheets(district, date) {
+    return this.request('/sheets/sync-district', {
+      method: 'POST',
+      body: JSON.stringify({ district, date })
+    });
+  },
+
+  async getSheetsScriptTemplate() {
+    return this.request('/sheets/script-template');
+  },
+
   // Activity Logs
   async getActivityLogs(filters = {}) {
     const params = new URLSearchParams();

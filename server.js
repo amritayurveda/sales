@@ -28,6 +28,7 @@ app.use('/api/admin', require('./routes/adminRoutes'));
 app.use('/api/inventory', require('./routes/inventoryRoutes'));
 app.use('/api/orders', require('./routes/orderRoutes'));
 app.use('/api/cash', require('./routes/cashRoutes'));
+app.use('/api/sheets', require('./routes/sheetsRoutes'));
 
 // Fallback to index.html for SPA
 app.get('*', (req, res) => {

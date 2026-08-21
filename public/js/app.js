@@ -1072,7 +1072,8 @@
       <div class="card" style="margin-bottom:20px;">
         <div class="admin-nav">
           <button class="admin-tab ${state.adminTab === 'matrix' ? 'active' : ''}" onclick="switchAdminTab('matrix')">📊 12-District Matrix</button>
-          <button class="admin-tab ${state.adminTab === 'schemes' ? 'active' : ''}" onclick="switchAdminTab('schemes')">📦 Master Product &amp; Schemes</button>
+          <button class="admin-tab ${state.adminTab === 'sheets' ? 'active' : ''}" onclick="switchAdminTab('sheets')">📈 Google Sheets Database</button>
+          <button class="admin-tab ${state.adminTab === 'schemes' ? 'active' : ''}" onclick="switchAdminTab('schemes')">📦 Master Product &amp; Prices</button>
           <button class="admin-tab ${state.adminTab === 'dc' ? 'active' : ''}" onclick="switchAdminTab('dc')">🚚 District DC Settings</button>
           <button class="admin-tab ${state.adminTab === 'activity' ? 'active' : ''}" onclick="switchAdminTab('activity')">⚡ Live Activity Monitor</button>
           <button class="admin-tab ${state.adminTab === 'dealers' ? 'active' : ''}" onclick="switchAdminTab('dealers')">👥 Dealer Accounts</button>
@@ -1083,6 +1084,8 @@
 
     if (state.adminTab === 'matrix') {
       await loadAdminMatrix();
+    } else if (state.adminTab === 'sheets') {
+      await loadAdminSheets();
     } else if (state.adminTab === 'schemes') {
       await loadAdminSchemes();
     } else if (state.adminTab === 'dc') {
@@ -1191,6 +1194,126 @@
     state.currentDistrict = dist;
     renderAdminDistrictStrip();
     loadDistrictData();
+  };
+
+  async function loadAdminSheets() {
+    const container = $('adminTabContent');
+    container.innerHTML = '<div style="padding:20px;">Loading Google Sheets Database Connection...</div>';
+
+    try {
+      const configRes = await API.getSheetsConfig();
+      const scriptRes = await API.getSheetsScriptTemplate();
+      const cfg = configRes.config || {};
+
+      let html = `
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+          <div>
+            <h3 style="margin:0;font-size:16px;">📈 Google Sheets Database Integration</h3>
+            <span style="font-size:12px;color:var(--ink-soft);">
+              Live automatic data sync: every district sale, stock report, customer mobile, and daily cash closing.
+            </span>
+          </div>
+          <div style="display:flex;gap:8px;">
+            <a href="${configRes.sheetUrl}" target="_blank" class="btn btn-secondary">🔗 Open Google Sheet</a>
+            <button class="btn btn-primary" onclick="syncAllGoogleSheetsNow()">🔄 Sync All 12 Districts Now</button>
+          </div>
+        </div>
+
+        <!-- Connection Status Card -->
+        <div style="background:var(--paper-light);border:1px solid var(--border);border-radius:8px;padding:16px;margin-bottom:20px;">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));gap:16px;">
+            <div>
+              <span style="font-size:11px;color:var(--ink-soft);text-transform:uppercase;font-weight:700;">Google Spreadsheet ID</span>
+              <div class="mono" style="font-size:13px;font-weight:600;margin-top:4px;word-break:break-all;">${configRes.sheetId}</div>
+            </div>
+            <div>
+              <span style="font-size:11px;color:var(--ink-soft);text-transform:uppercase;font-weight:700;">Status</span>
+              <div style="margin-top:4px;">
+                <span class="stock-pill in-stock">🟢 Connected &amp; Linked</span>
+              </div>
+            </div>
+            <div>
+              <span style="font-size:11px;color:var(--ink-soft);text-transform:uppercase;font-weight:700;">Last Synced</span>
+              <div style="font-size:13px;font-weight:600;margin-top:4px;color:var(--ink-strong);">
+                ${cfg.lastSyncTimestamp ? new Date(cfg.lastSyncTimestamp).toLocaleString('en-IN') : 'Ready to Sync'}
+              </div>
+            </div>
+          </div>
+
+          <hr style="border:none;border-top:1px solid var(--border);margin:14px 0;">
+
+          <!-- Webhook URL Configuration -->
+          <div>
+            <label style="font-size:12px;font-weight:700;display:block;margin-bottom:6px;">
+              Google Apps Script Web App Webhook URL (For Real-Time Automatic Push):
+            </label>
+            <div style="display:flex;gap:8px;">
+              <input type="text" id="sheetsWebhookUrlInput" class="input-field" style="flex:1;" placeholder="https://script.google.com/macros/s/.../exec" value="${escapeHtml(cfg.webhookUrl || '')}">
+              <button class="btn btn-primary" onclick="saveGoogleWebhookUrl()">💾 Save Webhook URL</button>
+            </div>
+            <span style="font-size:11px;color:var(--ink-soft);display:block;margin-top:4px;">
+              Paste your deployed Google Apps Script URL here so every sale is instantly written to your Google Sheet without clicking sync.
+            </span>
+          </div>
+        </div>
+
+        <!-- 3-Step Setup Guide with Apps Script -->
+        <div style="background:#FFF9D2;border:1px solid #E6D57E;border-radius:8px;padding:16px;">
+          <h4 style="margin:0 0 10px 0;font-size:14px;color:#745B00;">⚡ How to Connect Real-Time Sync in 1 Minute:</h4>
+          <ol style="margin:0 0 14px 20px;padding:0;font-size:12.5px;line-height:1.7;color:#534100;">
+            <li>Open your Google Sheet: <a href="${configRes.sheetUrl}" target="_blank" style="font-weight:600;color:#0056b3;">sale report spreadsheet</a></li>
+            <li>Click <strong>Extensions &gt; Apps Script</strong> at the top menu of your Google Sheet.</li>
+            <li>Replace all code in the script editor with the script below and click <strong>Save</strong> (💾).</li>
+            <li>Click <strong>Deploy &gt; New deployment</strong> &rarr; Select type <strong>Web app</strong> &rarr; Set <i>Execute as:</i> <strong>Me</strong> and <i>Who has access:</i> <strong>Anyone</strong> &rarr; Click <strong>Deploy</strong>.</li>
+            <li>Copy the <strong>Web App URL</strong> and paste it into the Webhook URL field above!</li>
+          </ol>
+
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+            <span style="font-weight:700;font-size:12px;color:#534100;">📄 Apps Script Code (Copy &amp; Paste in Google Sheet):</span>
+            <button class="btn btn-secondary btn-sm" onclick="copySheetsScript()">📋 Copy Script Code</button>
+          </div>
+          <pre id="sheetsScriptPre" class="mono" style="background:#fff;border:1px solid #E6D57E;padding:12px;border-radius:6px;font-size:11px;max-height:240px;overflow:auto;user-select:all;">${escapeHtml(scriptRes.scriptCode)}</pre>
+        </div>
+      `;
+
+      container.innerHTML = html;
+    } catch (err) {
+      container.innerHTML = `<div style="color:var(--danger);padding:20px;">Failed to load Google Sheets config: ${err.message}</div>`;
+    }
+  }
+
+  window.syncAllGoogleSheetsNow = async () => {
+    try {
+      showToast('Syncing all 12 districts to Google Sheets...', 'info');
+      const res = await API.syncAllToSheets(state.currentDate);
+      showToast('All 12 districts successfully synced to Google Sheets!', 'success');
+      loadAdminSheets();
+    } catch (err) {
+      showToast(err.message, 'error');
+    }
+  };
+
+  window.saveGoogleWebhookUrl = async () => {
+    const input = $('sheetsWebhookUrlInput');
+    const webhookUrl = input ? input.value.trim() : '';
+
+    try {
+      const res = await API.updateSheetsConfig({ webhookUrl, autoSync: true });
+      showToast(res.message, 'success');
+      loadAdminSheets();
+    } catch (err) {
+      showToast(err.message, 'error');
+    }
+  };
+
+  window.copySheetsScript = () => {
+    const pre = $('sheetsScriptPre');
+    if (!pre) return;
+    navigator.clipboard.writeText(pre.textContent).then(() => {
+      showToast('Apps Script code copied to clipboard!', 'success');
+    }).catch(() => {
+      showToast('Please select and copy the text manually.', 'info');
+    });
   };
 
   async function loadAdminSchemes() {
