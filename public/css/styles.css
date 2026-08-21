@@ -1010,4 +1010,267 @@ tfoot td {
   font-size: 11px;
 }
 
+/* =========================================================
+   MOBILE-FIRST FAST ORDER & RESPONSIVE DEALER INTERFACE
+   ========================================================= */
+
+.dealer-tabs-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.dealer-subtabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.dealer-subtab-btn {
+  padding: 10px 18px;
+  font-size: 13.5px;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: #FFF;
+  color: var(--ink-soft);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+.dealer-subtab-btn:hover {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+.dealer-subtab-btn.active {
+  background: var(--ink);
+  color: #FFF;
+  border-color: var(--ink);
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(27,58,46,0.2);
+}
+
+.dealer-stats-strip {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.dealer-stat-box {
+  background: #FFF;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+}
+
+/* Fast Order Card */
+.fast-order-box {
+  background: #FFF;
+  border: 2px solid var(--brass);
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(184, 134, 59, 0.12);
+  overflow: hidden;
+}
+
+.fast-order-header {
+  background: #FAF7EE;
+  border-bottom: 1px solid #E6D275;
+  padding: 12px 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.fast-order-body {
+  padding: 16px 18px;
+}
+
+.fast-form-grid {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr 1.3fr auto;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.field-label {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 6px;
+  letter-spacing: 0.03em;
+}
+
+.input-lg {
+  font-size: 16px !important; /* Prevents iOS auto-zoom */
+  height: 48px;
+  padding: 0 14px;
+  border-radius: 8px;
+  border: 1.5px solid var(--line);
+  width: 100%;
+  box-sizing: border-box;
+  background: #FFF;
+  color: var(--ink);
+  transition: border-color 0.15s ease;
+}
+.input-lg:focus {
+  outline: none;
+  border-color: var(--brass-deep);
+  box-shadow: 0 0 0 3px rgba(184,134,59,0.15);
+}
+
+.btn-add-order {
+  height: 48px;
+  padding: 0 22px;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: 8px;
+  background: var(--ink);
+  color: #FFF;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+  box-shadow: 0 2px 8px rgba(27,58,46,0.25);
+}
+.btn-add-order:hover {
+  background: var(--brass-deep);
+}
+.btn-add-order:active {
+  transform: scale(0.98);
+}
+
+.calc-preview-card {
+  background: #FAF7EC;
+  border: 1.5px solid #E6D275;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-top: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* =========================================================
+   ULTRA MOBILE RESPONSIVE TWEAKS (PHONES & SMALL SCREENS)
+   ========================================================= */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 10px 10px 40px !important;
+  }
+  
+  .navbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .nav-controls {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .dealer-tabs-wrap {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+  .dealer-subtabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 6px;
+  }
+  .dealer-subtab-btn {
+    padding: 10px 4px;
+    font-size: 12px;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    gap: 2px;
+    border-radius: 8px;
+  }
+
+  .dealer-stats-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    width: 100%;
+  }
+  .dealer-stat-box {
+    justify-content: center;
+    padding: 8px 6px;
+    font-size: 11px;
+    text-align: center;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .fast-order-header {
+    padding: 12px 14px;
+  }
+
+  .fast-order-body {
+    padding: 14px;
+  }
+
+  /* Form inputs stack elegantly on mobile */
+  .fast-form-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  .fast-form-mobile-row {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+  }
+
+  .btn-add-order {
+    width: 100% !important;
+    height: 52px !important;
+    font-size: 16px !important;
+    margin-top: 4px;
+  }
+
+  .calc-preview-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .calc-preview-card div {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  /* Tables horizontal scroll container */
+  .table-wrap {
+    margin: 0 -10px;
+    padding: 0 10px;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  table th, table td {
+    padding: 8px 6px !important;
+    font-size: 12px !important;
+  }
+}
+
+
 

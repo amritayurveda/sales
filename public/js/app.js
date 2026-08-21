@@ -369,26 +369,29 @@
 
     // Top View Switcher Bar
     const topBarHtml = `
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;flex-wrap:wrap;gap:10px;">
-        <div class="admin-nav" style="margin:0;border:none;">
-          <button class="admin-tab ${state.dealerView === 'home' ? 'active' : ''}" onclick="switchDealerView('home')">
-            ⚡ Add Customer Sales (Home)
+      <div class="dealer-tabs-wrap">
+        <div class="dealer-subtabs">
+          <button class="dealer-subtab-btn ${state.dealerView === 'home' ? 'active' : ''}" onclick="switchDealerView('home')">
+            <span>⚡</span> <span>Add Sale</span>
           </button>
-          <button class="admin-tab ${state.dealerView === 'stock' ? 'active' : ''}" onclick="switchDealerView('stock')">
-            📦 Stock Report (${stock.products.length} Products)
+          <button class="dealer-subtab-btn ${state.dealerView === 'stock' ? 'active' : ''}" onclick="switchDealerView('stock')">
+            <span>📦</span> <span>Stock (${stock.products.length})</span>
           </button>
-          <button class="admin-tab ${state.dealerView === 'cash' ? 'active' : ''}" onclick="switchDealerView('cash')">
-            💰 Cash Closing &amp; Ledger (₹${fmt(cash.closingCash)})
+          <button class="dealer-subtab-btn ${state.dealerView === 'cash' ? 'active' : ''}" onclick="switchDealerView('cash')">
+            <span>💰</span> <span>Cash (₹${fmt(cash.closingCash)})</span>
           </button>
         </div>
 
-        <div style="display:flex;gap:8px;align-items:center;">
-          <span class="mono" style="font-size:12px;color:var(--ink-soft);background:#FFF;padding:4px 10px;border-radius:4px;border:1px solid var(--line);">
-            Today Sales: <strong style="color:var(--good);">₹${fmt(cash.todaySalesNet)}</strong> (${state.customerOrders.length} orders)
-          </span>
-          <span class="mono" style="font-size:12px;color:var(--ink-soft);background:#FFF;padding:4px 10px;border-radius:4px;border:1px solid var(--line);">
-            Closing Cash: <strong style="color:var(--brass-deep);">₹${fmt(cash.closingCash)}</strong>
-          </span>
+        <div class="dealer-stats-strip">
+          <div class="dealer-stat-box">
+            <span style="color:var(--ink-soft);">Today Net:</span>
+            <strong class="mono" style="color:var(--good);font-size:14px;">₹${fmt(cash.todaySalesNet)}</strong>
+            <span style="color:var(--ink-soft);font-size:11px;">(${state.customerOrders.length} orders)</span>
+          </div>
+          <div class="dealer-stat-box">
+            <span style="color:var(--ink-soft);">Closing Cash:</span>
+            <strong class="mono" style="color:var(--brass-deep);font-size:14px;">₹${fmt(cash.closingCash)}</strong>
+          </div>
         </div>
       </div>
     `;
@@ -397,19 +400,25 @@
     if (state.dealerView === 'home') {
       contentHtml = `
         <div style="display:grid;grid-template-columns:1fr;gap:16px;">
-          <!-- Clean Fast Order Card (Direct Product + Editable Price) -->
-          <div class="card" style="border:2px solid var(--brass);box-shadow:0 6px 20px rgba(184,134,59,0.1);">
-            <div class="card-header" style="background:#FAF7EE;border-bottom:1px solid #E6D275;">
-              <h2 style="font-size:16px;color:var(--brass-deep);margin:0;">⚡ New Customer Sale Entry</h2>
-              <span style="font-size:12px;color:var(--ink-soft);">Select Product • Enter/Edit Sale Price • Customer Mobile • Auto-Calculates DC &amp; Deducts Stock</span>
+          <!-- Mobile-Optimized Fast Order Card -->
+          <div class="fast-order-box">
+            <div class="fast-order-header">
+              <h2 style="font-size:16px;color:var(--brass-deep);margin:0;display:flex;align-items:center;gap:6px;">
+                ⚡ New Customer Sale Entry
+              </h2>
+              <span style="font-size:11.5px;color:var(--ink-soft);font-weight:600;">
+                Auto-DC &amp; Instant Stock Deduct
+              </span>
             </div>
 
-            <div style="padding:18px;">
+            <div class="fast-order-body">
               <form id="fastSchemeForm">
-                <div style="display:grid;grid-template-columns:1.3fr 1fr 1.2fr auto;gap:12px;align-items:flex-end;">
+                <div class="fast-form-grid">
+                  
+                  <!-- Field 1: Choose Product -->
                   <div>
-                    <label style="display:block;font-size:11px;font-weight:700;text-transform:uppercase;color:var(--ink-soft);margin-bottom:5px;">Select Product *</label>
-                    <select id="fastProductSelect" class="form-input" style="font-size:14px;padding:8px 10px;" required ${state.isReadOnly ? 'disabled' : ''}>
+                    <label class="field-label">1. Select Product *</label>
+                    <select id="fastProductSelect" class="input-lg" required ${state.isReadOnly ? 'disabled' : ''}>
                       <option value="">-- Choose Product --</option>
                       ${stock.products.map(p => `
                         <option value="${p.productId}" data-name="${escapeHtml(p.name)}" data-price="${p.schemePrice || 2500}" data-stock="${p.closingStock}">
@@ -419,33 +428,39 @@
                     </select>
                   </div>
 
-                  <div>
-                    <label style="display:block;font-size:11px;font-weight:700;text-transform:uppercase;color:var(--ink-soft);margin-bottom:5px;">Product Price (₹) [Editable] *</label>
-                    <input type="number" id="fastProductPrice" class="form-input mono" placeholder="e.g. 2500" min="1" step="1" style="font-size:14px;padding:8px 10px;font-weight:700;" required ${state.isReadOnly ? 'disabled' : ''}>
+                  <div class="fast-form-mobile-row">
+                    <!-- Field 2: Product Price -->
+                    <div>
+                      <label class="field-label">2. Price (₹) *</label>
+                      <input type="number" id="fastProductPrice" class="input-lg mono" placeholder="₹ Price" min="1" step="1" inputmode="numeric" style="font-weight:700;" required ${state.isReadOnly ? 'disabled' : ''}>
+                    </div>
+
+                    <!-- Field 3: Customer Mobile -->
+                    <div>
+                      <label class="field-label">3. Mobile No. *</label>
+                      <input type="tel" id="fastCustomerMobile" class="input-lg mono" placeholder="📱 10 Digits" pattern="[0-9]{8,15}" inputmode="tel" maxlength="15" required ${state.isReadOnly ? 'disabled' : ''}>
+                    </div>
                   </div>
 
+                  <!-- Field 4: Add Button -->
                   <div>
-                    <label style="display:block;font-size:11px;font-weight:700;text-transform:uppercase;color:var(--ink-soft);margin-bottom:5px;">Customer Mobile Number *</label>
-                    <input type="tel" id="fastCustomerMobile" class="form-input" placeholder="e.g. 9876543210 (10 digits)" pattern="[0-9]{8,15}" style="font-size:14px;padding:8px 10px;" required ${state.isReadOnly ? 'disabled' : ''}>
+                    <button type="submit" id="fastAddBtn" class="btn-add-order" ${state.isReadOnly ? 'disabled' : ''}>
+                      ➕ Add Sale Order
+                    </button>
                   </div>
-
-                  <button type="submit" id="fastAddBtn" class="btn btn-primary" style="padding:9px 24px;font-size:14px;font-weight:700;" ${state.isReadOnly ? 'disabled' : ''}>
-                    ➕ Add Sale Order
-                  </button>
                 </div>
 
-                <div style="display:grid;grid-template-columns:1fr;gap:12px;margin-top:10px;">
-                  <div>
-                    <input type="text" id="fastCustomerName" class="form-input" placeholder="Customer Name / Optional Note" style="font-size:13px;padding:6px 10px;" ${state.isReadOnly ? 'disabled' : ''}>
-                  </div>
+                <!-- Field 5: Optional Customer Name / Note -->
+                <div style="margin-top:10px;">
+                  <input type="text" id="fastCustomerName" class="form-input" placeholder="Customer Name / Optional Note" style="font-size:14px;padding:8px 12px;width:100%;border-radius:6px;" ${state.isReadOnly ? 'disabled' : ''}>
                 </div>
 
-                <!-- Price & DC Preview -->
-                <div id="fastPreviewStrip" style="display:none;margin-top:14px;padding:10px 14px;background:#FFF;border-radius:6px;border:1px solid var(--brass);font-size:13px;display:flex;justify-content:space-between;align-items:center;">
+                <!-- Live Calculation Preview Strip -->
+                <div id="fastPreviewStrip" class="calc-preview-card" style="display:none;">
                   <div>
                     Sale Price: <strong class="mono" id="prevPrice">₹0</strong>
                     &nbsp;•&nbsp; Delivery Charge (DC): <strong class="mono" style="color:var(--danger);" id="prevDC">-₹0</strong>
-                    &nbsp;•&nbsp; Net Cash Added: <strong class="mono" style="color:var(--good);font-size:16px;" id="prevNet">₹0</strong>
+                    &nbsp;•&nbsp; Net Cash: <strong class="mono" style="color:var(--good);font-size:17px;" id="prevNet">₹0</strong>
                   </div>
                   <span class="stock-pill in-stock" id="prevStockBadge">In Stock</span>
                 </div>
