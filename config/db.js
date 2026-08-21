@@ -4,7 +4,10 @@ const path = require('path');
 const bcrypt = require('bcryptjs');
 const { DEFAULT_DC_RULES } = require('../utils/dcCalculator');
 
-const DATA_DIR = path.join(__dirname, '..', 'data');
+const os = require('os');
+
+const isServerless = Boolean(process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME);
+const DATA_DIR = isServerless ? path.join(os.tmpdir(), 'sales_data') : path.join(__dirname, '..', 'data');
 const DB_FILE = path.join(DATA_DIR, 'database.json');
 
 const DISTRICTS = [
