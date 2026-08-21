@@ -1682,9 +1682,10 @@
           le: leVal,
           gt: gtVal
         });
-        showToast(res.message, 'success');
-        loadAdminDcSettings();
       } catch (err) {
+        showToast(err.message, 'error');
+      }
+    }
   };
 
   // ================= ADMIN STOCK DISPATCH & IN-TRANSIT SHIPMENTS =================
