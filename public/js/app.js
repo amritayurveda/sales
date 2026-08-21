@@ -471,7 +471,7 @@
                     <th style="text-align:right;">NET TOTAL</th>
                     <th>CUSTOMER MOBILE</th>
                     <th>TIME</th>
-                    <th style="width:24px;"></th>
+                    <th style="text-align:center;width:95px;">STATUS</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -492,10 +492,8 @@
                         ${o.customerName ? `<span style="font-size:11px;color:var(--ink-soft);display:block;">${escapeHtml(o.customerName)}</span>` : ''}
                       </td>
                       <td class="mono" style="font-size:11px;color:var(--ink-soft);">${escapeHtml(o.time || '—')}</td>
-                      <td>
-                        ${!state.isReadOnly ? `
-                          <button class="btn-icon" onclick="deleteCustomerOrder('${o.id}')" title="Void Order">&times;</button>
-                        ` : ''}
+                      <td style="text-align:center;">
+                        <span class="type-pill Opening" style="font-size:10px;padding:3px 7px;">🔒 Locked</span>
                       </td>
                     </tr>
                   `).join('')}
@@ -928,10 +926,14 @@
   }
 
   window.deleteCustomerOrder = async (orderId) => {
-    if (!confirm('Are you sure you want to void this order?')) return;
+    if (state.user.role !== 'admin') {
+      showToast('Deliveries are permanent records and cannot be deleted by dealers.', 'error');
+      return;
+    }
+    if (!confirm('Are you sure you want to void this order as Administrator?')) return;
     try {
       await API.deleteOrder(state.currentDistrict, state.currentDate, orderId);
-      showToast('Order removed', 'info');
+      showToast('Order removed by Administrator', 'info');
       await loadDistrictData();
     } catch (err) {
       showToast('Error removing order: ' + err.message, 'error');

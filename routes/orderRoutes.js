@@ -115,13 +115,18 @@ router.post(
   }
 );
 
-// 2. Delete / Void customer order
+// 2. Delete / Void customer order (RESTRICTED: Dealers cannot delete deliveries)
 router.delete(
   '/:district/:date/:id',
   authenticateToken,
-  enforceDistrictAccess,
-  enforceSameDayForDealers,
   (req, res) => {
+    // Strict business rule: Dealers CANNOT delete deliveries once created
+    if (req.user.role !== 'admin') {
+      return res.status(403).json({
+        error: 'Permission Denied: Deliveries cannot be deleted by dealers once submitted.'
+      });
+    }
+
     const { district, date, id } = req.params;
     const initialLen = db.customerOrders.length;
     db.customerOrders = db.customerOrders.filter(o => o.id !== id);
@@ -130,12 +135,22 @@ router.delete(
       return res.status(404).json({ error: 'Order not found' });
     }
 
-    logActivity(req.user.id, req.user.username, req.user.role, district, 'ORDER_VOID', `Voided customer order ${id}`);
+    logActivity(req.user.id, req.user.username, req.user.role, district, 'ORDER_VOID', `Admin voided customer order ${id}`);
     saveDb();
 
-    res.json({ message: 'Order removed successfully' });
+    res.json({ message: 'Order removed by Administrator' });
   }
 );
+
+// 3. Strictly block editing of deliveries by anyone (Dealers and Admin)
+router.all(['/edit-order', '/update-order', '/:id'], authenticateToken, (req, res, next) => {
+  if (req.method === 'PUT' || req.method === 'PATCH' || req.method === 'POST') {
+    return res.status(403).json({
+      error: 'Immutability Rule: Deliveries cannot be edited by anyone once recorded.'
+    });
+  }
+  next();
+});
 
 // 3. Get customer orders for a district & date
 router.get('/district/:district', authenticateToken, enforceDistrictAccess, (req, res) => {
