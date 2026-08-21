@@ -165,10 +165,16 @@ async function initPostgresTables() {
         dispatched_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
         received_by VARCHAR(64),
         received_at TIMESTAMP WITH TIME ZONE,
-        received_date DATE
+        received_date DATE,
+        declined_by VARCHAR(64),
+        declined_at TIMESTAMP WITH TIME ZONE,
+        decline_reason TEXT
       );
       ALTER TABLE stock_transfers ADD COLUMN IF NOT EXISTS items JSONB;
       ALTER TABLE stock_transfers ADD COLUMN IF NOT EXISTS total_units NUMERIC;
+      ALTER TABLE stock_transfers ADD COLUMN IF NOT EXISTS declined_by VARCHAR(64);
+      ALTER TABLE stock_transfers ADD COLUMN IF NOT EXISTS declined_at TIMESTAMP WITH TIME ZONE;
+      ALTER TABLE stock_transfers ADD COLUMN IF NOT EXISTS decline_reason TEXT;
     `);
 
     // 10. Key-Value Settings & State Cache Table

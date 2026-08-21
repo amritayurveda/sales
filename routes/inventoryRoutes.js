@@ -444,12 +444,14 @@ router.get('/transfers/:district', authenticateToken, enforceDistrictAccess, (re
   const list = (db.stockTransfers || []).filter(t => t.district === district);
   const pending = list.filter(t => t.status === 'PENDING_ACCEPTANCE');
   const history = list.filter(t => t.status === 'ACCEPTED');
+  const declined = list.filter(t => t.status === 'DECLINED');
 
   res.json({
     district,
     allTransfers: list,
     pendingTransfers: pending,
     historyTransfers: history,
+    declinedTransfers: declined,
     pendingCount: pending.length
   });
 });
@@ -459,11 +461,13 @@ router.get('/admin/all-transfers', authenticateToken, requireAdmin, (req, res) =
   const all = db.stockTransfers || [];
   const pending = all.filter(t => t.status === 'PENDING_ACCEPTANCE');
   const accepted = all.filter(t => t.status === 'ACCEPTED');
+  const declined = all.filter(t => t.status === 'DECLINED');
 
   res.json({
     allTransfers: all,
     pendingTransfers: pending,
     acceptedTransfers: accepted,
+    declinedTransfers: declined,
     pendingCount: pending.length,
     totalCount: all.length
   });
@@ -484,6 +488,10 @@ router.post('/accept-stock/:transferId', authenticateToken, async (req, res) => 
 
   if (transfer.status === 'ACCEPTED') {
     return res.status(400).json({ error: 'This stock transfer has already been accepted and added.' });
+  }
+
+  if (transfer.status === 'DECLINED') {
+    return res.status(400).json({ error: 'This stock transfer was declined and cannot be accepted.' });
   }
 
   // Enforce district permission for dealers
@@ -565,6 +573,62 @@ router.post('/accept-stock/:transferId', authenticateToken, async (req, res) => 
     message: `Successfully received consignment [${transfer.transferNo}]! (${acceptedSummary.join(', ')}) added to ${district} stock.`,
     transfer,
     acceptedItems: acceptedSummary
+  });
+});
+
+// 17. Dealer: Decline / Reject Stock Transfer (Does not add stock, marks DECLINED with reason)
+router.post('/decline-stock/:transferId', authenticateToken, async (req, res) => {
+  const { transferId } = req.params;
+  const { reason } = req.body;
+
+  if (!db.stockTransfers) db.stockTransfers = [];
+  const transfer = db.stockTransfers.find(t => t.id === transferId || t.transferNo === transferId);
+
+  if (!transfer) {
+    return res.status(404).json({ error: 'Stock transfer request not found' });
+  }
+
+  if (transfer.status === 'ACCEPTED') {
+    return res.status(400).json({ error: 'This stock transfer has already been accepted and added.' });
+  }
+
+  if (transfer.status === 'DECLINED') {
+    return res.status(400).json({ error: 'This stock transfer has already been declined.' });
+  }
+
+  // Enforce district permission for dealers
+  if (req.user.role === 'dealer' && req.user.district !== transfer.district) {
+    return res.status(403).json({ error: `Permission Denied: You cannot decline stock for ${transfer.district}` });
+  }
+
+  const now = new Date();
+  transfer.status = 'DECLINED';
+  transfer.declinedBy = req.user.username;
+  transfer.declinedAt = now.toISOString();
+  transfer.declineReason = (reason || 'Declined by dealer').trim();
+
+  logActivity(
+    req.user.id,
+    req.user.username,
+    req.user.role,
+    transfer.district,
+    'STOCK_DECLINED',
+    `Dealer ${req.user.username} declined stock consignment [${transfer.transferNo}] for ${transfer.district}. Reason: "${transfer.declineReason}"`
+  );
+
+  await saveDb();
+
+  // Update Neon PostgreSQL
+  pool.query(
+    `UPDATE stock_transfers
+     SET status = 'DECLINED', declined_by = $1, declined_at = $2, decline_reason = $3
+     WHERE id = $4 OR transfer_no = $4`,
+    [transfer.declinedBy, transfer.declinedAt, transfer.declineReason, transfer.id]
+  ).catch(err => console.error('Postgres transfer decline error:', err.message));
+
+  res.json({
+    message: `Stock consignment [${transfer.transferNo}] has been declined.`,
+    transfer
   });
 });
 

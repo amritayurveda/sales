@@ -440,9 +440,14 @@
                     ${t.note ? ` • Note: <em>"${escapeHtml(t.note)}"</em>` : ''}
                   </div>
                 </div>
-                <button class="btn-accept-stock" onclick="dealerAcceptStockTransfer('${t.id}', '${escapeHtml(t.transferNo)}', ${totalUnits})">
-                  ✅ Receive &amp; Add Stock (+${totalUnits} Units)
-                </button>
+                <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+                  <button class="btn-accept-stock" onclick="dealerAcceptStockTransfer('${t.id}', '${escapeHtml(t.transferNo)}', ${totalUnits})">
+                    ✅ Accept (+${totalUnits} Units)
+                  </button>
+                  <button class="btn btn-secondary btn-sm" style="color:var(--danger);border-color:var(--danger);font-weight:700;height:44px;padding:0 14px;background:#FFF;" onclick="dealerDeclineStockTransfer('${t.id}', '${escapeHtml(t.transferNo)}')">
+                    ❌ Decline
+                  </button>
+                </div>
               </div>
             `;
           }).join('')}
@@ -1722,6 +1727,7 @@
 
       const pending = transfersRes.pendingTransfers || [];
       const accepted = transfersRes.acceptedTransfers || [];
+      const declined = transfersRes.declinedTransfers || [];
 
       let html = `
         <div style="display:grid;grid-template-columns:1fr;gap:20px;">
@@ -1839,7 +1845,7 @@
                         <td class="mono" style="font-size:11px;color:var(--ink-soft);">${t.dispatchedAt.slice(0, 16).replace('T', ' ')}</td>
                         <td style="font-size:12px;">${escapeHtml(t.dispatchedBy)}</td>
                         <td style="text-align:center;">
-                          <span class="type-pill Opening" style="background:#FFF8E6;color:#C07000;border:1px solid #F5DCA3;">🟡 In-Transit</span>
+                          <span class="type-pill Opening" style="background:#FFF8E6;color:#C07000;border:1px solid #F5DCA3;">🟡 In-Transit (Accept/Decline Pending)</span>
                         </td>
                       </tr>
                     `;
@@ -1890,7 +1896,7 @@
                         <td>👤 ${escapeHtml(t.receivedBy || 'Dealer')}</td>
                         <td class="mono">${t.receivedDate || (t.receivedAt ? t.receivedAt.slice(0, 10) : '—')}</td>
                         <td style="text-align:center;">
-                          <span class="type-pill Sale" style="background:#EAF4DE;color:var(--good);border:1px solid #C4DEB0;">✅ Received</span>
+                          <span class="type-pill Sale" style="background:#EAF4DE;color:var(--good);border:1px solid #C4DEB0;">✅ Accepted</span>
                         </td>
                       </tr>
                     `;
@@ -1899,6 +1905,50 @@
               </table>
             </div>
           </div>
+
+          <!-- 4. Declined / Rejected Stock History -->
+          ${declined.length > 0 ? `
+            <div class="card" style="border:1px solid #F5C6CB;">
+              <div class="card-header" style="background:#FDF0F2;display:flex;justify-content:space-between;align-items:center;">
+                <h3 style="margin:0;font-size:15px;color:var(--danger);">🔴 DECLINED CONSIGNMENTS (REJECTED BY DEALERS)</h3>
+                <span class="mono" style="font-size:12px;color:var(--danger);font-weight:700;">${declined.length} declined</span>
+              </div>
+
+              <div class="table-wrap" style="max-height:300px;">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>CONSIGNMENT #</th>
+                      <th>DISTRICT</th>
+                      <th>DISPATCHED ITEMS</th>
+                      <th style="text-align:right;">TOTAL UNITS</th>
+                      <th>DECLINED BY</th>
+                      <th>DECLINE REASON</th>
+                      <th style="text-align:center;">STATUS</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    ${declined.map(t => {
+                      const totalUnits = t.totalUnits || t.qty;
+                      return `
+                        <tr>
+                          <td class="mono">${escapeHtml(t.transferNo)}</td>
+                          <td>📍 ${escapeHtml(t.district)}</td>
+                          <td>${escapeHtml(t.productName)}</td>
+                          <td style="text-align:right;font-weight:700;color:var(--danger);" class="mono">${totalUnits} Units</td>
+                          <td>👤 ${escapeHtml(t.declinedBy || 'Dealer')}</td>
+                          <td><em style="color:var(--danger); font-size:12.5px;">"${escapeHtml(t.declineReason || 'Declined')}"</em></td>
+                          <td style="text-align:center;">
+                            <span class="type-pill" style="background:#FDE8E8;color:var(--danger);border:1px solid #F8B4B4;">🔴 Declined</span>
+                          </td>
+                        </tr>
+                      `;
+                    }).join('')}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          ` : ''}
         </div>
       `;
 
@@ -2030,6 +2080,19 @@
       await loadDistrictData();
     } catch (err) {
       showToast('Error accepting consignment: ' + err.message, 'error');
+    }
+  };
+
+  window.dealerDeclineStockTransfer = async (transferId, transferNo) => {
+    const reason = prompt(`Decline Stock Consignment [${transferNo}]?\n\nPlease enter the reason for declining (e.g. parcel damaged, wrong district, quantity mismatch):`, 'Parcel damaged in transit');
+    if (reason === null) return; // User canceled prompt
+
+    try {
+      const res = await API.declineStockTransfer(transferId, reason);
+      showToast(res.message, 'warning');
+      await loadDistrictData();
+    } catch (err) {
+      showToast('Error declining consignment: ' + err.message, 'error');
     }
   };
 

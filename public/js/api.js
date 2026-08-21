@@ -362,6 +362,13 @@ const API = {
     });
   },
 
+  async declineStockTransfer(transferId, reason) {
+    return this.request(`/inventory/decline-stock/${encodeURIComponent(transferId)}`, {
+      method: 'POST',
+      body: JSON.stringify({ reason })
+    });
+  },
+
   // Activity Logs
   async getActivityLogs(filters = {}) {
     const params = new URLSearchParams();
