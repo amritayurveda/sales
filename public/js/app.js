@@ -1901,32 +1901,28 @@
   }
 
   window.promptEditDistrictDc = async (district) => {
-    const choice = prompt(
-      `Configure DC for ${district}:\n\n` +
-      `Enter '1' for Flat Rate (e.g. ₹200, ₹250, ₹300 for all products)\n` +
-      `Enter '2' for Threshold Rule (e.g. Orders <= ₹1500 have DC ₹200, Orders > ₹1500 have DC ₹250)\n\n` +
-      `Choose 1 or 2:`,
-      '1'
+    const valStr = prompt(
+      `🚚 Change Delivery Charge (DC) for ${district}:\n\n` +
+      `Enter the new DC amount in ₹ (e.g. 200, 250, 300):\n` +
+      `[Or enter 'T' to configure a 2-Tier Threshold rule]`,
+      '200'
     );
 
-    if (choice === '1') {
-      const flatStr = prompt(`Enter Flat DC amount in ₹ for ${district} (e.g. 200 or 250):`, '200');
-      if (!flatStr) return;
-      const flatVal = parseFloat(flatStr) || 200;
+    if (valStr === null) return;
+    const cleanStr = valStr.trim();
+    if (!cleanStr) return;
 
-      try {
-        const res = await API.updateDistrictDc(district, { type: 'flat', value: flatVal });
-        showToast(res.message, 'success');
-        loadAdminDcSettings();
-      } catch (err) {
-        showToast(err.message, 'error');
-      }
-    } else if (choice === '2') {
+    if (cleanStr.toUpperCase() === 'T') {
       const threshStr = prompt(`Enter Price Threshold in ₹ for ${district} (default 1500):`, '1500');
+      if (threshStr === null) return;
       const threshVal = parseFloat(threshStr) || 1500;
+
       const leStr = prompt(`DC for orders <= ₹${threshVal} (e.g. 200):`, '200');
+      if (leStr === null) return;
       const leVal = parseFloat(leStr) || 200;
+
       const gtStr = prompt(`DC for orders > ₹${threshVal} (e.g. 250):`, '250');
+      if (gtStr === null) return;
       const gtVal = parseFloat(gtStr) || 250;
 
       try {
@@ -1936,8 +1932,28 @@
           le: leVal,
           gt: gtVal
         });
+        showToast(res.message || `DC rule updated for ${district}`, 'success');
+        if (state.adminTab === 'dc') await loadAdminDcSettings();
+        if (state.adminTab === 'dealers') await loadAdminDealers();
+        if (state.currentDistrict === district) await loadDistrictData();
       } catch (err) {
-        showToast(err.message, 'error');
+        showToast('Failed to update DC: ' + err.message, 'error');
+      }
+    } else {
+      const flatVal = parseFloat(cleanStr);
+      if (isNaN(flatVal) || flatVal < 0) {
+        alert('Please enter a valid positive DC amount in ₹ (e.g. 200 or 250)');
+        return;
+      }
+
+      try {
+        const res = await API.updateDistrictDc(district, { type: 'flat', value: flatVal });
+        showToast(res.message || `DC for ${district} set to Flat ₹${flatVal}`, 'success');
+        if (state.adminTab === 'dc') await loadAdminDcSettings();
+        if (state.adminTab === 'dealers') await loadAdminDealers();
+        if (state.currentDistrict === district) await loadDistrictData();
+      } catch (err) {
+        showToast('Failed to update DC: ' + err.message, 'error');
       }
     }
   };

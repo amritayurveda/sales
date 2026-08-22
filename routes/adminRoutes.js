@@ -496,7 +496,7 @@ router.get('/dc-rules', (req, res) => {
 });
 
 // 11. Admin: Update DC Rule for a District
-router.post('/update-district-dc', (req, res) => {
+router.post('/update-district-dc', authenticateToken, requireAdmin, async (req, res) => {
   const { district, rule } = req.body;
   if (!district || !rule) {
     return res.status(400).json({ error: 'district and rule configuration are required' });
@@ -514,10 +514,29 @@ router.post('/update-district-dc', (req, res) => {
     `Updated DC rule for ${district}: ${describeRule(rule)}`
   );
 
-  saveDb();
+  await saveDb();
+
+  // Save to Neon PostgreSQL dc_rules table
+  try {
+    const rType = rule.type || 'flat';
+    const rVal = (rType === 'flat') ? (Number(rule.value) || 200) : null;
+    const rLe = (rType === 'threshold') ? (Number(rule.le) || 200) : null;
+    const rGt = (rType === 'threshold') ? (Number(rule.gt) || 250) : null;
+    const rThresh = (rType === 'threshold') ? (Number(rule.threshold) || 1500) : 1500;
+
+    await pool.query(
+      `INSERT INTO dc_rules (district, rule_type, rule_val, rule_le, rule_gt, threshold, overrides)
+       VALUES ($1, $2, $3, $4, $5, $6, $7)
+       ON CONFLICT (district) DO UPDATE 
+       SET rule_type = $2, rule_val = $3, rule_le = $4, rule_gt = $5, threshold = $6, overrides = $7`,
+      [district, rType, rVal, rLe, rGt, rThresh, JSON.stringify(rule.overrides || {})]
+    );
+  } catch (pgErr) {
+    console.error('Postgres dc_rules update error:', pgErr.message);
+  }
 
   res.json({
-    message: `DC rule updated for ${district}`,
+    message: `DC rule updated for ${district}: ${describeRule(rule)}`,
     district,
     rule,
     description: describeRule(rule)

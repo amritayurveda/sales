@@ -369,6 +369,33 @@ async function initDb() {
       console.error('Neon PostgreSQL cash_settlements load error:', cashErr.message);
     }
 
+    // 6. Load dc_rules from PostgreSQL and merge
+    try {
+      const dcRes = await pool.query("SELECT * FROM dc_rules");
+      if (dcRes.rows && dcRes.rows.length > 0) {
+        if (!db.dcRules) db.dcRules = {};
+        dcRes.rows.forEach(r => {
+          if (r.rule_type === 'flat') {
+            db.dcRules[r.district] = {
+              type: 'flat',
+              value: Number(r.rule_val) || 200,
+              overrides: r.overrides || {}
+            };
+          } else if (r.rule_type === 'threshold') {
+            db.dcRules[r.district] = {
+              type: 'threshold',
+              threshold: Number(r.threshold) || 1500,
+              le: Number(r.rule_le) || 200,
+              gt: Number(r.rule_gt) || 250,
+              overrides: r.overrides || {}
+            };
+          }
+        });
+      }
+    } catch (dcErr) {
+      console.error('Neon PostgreSQL dc_rules load error:', dcErr.message);
+    }
+
     if (!db.districts || !Array.isArray(db.districts) || db.districts.length === 0) {
       db.districts = [...DISTRICTS];
     }

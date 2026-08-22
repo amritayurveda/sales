@@ -400,6 +400,18 @@ const API = {
     });
   },
 
+  // DC Rules Management
+  async getDcRules() {
+    return this.request('/admin/dc-rules');
+  },
+
+  async updateDistrictDc(district, rule) {
+    return this.request('/admin/update-district-dc', {
+      method: 'POST',
+      body: JSON.stringify({ district, rule })
+    });
+  },
+
   // Activity Logs
   async getActivityLogs(filters = {}) {
     const params = new URLSearchParams();

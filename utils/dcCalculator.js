@@ -63,29 +63,33 @@ function isSpecialProduct(productName) {
  * @returns {number} Calculated DC rate
  */
 function calculateDC(rule, price, productName, district) {
-  // 1. Check if special product: ₹170 in UK & Udham Singh Nagar, ₹150 in all other districts
+  // 1. Check rule overrides for specific product
+  if (rule && rule.overrides && productName && rule.overrides[productName] !== undefined) {
+    return Number(rule.overrides[productName]);
+  }
+
+  // 2. Check explicit Admin configured District Rule
+  if (rule) {
+    if (rule.type === 'flat' || rule.type === 'custom') {
+      const val = Number(rule.value);
+      if (!isNaN(val) && val >= 0) {
+        return val;
+      }
+    }
+    if (rule.type === 'threshold') {
+      const thresh = Number(rule.threshold) || 1500;
+      const numPrice = Number(price) || 0;
+      return numPrice <= thresh ? (Number(rule.le) || 200) : (Number(rule.gt) || 250);
+    }
+  }
+
+  // 3. Fallback for special products if no explicit district override
   if (isSpecialProduct(productName)) {
     const distUpper = (district || '').toUpperCase();
     if (distUpper.includes('UTTARAKHAND') || distUpper.includes('UDHAM')) {
       return 170;
     }
     return 150;
-  }
-
-  // 2. Check rule overrides
-  if (rule && rule.overrides && productName && rule.overrides[productName] !== undefined) {
-    return Number(rule.overrides[productName]);
-  }
-
-  if (rule) {
-    if (rule.type === 'flat' || rule.type === 'custom') {
-      return Number(rule.value) || 200;
-    }
-    if (rule.type === 'threshold') {
-      const thresh = Number(rule.threshold) || 1500;
-      const numPrice = Number(price) || 0;
-      return numPrice <= thresh ? Number(rule.le) : Number(rule.gt);
-    }
   }
 
   const numPrice = Number(price) || 0;

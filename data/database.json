@@ -7,8 +7,8 @@
       "role": "admin",
       "district": null,
       "username": "admin",
-      "createdAt": "2026-08-22T04:49:35.600Z",
-      "passwordHash": "$2a$10$E8W2tEozHRQgWOnTEfzW3O2lfSyt1/zyf1TirScC6r/uRjpGDVo3O"
+      "createdAt": "2026-08-22T05:53:07.357Z",
+      "passwordHash": "$2a$10$Ru/pS5LRPV2ImXLPx/APM.tLxkrWPpX9cHH9hdKWmCZwd6YEKivaO"
     },
     {
       "id": "u_dealer_1",
@@ -16,8 +16,8 @@
       "role": "dealer",
       "district": "Chittorgarh",
       "username": "dealer_chittorgarh",
-      "createdAt": "2026-08-22T04:49:35.602Z",
-      "passwordHash": "$2a$10$E8W2tEozHRQgWOnTEfzW3OkK4a0IJt/CvKdc6wXmgXaec3k00IacO"
+      "createdAt": "2026-08-22T05:53:07.360Z",
+      "passwordHash": "$2a$10$Ru/pS5LRPV2ImXLPx/APM.zoAP4t3/p8QbG3FHqmoK4bMJ.U6nkyC"
     },
     {
       "id": "u_dealer_2",
@@ -25,8 +25,8 @@
       "role": "dealer",
       "district": "Alwar",
       "username": "dealer_alwar",
-      "createdAt": "2026-08-22T04:49:35.602Z",
-      "passwordHash": "$2a$10$E8W2tEozHRQgWOnTEfzW3OkK4a0IJt/CvKdc6wXmgXaec3k00IacO"
+      "createdAt": "2026-08-22T05:53:07.360Z",
+      "passwordHash": "$2a$10$Ru/pS5LRPV2ImXLPx/APM.zoAP4t3/p8QbG3FHqmoK4bMJ.U6nkyC"
     },
     {
       "id": "u_dealer_3",
@@ -34,8 +34,8 @@
       "role": "dealer",
       "district": "Bikaner",
       "username": "dealer_bikaner",
-      "createdAt": "2026-08-22T04:49:35.602Z",
-      "passwordHash": "$2a$10$E8W2tEozHRQgWOnTEfzW3OkK4a0IJt/CvKdc6wXmgXaec3k00IacO"
+      "createdAt": "2026-08-22T05:53:07.360Z",
+      "passwordHash": "$2a$10$Ru/pS5LRPV2ImXLPx/APM.zoAP4t3/p8QbG3FHqmoK4bMJ.U6nkyC"
     },
     {
       "id": "u_dealer_4",
@@ -43,8 +43,8 @@
       "role": "dealer",
       "district": "Uttarakhand",
       "username": "dealer_uttarakhand",
-      "createdAt": "2026-08-22T04:49:35.602Z",
-      "passwordHash": "$2a$10$E8W2tEozHRQgWOnTEfzW3OkK4a0IJt/CvKdc6wXmgXaec3k00IacO"
+      "createdAt": "2026-08-22T05:53:07.360Z",
+      "passwordHash": "$2a$10$Ru/pS5LRPV2ImXLPx/APM.zoAP4t3/p8QbG3FHqmoK4bMJ.U6nkyC"
     },
     {
       "id": "u_dealer_5",
@@ -52,8 +52,8 @@
       "role": "dealer",
       "district": "Udham Singh Nagar",
       "username": "dealer_udhamsingh",
-      "createdAt": "2026-08-22T04:49:35.602Z",
-      "passwordHash": "$2a$10$E8W2tEozHRQgWOnTEfzW3OkK4a0IJt/CvKdc6wXmgXaec3k00IacO"
+      "createdAt": "2026-08-22T05:53:07.360Z",
+      "passwordHash": "$2a$10$Ru/pS5LRPV2ImXLPx/APM.zoAP4t3/p8QbG3FHqmoK4bMJ.U6nkyC"
     },
     {
       "id": "u_dealer_6",
@@ -61,8 +61,8 @@
       "role": "dealer",
       "district": "Jodhpur",
       "username": "dealer_jodhpur",
-      "createdAt": "2026-08-22T04:49:35.602Z",
-      "passwordHash": "$2a$10$E8W2tEozHRQgWOnTEfzW3OkK4a0IJt/CvKdc6wXmgXaec3k00IacO"
+      "createdAt": "2026-08-22T05:53:07.360Z",
+      "passwordHash": "$2a$10$Ru/pS5LRPV2ImXLPx/APM.zoAP4t3/p8QbG3FHqmoK4bMJ.U6nkyC"
     },
     {
       "id": "u_dealer_7",
@@ -70,8 +70,8 @@
       "role": "dealer",
       "district": "Kota",
       "username": "dealer_kota",
-      "createdAt": "2026-08-22T04:49:35.602Z",
-      "passwordHash": "$2a$10$E8W2tEozHRQgWOnTEfzW3OkK4a0IJt/CvKdc6wXmgXaec3k00IacO"
+      "createdAt": "2026-08-22T05:53:07.360Z",
+      "passwordHash": "$2a$10$Ru/pS5LRPV2ImXLPx/APM.zoAP4t3/p8QbG3FHqmoK4bMJ.U6nkyC"
     },
     {
       "id": "u_dealer_8",
@@ -79,8 +79,8 @@
       "role": "dealer",
       "district": "Faridabad",
       "username": "dealer_faridabad",
-      "createdAt": "2026-08-22T04:49:35.602Z",
-      "passwordHash": "$2a$10$E8W2tEozHRQgWOnTEfzW3OkK4a0IJt/CvKdc6wXmgXaec3k00IacO"
+      "createdAt": "2026-08-22T05:53:07.360Z",
+      "passwordHash": "$2a$10$Ru/pS5LRPV2ImXLPx/APM.zoAP4t3/p8QbG3FHqmoK4bMJ.U6nkyC"
     },
     {
       "id": "u_dealer_9",
@@ -88,17 +88,8 @@
       "role": "dealer",
       "district": "Gurgaon",
       "username": "dealer_gurgaon",
-      "createdAt": "2026-08-22T04:49:35.602Z",
-      "passwordHash": "$2a$10$E8W2tEozHRQgWOnTEfzW3OkK4a0IJt/CvKdc6wXmgXaec3k00IacO"
-    },
-    {
-      "id": "u_dealer_10",
-      "name": "Rewari Dealer",
-      "role": "dealer",
-      "district": "Rewari",
-      "username": "dealer_rewari",
-      "createdAt": "2026-08-22T04:49:35.602Z",
-      "passwordHash": "$2a$10$E8W2tEozHRQgWOnTEfzW3OkK4a0IJt/CvKdc6wXmgXaec3k00IacO"
+      "createdAt": "2026-08-22T05:53:07.360Z",
+      "passwordHash": "$2a$10$Ru/pS5LRPV2ImXLPx/APM.zoAP4t3/p8QbG3FHqmoK4bMJ.U6nkyC"
     },
     {
       "id": "u_dealer_11",
@@ -106,8 +97,8 @@
       "role": "dealer",
       "district": "Muzaffarnagar",
       "username": "dealer_muzaffarnagar",
-      "createdAt": "2026-08-22T04:49:35.602Z",
-      "passwordHash": "$2a$10$E8W2tEozHRQgWOnTEfzW3OkK4a0IJt/CvKdc6wXmgXaec3k00IacO"
+      "createdAt": "2026-08-22T05:53:07.360Z",
+      "passwordHash": "$2a$10$Ru/pS5LRPV2ImXLPx/APM.zoAP4t3/p8QbG3FHqmoK4bMJ.U6nkyC"
     },
     {
       "id": "u_dealer_12",
@@ -115,8 +106,8 @@
       "role": "dealer",
       "district": "Shamli",
       "username": "dealer_shamli",
-      "createdAt": "2026-08-22T04:49:35.602Z",
-      "passwordHash": "$2a$10$E8W2tEozHRQgWOnTEfzW3OkK4a0IJt/CvKdc6wXmgXaec3k00IacO"
+      "createdAt": "2026-08-22T05:53:07.360Z",
+      "passwordHash": "$2a$10$Ru/pS5LRPV2ImXLPx/APM.zoAP4t3/p8QbG3FHqmoK4bMJ.U6nkyC"
     }
   ],
   "dcRules": {
@@ -128,7 +119,7 @@
     },
     "Alwar": {
       "type": "flat",
-      "value": 200
+      "value": 300
     },
     "Rewari": {
       "type": "flat",
@@ -614,126 +605,135 @@
     "Kota",
     "Faridabad",
     "Gurgaon",
-    "Rewari",
     "Muzaffarnagar",
     "Shamli"
   ],
-  "lastOrder": {
-    "id": "ord_17873748336355u5t",
-    "orderNo": "ORD-696302",
-    "district": "Rewari",
-    "date": "2026-08-22",
-    "time": "10:30:33",
-    "productId": "prod_1",
-    "productName": "DAMADAR",
-    "schemeName": "DAMADAR Standard",
-    "qty": 1,
-    "unitPrice": 2500,
-    "dcRate": 250,
-    "totalAmount": 2500,
-    "netAmount": 2250,
-    "customerMobile": "9123456780",
-    "customerName": "Delete Test Customer",
-    "note": "",
-    "dealerUsername": "dealer_rewari",
-    "createdAt": "2026-08-22T05:00:33.635Z"
-  },
   "milaStock": {},
   "inwardNotes": {},
   "activityLogs": [
     {
-      "id": "act_1787374836877xwdd",
-      "userId": "u_admin",
-      "username": "admin",
-      "role": "admin",
-      "district": "Rewari",
-      "action": "ORDER_DELETED",
-      "details": "Admin deleted customer order #ORD-696302 (DAMADAR - ₹2500) in Rewari",
-      "timestamp": "2026-08-22T05:00:36.877Z"
-    },
-    {
-      "id": "act_1787374833635e6en",
-      "userId": "u_dealer_10",
-      "username": "dealer_rewari",
-      "role": "dealer",
-      "district": "Rewari",
-      "action": "CUSTOMER_SALE",
-      "details": "Order ORD-696302: Sold DAMADAR (Price: ₹2500, DC: ₹250, Net: ₹2250) to Delete Test Customer [9123456780]",
-      "timestamp": "2026-08-22T05:00:33.635Z"
-    },
-    {
-      "id": "act_1787374833598pxzm",
-      "userId": "u_dealer_10",
-      "username": "dealer_rewari",
-      "role": "dealer",
-      "district": "Rewari",
-      "action": "LOGIN",
-      "details": "User dealer_rewari (dealer - Rewari) logged in",
-      "timestamp": "2026-08-22T05:00:33.598Z"
-    },
-    {
-      "id": "act_17873748334123797",
-      "userId": "u_admin",
-      "username": "admin",
-      "role": "admin",
-      "district": null,
-      "action": "LOGIN",
-      "details": "User admin (admin) logged in",
-      "timestamp": "2026-08-22T05:00:33.415Z"
-    },
-    {
-      "id": "act_1787374450331lshe",
-      "role": "dealer",
-      "action": "CUSTOMER_SALE",
+      "id": "act_1787378399107h1ex",
       "userId": "u_dealer_2",
-      "details": "Order ORD-408598: Sold DAMADAR (Price: ₹3200, DC: ₹200, Net: ₹3000) to Live Test Customer [9876543210]",
-      "district": "Alwar",
       "username": "dealer_alwar",
-      "timestamp": "2026-08-22T04:54:10.331Z"
+      "role": "dealer",
+      "district": "Alwar",
+      "action": "CUSTOMER_SALE",
+      "details": "Order ORD-490418: Sold DAMADAR (Price: ₹2800, DC: ₹300, Net: ₹2500) to DC Test Customer [9888877777]",
+      "timestamp": "2026-08-22T05:59:59.107Z"
     },
     {
-      "id": "act_1787374450267lws7",
-      "role": "dealer",
-      "action": "LOGIN",
+      "id": "act_178737839398627cp",
+      "userId": "u_admin",
+      "username": "admin",
+      "role": "admin",
+      "district": "Alwar",
+      "action": "DC_RULE_UPDATE",
+      "details": "Updated DC rule for Alwar: Flat ₹300 (Play More/Height Veda/Alergy/Eye Sutra: ₹150 / UK ₹170)",
+      "timestamp": "2026-08-22T05:59:53.986Z"
+    },
+    {
+      "id": "act_17873783939722nsq",
       "userId": "u_dealer_2",
+      "username": "dealer_alwar",
+      "role": "dealer",
+      "district": "Alwar",
+      "action": "LOGIN",
       "details": "User dealer_alwar (dealer - Alwar) logged in",
-      "district": "Alwar",
-      "username": "dealer_alwar",
-      "timestamp": "2026-08-22T04:54:10.267Z"
+      "timestamp": "2026-08-22T05:59:53.972Z"
     },
     {
-      "id": "act_1787374450011qtae",
-      "role": "admin",
-      "action": "LOGIN",
+      "id": "act_1787378393847qtfb",
       "userId": "u_admin",
-      "details": "User admin (admin) logged in",
-      "district": null,
       "username": "admin",
-      "timestamp": "2026-08-22T04:54:10.011Z"
-    },
-    {
-      "id": "act_17873744328154fy7",
-      "role": "dealer",
-      "action": "CUSTOMER_SALE",
-      "userId": "u_dealer_7",
-      "details": "Order ORD-941347: Sold DAMADAR (Price: ₹2800, DC: ₹250, Net: ₹2550) to Persistence Test Customer [9988776655]",
-      "district": "Kota",
-      "username": "dealer_kota",
-      "timestamp": "2026-08-22T04:53:52.815Z"
-    },
-    {
-      "id": "act_1787374432657i2de",
-      "role": "dealer",
+      "role": "admin",
+      "district": null,
       "action": "LOGIN",
-      "userId": "u_dealer_7",
-      "details": "User dealer_kota (dealer - Kota) logged in",
+      "details": "User admin (admin) logged in",
+      "timestamp": "2026-08-22T05:59:53.849Z"
+    },
+    {
+      "id": "act_17873782056118qfh",
+      "role": "admin",
+      "action": "DC_RULE_UPDATE",
+      "userId": "u_admin",
+      "details": "Updated DC rule for Alwar: ≤₹1500: ₹200 | >₹1500: ₹250 (Play More/Height Veda/Alergy/Eye Sutra: ₹150 / UK ₹170)",
+      "district": "Alwar",
+      "username": "admin",
+      "timestamp": "2026-08-22T05:56:45.611Z"
+    },
+    {
+      "id": "act_17873781776610pg6",
+      "role": "admin",
+      "action": "DISTRICT_DELETED",
+      "userId": "u_admin",
+      "details": "Deleted district \"Rewari\" and removed associated dealer account",
+      "district": "Rewari",
+      "username": "admin",
+      "timestamp": "2026-08-22T05:56:17.661Z"
+    },
+    {
+      "id": "act_1787378081521z9pq",
+      "role": "admin",
+      "action": "CASH_SETTLEMENT",
+      "userId": "u_admin",
+      "details": "Collected ₹6950 payment from Chittorgarh on 2026-08-22 (Receipt: CASH-128512)",
+      "district": "Chittorgarh",
+      "username": "admin",
+      "timestamp": "2026-08-22T05:54:41.521Z"
+    },
+    {
+      "id": "act_1787378033515e0so",
+      "role": "admin",
+      "action": "ORDER_DELETED",
+      "userId": "u_admin",
+      "details": "Admin deleted customer order #ORD-941347 (DAMADAR - ₹2800) in Kota",
       "district": "Kota",
-      "username": "dealer_kota",
-      "timestamp": "2026-08-22T04:53:52.660Z"
+      "username": "admin",
+      "timestamp": "2026-08-22T05:53:53.515Z"
+    },
+    {
+      "id": "act_1787378030805peho",
+      "role": "admin",
+      "action": "ORDER_DELETED",
+      "userId": "u_admin",
+      "details": "Admin deleted customer order #ORD-111251 (DAMADAR - ₹2800) in Kota",
+      "district": "Kota",
+      "username": "admin",
+      "timestamp": "2026-08-22T05:53:50.805Z"
+    },
+    {
+      "id": "act_1787378027842wdy7",
+      "role": "admin",
+      "action": "ORDER_DELETED",
+      "userId": "u_admin",
+      "details": "Admin deleted customer order #ORD-781839 (DAMADAR - ₹2800) in Kota",
+      "district": "Kota",
+      "username": "admin",
+      "timestamp": "2026-08-22T05:53:47.842Z"
     }
   ],
   "inventoryLogs": [],
   "customerOrders": [
+    {
+      "id": "ord_1787378399107kgqi",
+      "orderNo": "ORD-490418",
+      "district": "Alwar",
+      "date": "2026-08-22",
+      "time": "11:29:59",
+      "productId": "prod_1",
+      "productName": "DAMADAR",
+      "schemeName": "DAMADAR Standard",
+      "qty": 1,
+      "unitPrice": 2800,
+      "dcRate": 300,
+      "totalAmount": 2800,
+      "netAmount": 2500,
+      "customerMobile": "9888877777",
+      "customerName": "DC Test Customer",
+      "note": "",
+      "dealerUsername": "dealer_alwar",
+      "createdAt": "2026-08-22T05:59:59.107Z"
+    },
     {
       "id": "ord_1787374450331fzkh",
       "orderNo": "ORD-408598",
@@ -753,206 +753,6 @@
       "note": "",
       "dealerUsername": "dealer_alwar",
       "createdAt": "2026-08-22T04:54:10.331Z"
-    },
-    {
-      "id": "ord_1787374432815jcpi",
-      "orderNo": "ORD-941347",
-      "district": "Kota",
-      "date": "2026-08-22",
-      "time": "10:23:52",
-      "productId": "prod_1",
-      "productName": "DAMADAR",
-      "schemeName": "DAMADAR (₹2,800)",
-      "qty": 1,
-      "unitPrice": 2800,
-      "dcRate": 250,
-      "totalAmount": 2800,
-      "netAmount": 2550,
-      "customerMobile": "9988776655",
-      "customerName": "Persistence Test Customer",
-      "note": "",
-      "dealerUsername": "dealer_kota",
-      "createdAt": "2026-08-22T04:53:52.815Z"
-    },
-    {
-      "id": "ord_1787374091532giqu",
-      "orderNo": "ORD-111251",
-      "district": "Kota",
-      "date": "2026-08-22",
-      "time": "10:18:11",
-      "productId": "prod_1",
-      "productName": "DAMADAR",
-      "schemeName": "DAMADAR (₹2,800)",
-      "qty": 1,
-      "unitPrice": 2800,
-      "dcRate": 250,
-      "totalAmount": 2800,
-      "netAmount": 2550,
-      "customerMobile": "9988776655",
-      "customerName": "Persistence Test Customer",
-      "note": "",
-      "dealerUsername": "dealer_kota",
-      "createdAt": "2026-08-22T04:48:11.532Z"
-    },
-    {
-      "id": "ord_1787374060088nc8l",
-      "orderNo": "ORD-781839",
-      "district": "Kota",
-      "date": "2026-08-22",
-      "time": "10:17:40",
-      "productId": "prod_1",
-      "productName": "DAMADAR",
-      "schemeName": "DAMADAR (₹2,800)",
-      "qty": 1,
-      "unitPrice": 2800,
-      "dcRate": 250,
-      "totalAmount": 2800,
-      "netAmount": 2550,
-      "customerMobile": "9988776655",
-      "customerName": "Persistence Test Customer",
-      "note": "",
-      "dealerUsername": "dealer_kota",
-      "createdAt": "2026-08-22T04:47:40.088Z"
-    },
-    {
-      "id": "ord_17873738929600qub",
-      "orderNo": "ORD-965128",
-      "district": "Rewari",
-      "date": "2026-08-22",
-      "time": "04:44:52",
-      "productId": "prod_3",
-      "productName": "AMAR NETRAN",
-      "schemeName": "AMAR NETRAN (₹2,000)",
-      "qty": 1,
-      "unitPrice": 2000,
-      "dcRate": 250,
-      "totalAmount": 2000,
-      "netAmount": 1750,
-      "customerMobile": "123567899",
-      "customerName": "Customer",
-      "note": "",
-      "dealerUsername": "dealer_rewari",
-      "createdAt": "2026-08-22T04:44:52.960Z"
-    },
-    {
-      "id": "ord_1787373859082wvro",
-      "orderNo": "ORD-339302",
-      "district": "Rewari",
-      "date": "2026-08-22",
-      "time": "04:44:19",
-      "productId": "prod_3",
-      "productName": "AMAR NETRAN",
-      "schemeName": "AMAR NETRAN (₹2,000)",
-      "qty": 1,
-      "unitPrice": 2000,
-      "dcRate": 250,
-      "totalAmount": 2000,
-      "netAmount": 1750,
-      "customerMobile": "1234567890",
-      "customerName": "Customer",
-      "note": "",
-      "dealerUsername": "dealer_rewari",
-      "createdAt": "2026-08-22T04:44:19.083Z"
-    },
-    {
-      "id": "ord_17873737180991wzs",
-      "orderNo": "ORD-912758",
-      "district": "Alwar",
-      "date": "2026-08-22",
-      "time": "10:11:58",
-      "productId": "prod_1",
-      "productName": "DAMADAR",
-      "schemeName": "DAMADAR (₹3,200)",
-      "qty": 1,
-      "unitPrice": 3200,
-      "dcRate": 200,
-      "totalAmount": 3200,
-      "netAmount": 3000,
-      "customerMobile": "9876543210",
-      "customerName": "Live Test Customer",
-      "note": "",
-      "dealerUsername": "dealer_alwar",
-      "createdAt": "2026-08-22T04:41:58.099Z"
-    },
-    {
-      "id": "ord_1787373685531lk35",
-      "orderNo": "ORD-867578",
-      "district": "Alwar",
-      "date": "2026-08-22",
-      "time": "10:11:25",
-      "productId": "prod_1",
-      "productName": "DAMADAR",
-      "schemeName": "DAMADAR (₹3,200)",
-      "qty": 1,
-      "unitPrice": 3200,
-      "dcRate": 200,
-      "totalAmount": 3200,
-      "netAmount": 3000,
-      "customerMobile": "9876543210",
-      "customerName": "Live Test Customer",
-      "note": "",
-      "dealerUsername": "dealer_alwar",
-      "createdAt": "2026-08-22T04:41:25.531Z"
-    },
-    {
-      "id": "ord_1787373659464145q",
-      "orderNo": "ORD-332331",
-      "district": "Alwar",
-      "date": "2026-08-22",
-      "time": "10:10:59",
-      "productId": "prod_1",
-      "productName": "DAMADAR",
-      "schemeName": "DAMADAR (₹3,200)",
-      "qty": 1,
-      "unitPrice": 3200,
-      "dcRate": 200,
-      "totalAmount": 3200,
-      "netAmount": 3000,
-      "customerMobile": "9876543210",
-      "customerName": "Live Test Customer",
-      "note": "",
-      "dealerUsername": "dealer_alwar",
-      "createdAt": "2026-08-22T04:40:59.464Z"
-    },
-    {
-      "id": "ord_17873734187893r64",
-      "orderNo": "ORD-910011",
-      "district": "Rewari",
-      "date": "2026-08-22",
-      "time": "04:36:58",
-      "productId": "prod_3",
-      "productName": "AMAR NETRAN",
-      "schemeName": "AMAR NETRAN (₹2,000)",
-      "qty": 1,
-      "unitPrice": 2000,
-      "dcRate": 250,
-      "totalAmount": 2000,
-      "netAmount": 1750,
-      "customerMobile": "1234567890",
-      "customerName": "Customer",
-      "note": "",
-      "dealerUsername": "dealer_rewari",
-      "createdAt": "2026-08-22T04:36:58.789Z"
-    },
-    {
-      "id": "ord_1787373076247nvl5",
-      "orderNo": "ORD-421961",
-      "district": "Gurgaon",
-      "date": "2026-08-22",
-      "time": "04:31:16",
-      "productId": "prod_3",
-      "productName": "AMAR NETRAN",
-      "schemeName": "AMAR NETRAN (₹20,000)",
-      "qty": 1,
-      "unitPrice": 20000,
-      "dcRate": 200,
-      "totalAmount": 20000,
-      "netAmount": 19800,
-      "customerMobile": "7488852973",
-      "customerName": "Customer",
-      "note": "",
-      "dealerUsername": "dealer_gurgaon",
-      "createdAt": "2026-08-22T04:31:16.247Z"
     },
     {
       "id": "ord_1787311195347qycz",
@@ -1090,7 +890,7 @@
         }
       ],
       "totalUnits": 6,
-      "status": "PENDING_ACCEPTANCE",
+      "status": "DECLINED",
       "challanNo": "1",
       "note": "",
       "dispatchedBy": "admin",
@@ -1098,9 +898,9 @@
       "receivedBy": null,
       "receivedAt": null,
       "receivedDate": null,
-      "declinedBy": null,
-      "declinedAt": null,
-      "declineReason": null
+      "declinedBy": "admin",
+      "declinedAt": "2026-08-22T05:53:14.223Z",
+      "declineReason": "Parcel damaged in transit"
     },
     {
       "id": "trf_1787314441986d6up",
@@ -1225,7 +1025,19 @@
     }
   ],
   "baseOpeningCash": {},
-  "cashSettlements": [],
+  "cashSettlements": [
+    {
+      "id": "set_1787378081521snlf",
+      "receiptNo": "CASH-128512",
+      "district": "Chittorgarh",
+      "date": "2026-08-22",
+      "amount": 6950,
+      "paymentMode": "Cash Deposit",
+      "note": "Admin collected cash payment",
+      "receivedBy": "admin",
+      "createdAt": "2026-08-22T05:54:41.521Z"
+    }
+  ],
   "districtProducts": {
     "Kota": [
       {
@@ -1256,7 +1068,7 @@
         ],
         "isActive": true,
         "productId": "prod_1",
-        "currentStock": 0,
+        "currentStock": 3,
         "stockAllocated": 0
       },
       {
@@ -2126,7 +1938,7 @@
         ],
         "isActive": true,
         "productId": "prod_1",
-        "currentStock": 1,
+        "currentStock": 0,
         "stockAllocated": 0
       },
       {
@@ -6448,5 +6260,25 @@
       }
     ]
   },
-  "lastOrderTimestamp": 1787374836877
+  "lastOrderTimestamp": 1787378399107,
+  "lastOrder": {
+    "id": "ord_1787378399107kgqi",
+    "orderNo": "ORD-490418",
+    "district": "Alwar",
+    "date": "2026-08-22",
+    "time": "11:29:59",
+    "productId": "prod_1",
+    "productName": "DAMADAR",
+    "schemeName": "DAMADAR Standard",
+    "qty": 1,
+    "unitPrice": 2800,
+    "dcRate": 300,
+    "totalAmount": 2800,
+    "netAmount": 2500,
+    "customerMobile": "9888877777",
+    "customerName": "DC Test Customer",
+    "note": "",
+    "dealerUsername": "dealer_alwar",
+    "createdAt": "2026-08-22T05:59:59.107Z"
+  }
 }
