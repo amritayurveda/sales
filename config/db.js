@@ -399,6 +399,42 @@ async function initDb() {
     if (!db.districts || !Array.isArray(db.districts) || db.districts.length === 0) {
       db.districts = [...DISTRICTS];
     }
+    if (!db.districts.some(d => d.toUpperCase() === 'SAHARANPUR')) {
+      db.districts.push('Saharanpur');
+    }
+
+    // Ensure dealer accounts exist for all districts
+    if (!db.users) db.users = [];
+    const salt = bcrypt.genSaltSync(10);
+    const defaultPassHash = bcrypt.hashSync('dealer123', salt);
+
+    for (const dist of db.districts) {
+      const hasUser = db.users.some(u => u.district && u.district.toUpperCase() === dist.toUpperCase());
+      if (!hasUser) {
+        const slug = `dealer_${dist.toLowerCase().replace(/[^a-z0-9]/g, '')}`;
+        const newUser = {
+          id: `u_${slug}`,
+          username: slug,
+          name: `${dist} Dealer`,
+          passwordHash: defaultPassHash,
+          role: 'dealer',
+          district: dist,
+          createdAt: new Date().toISOString()
+        };
+        db.users.push(newUser);
+        try {
+          await pool.query(
+            `INSERT INTO users (id, username, name, password_hash, role, district, created_at)
+             VALUES ($1, $2, $3, $4, $5, $6, $7)
+             ON CONFLICT (username) DO UPDATE SET district = $6`,
+            [newUser.id, newUser.username, newUser.name, newUser.passwordHash, newUser.role, newUser.district, newUser.createdAt]
+          );
+        } catch (uErr) {
+          console.error('Postgres auto dealer user insert error:', uErr.message);
+        }
+      }
+    }
+
     if (!db.customerOrders) db.customerOrders = [];
     if (!db.stockTransfers) db.stockTransfers = [];
     if (!db.districtProducts) db.districtProducts = {};
@@ -410,30 +446,62 @@ async function initDb() {
   return db;
 }
 
+const SAHARANPUR_PRODUCTS = [
+  { name: "PLAY MORE", defaultStock: 50, schemes: [{ id: "sch_pm_1", name: "PLAY MORE 1", qty: 1, price: 2500, dc: 170 }] },
+  { name: "FOUJI", defaultStock: 10, schemes: [{ id: "sch_fj_1", name: "FOUJI 1", qty: 1, price: 2500, dc: 170 }] },
+  { name: "EYE SUTRA", defaultStock: 15, schemes: [{ id: "sch_es_1", name: "EYE SUTRA 1", qty: 1, price: 2500, dc: 170 }] },
+  { name: "ALERGY", defaultStock: 12, schemes: [{ id: "sch_alg_1", name: "ALERGY 1", qty: 1, price: 2500, dc: 170 }] }
+];
+
 function ensureDistrictSchemes() {
   const activeDistricts = getDistricts();
   activeDistricts.forEach(dist => {
-    if (!db.districtProducts[dist] || db.districtProducts[dist].length === 0) {
-      db.districtProducts[dist] = EXCEL_PRODUCTS.map((p, idx) => ({
-        id: `dp_${dist.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 3)}_p${idx + 1}`,
-        productId: `prod_${idx + 1}`,
-        name: p.name,
-        schemePrice: p.schemes[0].price,
-        stockAllocated: p.defaultStock,
-        currentStock: p.defaultStock,
-        schemes: JSON.parse(JSON.stringify(p.schemes)),
-        isActive: true
-      }));
-    } else {
-      // Ensure each product has schemes array
-      db.districtProducts[dist].forEach(p => {
-        if (!p.schemes || p.schemes.length === 0) {
-          const match = EXCEL_PRODUCTS.find(ep => ep.name.toLowerCase() === p.name.toLowerCase());
-          p.schemes = match ? JSON.parse(JSON.stringify(match.schemes)) : [
-            { id: `sch_${p.productId}_1`, name: `${p.name} Standard`, qty: 1, price: p.schemePrice || 2500, dc: 250 }
-          ];
-        }
+    if (dist.toUpperCase() === 'SAHARANPUR') {
+      const allowedNames = ['PLAY MORE', 'FOUJI', 'EYE SUTRA', 'ALERGY'];
+      const current = db.districtProducts[dist] || db.districtProducts['Saharanpur'] || db.districtProducts['SAHARANPUR'] || [];
+      const filtered = current.filter(p => allowedNames.includes(p.name.toUpperCase()));
+
+      // Set only the 4 products
+      const finalFour = SAHARANPUR_PRODUCTS.map((sp, idx) => {
+        const existing = filtered.find(p => p.name.toUpperCase() === sp.name.toUpperCase());
+        return {
+          id: existing ? existing.id : `dp_sah_${idx + 1}`,
+          productId: existing ? (existing.productId || `prod_sah_${idx + 1}`) : `prod_sah_${idx + 1}`,
+          name: sp.name,
+          schemePrice: sp.schemes[0].price,
+          stockAllocated: existing ? (existing.stockAllocated ?? sp.defaultStock) : sp.defaultStock,
+          currentStock: existing ? (existing.currentStock ?? sp.defaultStock) : sp.defaultStock,
+          schemes: JSON.parse(JSON.stringify(sp.schemes)),
+          isActive: true
+        };
       });
+
+      db.districtProducts[dist] = finalFour;
+      db.districtProducts['Saharanpur'] = finalFour;
+      db.districtProducts['SAHARANPUR'] = finalFour;
+    } else {
+      if (!db.districtProducts[dist] || db.districtProducts[dist].length === 0) {
+        db.districtProducts[dist] = EXCEL_PRODUCTS.map((p, idx) => ({
+          id: `dp_${dist.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 3)}_p${idx + 1}`,
+          productId: `prod_${idx + 1}`,
+          name: p.name,
+          schemePrice: p.schemes[0].price,
+          stockAllocated: p.defaultStock,
+          currentStock: p.defaultStock,
+          schemes: JSON.parse(JSON.stringify(p.schemes)),
+          isActive: true
+        }));
+      } else {
+        // Ensure each product has schemes array
+        db.districtProducts[dist].forEach(p => {
+          if (!p.schemes || p.schemes.length === 0) {
+            const match = EXCEL_PRODUCTS.find(ep => ep.name.toLowerCase() === ep.name.toLowerCase());
+            p.schemes = match ? JSON.parse(JSON.stringify(match.schemes)) : [
+              { id: `sch_${p.productId}_1`, name: `${p.name} Standard`, qty: 1, price: p.schemePrice || 2500, dc: 250 }
+            ];
+          }
+        });
+      }
     }
   });
 }
