@@ -99,13 +99,17 @@ router.post(
 
     await saveDb();
 
-    // Insert directly into Neon PostgreSQL customer_orders table
-    pool.query(
-      `INSERT INTO customer_orders (id, order_no, district, order_date, order_time, product_id, product_name, qty, unit_price, dc_rate, net_amount, customer_mobile, customer_name, note, dealer_username, created_at)
-       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16)
-       ON CONFLICT (id) DO NOTHING`,
-      [newOrder.id, newOrder.orderNo, newOrder.district, newOrder.date, newOrder.time, newOrder.productId, newOrder.productName, newOrder.qty, newOrder.unitPrice, newOrder.dcRate, newOrder.netAmount, newOrder.customerMobile, newOrder.customerName, newOrder.note, newOrder.dealerUsername, newOrder.createdAt]
-    ).catch(err => console.error('Postgres order insert error:', err.message));
+    // Insert directly into Neon PostgreSQL customer_orders table (Guaranteed persist before response)
+    try {
+      await pool.query(
+        `INSERT INTO customer_orders (id, order_no, district, order_date, order_time, product_id, product_name, qty, unit_price, dc_rate, net_amount, customer_mobile, customer_name, note, dealer_username, created_at)
+         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16)
+         ON CONFLICT (id) DO NOTHING`,
+        [newOrder.id, newOrder.orderNo, newOrder.district, newOrder.date, newOrder.time, newOrder.productId, newOrder.productName, newOrder.qty, newOrder.unitPrice, newOrder.dcRate, newOrder.netAmount, newOrder.customerMobile, newOrder.customerName, newOrder.note, newOrder.dealerUsername, newOrder.createdAt]
+      );
+    } catch (err) {
+      console.error('Postgres order insert error:', err.message);
+    }
 
     // Trigger live background sync to Google Sheet
     triggerLiveEventSync(district, date, 'NEW_ORDER', newOrder);

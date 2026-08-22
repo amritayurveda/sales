@@ -138,6 +138,7 @@ function getDistricts() {
 }
 
 async function saveDb() {
+  // 1. Try local file write in safe try/catch (won't crash or block Postgres on Vercel)
   try {
     if (!fs.existsSync(DATA_DIR)) {
       fs.mkdirSync(DATA_DIR, { recursive: true });
@@ -145,15 +146,19 @@ async function saveDb() {
     const tempFile = DB_FILE + '.tmp';
     fs.writeFileSync(tempFile, JSON.stringify(db, null, 2), 'utf8');
     fs.renameSync(tempFile, DB_FILE);
+  } catch (fsErr) {
+    // Read-only filesystem on Vercel is expected - continue to Postgres
+  }
 
-    // Persist to Neon PostgreSQL Database
+  // 2. Persist to Neon PostgreSQL Database (Always executed & awaited)
+  try {
     await pool.query(
       `INSERT INTO app_state (key, value, updated_at) VALUES ('main_state', $1, NOW())
        ON CONFLICT (key) DO UPDATE SET value = $1, updated_at = NOW()`,
       [JSON.stringify(db)]
     );
-  } catch (err) {
-    console.error('Error saving database:', err);
+  } catch (pgErr) {
+    console.error('Neon PostgreSQL saveDb error:', pgErr.message);
   }
 }
 
@@ -222,33 +227,79 @@ function loadLocalDatabase() {
 loadLocalDatabase();
 
 async function initDb() {
-  if (!fs.existsSync(DATA_DIR)) {
-    fs.mkdirSync(DATA_DIR, { recursive: true });
-  }
-
   try {
     // 1. Initialize PostgreSQL tables on Neon Tech
     await initPostgresTables();
 
-    // 2. Try loading from Neon PostgreSQL first
+    // 2. Try loading from Neon PostgreSQL app_state
     const pgRes = await pool.query("SELECT value FROM app_state WHERE key = 'main_state' LIMIT 1");
     if (pgRes.rows.length > 0 && pgRes.rows[0].value) {
       const loaded = typeof pgRes.rows[0].value === 'string' ? JSON.parse(pgRes.rows[0].value) : pgRes.rows[0].value;
-      if (loaded.users && loaded.users.length > 0) {
+      if (loaded && loaded.users && loaded.users.length > 0) {
         Object.keys(db).forEach(k => delete db[k]);
         Object.assign(db, loaded);
-        if (!db.districts || !Array.isArray(db.districts) || db.districts.length === 0) {
-          db.districts = [...DISTRICTS];
-        }
         console.log('✅ Loaded data successfully from Neon PostgreSQL database!');
-        ensureDistrictSchemes();
-        return db;
       }
+    } else {
+      // If Postgres was empty, push baseline state to Postgres
+      await saveDb();
+      console.log('✅ Initialized & Synced clean state to Neon PostgreSQL!');
     }
 
-    // If Postgres was empty, push local state to Postgres
-    await saveDb();
-    console.log('✅ Initialized & Synced clean state to Neon PostgreSQL!');
+    // 3. Load all customer_orders from Postgres customer_orders table and merge to guarantee zero data loss
+    try {
+      const ordersRes = await pool.query("SELECT * FROM customer_orders ORDER BY created_at DESC");
+      if (ordersRes.rows && ordersRes.rows.length > 0) {
+        if (!db.customerOrders) db.customerOrders = [];
+        const orderMap = new Map();
+        ordersRes.rows.forEach(r => {
+          let dateStr = '';
+          if (r.order_date instanceof Date) {
+            const yr = r.order_date.getFullYear();
+            const mo = String(r.order_date.getMonth() + 1).padStart(2, '0');
+            const dy = String(r.order_date.getDate()).padStart(2, '0');
+            dateStr = `${yr}-${mo}-${dy}`;
+          } else if (typeof r.order_date === 'string') {
+            dateStr = r.order_date.slice(0, 10);
+          }
+
+          orderMap.set(r.id, {
+            id: r.id,
+            orderNo: r.order_no,
+            district: r.district,
+            date: dateStr,
+            time: r.order_time,
+            productId: r.product_id,
+            productName: r.product_name,
+            schemeName: `${r.product_name} (₹${Number(r.unit_price).toLocaleString('en-IN')})`,
+            qty: Number(r.qty) || 1,
+            unitPrice: Number(r.unit_price) || 0,
+            dcRate: Number(r.dc_rate) || 0,
+            totalAmount: (Number(r.qty) || 1) * (Number(r.unit_price) || 0),
+            netAmount: Number(r.net_amount) || 0,
+            customerMobile: r.customer_mobile,
+            customerName: r.customer_name,
+            note: r.note || '',
+            dealerUsername: r.dealer_username,
+            createdAt: r.created_at ? new Date(r.created_at).toISOString() : new Date().toISOString()
+          });
+        });
+        db.customerOrders.forEach(o => {
+          if (!orderMap.has(o.id)) orderMap.set(o.id, o);
+        });
+        db.customerOrders = Array.from(orderMap.values()).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+      }
+    } catch (orderErr) {
+      console.error('Neon PostgreSQL customer_orders load error:', orderErr.message);
+    }
+
+    if (!db.districts || !Array.isArray(db.districts) || db.districts.length === 0) {
+      db.districts = [...DISTRICTS];
+    }
+    if (!db.customerOrders) db.customerOrders = [];
+    if (!db.stockTransfers) db.stockTransfers = [];
+    if (!db.districtProducts) db.districtProducts = {};
+    ensureDistrictSchemes();
   } catch (err) {
     console.error('Neon PostgreSQL initialization check warning:', err.message);
   }

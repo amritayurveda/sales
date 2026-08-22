@@ -68,6 +68,7 @@
         state.user = res.user;
         state.serverToday = res.serverToday || getTodayDateStr();
         state.currentDate = state.serverToday; // Auto-select today date for everyone
+        state.dealerView = 'home';
         if (state.user.role === 'dealer' && state.user.district) {
           state.currentDistrict = state.user.district;
         }
@@ -126,6 +127,7 @@
         state.user = res.user;
         state.serverToday = res.serverToday || getTodayDateStr();
         state.currentDate = state.serverToday; // Auto-select today date for everyone
+        state.dealerView = 'home';
         if (state.user.role === 'dealer' && state.user.district) {
           state.currentDistrict = state.user.district;
         }

@@ -2,13 +2,13 @@
 const app = require('../server');
 const { initDb } = require('../config/db');
 
-let isInitialized = false;
+let lastInitTime = 0;
 
 module.exports = async (req, res) => {
-  if (!isInitialized) {
+  if (Date.now() - lastInitTime > 4000) {
     try {
       await initDb();
-      isInitialized = true;
+      lastInitTime = Date.now();
     } catch (e) {
       console.error('Vercel initDb warning:', e.message);
     }
