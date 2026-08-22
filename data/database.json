@@ -619,56 +619,96 @@
     "Shamli"
   ],
   "lastOrder": {
-    "id": "ord_1787374450331fzkh",
-    "orderNo": "ORD-408598",
-    "district": "Alwar",
+    "id": "ord_17873748336355u5t",
+    "orderNo": "ORD-696302",
+    "district": "Rewari",
     "date": "2026-08-22",
-    "time": "10:24:10",
+    "time": "10:30:33",
     "productId": "prod_1",
     "productName": "DAMADAR",
-    "schemeName": "DAMADAR Special",
+    "schemeName": "DAMADAR Standard",
     "qty": 1,
-    "unitPrice": 3200,
-    "dcRate": 200,
-    "totalAmount": 3200,
-    "netAmount": 3000,
-    "customerMobile": "9876543210",
-    "customerName": "Live Test Customer",
+    "unitPrice": 2500,
+    "dcRate": 250,
+    "totalAmount": 2500,
+    "netAmount": 2250,
+    "customerMobile": "9123456780",
+    "customerName": "Delete Test Customer",
     "note": "",
-    "dealerUsername": "dealer_alwar",
-    "createdAt": "2026-08-22T04:54:10.331Z"
+    "dealerUsername": "dealer_rewari",
+    "createdAt": "2026-08-22T05:00:33.635Z"
   },
   "milaStock": {},
   "inwardNotes": {},
   "activityLogs": [
     {
-      "id": "act_1787374450331lshe",
-      "userId": "u_dealer_2",
-      "username": "dealer_alwar",
+      "id": "act_1787374836877xwdd",
+      "userId": "u_admin",
+      "username": "admin",
+      "role": "admin",
+      "district": "Rewari",
+      "action": "ORDER_DELETED",
+      "details": "Admin deleted customer order #ORD-696302 (DAMADAR - ₹2500) in Rewari",
+      "timestamp": "2026-08-22T05:00:36.877Z"
+    },
+    {
+      "id": "act_1787374833635e6en",
+      "userId": "u_dealer_10",
+      "username": "dealer_rewari",
       "role": "dealer",
-      "district": "Alwar",
+      "district": "Rewari",
       "action": "CUSTOMER_SALE",
-      "details": "Order ORD-408598: Sold DAMADAR (Price: ₹3200, DC: ₹200, Net: ₹3000) to Live Test Customer [9876543210]",
-      "timestamp": "2026-08-22T04:54:10.331Z"
+      "details": "Order ORD-696302: Sold DAMADAR (Price: ₹2500, DC: ₹250, Net: ₹2250) to Delete Test Customer [9123456780]",
+      "timestamp": "2026-08-22T05:00:33.635Z"
     },
     {
-      "id": "act_1787374450267lws7",
-      "userId": "u_dealer_2",
-      "username": "dealer_alwar",
+      "id": "act_1787374833598pxzm",
+      "userId": "u_dealer_10",
+      "username": "dealer_rewari",
       "role": "dealer",
-      "district": "Alwar",
+      "district": "Rewari",
       "action": "LOGIN",
-      "details": "User dealer_alwar (dealer - Alwar) logged in",
-      "timestamp": "2026-08-22T04:54:10.267Z"
+      "details": "User dealer_rewari (dealer - Rewari) logged in",
+      "timestamp": "2026-08-22T05:00:33.598Z"
     },
     {
-      "id": "act_1787374450011qtae",
+      "id": "act_17873748334123797",
       "userId": "u_admin",
       "username": "admin",
       "role": "admin",
       "district": null,
       "action": "LOGIN",
       "details": "User admin (admin) logged in",
+      "timestamp": "2026-08-22T05:00:33.415Z"
+    },
+    {
+      "id": "act_1787374450331lshe",
+      "role": "dealer",
+      "action": "CUSTOMER_SALE",
+      "userId": "u_dealer_2",
+      "details": "Order ORD-408598: Sold DAMADAR (Price: ₹3200, DC: ₹200, Net: ₹3000) to Live Test Customer [9876543210]",
+      "district": "Alwar",
+      "username": "dealer_alwar",
+      "timestamp": "2026-08-22T04:54:10.331Z"
+    },
+    {
+      "id": "act_1787374450267lws7",
+      "role": "dealer",
+      "action": "LOGIN",
+      "userId": "u_dealer_2",
+      "details": "User dealer_alwar (dealer - Alwar) logged in",
+      "district": "Alwar",
+      "username": "dealer_alwar",
+      "timestamp": "2026-08-22T04:54:10.267Z"
+    },
+    {
+      "id": "act_1787374450011qtae",
+      "role": "admin",
+      "action": "LOGIN",
+      "userId": "u_admin",
+      "details": "User admin (admin) logged in",
+      "district": null,
+      "username": "admin",
       "timestamp": "2026-08-22T04:54:10.011Z"
     },
     {
@@ -702,7 +742,7 @@
       "time": "10:24:10",
       "productId": "prod_1",
       "productName": "DAMADAR",
-      "schemeName": "DAMADAR Special",
+      "schemeName": "DAMADAR (₹3,200)",
       "qty": 1,
       "unitPrice": 3200,
       "dcRate": 200,
@@ -2086,7 +2126,7 @@
         ],
         "isActive": true,
         "productId": "prod_1",
-        "currentStock": 0,
+        "currentStock": 1,
         "stockAllocated": 0
       },
       {
@@ -6408,5 +6448,5 @@
       }
     ]
   },
-  "lastOrderTimestamp": 1787374450331
+  "lastOrderTimestamp": 1787374836877
 }

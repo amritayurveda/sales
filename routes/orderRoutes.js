@@ -121,41 +121,83 @@ router.post(
   }
 );
 
-// 2. Delete / Void customer order (RESTRICTED: Dealers cannot delete deliveries)
+// 2. Delete / Void customer order (ADMIN ONLY: Admin can delete any sale)
 router.delete(
-  '/:district/:date/:id',
+  ['/:district/:date/:id', '/:id'],
   authenticateToken,
-  (req, res) => {
-    // Strict business rule: Dealers CANNOT delete deliveries once created
+  async (req, res) => {
+    // Strictly restrict order deletion to Admin only
     if (req.user.role !== 'admin') {
       return res.status(403).json({
-        error: 'Permission Denied: Deliveries cannot be deleted by dealers once submitted.'
+        error: 'Permission Denied: Deliveries cannot be deleted by dealers. Only Admin can delete sales.'
       });
     }
 
     const { district, date, id } = req.params;
-    const initialLen = db.customerOrders.length;
-    db.customerOrders = db.customerOrders.filter(o => o.id !== id);
+    const targetOrder = (db.customerOrders || []).find(o => o.id === id || o.orderNo === id);
 
-    if (db.customerOrders.length === initialLen) {
-      return res.status(404).json({ error: 'Order not found' });
+    if (!targetOrder) {
+      return res.status(404).json({ error: 'Sale order not found' });
     }
 
-    logActivity(req.user.id, req.user.username, req.user.role, district, 'ORDER_VOID', `Admin voided customer order ${id}`);
-    saveDb();
+    const orderDist = targetOrder.district || district;
+    const orderDate = targetOrder.date || date;
 
-    res.json({ message: 'Order removed by Administrator' });
+    // 1. Remove from in-memory customer orders
+    db.customerOrders = db.customerOrders.filter(o => o.id !== targetOrder.id && o.orderNo !== targetOrder.orderNo);
+
+    // 2. Restore deducted stock for district product
+    if (orderDist && db.districtProducts && db.districtProducts[orderDist]) {
+      const item = db.districtProducts[orderDist].find(p => 
+        p.productId === targetOrder.productId || 
+        p.id === targetOrder.productId || 
+        p.name.toUpperCase() === (targetOrder.productName || '').toUpperCase()
+      );
+      if (item) {
+        item.currentStock = (item.currentStock || 0) + (Number(targetOrder.qty) || 1);
+      }
+    }
+
+    db.lastOrderTimestamp = Date.now();
+
+    logActivity(
+      req.user.id,
+      req.user.username,
+      req.user.role,
+      orderDist,
+      'ORDER_DELETED',
+      `Admin deleted customer order #${targetOrder.orderNo} (${targetOrder.productName} - ₹${targetOrder.unitPrice}) in ${orderDist}`
+    );
+
+    await saveDb();
+
+    // 3. Delete directly from Neon PostgreSQL customer_orders table
+    try {
+      await pool.query('DELETE FROM customer_orders WHERE id = $1 OR order_no = $1', [targetOrder.id]);
+    } catch (pgErr) {
+      console.error('Postgres delete customer order error:', pgErr.message);
+    }
+
+    res.json({
+      message: `Sale order #${targetOrder.orderNo} deleted successfully by Admin`,
+      deletedOrder: targetOrder
+    });
   }
 );
 
 // 3. Strictly block editing of deliveries by anyone (Dealers and Admin)
-router.all(['/edit-order', '/update-order', '/:id'], authenticateToken, (req, res, next) => {
-  if (req.method === 'PUT' || req.method === 'PATCH' || req.method === 'POST') {
-    return res.status(403).json({
-      error: 'Immutability Rule: Deliveries cannot be edited by anyone once recorded.'
-    });
-  }
-  next();
+router.all(['/edit-order', '/update-order'], authenticateToken, (req, res) => {
+  return res.status(403).json({
+    error: 'Immutability Rule: Deliveries cannot be edited once recorded.'
+  });
+});
+
+router.put('/:id', authenticateToken, (req, res) => {
+  return res.status(403).json({ error: 'Immutability Rule: Deliveries cannot be edited.' });
+});
+
+router.patch('/:id', authenticateToken, (req, res) => {
+  return res.status(403).json({ error: 'Immutability Rule: Deliveries cannot be edited.' });
 });
 
 // 3. Get customer orders for a district & date

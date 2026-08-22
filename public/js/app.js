@@ -596,7 +596,7 @@
                     <th style="text-align:right;">NET TOTAL</th>
                     <th>CUSTOMER MOBILE</th>
                     <th>TIME</th>
-                    <th style="text-align:center;width:95px;">STATUS</th>
+                    <th style="text-align:center;width:105px;">${isAdmin ? 'ADMIN' : 'STATUS'}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -618,7 +618,13 @@
                       </td>
                       <td class="mono" style="font-size:11px;color:var(--ink-soft);">${escapeHtml(o.time || '—')}</td>
                       <td style="text-align:center;">
-                        <span class="type-pill Opening" style="font-size:10px;padding:3px 7px;">🔒 Locked</span>
+                        ${isAdmin ? `
+                          <button class="btn btn-danger btn-sm" style="padding:4px 9px;font-size:11px;font-weight:700;background:#E53935;color:#FFF;border:none;border-radius:4px;cursor:pointer;" onclick="adminDeleteSaleOrder('${escapeHtml(o.district || state.currentDistrict)}', '${escapeHtml(o.date || state.currentDate)}', '${escapeHtml(o.id)}', '${escapeHtml(o.orderNo)}', '${escapeHtml(o.productName)}', ${o.unitPrice})">
+                            🗑️ Delete
+                          </button>
+                        ` : `
+                          <span class="type-pill Opening" style="font-size:10px;padding:3px 7px;">🔒 Locked</span>
+                        `}
                       </td>
                     </tr>
                   `).join('')}
@@ -922,6 +928,24 @@
   window.switchDealerView = (view) => {
     state.dealerView = view;
     renderExcelDashboard();
+  };
+
+  window.adminDeleteSaleOrder = async (district, date, id, orderNo, prodName, price) => {
+    if (!state.user || state.user.role !== 'admin') {
+      showToast('Permission Denied: Only Administrator can delete sales records.', 'error');
+      return;
+    }
+
+    const confirmed = confirm(`⚠️ Are you sure you want to DELETE this sale order?\n\nOrder Ref: #${orderNo}\nDistrict: ${district}\nProduct: ${prodName}\nPrice: ₹${fmt(price)}\n\nThis will permanently delete the delivery and restore the deducted product stock.`);
+    if (!confirmed) return;
+
+    try {
+      const res = await API.deleteOrder(district, date, id);
+      showToast(res.message || `Sale order #${orderNo} deleted successfully by Admin`, 'success');
+      await loadDistrictData();
+    } catch (err) {
+      showToast('Failed to delete sale order: ' + err.message, 'error');
+    }
   };
 
   function setupFastOrderEvents(products) {
