@@ -228,10 +228,7 @@ loadLocalDatabase();
 
 async function initDb() {
   try {
-    // 1. Initialize PostgreSQL tables on Neon Tech
-    await initPostgresTables();
-
-    // 2. Try loading from Neon PostgreSQL app_state
+    // 1. Ultra-fast load from Neon PostgreSQL app_state
     const pgRes = await pool.query("SELECT value FROM app_state WHERE key = 'main_state' LIMIT 1");
     if (pgRes.rows.length > 0 && pgRes.rows[0].value) {
       const loaded = typeof pgRes.rows[0].value === 'string' ? JSON.parse(pgRes.rows[0].value) : pgRes.rows[0].value;
@@ -241,159 +238,10 @@ async function initDb() {
         console.log('✅ Loaded data successfully from Neon PostgreSQL database!');
       }
     } else {
-      // If Postgres was empty, push baseline state to Postgres
+      // First-time DB initialization
+      await initPostgresTables();
       await saveDb();
       console.log('✅ Initialized & Synced clean state to Neon PostgreSQL!');
-    }
-
-    // 3. Load all customer_orders from Postgres customer_orders table and merge to guarantee zero data loss
-    try {
-      const ordersRes = await pool.query("SELECT * FROM customer_orders ORDER BY created_at DESC");
-      if (ordersRes.rows && ordersRes.rows.length > 0) {
-        if (!db.customerOrders) db.customerOrders = [];
-        const orderMap = new Map();
-        ordersRes.rows.forEach(r => {
-          let dateStr = '';
-          if (r.order_date instanceof Date) {
-            const yr = r.order_date.getFullYear();
-            const mo = String(r.order_date.getMonth() + 1).padStart(2, '0');
-            const dy = String(r.order_date.getDate()).padStart(2, '0');
-            dateStr = `${yr}-${mo}-${dy}`;
-          } else if (typeof r.order_date === 'string') {
-            dateStr = r.order_date.slice(0, 10);
-          }
-
-          orderMap.set(r.id, {
-            id: r.id,
-            orderNo: r.order_no,
-            district: r.district,
-            date: dateStr,
-            time: r.order_time,
-            productId: r.product_id,
-            productName: r.product_name,
-            schemeName: `${r.product_name} (₹${Number(r.unit_price).toLocaleString('en-IN')})`,
-            qty: Number(r.qty) || 1,
-            unitPrice: Number(r.unit_price) || 0,
-            dcRate: Number(r.dc_rate) || 0,
-            totalAmount: (Number(r.qty) || 1) * (Number(r.unit_price) || 0),
-            netAmount: Number(r.net_amount) || 0,
-            customerMobile: r.customer_mobile,
-            customerName: r.customer_name,
-            note: r.note || '',
-            dealerUsername: r.dealer_username,
-            createdAt: r.created_at ? new Date(r.created_at).toISOString() : new Date().toISOString()
-          });
-        });
-        db.customerOrders.forEach(o => {
-          if (!orderMap.has(o.id)) orderMap.set(o.id, o);
-        });
-        db.customerOrders = Array.from(orderMap.values()).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-      }
-    } catch (orderErr) {
-      console.error('Neon PostgreSQL customer_orders load error:', orderErr.message);
-    }
-
-    // 4. Load stock_transfers from PostgreSQL and merge
-    try {
-      const xfersRes = await pool.query("SELECT * FROM stock_transfers ORDER BY dispatched_at DESC");
-      if (xfersRes.rows && xfersRes.rows.length > 0) {
-        if (!db.stockTransfers) db.stockTransfers = [];
-        const xferMap = new Map();
-        xfersRes.rows.forEach(r => {
-          xferMap.set(r.id, {
-            id: r.id,
-            transferNo: r.transfer_no,
-            district: r.district,
-            productId: r.product_id,
-            productName: r.product_name,
-            qty: Number(r.qty) || 0,
-            items: r.items ? (typeof r.items === 'string' ? JSON.parse(r.items) : r.items) : [],
-            totalUnits: Number(r.total_units) || Number(r.qty) || 0,
-            status: r.status || 'PENDING_ACCEPTANCE',
-            challanNo: r.challan_no || '',
-            note: r.note || '',
-            dispatchedBy: r.dispatched_by,
-            dispatchedAt: r.dispatched_at ? new Date(r.dispatched_at).toISOString() : new Date().toISOString(),
-            receivedBy: r.received_by || null,
-            receivedAt: r.received_at ? new Date(r.received_at).toISOString() : null,
-            receivedDate: r.received_date ? (r.received_date instanceof Date ? `${r.received_date.getFullYear()}-${String(r.received_date.getMonth()+1).padStart(2,'0')}-${String(r.received_date.getDate()).padStart(2,'0')}` : String(r.received_date).slice(0,10)) : null,
-            declinedBy: r.declined_by || null,
-            declinedAt: r.declined_at ? new Date(r.declined_at).toISOString() : null,
-            declineReason: r.decline_reason || null
-          });
-        });
-        db.stockTransfers.forEach(t => {
-          if (!xferMap.has(t.id)) xferMap.set(t.id, t);
-        });
-        db.stockTransfers = Array.from(xferMap.values()).sort((a, b) => new Date(b.dispatchedAt) - new Date(a.dispatchedAt));
-      }
-    } catch (xferErr) {
-      console.error('Neon PostgreSQL stock_transfers load error:', xferErr.message);
-    }
-
-    // 5. Load cash_settlements from PostgreSQL and merge
-    try {
-      const cashRes = await pool.query("SELECT * FROM cash_settlements ORDER BY created_at DESC");
-      if (cashRes.rows && cashRes.rows.length > 0) {
-        if (!db.cashSettlements) db.cashSettlements = [];
-        const cashMap = new Map();
-        cashRes.rows.forEach(r => {
-          let pDate = '';
-          if (r.payment_date instanceof Date) {
-            const yr = r.payment_date.getFullYear();
-            const mo = String(r.payment_date.getMonth() + 1).padStart(2, '0');
-            const dy = String(r.payment_date.getDate()).padStart(2, '0');
-            pDate = `${yr}-${mo}-${dy}`;
-          } else if (typeof r.payment_date === 'string') {
-            pDate = r.payment_date.slice(0, 10);
-          }
-
-          cashMap.set(r.id, {
-            id: r.id,
-            receiptNo: r.receipt_no,
-            district: r.district,
-            date: pDate,
-            amount: Number(r.amount) || 0,
-            paymentMode: r.payment_mode || 'Cash Deposit',
-            note: r.note || '',
-            receivedBy: r.received_by,
-            createdAt: r.created_at ? new Date(r.created_at).toISOString() : new Date().toISOString()
-          });
-        });
-        db.cashSettlements.forEach(s => {
-          if (!cashMap.has(s.id)) cashMap.set(s.id, s);
-        });
-        db.cashSettlements = Array.from(cashMap.values()).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-      }
-    } catch (cashErr) {
-      console.error('Neon PostgreSQL cash_settlements load error:', cashErr.message);
-    }
-
-    // 6. Load dc_rules from PostgreSQL and merge
-    try {
-      const dcRes = await pool.query("SELECT * FROM dc_rules");
-      if (dcRes.rows && dcRes.rows.length > 0) {
-        if (!db.dcRules) db.dcRules = {};
-        dcRes.rows.forEach(r => {
-          if (r.rule_type === 'flat') {
-            db.dcRules[r.district] = {
-              type: 'flat',
-              value: Number(r.rule_val) || 200,
-              overrides: r.overrides || {}
-            };
-          } else if (r.rule_type === 'threshold') {
-            db.dcRules[r.district] = {
-              type: 'threshold',
-              threshold: Number(r.threshold) || 1500,
-              le: Number(r.rule_le) || 200,
-              gt: Number(r.rule_gt) || 250,
-              overrides: r.overrides || {}
-            };
-          }
-        });
-      }
-    } catch (dcErr) {
-      console.error('Neon PostgreSQL dc_rules load error:', dcErr.message);
     }
 
     if (!db.deletedDistricts) db.deletedDistricts = [];
