@@ -4,9 +4,6 @@ const path = require('path');
 const cors = require('cors');
 const { initDb } = require('./config/db');
 
-// Initialize database
-initDb().catch(err => console.error('Database initialization warning:', err.message));
-
 const app = express();
 const PORT = process.env.PORT || 3000;
 
