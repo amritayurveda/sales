@@ -399,6 +399,7 @@
    // Dealer Navigation View: 'home' (Add Sales), 'stock' (Stock Report), 'cash' (Cash Closing)
   function renderExcelDashboard() {
     const main = $('mainContent');
+    const isAdmin = state.user && state.user.role === 'admin';
     const cash = state.dayCash || { opCash: 0, todaySalesNet: 0, totalAccumulated: 0, adminCashPaid: 0, closingCash: 0 };
     const stock = state.dayStock || { products: [], inwardNote: '' };
     const pendingTransfers = (state.districtTransfers && state.districtTransfers.pendingTransfers) ? state.districtTransfers.pendingTransfers : [];
