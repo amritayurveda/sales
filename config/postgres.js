@@ -3,12 +3,14 @@ const { Pool } = require('pg');
 
 const DATABASE_URL = process.env.DATABASE_URL || 'postgresql://neondb_owner:npg_7xbIfQA4hgzv@ep-lucky-voice-axjbnu4p-pooler.c-4.us-east-2.aws.neon.tech/neondb?sslmode=require';
 
+const isServerless = Boolean(process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME);
+
 const pool = new Pool({
   connectionString: DATABASE_URL,
   ssl: {
     rejectUnauthorized: false
   },
-  max: 20,
+  max: isServerless ? 3 : 20,
   idleTimeoutMillis: 30000,
   connectionTimeoutMillis: 10000
 });
@@ -17,7 +19,10 @@ pool.on('error', (err) => {
   console.error('Unexpected error on idle PostgreSQL client', err);
 });
 
+let tablesInitialized = false;
+
 async function initPostgresTables() {
+  if (tablesInitialized) return;
   const client = await pool.connect();
   try {
     await client.query('BEGIN');
