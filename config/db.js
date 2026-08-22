@@ -456,52 +456,43 @@ const SAHARANPUR_PRODUCTS = [
 function ensureDistrictSchemes() {
   const activeDistricts = getDistricts();
   activeDistricts.forEach(dist => {
-    if (dist.toUpperCase() === 'SAHARANPUR') {
-      const allowedNames = ['PLAY MORE', 'FOUJI', 'EYE SUTRA', 'ALERGY'];
-      const current = db.districtProducts[dist] || db.districtProducts['Saharanpur'] || db.districtProducts['SAHARANPUR'] || [];
-      const filtered = current.filter(p => allowedNames.includes(p.name.toUpperCase()));
-
-      // Set only the 4 products
-      const finalFour = SAHARANPUR_PRODUCTS.map((sp, idx) => {
-        const existing = filtered.find(p => p.name.toUpperCase() === sp.name.toUpperCase());
-        return {
-          id: existing ? existing.id : `dp_sah_${idx + 1}`,
-          productId: existing ? (existing.productId || `prod_sah_${idx + 1}`) : `prod_sah_${idx + 1}`,
-          name: sp.name,
-          schemePrice: sp.schemes[0].price,
-          stockAllocated: existing ? (existing.stockAllocated ?? sp.defaultStock) : sp.defaultStock,
-          currentStock: existing ? (existing.currentStock ?? sp.defaultStock) : sp.defaultStock,
-          schemes: JSON.parse(JSON.stringify(sp.schemes)),
-          isActive: true
-        };
+    // If district products already exist (is an Array), DO NOT auto-populate defaults
+    if (db.districtProducts[dist] !== undefined && db.districtProducts[dist] !== null) {
+      // Ensure schemes array exists on existing items
+      db.districtProducts[dist].forEach(p => {
+        if (!p.schemes || p.schemes.length === 0) {
+          const match = EXCEL_PRODUCTS.find(ep => ep.name.toLowerCase() === p.name.toLowerCase());
+          p.schemes = match ? JSON.parse(JSON.stringify(match.schemes)) : [
+            { id: `sch_${p.productId}_1`, name: `${p.name} Standard`, qty: 1, price: p.schemePrice || 2500, dc: 250 }
+          ];
+        }
       });
+      return;
+    }
 
-      db.districtProducts[dist] = finalFour;
-      db.districtProducts['Saharanpur'] = finalFour;
-      db.districtProducts['SAHARANPUR'] = finalFour;
+    // Only populate defaults if district has NEVER had any product catalog initialized
+    if (dist.toUpperCase() === 'SAHARANPUR') {
+      db.districtProducts[dist] = SAHARANPUR_PRODUCTS.map((sp, idx) => ({
+        id: `dp_sah_${idx + 1}`,
+        productId: `prod_sah_${idx + 1}`,
+        name: sp.name,
+        schemePrice: sp.schemes[0].price,
+        stockAllocated: sp.defaultStock,
+        currentStock: sp.defaultStock,
+        schemes: JSON.parse(JSON.stringify(sp.schemes)),
+        isActive: true
+      }));
     } else {
-      if (!db.districtProducts[dist] || db.districtProducts[dist].length === 0) {
-        db.districtProducts[dist] = EXCEL_PRODUCTS.map((p, idx) => ({
-          id: `dp_${dist.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 3)}_p${idx + 1}`,
-          productId: `prod_${idx + 1}`,
-          name: p.name,
-          schemePrice: p.schemes[0].price,
-          stockAllocated: p.defaultStock,
-          currentStock: p.defaultStock,
-          schemes: JSON.parse(JSON.stringify(p.schemes)),
-          isActive: true
-        }));
-      } else {
-        // Ensure each product has schemes array
-        db.districtProducts[dist].forEach(p => {
-          if (!p.schemes || p.schemes.length === 0) {
-            const match = EXCEL_PRODUCTS.find(ep => ep.name.toLowerCase() === ep.name.toLowerCase());
-            p.schemes = match ? JSON.parse(JSON.stringify(match.schemes)) : [
-              { id: `sch_${p.productId}_1`, name: `${p.name} Standard`, qty: 1, price: p.schemePrice || 2500, dc: 250 }
-            ];
-          }
-        });
-      }
+      db.districtProducts[dist] = EXCEL_PRODUCTS.map((p, idx) => ({
+        id: `dp_${dist.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 3)}_p${idx + 1}`,
+        productId: `prod_${idx + 1}`,
+        name: p.name,
+        schemePrice: p.schemes[0].price,
+        stockAllocated: p.defaultStock,
+        currentStock: p.defaultStock,
+        schemes: JSON.parse(JSON.stringify(p.schemes)),
+        isActive: true
+      }));
     }
   });
 }

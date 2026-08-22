@@ -240,23 +240,51 @@ router.post('/assign-district-product', authenticateToken, requireAdmin, (req, r
   res.status(201).json({ message: `Assigned "${master.name}" to ${district}`, product: newDistrictProduct });
 });
 
-// 9. Admin: Delete Product assignment from a district
-router.delete('/district/:district/product/:productId', authenticateToken, requireAdmin, (req, res) => {
+// 9. Admin: Delete Product assignment from a district (Permanent Removal)
+router.delete('/district/:district/product/:productId', authenticateToken, requireAdmin, async (req, res) => {
   const { district, productId } = req.params;
+  
+  if (!db.districtProducts) db.districtProducts = {};
   if (!db.districtProducts[district]) {
     return res.status(404).json({ error: 'District not found' });
   }
 
-  const idx = db.districtProducts[district].findIndex(p => p.productId === productId || p.id === productId);
-  if (idx === -1) {
+  const cleanProdId = (productId || '').trim();
+
+  const removedProds = db.districtProducts[district].filter(p => 
+    p.productId === cleanProdId || 
+    p.id === cleanProdId || 
+    p.name.toUpperCase() === cleanProdId.toUpperCase()
+  );
+
+  if (removedProds.length === 0) {
     return res.status(404).json({ error: 'Product not found in this district' });
   }
 
-  const removed = db.districtProducts[district].splice(idx, 1)[0];
-  logActivity(req.user.id, req.user.username, req.user.role, district, 'PRODUCT_DELETED', `Removed product "${removed.name}" from ${district}`);
+  const removedName = removedProds[0].name;
 
-  saveDb();
-  res.json({ message: `Product '${removed.name}' removed from ${district}` });
+  // Filter out the product completely
+  db.districtProducts[district] = db.districtProducts[district].filter(p => 
+    p.productId !== cleanProdId && 
+    p.id !== cleanProdId && 
+    p.name.toUpperCase() !== cleanProdId.toUpperCase()
+  );
+
+  logActivity(
+    req.user.id,
+    req.user.username,
+    req.user.role,
+    district,
+    'PRODUCT_DELETED',
+    `Permanently removed product "${removedName}" from ${district}`
+  );
+
+  await saveDb();
+
+  res.json({
+    message: `Product '${removedName}' permanently removed from ${district}`,
+    remainingProducts: db.districtProducts[district]
+  });
 });
 
 // 10. Admin: Edit Base Stock for a Product in a District

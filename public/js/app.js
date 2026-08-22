@@ -1217,6 +1217,20 @@
     }
   };
 
+  window.promptAdminDeleteDistrictProduct = async (productId, prodName) => {
+    if (!confirm(`⚠️ Are you sure you want to PERMANENTLY REMOVE "${prodName}" from ${state.currentDistrict}?\n\nOnce deleted, this product will NOT be added back automatically.`)) return;
+
+    try {
+      const res = await API.deleteDistrictProduct(state.currentDistrict, productId);
+      showToast(res.message || `Removed "${prodName}" from ${state.currentDistrict}`, 'success');
+      await loadDistrictData();
+    } catch (err) {
+      showToast('Failed to remove product: ' + err.message, 'error');
+    }
+  };
+
+  window.promptDeleteDistrictProduct = window.promptAdminDeleteDistrictProduct;
+
   // ================= ADMIN CONSOLE =================
   async function renderAdminConsole() {
     const main = $('mainContent');
