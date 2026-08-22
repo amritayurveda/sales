@@ -147,12 +147,15 @@ function getDistricts() {
   return all.filter(d => !deleted.some(dd => dd.toLowerCase() === d.toLowerCase()));
 }
 
+const ALL_ZERO_DISTRICTS = ['CHITTORGARH', 'ALWAR', 'BIKANER', 'UTTARAKHAND', 'UDHAM SINGH NAGAR'];
+
 function ensureDistrictSchemes() {
   if (!db.districtProducts) db.districtProducts = {};
   const activeDistricts = getDistricts();
   activeDistricts.forEach(dist => {
     if (db.districtProducts[dist] === undefined || db.districtProducts[dist] === null) {
-      if (dist.toUpperCase() === 'SAHARANPUR' || dist.toUpperCase() === 'MUZAFFARNAGAR') {
+      const uDist = dist.toUpperCase();
+      if (uDist === 'SAHARANPUR' || uDist === 'MUZAFFARNAGAR') {
         const pfx = dist.toLowerCase().slice(0, 3);
         db.districtProducts[dist] = SAHARANPUR_PRODUCTS.map((sp, idx) => ({
           id: `dp_${pfx}_${idx + 1}`,
@@ -165,7 +168,7 @@ function ensureDistrictSchemes() {
           schemes: JSON.parse(JSON.stringify(sp.schemes)),
           isActive: true
         }));
-      } else if (dist.toUpperCase() === 'GURGAON' || dist.toUpperCase() === 'FARIDABAD') {
+      } else if (uDist === 'GURGAON' || uDist === 'FARIDABAD') {
         const pfx = dist.toLowerCase().slice(0, 3);
         db.districtProducts[dist] = GURGAON_PRODUCTS.map((gp, idx) => ({
           id: `dp_${pfx}_${idx + 1}`,
@@ -176,6 +179,19 @@ function ensureDistrictSchemes() {
           stockAllocated: gp.defaultStock,
           currentStock: gp.defaultStock,
           schemes: JSON.parse(JSON.stringify(gp.schemes)),
+          isActive: true
+        }));
+      } else if (ALL_ZERO_DISTRICTS.includes(uDist)) {
+        const pfx = dist.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 3);
+        db.districtProducts[dist] = EXCEL_PRODUCTS.map((p, idx) => ({
+          id: `dp_${pfx}_p${idx + 1}`,
+          productId: `prod_${idx + 1}`,
+          name: p.name,
+          isSpecial: ['PLAY MORE', 'FOUJI', 'EYE SUTRA', 'ALERGY'].includes(p.name.toUpperCase()),
+          schemePrice: p.schemes[0].price,
+          stockAllocated: 0,
+          currentStock: 0,
+          schemes: JSON.parse(JSON.stringify(p.schemes)),
           isActive: true
         }));
       } else {
@@ -236,7 +252,8 @@ function seedInitialData() {
 
   const districtProducts = {};
   DISTRICTS.forEach(dist => {
-    if (dist.toUpperCase() === 'SAHARANPUR' || dist.toUpperCase() === 'MUZAFFARNAGAR') {
+    const uDist = dist.toUpperCase();
+    if (uDist === 'SAHARANPUR' || uDist === 'MUZAFFARNAGAR') {
       const pfx = dist.toLowerCase().slice(0, 3);
       districtProducts[dist] = SAHARANPUR_PRODUCTS.map((sp, idx) => ({
         id: `dp_${pfx}_${idx + 1}`,
@@ -249,7 +266,7 @@ function seedInitialData() {
         schemes: JSON.parse(JSON.stringify(sp.schemes)),
         isActive: true
       }));
-    } else if (dist.toUpperCase() === 'GURGAON' || dist.toUpperCase() === 'FARIDABAD') {
+    } else if (uDist === 'GURGAON' || uDist === 'FARIDABAD') {
       const pfx = dist.toLowerCase().slice(0, 3);
       districtProducts[dist] = GURGAON_PRODUCTS.map((gp, idx) => ({
         id: `dp_${pfx}_${idx + 1}`,
@@ -260,6 +277,19 @@ function seedInitialData() {
         stockAllocated: gp.defaultStock,
         currentStock: gp.defaultStock,
         schemes: JSON.parse(JSON.stringify(gp.schemes)),
+        isActive: true
+      }));
+    } else if (ALL_ZERO_DISTRICTS.includes(uDist)) {
+      const pfx = dist.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 3);
+      districtProducts[dist] = EXCEL_PRODUCTS.map((p, idx) => ({
+        id: `dp_${pfx}_p${idx + 1}`,
+        productId: `prod_${idx + 1}`,
+        name: p.name,
+        isSpecial: ['PLAY MORE', 'FOUJI', 'EYE SUTRA', 'ALERGY'].includes(p.name.toUpperCase()),
+        schemePrice: p.schemes[0].price,
+        stockAllocated: 0,
+        currentStock: 0,
+        schemes: JSON.parse(JSON.stringify(p.schemes)),
         isActive: true
       }));
     } else {
