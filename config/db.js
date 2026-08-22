@@ -293,6 +293,82 @@ async function initDb() {
       console.error('Neon PostgreSQL customer_orders load error:', orderErr.message);
     }
 
+    // 4. Load stock_transfers from PostgreSQL and merge
+    try {
+      const xfersRes = await pool.query("SELECT * FROM stock_transfers ORDER BY dispatched_at DESC");
+      if (xfersRes.rows && xfersRes.rows.length > 0) {
+        if (!db.stockTransfers) db.stockTransfers = [];
+        const xferMap = new Map();
+        xfersRes.rows.forEach(r => {
+          xferMap.set(r.id, {
+            id: r.id,
+            transferNo: r.transfer_no,
+            district: r.district,
+            productId: r.product_id,
+            productName: r.product_name,
+            qty: Number(r.qty) || 0,
+            items: r.items ? (typeof r.items === 'string' ? JSON.parse(r.items) : r.items) : [],
+            totalUnits: Number(r.total_units) || Number(r.qty) || 0,
+            status: r.status || 'PENDING_ACCEPTANCE',
+            challanNo: r.challan_no || '',
+            note: r.note || '',
+            dispatchedBy: r.dispatched_by,
+            dispatchedAt: r.dispatched_at ? new Date(r.dispatched_at).toISOString() : new Date().toISOString(),
+            receivedBy: r.received_by || null,
+            receivedAt: r.received_at ? new Date(r.received_at).toISOString() : null,
+            receivedDate: r.received_date ? (r.received_date instanceof Date ? `${r.received_date.getFullYear()}-${String(r.received_date.getMonth()+1).padStart(2,'0')}-${String(r.received_date.getDate()).padStart(2,'0')}` : String(r.received_date).slice(0,10)) : null,
+            declinedBy: r.declined_by || null,
+            declinedAt: r.declined_at ? new Date(r.declined_at).toISOString() : null,
+            declineReason: r.decline_reason || null
+          });
+        });
+        db.stockTransfers.forEach(t => {
+          if (!xferMap.has(t.id)) xferMap.set(t.id, t);
+        });
+        db.stockTransfers = Array.from(xferMap.values()).sort((a, b) => new Date(b.dispatchedAt) - new Date(a.dispatchedAt));
+      }
+    } catch (xferErr) {
+      console.error('Neon PostgreSQL stock_transfers load error:', xferErr.message);
+    }
+
+    // 5. Load cash_settlements from PostgreSQL and merge
+    try {
+      const cashRes = await pool.query("SELECT * FROM cash_settlements ORDER BY created_at DESC");
+      if (cashRes.rows && cashRes.rows.length > 0) {
+        if (!db.cashSettlements) db.cashSettlements = [];
+        const cashMap = new Map();
+        cashRes.rows.forEach(r => {
+          let pDate = '';
+          if (r.payment_date instanceof Date) {
+            const yr = r.payment_date.getFullYear();
+            const mo = String(r.payment_date.getMonth() + 1).padStart(2, '0');
+            const dy = String(r.payment_date.getDate()).padStart(2, '0');
+            pDate = `${yr}-${mo}-${dy}`;
+          } else if (typeof r.payment_date === 'string') {
+            pDate = r.payment_date.slice(0, 10);
+          }
+
+          cashMap.set(r.id, {
+            id: r.id,
+            receiptNo: r.receipt_no,
+            district: r.district,
+            date: pDate,
+            amount: Number(r.amount) || 0,
+            paymentMode: r.payment_mode || 'Cash Deposit',
+            note: r.note || '',
+            receivedBy: r.received_by,
+            createdAt: r.created_at ? new Date(r.created_at).toISOString() : new Date().toISOString()
+          });
+        });
+        db.cashSettlements.forEach(s => {
+          if (!cashMap.has(s.id)) cashMap.set(s.id, s);
+        });
+        db.cashSettlements = Array.from(cashMap.values()).sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+      }
+    } catch (cashErr) {
+      console.error('Neon PostgreSQL cash_settlements load error:', cashErr.message);
+    }
+
     if (!db.districts || !Array.isArray(db.districts) || db.districts.length === 0) {
       db.districts = [...DISTRICTS];
     }

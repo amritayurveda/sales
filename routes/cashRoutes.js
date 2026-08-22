@@ -23,7 +23,7 @@ router.get('/district-full-history/:district', authenticateToken, enforceDistric
 });
 
 // 2. Admin-Only: Record cash payment / settlement paid by dealer to company on a specific date
-router.post('/admin-payment', authenticateToken, requireAdmin, (req, res) => {
+router.post('/admin-payment', authenticateToken, requireAdmin, async (req, res) => {
   const { district, date, amount, paymentMode, note } = req.body;
   const amtNum = Number(amount);
 
@@ -56,7 +56,20 @@ router.post('/admin-payment', authenticateToken, requireAdmin, (req, res) => {
     `Collected ₹${amtNum} payment from ${district} on ${date} (Receipt: ${receiptNo})`
   );
 
-  saveDb();
+  await saveDb();
+
+  // Insert to Neon PostgreSQL cash_settlements table
+  try {
+    const { pool } = require('../config/postgres');
+    await pool.query(
+      `INSERT INTO cash_settlements (id, receipt_no, district, payment_date, amount, payment_mode, note, received_by, created_at)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+       ON CONFLICT (id) DO NOTHING`,
+      [newSettlement.id, newSettlement.receiptNo, newSettlement.district, newSettlement.date, newSettlement.amount, newSettlement.paymentMode, newSettlement.note, newSettlement.receivedBy, newSettlement.createdAt]
+    );
+  } catch (err) {
+    console.error('Postgres cash settlement insert error:', err.message);
+  }
 
   // Trigger live background sync to Google Sheet
   triggerLiveEventSync(district, date, 'CASH_PAYMENT', newSettlement);

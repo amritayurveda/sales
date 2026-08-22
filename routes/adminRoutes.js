@@ -365,12 +365,16 @@ router.post('/add-district', async (req, res) => {
   db.dcRules[trimmedDist] = { type: 'flat', value: Number(dcRate) || 200 };
 
   // 5. Insert to Neon PostgreSQL users table
-  pool.query(
-    `INSERT INTO users (id, username, name, password_hash, role, district, created_at)
-     VALUES ($1, $2, $3, $4, $5, $6, $7)
-     ON CONFLICT (username) DO UPDATE SET name = $3, password_hash = $4, district = $6`,
-    [newUser.id, newUser.username, newUser.name, newUser.passwordHash, newUser.role, newUser.district, newUser.createdAt]
-  ).catch(err => console.error('Postgres user insert error:', err.message));
+  try {
+    await pool.query(
+      `INSERT INTO users (id, username, name, password_hash, role, district, created_at)
+       VALUES ($1, $2, $3, $4, $5, $6, $7)
+       ON CONFLICT (username) DO UPDATE SET name = $3, password_hash = $4, district = $6`,
+      [newUser.id, newUser.username, newUser.name, newUser.passwordHash, newUser.role, newUser.district, newUser.createdAt]
+    );
+  } catch (err) {
+    console.error('Postgres user insert error:', err.message);
+  }
 
   logActivity(
     req.user.id,
@@ -423,9 +427,13 @@ router.post('/delete-district', async (req, res) => {
     return true;
   });
 
-  deletedUsers.forEach(uid => {
-    pool.query('DELETE FROM users WHERE id = $1', [uid]).catch(e => console.error('Postgres delete user error:', e.message));
-  });
+  for (const uid of deletedUsers) {
+    try {
+      await pool.query('DELETE FROM users WHERE id = $1', [uid]);
+    } catch (e) {
+      console.error('Postgres delete user error:', e.message);
+    }
+  }
 
   logActivity(
     req.user.id,

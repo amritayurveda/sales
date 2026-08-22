@@ -425,12 +425,16 @@ router.post('/dispatch-stock', authenticateToken, requireAdmin, async (req, res)
   await saveDb();
 
   // Save to Neon PostgreSQL stock_transfers table
-  pool.query(
-    `INSERT INTO stock_transfers (id, transfer_no, district, product_id, product_name, qty, items, total_units, status, challan_no, note, dispatched_by, dispatched_at)
-     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)
-     ON CONFLICT (id) DO NOTHING`,
-    [transfer.id, transfer.transferNo, transfer.district, transfer.productId, transfer.productName, transfer.qty, JSON.stringify(transfer.items), transfer.totalUnits, transfer.status, transfer.challanNo, transfer.note, transfer.dispatchedBy, transfer.dispatchedAt]
-  ).catch(err => console.error('Postgres transfer insert error:', err.message));
+  try {
+    await pool.query(
+      `INSERT INTO stock_transfers (id, transfer_no, district, product_id, product_name, qty, items, total_units, status, challan_no, note, dispatched_by, dispatched_at)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)
+       ON CONFLICT (id) DO NOTHING`,
+      [transfer.id, transfer.transferNo, transfer.district, transfer.productId, transfer.productName, transfer.qty, JSON.stringify(transfer.items), transfer.totalUnits, transfer.status, transfer.challanNo, transfer.note, transfer.dispatchedBy, transfer.dispatchedAt]
+    );
+  } catch (err) {
+    console.error('Postgres transfer insert error:', err.message);
+  }
 
   res.status(201).json({
     message: `Stock consignment ${transferNo} (${parsedItems.length} products • ${totalUnits} units) dispatched to ${district}. Waiting for dealer to receive.`,
@@ -562,12 +566,16 @@ router.post('/accept-stock/:transferId', authenticateToken, async (req, res) => 
   await saveDb();
 
   // Update Neon PostgreSQL
-  pool.query(
-    `UPDATE stock_transfers
-     SET status = 'ACCEPTED', received_by = $1, received_at = $2, received_date = $3
-     WHERE id = $4 OR transfer_no = $4`,
-    [transfer.receivedBy, transfer.receivedAt, transfer.receivedDate, transfer.id]
-  ).catch(err => console.error('Postgres transfer update error:', err.message));
+  try {
+    await pool.query(
+      `UPDATE stock_transfers
+       SET status = 'ACCEPTED', received_by = $1, received_at = $2, received_date = $3
+       WHERE id = $4 OR transfer_no = $4`,
+      [transfer.receivedBy, transfer.receivedAt, transfer.receivedDate, transfer.id]
+    );
+  } catch (err) {
+    console.error('Postgres transfer update error:', err.message);
+  }
 
   res.json({
     message: `Successfully received consignment [${transfer.transferNo}]! (${acceptedSummary.join(', ')}) added to ${district} stock.`,
@@ -619,12 +627,16 @@ router.post('/decline-stock/:transferId', authenticateToken, async (req, res) =>
   await saveDb();
 
   // Update Neon PostgreSQL
-  pool.query(
-    `UPDATE stock_transfers
-     SET status = 'DECLINED', declined_by = $1, declined_at = $2, decline_reason = $3
-     WHERE id = $4 OR transfer_no = $4`,
-    [transfer.declinedBy, transfer.declinedAt, transfer.declineReason, transfer.id]
-  ).catch(err => console.error('Postgres transfer decline error:', err.message));
+  try {
+    await pool.query(
+      `UPDATE stock_transfers
+       SET status = 'DECLINED', declined_by = $1, declined_at = $2, decline_reason = $3
+       WHERE id = $4 OR transfer_no = $4`,
+      [transfer.declinedBy, transfer.declinedAt, transfer.declineReason, transfer.id]
+    );
+  } catch (err) {
+    console.error('Postgres transfer decline error:', err.message);
+  }
 
   res.json({
     message: `Stock consignment [${transfer.transferNo}] has been declined.`,
