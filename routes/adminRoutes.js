@@ -10,18 +10,49 @@ const { getServerToday } = require('../middleware/sameDayCheck');
 // Require Admin role for all admin routes
 router.use(authenticateToken, requireAdmin);
 
+// 0. Real-time Live Feed / Instant Change Notification
+router.get('/live-feed', (req, res) => {
+  const date = req.query.date || getServerToday();
+  const since = Number(req.query.since) || 0;
+
+  const todayOrders = (db.customerOrders || []).filter(o => o.date === date);
+  const latestOrder = todayOrders[0] || null;
+  const lastTimestamp = db.lastOrderTimestamp || (latestOrder ? new Date(latestOrder.createdAt).getTime() : Date.now());
+
+  const hasNew = (since > 0 && lastTimestamp > since);
+
+  res.json({
+    serverTime: Date.now(),
+    date,
+    lastTimestamp,
+    hasNew,
+    totalTodayOrders: todayOrders.length,
+    latestOrder: latestOrder ? {
+      id: latestOrder.id,
+      orderNo: latestOrder.orderNo,
+      district: latestOrder.district,
+      productName: latestOrder.productName,
+      unitPrice: latestOrder.unitPrice,
+      dcRate: latestOrder.dcRate,
+      netAmount: latestOrder.netAmount,
+      customerMobile: latestOrder.customerMobile,
+      customerName: latestOrder.customerName,
+      time: latestOrder.time,
+      createdAt: latestOrder.createdAt
+    } : null
+  });
+});
+
 // 1. All-districts daily overview
+const { computeDistrictDayStock, computeDistrictDayCash } = require('../utils/cashRollover');
+
 router.get('/overview', (req, res) => {
   const date = req.query.date || getServerToday();
-  const activeProducts = (db.products || []).filter(p => p.isActive !== false);
   const activeDistricts = getDistricts();
 
   const overview = activeDistricts.map(district => {
-    const salesKey = `${district}:${date}`;
-    const ledgerKey = `${district}:${date}`;
-
-    const salesData = db.sales[salesKey] || {};
-    const ledgerData = db.ledgers[ledgerKey] || [];
+    const stockData = computeDistrictDayStock(db, district, date);
+    const cashData = computeDistrictDayCash(db, district, date);
 
     let productsMoved = 0;
     let sumQty = 0;
@@ -30,56 +61,42 @@ router.get('/overview', (req, res) => {
     let sumFinal = 0;
     let totalSaleValue = 0;
 
-    activeProducts.forEach(p => {
-      const entry = salesData[p.id];
-      if (entry) {
-        const qty = Number(entry.qty) || 0;
-        const sale = Number(entry.sale) || 0;
-        const transfer = Number(entry.transfer) || 0;
-        const price = Number(entry.price) || Number(p.defaultPrice) || 0;
-        const total1 = qty + sale;
-        const final = total1 + transfer;
+    (stockData.products || []).forEach(p => {
+      const op = Number(p.openingStock) || 0;
+      const sale = Number(p.saleQty) || 0;
+      const mila = Number(p.milaQty) || 0;
+      const closing = Number(p.closingStock) || 0;
 
-        if (final !== 0 || qty !== 0 || sale !== 0 || transfer !== 0) {
-          productsMoved++;
-        }
-        sumQty += qty;
-        sumSale += sale;
-        sumTransfer += transfer;
-        sumFinal += final;
-        totalSaleValue += (sale * price);
+      if (op !== 0 || sale !== 0 || mila !== 0 || closing !== 0) {
+        productsMoved++;
       }
+      sumQty += op;
+      sumSale += sale;
+      sumTransfer += mila;
+      sumFinal += closing;
     });
 
-    let ledgerBalance = 0;
     let dcTotalDeducted = 0;
-    let cashDeposited = 0;
-
-    ledgerData.forEach(l => {
-      const amt = Number(l.amount) || 0;
-      ledgerBalance += amt;
-      if (l.type === 'DC') {
-        dcTotalDeducted += Math.abs(amt);
-      } else if (l.type === 'Cash') {
-        cashDeposited += Math.abs(amt);
-      }
+    (cashData.orders || []).forEach(o => {
+      totalSaleValue += (Number(o.unitPrice) || Number(o.totalAmount) || 0);
+      dcTotalDeducted += (Number(o.dcRate) || 0);
     });
 
-    const hasActivity = productsMoved > 0 || ledgerData.length > 0;
+    const hasActivity = sumSale > 0 || sumTransfer > 0 || (cashData.orders && cashData.orders.length > 0) || (cashData.settlements && cashData.settlements.length > 0);
 
     return {
       district,
       hasActivity,
       productsMoved,
-      sumQty,
-      sumSale,
-      sumTransfer,
-      sumFinal,
+      sumQty: Math.round(sumQty * 10) / 10,
+      sumSale: Math.round(sumSale * 10) / 10,
+      sumTransfer: Math.round(sumTransfer * 10) / 10,
+      sumFinal: Math.round(sumFinal * 10) / 10,
       totalSaleValue,
-      ledgerBalance,
+      ledgerBalance: cashData.closingCash,
       dcTotalDeducted,
-      cashDeposited,
-      ledgerEntriesCount: ledgerData.length
+      cashDeposited: cashData.adminCashPaid,
+      ledgerEntriesCount: (cashData.orders || []).length + (cashData.settlements || []).length
     };
   });
 

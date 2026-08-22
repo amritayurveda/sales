@@ -26,7 +26,9 @@
     isReadOnly: false,
     dealerView: 'home',
     adminTab: 'matrix',
-    adminOverviewData: null
+    adminOverviewData: null,
+    lastLiveSyncTimestamp: 0,
+    liveSyncTimer: null
   };
 
   // Utilities
@@ -157,9 +159,10 @@
           <div class="nav-brand">
             <h1>Sales Register Pro</h1>
             <span class="role-badge ${state.user.role}">${state.user.role}</span>
-            <div class="user-tag">
+            <div class="user-tag" style="display:flex;align-items:center;gap:8px;">
               <span>👤 ${escapeHtml(state.user.name || state.user.username)}</span>
               ${state.user.district ? `<span>• 📍 <strong>${escapeHtml(state.user.district)}</strong></span>` : ''}
+              ${isAdmin ? `<span id="liveSyncBadgeContainer" class="live-sync-badge"><span class="live-dot"></span> LIVE AUTO-SYNC</span>` : ''}
             </div>
           </div>
 
@@ -202,11 +205,13 @@
       renderAdminDistrictStrip();
     }
 
+    startRealtimeLiveSync();
     await loadDistrictData();
   }
 
   function setupHeaderEvents() {
     $('logoutBtn').addEventListener('click', () => {
+      stopRealtimeLiveSync();
       API.setToken(null);
       state.user = null;
       renderLoginView();
@@ -259,6 +264,64 @@
       });
       strip.appendChild(pill);
     });
+  }
+
+  // Real-Time Live Sync (Zero-Delay Instant Updates)
+  function startRealtimeLiveSync() {
+    stopRealtimeLiveSync();
+    state.lastLiveSyncTimestamp = Date.now();
+
+    state.liveSyncTimer = setInterval(async () => {
+      if (!state.user) return;
+      try {
+        const res = await API.getAdminLiveFeed(state.currentDate, state.lastLiveSyncTimestamp);
+        if (!res) return;
+
+        if (state.lastLiveSyncTimestamp === 0) {
+          state.lastLiveSyncTimestamp = res.lastTimestamp || res.serverTime;
+          return;
+        }
+
+        if (res.hasNew && res.lastTimestamp > state.lastLiveSyncTimestamp) {
+          state.lastLiveSyncTimestamp = res.lastTimestamp;
+
+          // Flash live indicator badge
+          const badge = $('liveSyncBadgeContainer');
+          if (badge) {
+            badge.classList.add('flash');
+            badge.innerHTML = `<span class="live-dot" style="background:#FFE873;"></span> ⚡ NEW SALE LIVE`;
+            setTimeout(() => {
+              const b = $('liveSyncBadgeContainer');
+              if (b) {
+                b.classList.remove('flash');
+                b.innerHTML = `<span class="live-dot"></span> LIVE AUTO-SYNC`;
+              }
+            }, 3000);
+          }
+
+          if (res.latestOrder) {
+            const ord = res.latestOrder;
+            showToast(`⚡ New Sale in ${ord.district}! #${ord.orderNo}: ${ord.productName} (₹${fmt(ord.unitPrice)})`, 'success');
+          }
+
+          // Real-time instantaneous auto-refresh
+          if (state.user.role === 'admin' && state.adminTab === 'matrix' && $('adminOverviewMatrixBody')) {
+            await loadAdminOverview();
+          } else {
+            await loadDistrictData();
+          }
+        }
+      } catch (e) {
+        // Silently catch background polling glitches
+      }
+    }, 2500);
+  }
+
+  function stopRealtimeLiveSync() {
+    if (state.liveSyncTimer) {
+      clearInterval(state.liveSyncTimer);
+      state.liveSyncTimer = null;
+    }
   }
 
   function updateDateDisplay() {
@@ -1201,7 +1264,7 @@
                 <th style="text-align:center;">Action</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="adminOverviewMatrixBody">
       `;
 
       res.overview.forEach(row => {

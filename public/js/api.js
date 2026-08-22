@@ -153,7 +153,12 @@ const API = {
     });
   },
 
-  // Admin Overview
+  // Admin Overview & Real-Time Live Feed
+  async getAdminLiveFeed(date, since = 0) {
+    const q = `?date=${encodeURIComponent(date)}&since=${encodeURIComponent(since)}`;
+    return this.request(`/admin/live-feed${q}`);
+  },
+
   async getAdminOverview(date) {
     return this.request(`/admin/overview?date=${encodeURIComponent(date)}`);
   },

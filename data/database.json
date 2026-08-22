@@ -7,8 +7,8 @@
       "role": "admin",
       "district": null,
       "username": "admin",
-      "createdAt": "2026-08-21T17:05:03.592Z",
-      "passwordHash": "$2a$10$z1AhQP6KsOSfDvTBgi6rO.tTcqGrRdtNgwO4r3wtqSnODwcf.i6sS"
+      "createdAt": "2026-08-22T04:02:49.563Z",
+      "passwordHash": "$2a$10$u5dPu4ne.qRgbZjgRYecfOJbz5OoYNMgszw93/tPDkZz98QQi4YXa"
     },
     {
       "id": "u_dealer_1",
@@ -16,8 +16,8 @@
       "role": "dealer",
       "district": "Chittorgarh",
       "username": "dealer_chittorgarh",
-      "createdAt": "2026-08-21T17:05:03.595Z",
-      "passwordHash": "$2a$10$z1AhQP6KsOSfDvTBgi6rO.vEW9V5cQHxEbrKVVdavk4gg2pHcwJee"
+      "createdAt": "2026-08-22T04:02:49.566Z",
+      "passwordHash": "$2a$10$u5dPu4ne.qRgbZjgRYecfOPqJmiw70Naua.CjH3.Pgqai9IKKqM2K"
     },
     {
       "id": "u_dealer_2",
@@ -25,8 +25,8 @@
       "role": "dealer",
       "district": "Alwar",
       "username": "dealer_alwar",
-      "createdAt": "2026-08-21T17:05:03.595Z",
-      "passwordHash": "$2a$10$z1AhQP6KsOSfDvTBgi6rO.vEW9V5cQHxEbrKVVdavk4gg2pHcwJee"
+      "createdAt": "2026-08-22T04:02:49.566Z",
+      "passwordHash": "$2a$10$u5dPu4ne.qRgbZjgRYecfOPqJmiw70Naua.CjH3.Pgqai9IKKqM2K"
     },
     {
       "id": "u_dealer_3",
@@ -34,8 +34,8 @@
       "role": "dealer",
       "district": "Bikaner",
       "username": "dealer_bikaner",
-      "createdAt": "2026-08-21T17:05:03.595Z",
-      "passwordHash": "$2a$10$z1AhQP6KsOSfDvTBgi6rO.vEW9V5cQHxEbrKVVdavk4gg2pHcwJee"
+      "createdAt": "2026-08-22T04:02:49.566Z",
+      "passwordHash": "$2a$10$u5dPu4ne.qRgbZjgRYecfOPqJmiw70Naua.CjH3.Pgqai9IKKqM2K"
     },
     {
       "id": "u_dealer_4",
@@ -43,8 +43,8 @@
       "role": "dealer",
       "district": "Uttarakhand",
       "username": "dealer_uttarakhand",
-      "createdAt": "2026-08-21T17:05:03.595Z",
-      "passwordHash": "$2a$10$z1AhQP6KsOSfDvTBgi6rO.vEW9V5cQHxEbrKVVdavk4gg2pHcwJee"
+      "createdAt": "2026-08-22T04:02:49.566Z",
+      "passwordHash": "$2a$10$u5dPu4ne.qRgbZjgRYecfOPqJmiw70Naua.CjH3.Pgqai9IKKqM2K"
     },
     {
       "id": "u_dealer_5",
@@ -52,8 +52,8 @@
       "role": "dealer",
       "district": "Udham Singh Nagar",
       "username": "dealer_udhamsingh",
-      "createdAt": "2026-08-21T17:05:03.595Z",
-      "passwordHash": "$2a$10$z1AhQP6KsOSfDvTBgi6rO.vEW9V5cQHxEbrKVVdavk4gg2pHcwJee"
+      "createdAt": "2026-08-22T04:02:49.566Z",
+      "passwordHash": "$2a$10$u5dPu4ne.qRgbZjgRYecfOPqJmiw70Naua.CjH3.Pgqai9IKKqM2K"
     },
     {
       "id": "u_dealer_6",
@@ -61,8 +61,8 @@
       "role": "dealer",
       "district": "Jodhpur",
       "username": "dealer_jodhpur",
-      "createdAt": "2026-08-21T17:05:03.595Z",
-      "passwordHash": "$2a$10$z1AhQP6KsOSfDvTBgi6rO.vEW9V5cQHxEbrKVVdavk4gg2pHcwJee"
+      "createdAt": "2026-08-22T04:02:49.566Z",
+      "passwordHash": "$2a$10$u5dPu4ne.qRgbZjgRYecfOPqJmiw70Naua.CjH3.Pgqai9IKKqM2K"
     },
     {
       "id": "u_dealer_7",
@@ -70,8 +70,8 @@
       "role": "dealer",
       "district": "Kota",
       "username": "dealer_kota",
-      "createdAt": "2026-08-21T17:05:03.595Z",
-      "passwordHash": "$2a$10$z1AhQP6KsOSfDvTBgi6rO.vEW9V5cQHxEbrKVVdavk4gg2pHcwJee"
+      "createdAt": "2026-08-22T04:02:49.566Z",
+      "passwordHash": "$2a$10$u5dPu4ne.qRgbZjgRYecfOPqJmiw70Naua.CjH3.Pgqai9IKKqM2K"
     },
     {
       "id": "u_dealer_8",
@@ -79,8 +79,8 @@
       "role": "dealer",
       "district": "Faridabad",
       "username": "dealer_faridabad",
-      "createdAt": "2026-08-21T17:05:03.595Z",
-      "passwordHash": "$2a$10$z1AhQP6KsOSfDvTBgi6rO.vEW9V5cQHxEbrKVVdavk4gg2pHcwJee"
+      "createdAt": "2026-08-22T04:02:49.566Z",
+      "passwordHash": "$2a$10$u5dPu4ne.qRgbZjgRYecfOPqJmiw70Naua.CjH3.Pgqai9IKKqM2K"
     },
     {
       "id": "u_dealer_9",
@@ -88,8 +88,8 @@
       "role": "dealer",
       "district": "Gurgaon",
       "username": "dealer_gurgaon",
-      "createdAt": "2026-08-21T17:05:03.595Z",
-      "passwordHash": "$2a$10$z1AhQP6KsOSfDvTBgi6rO.vEW9V5cQHxEbrKVVdavk4gg2pHcwJee"
+      "createdAt": "2026-08-22T04:02:49.566Z",
+      "passwordHash": "$2a$10$u5dPu4ne.qRgbZjgRYecfOPqJmiw70Naua.CjH3.Pgqai9IKKqM2K"
     },
     {
       "id": "u_dealer_10",
@@ -97,8 +97,8 @@
       "role": "dealer",
       "district": "Rewari",
       "username": "dealer_rewari",
-      "createdAt": "2026-08-21T17:05:03.595Z",
-      "passwordHash": "$2a$10$z1AhQP6KsOSfDvTBgi6rO.vEW9V5cQHxEbrKVVdavk4gg2pHcwJee"
+      "createdAt": "2026-08-22T04:02:49.566Z",
+      "passwordHash": "$2a$10$u5dPu4ne.qRgbZjgRYecfOPqJmiw70Naua.CjH3.Pgqai9IKKqM2K"
     },
     {
       "id": "u_dealer_11",
@@ -106,8 +106,8 @@
       "role": "dealer",
       "district": "Muzaffarnagar",
       "username": "dealer_muzaffarnagar",
-      "createdAt": "2026-08-21T17:05:03.595Z",
-      "passwordHash": "$2a$10$z1AhQP6KsOSfDvTBgi6rO.vEW9V5cQHxEbrKVVdavk4gg2pHcwJee"
+      "createdAt": "2026-08-22T04:02:49.566Z",
+      "passwordHash": "$2a$10$u5dPu4ne.qRgbZjgRYecfOPqJmiw70Naua.CjH3.Pgqai9IKKqM2K"
     },
     {
       "id": "u_dealer_12",
@@ -115,8 +115,8 @@
       "role": "dealer",
       "district": "Shamli",
       "username": "dealer_shamli",
-      "createdAt": "2026-08-21T17:05:03.595Z",
-      "passwordHash": "$2a$10$z1AhQP6KsOSfDvTBgi6rO.vEW9V5cQHxEbrKVVdavk4gg2pHcwJee"
+      "createdAt": "2026-08-22T04:02:49.566Z",
+      "passwordHash": "$2a$10$u5dPu4ne.qRgbZjgRYecfOPqJmiw70Naua.CjH3.Pgqai9IKKqM2K"
     }
   ],
   "dcRules": {
@@ -189,10 +189,6 @@
         "Height Sutra": 170
       },
       "threshold": 1500
-    },
-    "Ajmer": {
-      "type": "flat",
-      "value": 250
     }
   },
   "ledgers": {},
@@ -626,78 +622,129 @@
   "inwardNotes": {},
   "activityLogs": [
     {
-      "id": "act_1787371116760us8x",
-      "userId": "u_admin",
-      "username": "admin",
-      "role": "admin",
-      "district": "Ajmer",
-      "action": "DISTRICT_DELETED",
-      "details": "Deleted district \"Ajmer\" and removed associated dealer account",
-      "timestamp": "2026-08-22T03:58:36.760Z"
-    },
-    {
-      "id": "act_1787371116748rhes",
-      "userId": "u_dealer_mt3ulz825al0",
-      "username": "dealer_ajmer_hq",
+      "id": "act_17873737180991ao5",
+      "userId": "u_dealer_2",
+      "username": "dealer_alwar",
       "role": "dealer",
-      "district": "Ajmer",
-      "action": "LOGIN",
-      "details": "User dealer_ajmer_hq (dealer - Ajmer) logged in",
-      "timestamp": "2026-08-22T03:58:36.748Z"
+      "district": "Alwar",
+      "action": "CUSTOMER_SALE",
+      "details": "Order ORD-912758: Sold DAMADAR (Price: ₹3200, DC: ₹200, Net: ₹3000) to Live Test Customer [9876543210]",
+      "timestamp": "2026-08-22T04:41:58.099Z"
     },
     {
-      "id": "act_1787371113717zjuu",
-      "userId": "u_admin",
-      "username": "admin",
-      "role": "admin",
-      "district": "Ajmer",
-      "action": "DEALER_ACCOUNT_UPDATE",
-      "details": "Updated dealer account (dealer_ajmer_hq): Username: \"dealer_ajmer\" -> \"dealer_ajmer_hq\", Password updated, Name: \"Ajmer Regional HQ\"",
-      "timestamp": "2026-08-22T03:58:33.717Z"
-    },
-    {
-      "id": "act_17873711135569sl5",
-      "userId": "u_dealer_mt3ulz825al0",
-      "username": "dealer_ajmer",
+      "id": "act_17873737180005fyd",
+      "userId": "u_dealer_2",
+      "username": "dealer_alwar",
       "role": "dealer",
-      "district": "Ajmer",
+      "district": "Alwar",
       "action": "LOGIN",
-      "details": "User dealer_ajmer (dealer - Ajmer) logged in",
-      "timestamp": "2026-08-22T03:58:33.556Z"
+      "details": "User dealer_alwar (dealer - Alwar) logged in",
+      "timestamp": "2026-08-22T04:41:58.000Z"
     },
     {
-      "id": "act_1787371110293r3ys",
-      "userId": "u_admin",
-      "username": "admin",
-      "role": "admin",
-      "district": "Ajmer",
-      "action": "DISTRICT_CREATED",
-      "details": "Added new district \"Ajmer\" with dealer account \"dealer_ajmer\"",
-      "timestamp": "2026-08-22T03:58:30.293Z"
-    },
-    {
-      "id": "act_17873711101158yso",
-      "userId": "u_admin",
-      "username": "admin",
-      "role": "admin",
-      "district": null,
+      "id": "act_1787373685479mdd7",
+      "role": "dealer",
       "action": "LOGIN",
-      "details": "User admin (admin) logged in",
-      "timestamp": "2026-08-22T03:58:30.115Z"
+      "userId": "u_dealer_2",
+      "details": "User dealer_alwar (dealer - Alwar) logged in",
+      "district": "Alwar",
+      "username": "dealer_alwar",
+      "timestamp": "2026-08-22T04:41:25.479Z"
     },
     {
-      "id": "act_1787371093594zdqk",
+      "id": "act_1787373659366ud1t",
+      "role": "dealer",
+      "action": "LOGIN",
+      "userId": "u_dealer_2",
+      "details": "User dealer_alwar (dealer - Alwar) logged in",
+      "district": "Alwar",
+      "username": "dealer_alwar",
+      "timestamp": "2026-08-22T04:40:59.366Z"
+    },
+    {
+      "id": "act_17873736591450361",
       "role": "admin",
       "action": "LOGIN",
       "userId": "u_admin",
       "details": "User admin (admin) logged in",
       "district": null,
       "username": "admin",
-      "timestamp": "2026-08-22T03:58:13.594Z"
+      "timestamp": "2026-08-22T04:40:59.148Z"
+    },
+    {
+      "id": "act_17873734188149fn3",
+      "role": "dealer",
+      "action": "CUSTOMER_SALE",
+      "userId": "u_dealer_10",
+      "details": "Order ORD-910011: Sold AMAR NETRAN (Price: ₹2000, DC: ₹250, Net: ₹1750) to Customer [1234567890]",
+      "district": "Rewari",
+      "username": "dealer_rewari",
+      "timestamp": "2026-08-22T04:36:58.814Z"
+    },
+    {
+      "id": "act_1787372718843ksy2",
+      "role": "admin",
+      "action": "LOGIN",
+      "userId": "u_admin",
+      "details": "User admin (admin) logged in",
+      "district": null,
+      "username": "admin",
+      "timestamp": "2026-08-22T04:25:18.843Z"
+    },
+    {
+      "id": "act_1787371371675jhg4",
+      "role": "admin",
+      "action": "LOGIN",
+      "userId": "u_admin",
+      "details": "User admin (admin) logged in",
+      "district": null,
+      "username": "admin",
+      "timestamp": "2026-08-22T04:02:51.675Z"
     }
   ],
   "inventoryLogs": [],
-  "customerOrders": [],
+  "customerOrders": [
+    {
+      "id": "ord_17873737180991wzs",
+      "orderNo": "ORD-912758",
+      "district": "Alwar",
+      "date": "2026-08-22",
+      "time": "10:11:58",
+      "productId": "prod_1",
+      "productName": "DAMADAR",
+      "schemeName": "DAMADAR Special",
+      "qty": 1,
+      "unitPrice": 3200,
+      "dcRate": 200,
+      "totalAmount": 3200,
+      "netAmount": 3000,
+      "customerMobile": "9876543210",
+      "customerName": "Live Test Customer",
+      "note": "",
+      "dealerUsername": "dealer_alwar",
+      "createdAt": "2026-08-22T04:41:58.099Z"
+    },
+    {
+      "id": "ord_17873734187893r64",
+      "qty": 1,
+      "date": "2026-08-22",
+      "note": "",
+      "time": "04:36:58",
+      "dcRate": 250,
+      "orderNo": "ORD-910011",
+      "district": "Rewari",
+      "createdAt": "2026-08-22T04:36:58.789Z",
+      "netAmount": 1750,
+      "productId": "prod_3",
+      "unitPrice": 2000,
+      "schemeName": "AMAR NETRAN (₹2,000)",
+      "productName": "AMAR NETRAN",
+      "totalAmount": 2000,
+      "customerName": "Customer",
+      "customerMobile": "1234567890",
+      "dealerUsername": "dealer_rewari"
+    }
+  ],
   "baseOpeningCash": {},
   "cashSettlements": [],
   "districtProducts": {
@@ -5920,464 +5967,27 @@
         "currentStock": 0,
         "stockAllocated": 0
       }
-    ],
-    "Ajmer": [
-      {
-        "id": "dp_ajm_p1",
-        "productId": "prod_1",
-        "name": "DAMADAR",
-        "schemePrice": 3052,
-        "stockAllocated": 8.1,
-        "currentStock": 8.1,
-        "schemes": [
-          {
-            "id": "sch_dmd_1",
-            "name": "DMD 1",
-            "qty": 1,
-            "price": 3052,
-            "dc": 250
-          },
-          {
-            "id": "sch_dmd_2",
-            "name": "DMD 2",
-            "qty": 2,
-            "price": 6104,
-            "dc": 500
-          },
-          {
-            "id": "sch_dmd_3",
-            "name": "DMD 3",
-            "qty": 3,
-            "price": 9156,
-            "dc": 750
-          }
-        ],
-        "isActive": true
-      },
-      {
-        "id": "dp_ajm_p2",
-        "productId": "prod_2",
-        "name": "TONIC+FM",
-        "schemePrice": 2950,
-        "stockAllocated": 0.1,
-        "currentStock": 0.1,
-        "schemes": [
-          {
-            "id": "sch_tfm_1",
-            "name": "TONIC+FM 1",
-            "qty": 1,
-            "price": 2950,
-            "dc": 250
-          }
-        ],
-        "isActive": true
-      },
-      {
-        "id": "dp_ajm_p3",
-        "productId": "prod_3",
-        "name": "AMAR NETRAN",
-        "schemePrice": 2500,
-        "stockAllocated": 11,
-        "currentStock": 11,
-        "schemes": [
-          {
-            "id": "sch_an_1",
-            "name": "AMAR NETRAN 1",
-            "qty": 1,
-            "price": 2500,
-            "dc": 250
-          }
-        ],
-        "isActive": true
-      },
-      {
-        "id": "dp_ajm_p4",
-        "productId": "prod_4",
-        "name": "AAROGAYA NET",
-        "schemePrice": 2500,
-        "stockAllocated": 17.7,
-        "currentStock": 17.7,
-        "schemes": [
-          {
-            "id": "sch_ag_1",
-            "name": "AG (Aarogya Net 1)",
-            "qty": 1,
-            "price": 2500,
-            "dc": 250
-          },
-          {
-            "id": "sch_ag_2",
-            "name": "AG (Aarogya Net 2)",
-            "qty": 2,
-            "price": 5000,
-            "dc": 500
-          }
-        ],
-        "isActive": true
-      },
-      {
-        "id": "dp_ajm_p5",
-        "productId": "prod_5",
-        "name": "KADWI DAWA",
-        "schemePrice": 2870,
-        "stockAllocated": 7,
-        "currentStock": 7,
-        "schemes": [
-          {
-            "id": "sch_kd_1",
-            "name": "KD 1",
-            "qty": 1,
-            "price": 2870,
-            "dc": 250
-          },
-          {
-            "id": "sch_kd_2",
-            "name": "KD 2",
-            "qty": 2,
-            "price": 5740,
-            "dc": 500
-          }
-        ],
-        "isActive": true
-      },
-      {
-        "id": "dp_ajm_p6",
-        "productId": "prod_6",
-        "name": "HEIGH TONIC",
-        "schemePrice": 2950,
-        "stockAllocated": 4,
-        "currentStock": 4,
-        "schemes": [
-          {
-            "id": "sch_ht_1",
-            "name": "HT (Heigh Tonic 1)",
-            "qty": 1,
-            "price": 2950,
-            "dc": 250
-          },
-          {
-            "id": "sch_ht_2",
-            "name": "HT (Heigh Tonic 2)",
-            "qty": 2,
-            "price": 5900,
-            "dc": 500
-          }
-        ],
-        "isActive": true
-      },
-      {
-        "id": "dp_ajm_p7",
-        "productId": "prod_7",
-        "name": "SUPRAGUT",
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "id": "sch_sg_1",
-            "name": "SUPRAGUT 1",
-            "qty": 1,
-            "price": 2500,
-            "dc": 250
-          }
-        ],
-        "isActive": true
-      },
-      {
-        "id": "dp_ajm_p8",
-        "productId": "prod_8",
-        "name": "RAJ VILLA",
-        "schemePrice": 2500,
-        "stockAllocated": 2.4,
-        "currentStock": 2.4,
-        "schemes": [
-          {
-            "id": "sch_rv_1",
-            "name": "RAJ VILLA 1",
-            "qty": 1,
-            "price": 2500,
-            "dc": 250
-          }
-        ],
-        "isActive": true
-      },
-      {
-        "id": "dp_ajm_p9",
-        "productId": "prod_9",
-        "name": "MONEY+HCY",
-        "schemePrice": 2500,
-        "stockAllocated": 4.1,
-        "currentStock": 4.1,
-        "schemes": [
-          {
-            "id": "sch_mh_1",
-            "name": "MONEY+HCY 1",
-            "qty": 1,
-            "price": 2500,
-            "dc": 250
-          }
-        ],
-        "isActive": true
-      },
-      {
-        "id": "dp_ajm_p10",
-        "productId": "prod_10",
-        "name": "PV",
-        "schemePrice": 2500,
-        "stockAllocated": 2,
-        "currentStock": 2,
-        "schemes": [
-          {
-            "id": "sch_pv_1",
-            "name": "PV 1",
-            "qty": 1,
-            "price": 2500,
-            "dc": 250
-          }
-        ],
-        "isActive": true
-      },
-      {
-        "id": "dp_ajm_p11",
-        "productId": "prod_11",
-        "name": "DS",
-        "schemePrice": 3580,
-        "stockAllocated": 6,
-        "currentStock": 6,
-        "schemes": [
-          {
-            "id": "sch_ds_1",
-            "name": "DS (Height Sutra 1)",
-            "qty": 1,
-            "price": 3580,
-            "dc": 250
-          },
-          {
-            "id": "sch_ds_2",
-            "name": "DS (Height Sutra 2)",
-            "qty": 2,
-            "price": 7160,
-            "dc": 500
-          }
-        ],
-        "isActive": true
-      },
-      {
-        "id": "dp_ajm_p12",
-        "productId": "prod_12",
-        "name": "UDAR",
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "id": "sch_udar_1",
-            "name": "UDAR 1",
-            "qty": 1,
-            "price": 2500,
-            "dc": 250
-          }
-        ],
-        "isActive": true
-      },
-      {
-        "id": "dp_ajm_p13",
-        "productId": "prod_13",
-        "name": "GUT",
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "id": "sch_gut_1",
-            "name": "GUT 1",
-            "qty": 1,
-            "price": 2500,
-            "dc": 250
-          }
-        ],
-        "isActive": true
-      },
-      {
-        "id": "dp_ajm_p14",
-        "productId": "prod_14",
-        "name": "TSO",
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "id": "sch_tso_1",
-            "name": "TSO 1",
-            "qty": 1,
-            "price": 2500,
-            "dc": 250
-          }
-        ],
-        "isActive": true
-      },
-      {
-        "id": "dp_ajm_p15",
-        "productId": "prod_15",
-        "name": "PILES BASAM",
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "id": "sch_pb_1",
-            "name": "PILES BASAM 1",
-            "qty": 1,
-            "price": 2500,
-            "dc": 250
-          }
-        ],
-        "isActive": true
-      },
-      {
-        "id": "dp_ajm_p16",
-        "productId": "prod_16",
-        "name": "ALCO BAN",
-        "schemePrice": 2500,
-        "stockAllocated": 2,
-        "currentStock": 2,
-        "schemes": [
-          {
-            "id": "sch_ab_1",
-            "name": "ALCO BAN 1",
-            "qty": 1,
-            "price": 2500,
-            "dc": 250
-          }
-        ],
-        "isActive": true
-      },
-      {
-        "id": "dp_ajm_p17",
-        "productId": "prod_17",
-        "name": "RSO",
-        "schemePrice": 2500,
-        "stockAllocated": 12.1,
-        "currentStock": 12.1,
-        "schemes": [
-          {
-            "id": "sch_rso_1",
-            "name": "RSO 1",
-            "qty": 1,
-            "price": 2500,
-            "dc": 250
-          }
-        ],
-        "isActive": true
-      },
-      {
-        "id": "dp_ajm_p18",
-        "productId": "prod_18",
-        "name": "MANI RARTAN",
-        "schemePrice": 2500,
-        "stockAllocated": 6,
-        "currentStock": 6,
-        "schemes": [
-          {
-            "id": "sch_mr_1",
-            "name": "MANI RARTAN 1",
-            "qty": 1,
-            "price": 2500,
-            "dc": 250
-          }
-        ],
-        "isActive": true
-      },
-      {
-        "id": "dp_ajm_p19",
-        "productId": "prod_19",
-        "name": "NONI 500 ML",
-        "schemePrice": 2500,
-        "stockAllocated": 7,
-        "currentStock": 7,
-        "schemes": [
-          {
-            "id": "sch_noni_1",
-            "name": "NONI 500 ML 1",
-            "qty": 1,
-            "price": 2500,
-            "dc": 250
-          }
-        ],
-        "isActive": true
-      },
-      {
-        "id": "dp_ajm_p20",
-        "productId": "prod_20",
-        "name": "PLAY MORE",
-        "schemePrice": 2500,
-        "stockAllocated": 50,
-        "currentStock": 50,
-        "schemes": [
-          {
-            "id": "sch_pm_1",
-            "name": "PLAY MORE 1",
-            "qty": 1,
-            "price": 2500,
-            "dc": 170
-          }
-        ],
-        "isActive": true
-      },
-      {
-        "id": "dp_ajm_p21",
-        "productId": "prod_21",
-        "name": "FOUJI",
-        "schemePrice": 2500,
-        "stockAllocated": 10,
-        "currentStock": 10,
-        "schemes": [
-          {
-            "id": "sch_fj_1",
-            "name": "FOUJI 1",
-            "qty": 1,
-            "price": 2500,
-            "dc": 170
-          }
-        ],
-        "isActive": true
-      },
-      {
-        "id": "dp_ajm_p22",
-        "productId": "prod_22",
-        "name": "EYE SUTRA",
-        "schemePrice": 2500,
-        "stockAllocated": 15,
-        "currentStock": 15,
-        "schemes": [
-          {
-            "id": "sch_es_1",
-            "name": "EYE SUTRA 1",
-            "qty": 1,
-            "price": 2500,
-            "dc": 170
-          }
-        ],
-        "isActive": true
-      },
-      {
-        "id": "dp_ajm_p23",
-        "productId": "prod_23",
-        "name": "ALERGY",
-        "schemePrice": 2500,
-        "stockAllocated": 12,
-        "currentStock": 12,
-        "schemes": [
-          {
-            "id": "sch_alg_1",
-            "name": "ALERGY 1",
-            "qty": 1,
-            "price": 2500,
-            "dc": 170
-          }
-        ],
-        "isActive": true
-      }
     ]
+  },
+  "lastOrderTimestamp": 1787373718099,
+  "lastOrder": {
+    "id": "ord_17873737180991wzs",
+    "orderNo": "ORD-912758",
+    "district": "Alwar",
+    "date": "2026-08-22",
+    "time": "10:11:58",
+    "productId": "prod_1",
+    "productName": "DAMADAR",
+    "schemeName": "DAMADAR Special",
+    "qty": 1,
+    "unitPrice": 3200,
+    "dcRate": 200,
+    "totalAmount": 3200,
+    "netAmount": 3000,
+    "customerMobile": "9876543210",
+    "customerName": "Live Test Customer",
+    "note": "",
+    "dealerUsername": "dealer_alwar",
+    "createdAt": "2026-08-22T04:41:58.099Z"
   }
 }

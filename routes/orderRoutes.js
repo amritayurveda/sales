@@ -85,6 +85,8 @@ router.post(
 
     if (!db.customerOrders) db.customerOrders = [];
     db.customerOrders.unshift(newOrder);
+    db.lastOrderTimestamp = Date.now();
+    db.lastOrder = newOrder;
 
     logActivity(
       req.user.id,
