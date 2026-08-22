@@ -19,6 +19,7 @@
     serverToday: getTodayDateStr(),
     currentDate: getTodayDateStr(), // Always auto-selects TODAY's date for everyone
     currentDistrict: "Chittorgarh",
+    districts: [...DISTRICTS],
     dayStock: null,
     dayCash: null,
     customerOrders: [],
@@ -264,7 +265,8 @@
     const strip = $('adminDistrictStrip');
     if (!strip) return;
     strip.innerHTML = '';
-    DISTRICTS.forEach(dist => {
+    const list = (state.districts && state.districts.length > 0) ? state.districts : DISTRICTS;
+    list.forEach(dist => {
       const pill = document.createElement('button');
       pill.className = 'dist-pill' + (dist === state.currentDistrict ? ' active' : '');
       pill.textContent = dist;
@@ -1561,52 +1563,209 @@
 
   async function loadAdminDealers() {
     const container = $('adminTabContent');
-    container.innerHTML = '<div style="padding:20px;">Loading Dealers...</div>';
+    container.innerHTML = '<div style="padding:30px;text-align:center;">Loading Districts &amp; Dealer Accounts...</div>';
 
     try {
-      const res = await API.getAdminUsers();
+      const res = await API.getDistricts();
+      const list = res.districts || [];
+      state.districts = list.map(d => d.name);
+
       let html = `
-        <h3 style="margin-top:0;">Dealer Accounts &amp; Password Management</h3>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>District</th>
-                <th>Username</th>
-                <th>Role</th>
-                <th>Password Reset</th>
-              </tr>
-            </thead>
-            <tbody>
-              ${res.users.map(u => `
-                <tr>
-                  <td class="prod-name"><strong>${escapeHtml(u.district || 'All Districts (Admin)')}</strong></td>
-                  <td class="mono">${escapeHtml(u.username)}</td>
-                  <td><span class="role-badge ${u.role}">${u.role}</span></td>
-                  <td>
-                    <button class="btn btn-secondary btn-sm" onclick="resetUserPassword('${u.id}', '${escapeHtml(u.username)}')">Reset Password</button>
-                  </td>
-                </tr>
-              `).join('')}
-            </tbody>
-          </table>
+        <div style="display:grid;grid-template-columns:1fr;gap:20px;">
+          <!-- 1. Add New District & Dealer Card -->
+          <div class="card" style="border:2px solid var(--brass);background:#FAF7EE;padding:20px;border-radius:12px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:10px;">
+              <div>
+                <h3 style="margin:0;font-size:17px;color:var(--brass-deep);">🏢 Add New District &amp; Dealer Account</h3>
+                <span style="font-size:12.5px;color:var(--ink-soft);">Create a new district in the sales system, auto-allocate products &amp; generate a dealer login.</span>
+              </div>
+              <span class="scheme-pill-badge" style="font-size:12px;padding:4px 10px;background:#FFE873;color:#5C4B00;">
+                📍 ${list.length} Active Districts
+              </span>
+            </div>
+
+            <form onsubmit="submitAddNewDistrict(event)">
+              <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));gap:12px;margin-bottom:14px;">
+                <div>
+                  <label class="field-label">1. District Name *</label>
+                  <input type="text" id="newDistName" class="input-lg" placeholder="e.g. Ajmer / Jaipur" required>
+                </div>
+                <div>
+                  <label class="field-label">2. Dealer Full Name</label>
+                  <input type="text" id="newDistDealerName" class="input-lg" placeholder="e.g. Ajmer Dealer">
+                </div>
+                <div>
+                  <label class="field-label">3. Login Username *</label>
+                  <input type="text" id="newDistUsername" class="input-lg mono" placeholder="e.g. dealer_ajmer" required>
+                </div>
+                <div>
+                  <label class="field-label">4. Login Password *</label>
+                  <input type="text" id="newDistPassword" class="input-lg mono" placeholder="e.g. dealer123" required>
+                </div>
+                <div>
+                  <label class="field-label">5. Delivery Charge (DC ₹)</label>
+                  <input type="number" id="newDistDcRate" class="input-lg mono" placeholder="200" value="200">
+                </div>
+              </div>
+
+              <div style="display:flex;justify-content:flex-end;">
+                <button type="submit" id="addDistBtn" class="btn-add-order" style="height:46px;padding:0 24px;font-size:14.5px;">
+                  ➕ Create District &amp; Dealer Account
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- 2. Active Districts & Dealer Accounts Table -->
+          <div class="card">
+            <div class="card-header excel-head-yellow" style="display:flex;justify-content:space-between;align-items:center;">
+              <h3 style="margin:0;font-size:15px;">👥 ACTIVE DISTRICTS &amp; DEALER ACCOUNTS (${list.length})</h3>
+              <span class="mono" style="font-size:12px;font-weight:700;">TOTAL: ${list.length} DISTRICTS</span>
+            </div>
+
+            <div class="table-wrap">
+              <table>
+                <thead class="excel-head-yellow">
+                  <tr>
+                    <th style="width:35px;">#</th>
+                    <th>DISTRICT</th>
+                    <th>DEALER NAME</th>
+                    <th>LOGIN USERNAME</th>
+                    <th>DELIVERY CHARGE (DC)</th>
+                    <th>PRODUCTS</th>
+                    <th style="text-align:center;width:240px;">ACTIONS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${list.map((d, idx) => {
+                    const u = d.dealer;
+                    const dcDesc = d.dcRule ? (d.dcRule.type === 'flat' ? `Flat ₹${d.dcRule.value}` : `Tiered`) : 'Flat ₹200';
+                    return `
+                      <tr>
+                        <td class="mono" style="font-size:11px;color:var(--ink-soft);">${idx + 1}</td>
+                        <td class="prod-name"><strong>📍 ${escapeHtml(d.name)}</strong></td>
+                        <td>${u ? escapeHtml(u.name) : '<em style="color:var(--ink-soft);">No dealer assigned</em>'}</td>
+                        <td>
+                          ${u ? `<code class="mono" style="background:#F0EDE1;padding:3px 8px;border-radius:4px;font-weight:700;color:var(--ink);">🔑 ${escapeHtml(u.username)}</code>` : '—'}
+                        </td>
+                        <td>
+                          <span class="activity-badge STOCK_ADJUSTMENT" style="font-size:11px;">${escapeHtml(dcDesc)}</span>
+                        </td>
+                        <td class="mono">${d.productCount} products</td>
+                        <td style="text-align:center;">
+                          <div style="display:flex;gap:6px;justify-content:center;flex-wrap:wrap;">
+                            ${u ? `
+                              <button class="btn btn-secondary btn-sm" onclick="promptEditDealerAccount('${u.id}', '${escapeHtml(u.username)}', '${escapeHtml(u.name)}', '${escapeHtml(d.name)}')" title="Edit Username, Name & Password">
+                                ✏️ Edit Login
+                              </button>
+                              <button class="btn btn-secondary btn-sm" onclick="promptQuickResetPassword('${u.id}', '${escapeHtml(u.username)}')" title="Reset Password Only">
+                                🔑 Reset Pass
+                              </button>
+                            ` : ''}
+                            <button class="btn btn-danger btn-sm" onclick="promptDeleteDistrict('${escapeHtml(d.name)}')" title="Delete this district and its dealer">
+                              🗑️ Delete
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    `;
+                  }).join('')}
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       `;
 
       container.innerHTML = html;
     } catch (err) {
-      container.innerHTML = `<div style="color:var(--danger);padding:20px;">Failed to load users: ${err.message}</div>`;
+      container.innerHTML = `<div style="color:var(--danger);padding:20px;">Failed to load Districts &amp; Dealers: ${err.message}</div>`;
     }
   }
 
-  window.resetUserPassword = async (userId, username) => {
-    const newPass = prompt(`Enter new password for ${username}:`);
-    if (!newPass) return;
+  window.submitAddNewDistrict = async (e) => {
+    e.preventDefault();
+    const btn = $('addDistBtn');
+    const district = ($('newDistName').value || '').trim();
+    const name = ($('newDistDealerName').value || '').trim();
+    const username = ($('newDistUsername').value || '').trim();
+    const password = ($('newDistPassword').value || '').trim();
+    const dcRate = parseFloat($('newDistDcRate').value) || 200;
+
+    if (!district || !username || !password) {
+      alert('District Name, Username, and Password are required.');
+      return;
+    }
+
+    if (btn) {
+      btn.disabled = true;
+      btn.textContent = 'Creating District...';
+    }
+
     try {
-      await API.resetDealerPassword(userId, newPass);
-      showToast(`Password updated for ${username}`, 'success');
+      const res = await API.addDistrict(district, username, password, name, dcRate);
+      showToast(res.message, 'success');
+      await loadAdminDealers();
+      renderAdminDistrictStrip();
     } catch (err) {
       showToast(err.message, 'error');
+      if (btn) {
+        btn.disabled = false;
+        btn.textContent = '➕ Create District & Dealer Account';
+      }
+    }
+  };
+
+  window.promptEditDealerAccount = async (userId, currentUsername, currentName, district) => {
+    const newUsername = prompt(`Edit Dealer Login for ${district}:\n\nEnter New Username:`, currentUsername);
+    if (newUsername === null) return;
+    if (!newUsername.trim()) {
+      alert('Username cannot be empty');
+      return;
+    }
+
+    const newName = prompt(`Enter Dealer Full Name:`, currentName) || currentName;
+
+    const newPassword = prompt(`Enter New Password for [${newUsername.trim()}] (leave blank to keep current password unchanged):`, '');
+    if (newPassword === null) return;
+
+    try {
+      const res = await API.updateDealer(userId, newUsername.trim(), newPassword.trim() || undefined, newName.trim(), district);
+      showToast(res.message, 'success');
+      await loadAdminDealers();
+    } catch (err) {
+      showToast('Error updating dealer: ' + err.message, 'error');
+    }
+  };
+
+  window.promptQuickResetPassword = async (userId, username) => {
+    const newPass = prompt(`🔑 Quick Password Reset for [${username}]:\n\nEnter new password:`);
+    if (!newPass) return;
+    try {
+      const res = await API.resetDealerPassword(userId, newPass.trim());
+      showToast(res.message || `Password updated for ${username}`, 'success');
+    } catch (err) {
+      showToast(err.message, 'error');
+    }
+  };
+
+  window.promptDeleteDistrict = async (districtName) => {
+    const confirmInput = prompt(`⚠️ CAUTION: You are about to DELETE district "${districtName}"!\n\nThis will remove the district and its dealer login access.\n\nTo confirm, type YES below:`);
+    if (confirmInput !== 'YES') {
+      if (confirmInput !== null) alert('Deletion cancelled: You did not type YES.');
+      return;
+    }
+
+    try {
+      const res = await API.deleteDistrict(districtName);
+      showToast(res.message, 'warning');
+      if (state.currentDistrict === districtName) {
+        state.currentDistrict = 'Chittorgarh';
+      }
+      await loadAdminDealers();
+      renderAdminDistrictStrip();
+    } catch (err) {
+      showToast('Error deleting district: ' + err.message, 'error');
     }
   };
 
@@ -1750,7 +1909,7 @@
                   <label class="field-label">1. Destination District *</label>
                   <select id="dispatchDistrict" class="input-lg" required>
                     <option value="">-- Select Destination District --</option>
-                    ${DISTRICTS.map(d => `<option value="${d}">${d}</option>`).join('')}
+                    ${(state.districts || DISTRICTS).map(d => `<option value="${d}">${d}</option>`).join('')}
                   </select>
                 </div>
 

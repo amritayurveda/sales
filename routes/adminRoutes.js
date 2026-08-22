@@ -2,7 +2,8 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
-const { db, saveDb, DISTRICTS } = require('../config/db');
+const { db, saveDb, DISTRICTS, getDistricts, EXCEL_PRODUCTS, logActivity } = require('../config/db');
+const { pool } = require('../config/postgres');
 const { authenticateToken, requireAdmin } = require('../middleware/auth');
 const { getServerToday } = require('../middleware/sameDayCheck');
 
@@ -13,8 +14,9 @@ router.use(authenticateToken, requireAdmin);
 router.get('/overview', (req, res) => {
   const date = req.query.date || getServerToday();
   const activeProducts = (db.products || []).filter(p => p.isActive !== false);
+  const activeDistricts = getDistricts();
 
-  const overview = DISTRICTS.map(district => {
+  const overview = activeDistricts.map(district => {
     const salesKey = `${district}:${date}`;
     const ledgerKey = `${district}:${date}`;
 
@@ -123,7 +125,8 @@ router.get('/date-range-summary', (req, res) => {
     return res.status(400).json({ error: 'Start and end date required' });
   }
 
-  const targetDistricts = district ? [district] : DISTRICTS;
+  const activeDistricts = getDistricts();
+  const targetDistricts = district ? [district] : activeDistricts;
   const daysMap = {};
 
   // Gather all recorded dates in range
@@ -143,7 +146,7 @@ router.get('/date-range-summary', (req, res) => {
   });
 });
 
-// 3. User management
+// 3. User management (Get all users)
 router.get('/users', (req, res) => {
   const users = db.users.map(u => ({
     id: u.id,
@@ -170,12 +173,262 @@ router.post('/reset-password', (req, res) => {
 
   const salt = bcrypt.genSaltSync(10);
   user.passwordHash = bcrypt.hashSync(newPassword, salt);
+
+  // Update Neon PostgreSQL
+  pool.query(
+    `UPDATE users SET password_hash = $1 WHERE id = $2`,
+    [user.passwordHash, user.id]
+  ).catch(err => console.error('Postgres user password update error:', err.message));
+
+  logActivity(
+    req.user.id,
+    req.user.username,
+    req.user.role,
+    user.district,
+    'PASSWORD_RESET',
+    `Reset password for ${user.username} (${user.district || 'Admin'})`
+  );
+
   saveDb();
 
   res.json({ message: `Password reset successfully for ${user.username}` });
 });
 
-// 5. Activity logs with filters
+// 5. Admin: Edit Dealer Account (Username, Name, Password, District)
+router.post('/update-dealer', async (req, res) => {
+  const { userId, username, password, name, district } = req.body;
+
+  if (!userId) {
+    return res.status(400).json({ error: 'userId is required' });
+  }
+
+  const user = db.users.find(u => u.id === userId);
+  if (!user) {
+    return res.status(404).json({ error: 'User account not found' });
+  }
+
+  const changes = [];
+
+  if (username && username.trim().toLowerCase() !== user.username.toLowerCase()) {
+    const newUsername = username.trim().toLowerCase();
+    const exists = db.users.find(u => u.id !== userId && u.username.toLowerCase() === newUsername);
+    if (exists) {
+      return res.status(400).json({ error: `Username "${newUsername}" is already in use by another account` });
+    }
+    changes.push(`Username: "${user.username}" -> "${newUsername}"`);
+    user.username = newUsername;
+  }
+
+  if (password && password.trim()) {
+    const salt = bcrypt.genSaltSync(10);
+    user.passwordHash = bcrypt.hashSync(password.trim(), salt);
+    changes.push('Password updated');
+  }
+
+  if (name && name.trim()) {
+    user.name = name.trim();
+    changes.push(`Name: "${user.name}"`);
+  }
+
+  if (district && district.trim()) {
+    user.district = district.trim();
+    changes.push(`District: "${user.district}"`);
+  }
+
+  // Update Neon PostgreSQL
+  pool.query(
+    `UPDATE users SET username = $1, name = $2, password_hash = $3, district = $4 WHERE id = $5`,
+    [user.username, user.name, user.passwordHash, user.district, user.id]
+  ).catch(err => console.error('Postgres user update error:', err.message));
+
+  logActivity(
+    req.user.id,
+    req.user.username,
+    req.user.role,
+    user.district,
+    'DEALER_ACCOUNT_UPDATE',
+    `Updated dealer account (${user.username}): ${changes.join(', ')}`
+  );
+
+  await saveDb();
+
+  res.json({
+    message: `Dealer account for "${user.name}" (${user.username}) updated successfully!`,
+    user: {
+      id: user.id,
+      username: user.username,
+      name: user.name,
+      district: user.district
+    }
+  });
+});
+
+// 6. District Management (List all districts with dealer details)
+router.get('/districts', (req, res) => {
+  const activeDistricts = getDistricts();
+  const list = activeDistricts.map(dist => {
+    const dealer = (db.users || []).find(u => u.role === 'dealer' && u.district && u.district.toLowerCase() === dist.toLowerCase());
+    const products = (db.districtProducts && db.districtProducts[dist]) ? db.districtProducts[dist].length : 0;
+    const dcRule = (db.dcRules && db.dcRules[dist]) || { type: 'flat', value: 200 };
+    return {
+      name: dist,
+      dealer: dealer ? {
+        id: dealer.id,
+        username: dealer.username,
+        name: dealer.name,
+        createdAt: dealer.createdAt
+      } : null,
+      productCount: products,
+      dcRule
+    };
+  });
+
+  res.json({
+    districts: list,
+    totalCount: list.length
+  });
+});
+
+// 7. Admin: Add New District
+router.post('/add-district', async (req, res) => {
+  const { district, username, password, name, dcRate } = req.body;
+  const trimmedDist = (district || '').trim();
+  const trimmedUser = (username || '').trim().toLowerCase();
+  const trimmedPass = (password || '').trim();
+  const trimmedName = (name || `${trimmedDist} Dealer`).trim();
+
+  if (!trimmedDist) {
+    return res.status(400).json({ error: 'District name is required' });
+  }
+  if (!trimmedUser || !trimmedPass) {
+    return res.status(400).json({ error: 'Dealer username and password are required' });
+  }
+
+  if (!db.districts) db.districts = [...DISTRICTS];
+  if (db.districts.some(d => d.toLowerCase() === trimmedDist.toLowerCase())) {
+    return res.status(400).json({ error: `District "${trimmedDist}" already exists` });
+  }
+
+  if (db.users.some(u => u.username.toLowerCase() === trimmedUser)) {
+    return res.status(400).json({ error: `Username "${trimmedUser}" is already taken` });
+  }
+
+  // 1. Add to districts
+  db.districts.push(trimmedDist);
+
+  // 2. Create dealer account
+  const salt = bcrypt.genSaltSync(10);
+  const passwordHash = bcrypt.hashSync(trimmedPass, salt);
+  const newUser = {
+    id: 'u_dealer_' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
+    username: trimmedUser,
+    name: trimmedName,
+    passwordHash,
+    role: 'dealer',
+    district: trimmedDist,
+    createdAt: new Date().toISOString()
+  };
+  db.users.push(newUser);
+
+  // 3. Seed district products & schemes from Master Catalog / EXCEL_PRODUCTS
+  if (!db.districtProducts) db.districtProducts = {};
+  db.districtProducts[trimmedDist] = EXCEL_PRODUCTS.map((p, idx) => ({
+    id: `dp_${trimmedDist.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 3)}_p${idx + 1}`,
+    productId: `prod_${idx + 1}`,
+    name: p.name,
+    schemePrice: p.schemes[0].price,
+    stockAllocated: p.defaultStock,
+    currentStock: p.defaultStock,
+    schemes: JSON.parse(JSON.stringify(p.schemes)),
+    isActive: true
+  }));
+
+  // 4. Seed DC Rule
+  if (!db.dcRules) db.dcRules = {};
+  db.dcRules[trimmedDist] = { type: 'flat', value: Number(dcRate) || 200 };
+
+  // 5. Insert to Neon PostgreSQL users table
+  pool.query(
+    `INSERT INTO users (id, username, name, password_hash, role, district, created_at)
+     VALUES ($1, $2, $3, $4, $5, $6, $7)
+     ON CONFLICT (username) DO UPDATE SET name = $3, password_hash = $4, district = $6`,
+    [newUser.id, newUser.username, newUser.name, newUser.passwordHash, newUser.role, newUser.district, newUser.createdAt]
+  ).catch(err => console.error('Postgres user insert error:', err.message));
+
+  logActivity(
+    req.user.id,
+    req.user.username,
+    req.user.role,
+    trimmedDist,
+    'DISTRICT_CREATED',
+    `Added new district "${trimmedDist}" with dealer account "${trimmedUser}"`
+  );
+
+  await saveDb();
+
+  res.status(201).json({
+    message: `District "${trimmedDist}" and dealer account "${trimmedUser}" created successfully!`,
+    district: trimmedDist,
+    user: {
+      id: newUser.id,
+      username: newUser.username,
+      name: newUser.name,
+      district: newUser.district
+    }
+  });
+});
+
+// 8. Admin: Delete / Remove District
+router.post('/delete-district', async (req, res) => {
+  const { district } = req.body;
+  const trimmedDist = (district || '').trim();
+
+  if (!trimmedDist) {
+    return res.status(400).json({ error: 'District name is required' });
+  }
+
+  if (!db.districts) db.districts = [...DISTRICTS];
+  const index = db.districts.findIndex(d => d.toLowerCase() === trimmedDist.toLowerCase());
+  if (index === -1) {
+    return res.status(404).json({ error: `District "${trimmedDist}" not found` });
+  }
+
+  const actualDistName = db.districts[index];
+  db.districts.splice(index, 1);
+
+  // Remove associated dealer user
+  const deletedUsers = [];
+  db.users = db.users.filter(u => {
+    if (u.role === 'dealer' && u.district && u.district.toLowerCase() === trimmedDist.toLowerCase()) {
+      deletedUsers.push(u.id);
+      return false;
+    }
+    return true;
+  });
+
+  deletedUsers.forEach(uid => {
+    pool.query('DELETE FROM users WHERE id = $1', [uid]).catch(e => console.error('Postgres delete user error:', e.message));
+  });
+
+  logActivity(
+    req.user.id,
+    req.user.username,
+    req.user.role,
+    actualDistName,
+    'DISTRICT_DELETED',
+    `Deleted district "${actualDistName}" and removed associated dealer account`
+  );
+
+  await saveDb();
+
+  res.json({
+    message: `District "${actualDistName}" deleted successfully.`,
+    district: actualDistName,
+    activeDistricts: db.districts
+  });
+});
+
+// 9. Activity logs with filters
 router.get('/activity-logs', (req, res) => {
   const { user, district, action, limit } = req.query;
   let logs = db.activityLogs || [];
@@ -197,14 +450,15 @@ router.get('/activity-logs', (req, res) => {
   });
 });
 
-// 6. Get District DC Rules
+// 10. Get District DC Rules
 const { DEFAULT_DC_RULES, describeRule } = require('../utils/dcCalculator');
 router.get('/dc-rules', (req, res) => {
   if (!db.dcRules || Object.keys(db.dcRules).length === 0) {
     db.dcRules = JSON.parse(JSON.stringify(DEFAULT_DC_RULES));
   }
 
-  const list = DISTRICTS.map(dist => {
+  const activeDistricts = getDistricts();
+  const list = activeDistricts.map(dist => {
     const rule = db.dcRules[dist] || DEFAULT_DC_RULES[dist] || { type: 'flat', value: 200 };
     return {
       district: dist,
@@ -216,7 +470,7 @@ router.get('/dc-rules', (req, res) => {
   res.json({ dcRules: list });
 });
 
-// 7. Admin: Update DC Rule for a District
+// 11. Admin: Update DC Rule for a District
 router.post('/update-district-dc', (req, res) => {
   const { district, rule } = req.body;
   if (!district || !rule) {
@@ -226,7 +480,6 @@ router.post('/update-district-dc', (req, res) => {
   if (!db.dcRules) db.dcRules = {};
   db.dcRules[district] = rule;
 
-  const { logActivity } = require('../config/db');
   logActivity(
     req.user.id,
     req.user.username,

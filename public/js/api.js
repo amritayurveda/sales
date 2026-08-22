@@ -369,6 +369,32 @@ const API = {
     });
   },
 
+  // District & Dealer Management
+  async getDistricts() {
+    return this.request('/admin/districts');
+  },
+
+  async addDistrict(district, username, password, name, dcRate) {
+    return this.request('/admin/add-district', {
+      method: 'POST',
+      body: JSON.stringify({ district, username, password, name, dcRate })
+    });
+  },
+
+  async deleteDistrict(district) {
+    return this.request('/admin/delete-district', {
+      method: 'POST',
+      body: JSON.stringify({ district })
+    });
+  },
+
+  async updateDealer(userId, username, password, name, district) {
+    return this.request('/admin/update-dealer', {
+      method: 'POST',
+      body: JSON.stringify({ userId, username, password, name, district })
+    });
+  },
+
   // Activity Logs
   async getActivityLogs(filters = {}) {
     const params = new URLSearchParams();

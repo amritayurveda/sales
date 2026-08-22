@@ -112,6 +112,7 @@ const DISTRICT_SLUGS = {
 const { pool, initPostgresTables } = require('./postgres');
 
 let db = {
+  districts: [...DISTRICTS],
   users: [],
   products: [],
   districtProducts: {},
@@ -128,6 +129,13 @@ let db = {
   googleSheetsConfig: {},
   stockTransfers: []
 };
+
+function getDistricts() {
+  if (db.districts && Array.isArray(db.districts) && db.districts.length > 0) {
+    return db.districts;
+  }
+  return DISTRICTS;
+}
 
 async function saveDb() {
   try {
@@ -198,6 +206,9 @@ function loadLocalDatabase() {
       if (!db.dcRules || Object.keys(db.dcRules).length === 0) {
         db.dcRules = JSON.parse(JSON.stringify(DEFAULT_DC_RULES));
       }
+      if (!db.districts || !Array.isArray(db.districts) || db.districts.length === 0) {
+        db.districts = [...DISTRICTS];
+      }
       ensureDistrictSchemes();
     } catch (e) {
       seedInitialData();
@@ -226,6 +237,9 @@ async function initDb() {
       if (loaded.users && loaded.users.length > 0) {
         Object.keys(db).forEach(k => delete db[k]);
         Object.assign(db, loaded);
+        if (!db.districts || !Array.isArray(db.districts) || db.districts.length === 0) {
+          db.districts = [...DISTRICTS];
+        }
         console.log('✅ Loaded data successfully from Neon PostgreSQL database!');
         ensureDistrictSchemes();
         return db;
@@ -243,10 +257,11 @@ async function initDb() {
 }
 
 function ensureDistrictSchemes() {
-  DISTRICTS.forEach(dist => {
+  const activeDistricts = getDistricts();
+  activeDistricts.forEach(dist => {
     if (!db.districtProducts[dist] || db.districtProducts[dist].length === 0) {
       db.districtProducts[dist] = EXCEL_PRODUCTS.map((p, idx) => ({
-        id: `dp_${dist.toLowerCase().slice(0, 3)}_p${idx + 1}`,
+        id: `dp_${dist.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 3)}_p${idx + 1}`,
         productId: `prod_${idx + 1}`,
         name: p.name,
         schemePrice: p.schemes[0].price,
@@ -371,6 +386,7 @@ function seedInitialData() {
 module.exports = {
   db,
   DISTRICTS,
+  getDistricts,
   DISTRICT_SLUGS,
   EXCEL_PRODUCTS,
   initDb,
