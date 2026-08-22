@@ -479,10 +479,11 @@ function ensureDistrictSchemes() {
     }
 
     // Only populate defaults if district has NEVER had any product catalog initialized
-    if (dist.toUpperCase() === 'SAHARANPUR') {
+    if (dist.toUpperCase() === 'SAHARANPUR' || dist.toUpperCase() === 'MUZAFFARNAGAR') {
+      const pfx = dist.toLowerCase().slice(0, 3);
       db.districtProducts[dist] = SAHARANPUR_PRODUCTS.map((sp, idx) => ({
-        id: `dp_sah_${idx + 1}`,
-        productId: `prod_sah_${idx + 1}`,
+        id: `dp_${pfx}_${idx + 1}`,
+        productId: `prod_${pfx}_${idx + 1}`,
         name: sp.name,
         schemePrice: sp.schemes[0].price,
         stockAllocated: sp.defaultStock,
