@@ -417,9 +417,29 @@ router.post('/delete-district', async (req, res) => {
   const actualDistName = db.districts[index];
   db.districts.splice(index, 1);
 
+  if (!db.deletedDistricts) db.deletedDistricts = [];
+  if (!db.deletedDistricts.includes(actualDistName)) {
+    db.deletedDistricts.push(actualDistName);
+  }
+
+  // Clean up district products and dc rules
+  if (db.districtProducts) {
+    delete db.districtProducts[actualDistName];
+    delete db.districtProducts[actualDistName.toLowerCase()];
+    delete db.districtProducts[actualDistName.toUpperCase()];
+  }
+  if (db.dcRules) {
+    delete db.dcRules[actualDistName];
+    delete db.dcRules[actualDistName.toLowerCase()];
+    delete db.dcRules[actualDistName.toUpperCase()];
+    try {
+      await pool.query('DELETE FROM dc_rules WHERE LOWER(district) = $1', [actualDistName.toLowerCase()]);
+    } catch (e) {}
+  }
+
   // Remove associated dealer user
   const deletedUsers = [];
-  db.users = db.users.filter(u => {
+  db.users = (db.users || []).filter(u => {
     if (u.role === 'dealer' && u.district && u.district.toLowerCase() === trimmedDist.toLowerCase()) {
       deletedUsers.push(u.id);
       return false;
@@ -441,13 +461,13 @@ router.post('/delete-district', async (req, res) => {
     req.user.role,
     actualDistName,
     'DISTRICT_DELETED',
-    `Deleted district "${actualDistName}" and removed associated dealer account`
+    `Permanently deleted district "${actualDistName}" and removed associated dealer account`
   );
 
   await saveDb();
 
   res.json({
-    message: `District "${actualDistName}" deleted successfully.`,
+    message: `District "${actualDistName}" permanently deleted.`,
     district: actualDistName,
     activeDistricts: db.districts
   });

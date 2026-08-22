@@ -12,7 +12,7 @@ const DB_FILE = path.join(DATA_DIR, 'database.json');
 
 const DISTRICTS = [
   "Chittorgarh", "Alwar", "Bikaner", "Uttarakhand", "Udham Singh Nagar", "Jodhpur",
-  "Kota", "Faridabad", "Gurgaon", "Rewari", "Muzaffarnagar", "Shamli"
+  "Kota", "Faridabad", "Gurgaon", "Muzaffarnagar", "Saharanpur"
 ];
 
 // Product master list aligned with Excel report
@@ -396,14 +396,21 @@ async function initDb() {
       console.error('Neon PostgreSQL dc_rules load error:', dcErr.message);
     }
 
+    if (!db.deletedDistricts) db.deletedDistricts = [];
+
     if (!db.districts || !Array.isArray(db.districts) || db.districts.length === 0) {
       db.districts = [...DISTRICTS];
     }
-    if (!db.districts.some(d => d.toUpperCase() === 'SAHARANPUR')) {
-      db.districts.push('Saharanpur');
+
+    // Filter out any explicitly deleted districts (e.g. Rewari, Shamli)
+    db.districts = db.districts.filter(d => !db.deletedDistricts.some(dd => dd.toLowerCase() === d.toLowerCase()));
+
+    // Clean up users for deleted districts
+    if (db.users && Array.isArray(db.users)) {
+      db.users = db.users.filter(u => !u.district || !db.deletedDistricts.some(dd => dd.toLowerCase() === u.district.toLowerCase()));
     }
 
-    // Ensure dealer accounts exist for all districts
+    // Ensure dealer accounts exist only for active, non-deleted districts
     if (!db.users) db.users = [];
     const salt = bcrypt.genSaltSync(10);
     const defaultPassHash = bcrypt.hashSync('dealer123', salt);
