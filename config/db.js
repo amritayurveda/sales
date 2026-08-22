@@ -469,59 +469,51 @@ const GURGAON_PRODUCTS = [
 ];
 
 function ensureDistrictSchemes() {
+  if (!db.districtProducts) db.districtProducts = {};
   const activeDistricts = getDistricts();
   activeDistricts.forEach(dist => {
-    // If district products already exist (is an Array), DO NOT auto-populate defaults
-    if (db.districtProducts[dist] !== undefined && db.districtProducts[dist] !== null) {
-      // Ensure schemes array exists on existing items
-      db.districtProducts[dist].forEach(p => {
-        if (!p.schemes || p.schemes.length === 0) {
-          const match = EXCEL_PRODUCTS.find(ep => ep.name.toLowerCase() === p.name.toLowerCase());
-          p.schemes = match ? JSON.parse(JSON.stringify(match.schemes)) : [
-            { id: `sch_${p.productId}_1`, name: `${p.name} Standard`, qty: 1, price: p.schemePrice || 2500, dc: 250 }
-          ];
-        }
-      });
-      return;
+    // Only populate for customized districts if not already initialized
+    if (db.districtProducts[dist] === undefined || db.districtProducts[dist] === null) {
+      if (dist.toUpperCase() === 'SAHARANPUR' || dist.toUpperCase() === 'MUZAFFARNAGAR') {
+        const pfx = dist.toLowerCase().slice(0, 3);
+        db.districtProducts[dist] = SAHARANPUR_PRODUCTS.map((sp, idx) => ({
+          id: `dp_${pfx}_${idx + 1}`,
+          productId: `prod_${pfx}_${idx + 1}`,
+          name: sp.name,
+          isSpecial: true,
+          schemePrice: sp.schemes[0].price,
+          stockAllocated: sp.defaultStock,
+          currentStock: sp.defaultStock,
+          schemes: JSON.parse(JSON.stringify(sp.schemes)),
+          isActive: true
+        }));
+      } else if (dist.toUpperCase() === 'GURGAON' || dist.toUpperCase() === 'FARIDABAD') {
+        const pfx = dist.toLowerCase().slice(0, 3);
+        db.districtProducts[dist] = GURGAON_PRODUCTS.map((gp, idx) => ({
+          id: `dp_${pfx}_${idx + 1}`,
+          productId: `prod_${pfx}_${idx + 1}`,
+          name: gp.name,
+          isSpecial: false,
+          schemePrice: gp.schemes[0].price,
+          stockAllocated: gp.defaultStock,
+          currentStock: gp.defaultStock,
+          schemes: JSON.parse(JSON.stringify(gp.schemes)),
+          isActive: true
+        }));
+      } else {
+        db.districtProducts[dist] = [];
+      }
     }
 
-    // Only populate defaults if district has NEVER had any product catalog initialized
-    if (dist.toUpperCase() === 'SAHARANPUR' || dist.toUpperCase() === 'MUZAFFARNAGAR') {
-      const pfx = dist.toLowerCase().slice(0, 3);
-      db.districtProducts[dist] = SAHARANPUR_PRODUCTS.map((sp, idx) => ({
-        id: `dp_${pfx}_${idx + 1}`,
-        productId: `prod_${pfx}_${idx + 1}`,
-        name: sp.name,
-        schemePrice: sp.schemes[0].price,
-        stockAllocated: sp.defaultStock,
-        currentStock: sp.defaultStock,
-        schemes: JSON.parse(JSON.stringify(sp.schemes)),
-        isActive: true
-      }));
-    } else if (dist.toUpperCase() === 'GURGAON' || dist.toUpperCase() === 'FARIDABAD') {
-      const pfx = dist.toLowerCase().slice(0, 3);
-      db.districtProducts[dist] = GURGAON_PRODUCTS.map((gp, idx) => ({
-        id: `dp_${pfx}_${idx + 1}`,
-        productId: `prod_${pfx}_${idx + 1}`,
-        name: gp.name,
-        schemePrice: gp.schemes[0].price,
-        stockAllocated: gp.defaultStock,
-        currentStock: gp.defaultStock,
-        schemes: JSON.parse(JSON.stringify(gp.schemes)),
-        isActive: true
-      }));
-    } else {
-      db.districtProducts[dist] = EXCEL_PRODUCTS.map((p, idx) => ({
-        id: `dp_${dist.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 3)}_p${idx + 1}`,
-        productId: `prod_${idx + 1}`,
-        name: p.name,
-        schemePrice: p.schemes[0].price,
-        stockAllocated: p.defaultStock,
-        currentStock: p.defaultStock,
-        schemes: JSON.parse(JSON.stringify(p.schemes)),
-        isActive: true
-      }));
-    }
+    // Ensure schemes array exists on existing items
+    (db.districtProducts[dist] || []).forEach(p => {
+      if (!p.schemes || p.schemes.length === 0) {
+        const match = EXCEL_PRODUCTS.find(ep => ep.name.toLowerCase() === p.name.toLowerCase());
+        p.schemes = match ? JSON.parse(JSON.stringify(match.schemes)) : [
+          { id: `sch_${p.productId}_1`, name: `${p.name} Standard`, qty: 1, price: p.schemePrice || 2500, dc: 250 }
+        ];
+      }
+    });
   });
 }
 
@@ -556,39 +548,49 @@ function seedInitialData() {
     });
   });
 
-  // 2. Global Products Master from master_catalog.json
-  const masterCatalogPath = path.join(DATA_DIR, 'master_catalog.json');
-  let products = [];
-  if (fs.existsSync(masterCatalogPath)) {
-    try {
-      products = JSON.parse(fs.readFileSync(masterCatalogPath, 'utf8'));
-    } catch (e) {
-      console.error('Error reading master_catalog.json:', e);
-    }
-  }
+  // 2. Global Products Master
+  const products = EXCEL_PRODUCTS.map((p, idx) => ({
+    id: `prod_${idx + 1}`,
+    name: p.name,
+    isSpecial: ['PLAY MORE', 'FOUJI', 'EYE SUTRA', 'ALERGY'].includes(p.name.toUpperCase()),
+    defaultPrice: p.schemes[0].price,
+    schemes: JSON.parse(JSON.stringify(p.schemes)),
+    isActive: true,
+    sortOrder: idx + 1
+  }));
 
-  if (!products || products.length === 0) {
-    products = EXCEL_PRODUCTS.map((p, idx) => ({
-      id: `prod_${idx + 1}`,
-      name: p.name,
-      defaultPrice: p.schemes[0].price,
-      schemes: JSON.parse(JSON.stringify(p.schemes)),
-      isActive: true,
-      sortOrder: idx + 1
-    }));
-  }
-
-  // 3. District Products with ALL STOCK = 0
+  // 3. District Products (Customized only, never dump 23 products)
   const districtProducts = {};
   DISTRICTS.forEach(dist => {
-    districtProducts[dist] = products.map((p, idx) => ({
-      id: `dp_${dist.toLowerCase().slice(0, 3)}_p${idx + 1}`,
-      productId: p.id,
-      name: p.name,
-      stockAllocated: 0,
-      currentStock: 0,
-      isActive: true
-    }));
+    if (dist.toUpperCase() === 'SAHARANPUR' || dist.toUpperCase() === 'MUZAFFARNAGAR') {
+      const pfx = dist.toLowerCase().slice(0, 3);
+      districtProducts[dist] = SAHARANPUR_PRODUCTS.map((sp, idx) => ({
+        id: `dp_${pfx}_${idx + 1}`,
+        productId: `prod_${pfx}_${idx + 1}`,
+        name: sp.name,
+        isSpecial: true,
+        schemePrice: sp.schemes[0].price,
+        stockAllocated: sp.defaultStock,
+        currentStock: sp.defaultStock,
+        schemes: JSON.parse(JSON.stringify(sp.schemes)),
+        isActive: true
+      }));
+    } else if (dist.toUpperCase() === 'GURGAON' || dist.toUpperCase() === 'FARIDABAD') {
+      const pfx = dist.toLowerCase().slice(0, 3);
+      districtProducts[dist] = GURGAON_PRODUCTS.map((gp, idx) => ({
+        id: `dp_${pfx}_${idx + 1}`,
+        productId: `prod_${pfx}_${idx + 1}`,
+        name: gp.name,
+        isSpecial: false,
+        schemePrice: gp.schemes[0].price,
+        stockAllocated: gp.defaultStock,
+        currentStock: gp.defaultStock,
+        schemes: JSON.parse(JSON.stringify(gp.schemes)),
+        isActive: true
+      }));
+    } else {
+      districtProducts[dist] = [];
+    }
   });
 
   // 4. DC Rules
