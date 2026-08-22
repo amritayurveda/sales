@@ -37,21 +37,42 @@ app.use(async (req, res, next) => {
 // Serve static assets
 app.use(express.static(path.join(__dirname, 'public')));
 
-// API Routes
-app.use('/api/auth', require('./routes/authRoutes'));
-app.use('/api/products', require('./routes/productRoutes'));
-app.use('/api/dc-rules', require('./routes/dcRoutes'));
-app.use('/api/sales', require('./routes/salesRoutes'));
-app.use('/api/ledger', require('./routes/ledgerRoutes'));
-app.use('/api/admin', require('./routes/adminRoutes'));
-app.use('/api/inventory', require('./routes/inventoryRoutes'));
-app.use('/api/orders', require('./routes/orderRoutes'));
-app.use('/api/cash', require('./routes/cashRoutes'));
-app.use('/api/sheets', require('./routes/sheetsRoutes'));
+const fs = require('fs');
 
-// Fallback to index.html for SPA
+// API Routes (Mounted on both /api/* and /* for full compatibility with Vercel and standalone servers)
+const authRoutes = require('./routes/authRoutes');
+const productRoutes = require('./routes/productRoutes');
+const dcRoutes = require('./routes/dcRoutes');
+const salesRoutes = require('./routes/salesRoutes');
+const ledgerRoutes = require('./routes/ledgerRoutes');
+const adminRoutes = require('./routes/adminRoutes');
+const inventoryRoutes = require('./routes/inventoryRoutes');
+const orderRoutes = require('./routes/orderRoutes');
+const cashRoutes = require('./routes/cashRoutes');
+const sheetsRoutes = require('./routes/sheetsRoutes');
+
+app.use(['/api/auth', '/auth'], authRoutes);
+app.use(['/api/products', '/products'], productRoutes);
+app.use(['/api/dc-rules', '/dc-rules'], dcRoutes);
+app.use(['/api/sales', '/sales'], salesRoutes);
+app.use(['/api/ledger', '/ledger'], ledgerRoutes);
+app.use(['/api/admin', '/admin'], adminRoutes);
+app.use(['/api/inventory', '/inventory'], inventoryRoutes);
+app.use(['/api/orders', '/orders'], orderRoutes);
+app.use(['/api/cash', '/cash'], cashRoutes);
+app.use(['/api/sheets', '/sheets'], sheetsRoutes);
+
+// Safe Fallback to index.html for SPA
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  const publicIndex = path.join(__dirname, 'public', 'index.html');
+  const rootIndex = path.join(__dirname, 'index.html');
+  if (fs.existsSync(publicIndex)) {
+    return res.sendFile(publicIndex);
+  } else if (fs.existsSync(rootIndex)) {
+    return res.sendFile(rootIndex);
+  } else {
+    return res.status(200).send(`<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=/index.html"></head><body>Loading Sales Register Pro...</body></html>`);
+  }
 });
 
 // Error handling middleware
