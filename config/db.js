@@ -94,6 +94,21 @@ const EXCEL_PRODUCTS = [
   ]}
 ];
 
+const SAHARANPUR_PRODUCTS = [
+  { name: "PLAY MORE", defaultStock: 50, schemes: [{ id: "sch_pm_1", name: "PLAY MORE 1", qty: 1, price: 2500, dc: 170 }] },
+  { name: "FOUJI", defaultStock: 10, schemes: [{ id: "sch_fj_1", name: "FOUJI 1", qty: 1, price: 2500, dc: 170 }] },
+  { name: "EYE SUTRA", defaultStock: 15, schemes: [{ id: "sch_es_1", name: "EYE SUTRA 1", qty: 1, price: 2500, dc: 170 }] },
+  { name: "ALERGY", defaultStock: 12, schemes: [{ id: "sch_alg_1", name: "ALERGY 1", qty: 1, price: 2500, dc: 170 }] }
+];
+
+const GURGAON_PRODUCTS = [
+  { name: "AMAR NETRAN", defaultStock: 11, schemes: [{ id: "sch_an_1", name: "AMAR NETRAN 1", qty: 1, price: 2500, dc: 250 }] },
+  { name: "KADWI DAWA", defaultStock: 7.0, schemes: [
+    { id: "sch_kd_1", name: "KD 1", qty: 1, price: 2870, dc: 250 },
+    { id: "sch_kd_2", name: "KD 2", qty: 2, price: 5740, dc: 500 }
+  ]}
+];
+
 const DISTRICT_SLUGS = {
   "Chittorgarh": "dealer_chittorgarh",
   "Alwar": "dealer_alwar",
@@ -300,21 +315,6 @@ async function initDb() {
 
   return db;
 }
-
-const SAHARANPUR_PRODUCTS = [
-  { name: "PLAY MORE", defaultStock: 50, schemes: [{ id: "sch_pm_1", name: "PLAY MORE 1", qty: 1, price: 2500, dc: 170 }] },
-  { name: "FOUJI", defaultStock: 10, schemes: [{ id: "sch_fj_1", name: "FOUJI 1", qty: 1, price: 2500, dc: 170 }] },
-  { name: "EYE SUTRA", defaultStock: 15, schemes: [{ id: "sch_es_1", name: "EYE SUTRA 1", qty: 1, price: 2500, dc: 170 }] },
-  { name: "ALERGY", defaultStock: 12, schemes: [{ id: "sch_alg_1", name: "ALERGY 1", qty: 1, price: 2500, dc: 170 }] }
-];
-
-const GURGAON_PRODUCTS = [
-  { name: "AMAR NETRAN", defaultStock: 11, schemes: [{ id: "sch_an_1", name: "AMAR NETRAN 1", qty: 1, price: 2500, dc: 250 }] },
-  { name: "KADWI DAWA", defaultStock: 7.0, schemes: [
-    { id: "sch_kd_1", name: "KD 1", qty: 1, price: 2870, dc: 250 },
-    { id: "sch_kd_2", name: "KD 2", qty: 2, price: 5740, dc: 500 }
-  ]}
-];
 
 function ensureDistrictSchemes() {
   if (!db.districtProducts) db.districtProducts = {};
