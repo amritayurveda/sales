@@ -498,10 +498,11 @@ function ensureDistrictSchemes() {
         schemes: JSON.parse(JSON.stringify(sp.schemes)),
         isActive: true
       }));
-    } else if (dist.toUpperCase() === 'GURGAON') {
+    } else if (dist.toUpperCase() === 'GURGAON' || dist.toUpperCase() === 'FARIDABAD') {
+      const pfx = dist.toLowerCase().slice(0, 3);
       db.districtProducts[dist] = GURGAON_PRODUCTS.map((gp, idx) => ({
-        id: `dp_gur_${idx + 1}`,
-        productId: `prod_gur_${idx + 1}`,
+        id: `dp_${pfx}_${idx + 1}`,
+        productId: `prod_${pfx}_${idx + 1}`,
         name: gp.name,
         schemePrice: gp.schemes[0].price,
         stockAllocated: gp.defaultStock,
