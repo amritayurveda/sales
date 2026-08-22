@@ -453,6 +453,14 @@ const SAHARANPUR_PRODUCTS = [
   { name: "ALERGY", defaultStock: 12, schemes: [{ id: "sch_alg_1", name: "ALERGY 1", qty: 1, price: 2500, dc: 170 }] }
 ];
 
+const GURGAON_PRODUCTS = [
+  { name: "AMAR NETRAN", defaultStock: 11, schemes: [{ id: "sch_an_1", name: "AMAR NETRAN 1", qty: 1, price: 2500, dc: 250 }] },
+  { name: "KADWI DAWA", defaultStock: 7.0, schemes: [
+    { id: "sch_kd_1", name: "KD 1", qty: 1, price: 2870, dc: 250 },
+    { id: "sch_kd_2", name: "KD 2", qty: 2, price: 5740, dc: 500 }
+  ]}
+];
+
 function ensureDistrictSchemes() {
   const activeDistricts = getDistricts();
   activeDistricts.forEach(dist => {
@@ -480,6 +488,17 @@ function ensureDistrictSchemes() {
         stockAllocated: sp.defaultStock,
         currentStock: sp.defaultStock,
         schemes: JSON.parse(JSON.stringify(sp.schemes)),
+        isActive: true
+      }));
+    } else if (dist.toUpperCase() === 'GURGAON') {
+      db.districtProducts[dist] = GURGAON_PRODUCTS.map((gp, idx) => ({
+        id: `dp_gur_${idx + 1}`,
+        productId: `prod_gur_${idx + 1}`,
+        name: gp.name,
+        schemePrice: gp.schemes[0].price,
+        stockAllocated: gp.defaultStock,
+        currentStock: gp.defaultStock,
+        schemes: JSON.parse(JSON.stringify(gp.schemes)),
         isActive: true
       }));
     } else {

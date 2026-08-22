@@ -7,8 +7,8 @@
       "role": "admin",
       "district": null,
       "username": "admin",
-      "createdAt": "2026-08-22T06:49:16.235Z",
-      "passwordHash": "$2a$10$TdQz.UfVOrkn5WhV6wkoP.NeSeAseDuXh31hR4dCwQs7gSfid07xi"
+      "createdAt": "2026-08-22T06:55:08.005Z",
+      "passwordHash": "$2a$10$0mAz.fHDnYbyhq5IcCefrORpgcZFMNu.uC/2UQxr7VHijQtVPcmza"
     },
     {
       "id": "u_dealer_1",
@@ -16,8 +16,8 @@
       "role": "dealer",
       "district": "Chittorgarh",
       "username": "dealer_chittorgarh",
-      "createdAt": "2026-08-22T06:49:16.237Z",
-      "passwordHash": "$2a$10$TdQz.UfVOrkn5WhV6wkoP.GGtlSodKKadXbIT2CSS5qbGn8DgNQ16"
+      "createdAt": "2026-08-22T06:55:08.007Z",
+      "passwordHash": "$2a$10$0mAz.fHDnYbyhq5IcCefrOJgGRdLrfnLjB9ZioAcDmOIu7PaQRhwu"
     },
     {
       "id": "u_dealer_2",
@@ -25,8 +25,8 @@
       "role": "dealer",
       "district": "Alwar",
       "username": "dealer_alwar",
-      "createdAt": "2026-08-22T06:49:16.237Z",
-      "passwordHash": "$2a$10$TdQz.UfVOrkn5WhV6wkoP.GGtlSodKKadXbIT2CSS5qbGn8DgNQ16"
+      "createdAt": "2026-08-22T06:55:08.007Z",
+      "passwordHash": "$2a$10$0mAz.fHDnYbyhq5IcCefrOJgGRdLrfnLjB9ZioAcDmOIu7PaQRhwu"
     },
     {
       "id": "u_dealer_3",
@@ -34,8 +34,8 @@
       "role": "dealer",
       "district": "Bikaner",
       "username": "dealer_bikaner",
-      "createdAt": "2026-08-22T06:49:16.237Z",
-      "passwordHash": "$2a$10$TdQz.UfVOrkn5WhV6wkoP.GGtlSodKKadXbIT2CSS5qbGn8DgNQ16"
+      "createdAt": "2026-08-22T06:55:08.007Z",
+      "passwordHash": "$2a$10$0mAz.fHDnYbyhq5IcCefrOJgGRdLrfnLjB9ZioAcDmOIu7PaQRhwu"
     },
     {
       "id": "u_dealer_4",
@@ -43,8 +43,8 @@
       "role": "dealer",
       "district": "Uttarakhand",
       "username": "dealer_uttarakhand",
-      "createdAt": "2026-08-22T06:49:16.237Z",
-      "passwordHash": "$2a$10$TdQz.UfVOrkn5WhV6wkoP.GGtlSodKKadXbIT2CSS5qbGn8DgNQ16"
+      "createdAt": "2026-08-22T06:55:08.007Z",
+      "passwordHash": "$2a$10$0mAz.fHDnYbyhq5IcCefrOJgGRdLrfnLjB9ZioAcDmOIu7PaQRhwu"
     },
     {
       "id": "u_dealer_5",
@@ -52,8 +52,8 @@
       "role": "dealer",
       "district": "Udham Singh Nagar",
       "username": "dealer_udhamsingh",
-      "createdAt": "2026-08-22T06:49:16.237Z",
-      "passwordHash": "$2a$10$TdQz.UfVOrkn5WhV6wkoP.GGtlSodKKadXbIT2CSS5qbGn8DgNQ16"
+      "createdAt": "2026-08-22T06:55:08.007Z",
+      "passwordHash": "$2a$10$0mAz.fHDnYbyhq5IcCefrOJgGRdLrfnLjB9ZioAcDmOIu7PaQRhwu"
     },
     {
       "id": "u_dealer_6",
@@ -61,8 +61,8 @@
       "role": "dealer",
       "district": "Jodhpur",
       "username": "dealer_jodhpur",
-      "createdAt": "2026-08-22T06:49:16.237Z",
-      "passwordHash": "$2a$10$TdQz.UfVOrkn5WhV6wkoP.GGtlSodKKadXbIT2CSS5qbGn8DgNQ16"
+      "createdAt": "2026-08-22T06:55:08.007Z",
+      "passwordHash": "$2a$10$0mAz.fHDnYbyhq5IcCefrOJgGRdLrfnLjB9ZioAcDmOIu7PaQRhwu"
     },
     {
       "id": "u_dealer_7",
@@ -70,8 +70,8 @@
       "role": "dealer",
       "district": "Kota",
       "username": "dealer_kota",
-      "createdAt": "2026-08-22T06:49:16.237Z",
-      "passwordHash": "$2a$10$TdQz.UfVOrkn5WhV6wkoP.GGtlSodKKadXbIT2CSS5qbGn8DgNQ16"
+      "createdAt": "2026-08-22T06:55:08.007Z",
+      "passwordHash": "$2a$10$0mAz.fHDnYbyhq5IcCefrOJgGRdLrfnLjB9ZioAcDmOIu7PaQRhwu"
     },
     {
       "id": "u_dealer_8",
@@ -79,8 +79,8 @@
       "role": "dealer",
       "district": "Faridabad",
       "username": "dealer_faridabad",
-      "createdAt": "2026-08-22T06:49:16.237Z",
-      "passwordHash": "$2a$10$TdQz.UfVOrkn5WhV6wkoP.GGtlSodKKadXbIT2CSS5qbGn8DgNQ16"
+      "createdAt": "2026-08-22T06:55:08.007Z",
+      "passwordHash": "$2a$10$0mAz.fHDnYbyhq5IcCefrOJgGRdLrfnLjB9ZioAcDmOIu7PaQRhwu"
     },
     {
       "id": "u_dealer_9",
@@ -88,8 +88,8 @@
       "role": "dealer",
       "district": "Gurgaon",
       "username": "dealer_gurgaon",
-      "createdAt": "2026-08-22T06:49:16.237Z",
-      "passwordHash": "$2a$10$TdQz.UfVOrkn5WhV6wkoP.GGtlSodKKadXbIT2CSS5qbGn8DgNQ16"
+      "createdAt": "2026-08-22T06:55:08.007Z",
+      "passwordHash": "$2a$10$0mAz.fHDnYbyhq5IcCefrOJgGRdLrfnLjB9ZioAcDmOIu7PaQRhwu"
     },
     {
       "id": "u_dealer_10",
@@ -97,8 +97,8 @@
       "role": "dealer",
       "district": "Rewari",
       "username": "dealer_rewari",
-      "createdAt": "2026-08-22T06:49:16.237Z",
-      "passwordHash": "$2a$10$TdQz.UfVOrkn5WhV6wkoP.GGtlSodKKadXbIT2CSS5qbGn8DgNQ16"
+      "createdAt": "2026-08-22T06:55:08.007Z",
+      "passwordHash": "$2a$10$0mAz.fHDnYbyhq5IcCefrOJgGRdLrfnLjB9ZioAcDmOIu7PaQRhwu"
     },
     {
       "id": "u_dealer_11",
@@ -106,8 +106,8 @@
       "role": "dealer",
       "district": "Muzaffarnagar",
       "username": "dealer_muzaffarnagar",
-      "createdAt": "2026-08-22T06:49:16.237Z",
-      "passwordHash": "$2a$10$TdQz.UfVOrkn5WhV6wkoP.GGtlSodKKadXbIT2CSS5qbGn8DgNQ16"
+      "createdAt": "2026-08-22T06:55:08.007Z",
+      "passwordHash": "$2a$10$0mAz.fHDnYbyhq5IcCefrOJgGRdLrfnLjB9ZioAcDmOIu7PaQRhwu"
     },
     {
       "id": "u_dealer_12",
@@ -115,8 +115,8 @@
       "role": "dealer",
       "district": "Shamli",
       "username": "dealer_shamli",
-      "createdAt": "2026-08-22T06:49:16.237Z",
-      "passwordHash": "$2a$10$TdQz.UfVOrkn5WhV6wkoP.GGtlSodKKadXbIT2CSS5qbGn8DgNQ16"
+      "createdAt": "2026-08-22T06:55:08.007Z",
+      "passwordHash": "$2a$10$0mAz.fHDnYbyhq5IcCefrOJgGRdLrfnLjB9ZioAcDmOIu7PaQRhwu"
     },
     {
       "id": "u_dealer_saharanpur",
@@ -124,8 +124,8 @@
       "role": "dealer",
       "district": "Saharanpur",
       "username": "dealer_saharanpur",
-      "createdAt": "2026-08-22T06:50:29.378Z",
-      "passwordHash": "$2a$10$.SiOE/zuvsFyAJws68ptIuMePWEYspg8C6lRFgJjY2FW/OudIozMO"
+      "createdAt": "2026-08-22T06:55:17.714Z",
+      "passwordHash": "$2a$10$/Ly6qkD8QUIamSZ0e2wN6e4OtGHYxcrIf9NYxDqPCumvbu.A/Ic9C"
     }
   ],
   "dcRules": {
@@ -629,42 +629,172 @@
     "Shamli",
     "Saharanpur"
   ],
+  "lastOrder": {
+    "id": "ord_1787381916522tqjs",
+    "orderNo": "ORD-533032",
+    "district": "Gurgaon",
+    "date": "2026-08-22",
+    "time": "12:28:36",
+    "productId": "prod_an",
+    "productName": "AMAR NETRAN",
+    "schemeName": "AMAR NETRAN 1",
+    "qty": 1,
+    "unitPrice": 2500,
+    "dcRate": 200,
+    "totalAmount": 2500,
+    "netAmount": 2300,
+    "customerMobile": "9123456780",
+    "customerName": "Gurgaon Test Customer",
+    "note": "",
+    "dealerUsername": "dealer_gurgaon",
+    "createdAt": "2026-08-22T06:58:36.523Z"
+  },
   "milaStock": {},
   "inwardNotes": {},
   "activityLogs": [
     {
-      "id": "act_178738161738928v6",
-      "role": "admin",
-      "action": "PRODUCT_DELETED",
-      "userId": "u_admin",
-      "details": "Permanently removed product \"ALERGY\" from Saharanpur",
-      "district": "Saharanpur",
-      "username": "admin",
-      "timestamp": "2026-08-22T06:53:37.389Z"
+      "id": "act_1787381916523whz5",
+      "userId": "u_dealer_9",
+      "username": "dealer_gurgaon",
+      "role": "dealer",
+      "district": "Gurgaon",
+      "action": "CUSTOMER_SALE",
+      "details": "Order ORD-533032: Sold AMAR NETRAN (Price: ₹2500, DC: ₹200, Net: ₹2300) to Gurgaon Test Customer [9123456780]",
+      "timestamp": "2026-08-22T06:58:36.523Z"
     },
     {
-      "id": "act_1787381617363yjkj",
+      "id": "act_1787381916490nqr8",
+      "userId": "u_dealer_9",
+      "username": "dealer_gurgaon",
+      "role": "dealer",
+      "district": "Gurgaon",
+      "action": "LOGIN",
+      "details": "User dealer_gurgaon (dealer - Gurgaon) logged in",
+      "timestamp": "2026-08-22T06:58:36.490Z"
+    },
+    {
+      "id": "act_1787381916386e1sn",
+      "userId": "u_admin",
+      "username": "admin",
+      "role": "admin",
+      "district": null,
+      "action": "LOGIN",
+      "details": "User admin (admin) logged in",
+      "timestamp": "2026-08-22T06:58:36.386Z"
+    },
+    {
+      "id": "act_1787381897482iuv5",
+      "role": "dealer",
+      "action": "LOGIN",
+      "userId": "u_dealer_9",
+      "details": "User dealer_gurgaon (dealer - Gurgaon) logged in",
+      "district": "Gurgaon",
+      "username": "dealer_gurgaon",
+      "timestamp": "2026-08-22T06:58:17.482Z"
+    },
+    {
+      "id": "act_1787381897294qzgb",
       "role": "admin",
       "action": "LOGIN",
       "userId": "u_admin",
       "details": "User admin (admin) logged in",
       "district": null,
       "username": "admin",
-      "timestamp": "2026-08-22T06:53:37.365Z"
+      "timestamp": "2026-08-22T06:58:17.294Z"
     },
     {
-      "id": "act_1787381429496qk6g",
+      "id": "act_1787381758125evae",
+      "role": "admin",
+      "action": "CASH_SETTLEMENT",
+      "userId": "u_admin",
+      "details": "Collected ₹1000 payment from Gurgaon on 2026-08-22 (Receipt: CASH-724899)",
+      "district": "Gurgaon",
+      "username": "admin",
+      "timestamp": "2026-08-22T06:55:58.125Z"
+    },
+    {
+      "id": "act_17873817271664gk2",
+      "role": "dealer",
+      "action": "CUSTOMER_SALE",
+      "userId": "u_dealer_9",
+      "details": "Order ORD-107696: Sold AMAR NETRAN (Price: ₹1200, DC: ₹200, Net: ₹1000) to Customer [7488852973]",
+      "district": "Gurgaon",
+      "username": "dealer_gurgaon",
+      "timestamp": "2026-08-22T06:55:27.166Z"
+    },
+    {
+      "id": "act_1787381720869hco5",
       "role": "admin",
       "action": "LOGIN",
       "userId": "u_admin",
       "details": "User admin (admin) logged in",
       "district": null,
       "username": "admin",
-      "timestamp": "2026-08-22T06:50:29.496Z"
+      "timestamp": "2026-08-22T06:55:20.869Z"
     }
   ],
   "inventoryLogs": [],
   "customerOrders": [
+    {
+      "id": "ord_1787381916522tqjs",
+      "orderNo": "ORD-533032",
+      "district": "Gurgaon",
+      "date": "2026-08-22",
+      "time": "12:28:36",
+      "productId": "prod_an",
+      "productName": "AMAR NETRAN",
+      "schemeName": "AMAR NETRAN 1",
+      "qty": 1,
+      "unitPrice": 2500,
+      "dcRate": 200,
+      "totalAmount": 2500,
+      "netAmount": 2300,
+      "customerMobile": "9123456780",
+      "customerName": "Gurgaon Test Customer",
+      "note": "",
+      "dealerUsername": "dealer_gurgaon",
+      "createdAt": "2026-08-22T06:58:36.523Z"
+    },
+    {
+      "id": "ord_1787381897526a2xh",
+      "orderNo": "ORD-240808",
+      "district": "Gurgaon",
+      "date": "2026-08-22",
+      "time": "12:28:17",
+      "productId": "prod_an",
+      "productName": "AMAR NETRAN",
+      "schemeName": "AMAR NETRAN (₹2,500)",
+      "qty": 1,
+      "unitPrice": 2500,
+      "dcRate": 200,
+      "totalAmount": 2500,
+      "netAmount": 2300,
+      "customerMobile": "9123456780",
+      "customerName": "Gurgaon Test Customer",
+      "note": "",
+      "dealerUsername": "dealer_gurgaon",
+      "createdAt": "2026-08-22T06:58:17.526Z"
+    },
+    {
+      "id": "ord_1787381727166jmzl",
+      "orderNo": "ORD-107696",
+      "district": "Gurgaon",
+      "date": "2026-08-22",
+      "time": "06:55:27",
+      "productId": "prod_3",
+      "productName": "AMAR NETRAN",
+      "schemeName": "AMAR NETRAN (₹1,200)",
+      "qty": 1,
+      "unitPrice": 1200,
+      "dcRate": 200,
+      "totalAmount": 1200,
+      "netAmount": 1000,
+      "customerMobile": "7488852973",
+      "customerName": "Customer",
+      "note": "",
+      "dealerUsername": "dealer_gurgaon",
+      "createdAt": "2026-08-22T06:55:27.166Z"
+    },
     {
       "id": "ord_1787380747107smq4",
       "orderNo": "ORD-987308",
@@ -998,6 +1128,17 @@
   "baseOpeningCash": {},
   "cashSettlements": [
     {
+      "id": "set_17873817581259db5",
+      "receiptNo": "CASH-724899",
+      "district": "Gurgaon",
+      "date": "2026-08-22",
+      "amount": 1000,
+      "paymentMode": "Cash Deposit",
+      "note": "Admin collected cash payment",
+      "receivedBy": "admin",
+      "createdAt": "2026-08-22T06:55:58.125Z"
+    },
+    {
       "id": "set_1787378081521snlf",
       "receiptNo": "CASH-128512",
       "district": "Chittorgarh",
@@ -1048,24 +1189,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_tfm_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "TONIC+FM 1",
+            "price": 2950
           }
         ],
         "isActive": true,
@@ -1079,24 +1206,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_an_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "AMAR NETRAN 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -1110,24 +1223,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ag_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "AG (Aarogya Net 1)",
+            "price": 2500
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_ag_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "AG (Aarogya Net 2)",
+            "price": 5000
           }
         ],
         "isActive": true,
@@ -1141,24 +1247,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_kd_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "KD 1",
+            "price": 2870
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_kd_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "KD 2",
+            "price": 5740
           }
         ],
         "isActive": true,
@@ -1172,24 +1271,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ht_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "HT (Heigh Tonic 1)",
+            "price": 2950
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_ht_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "HT (Heigh Tonic 2)",
+            "price": 5900
           }
         ],
         "isActive": true,
@@ -1203,24 +1295,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_sg_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "SUPRAGUT 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -1234,24 +1312,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_rv_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "RAJ VILLA 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -1265,24 +1329,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_mh_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "MONEY+HCY 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -1296,24 +1346,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_pv_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "PV 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -1327,24 +1363,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ds_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "DS (Height Sutra 1)",
+            "price": 3580
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_ds_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "DS (Height Sutra 2)",
+            "price": 7160
           }
         ],
         "isActive": true,
@@ -1358,24 +1387,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_udar_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "UDAR 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -1389,24 +1404,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_gut_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "GUT 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -1420,24 +1421,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_tso_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "TSO 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -1451,24 +1438,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_pb_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "PILES BASAM 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -1482,24 +1455,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ab_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "ALCO BAN 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -1513,24 +1472,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_rso_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "RSO 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -1544,24 +1489,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_mr_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "MANI RARTAN 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -1575,24 +1506,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_noni_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "NONI 500 ML 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -1605,25 +1522,11 @@
         "name": "PLAY MORE",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_pm_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "PLAY MORE 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -1636,25 +1539,11 @@
         "name": "FOUJI",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_fj_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "FOUJI 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -1667,25 +1556,11 @@
         "name": "EYE SUTRA",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_es_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "EYE SUTRA 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -1698,25 +1573,11 @@
         "name": "ALERGY",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_alg_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "ALERGY 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -1763,24 +1624,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_tfm_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "TONIC+FM 1",
+            "price": 2950
           }
         ],
         "isActive": true,
@@ -1794,24 +1641,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_an_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "AMAR NETRAN 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -1825,24 +1658,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ag_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "AG (Aarogya Net 1)",
+            "price": 2500
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_ag_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "AG (Aarogya Net 2)",
+            "price": 5000
           }
         ],
         "isActive": true,
@@ -1856,24 +1682,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_kd_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "KD 1",
+            "price": 2870
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_kd_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "KD 2",
+            "price": 5740
           }
         ],
         "isActive": true,
@@ -1887,24 +1706,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ht_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "HT (Heigh Tonic 1)",
+            "price": 2950
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_ht_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "HT (Heigh Tonic 2)",
+            "price": 5900
           }
         ],
         "isActive": true,
@@ -1918,24 +1730,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_sg_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "SUPRAGUT 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -1949,24 +1747,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_rv_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "RAJ VILLA 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -1980,24 +1764,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_mh_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "MONEY+HCY 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -2011,24 +1781,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_pv_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "PV 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -2042,24 +1798,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ds_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "DS (Height Sutra 1)",
+            "price": 3580
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_ds_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "DS (Height Sutra 2)",
+            "price": 7160
           }
         ],
         "isActive": true,
@@ -2073,24 +1822,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_udar_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "UDAR 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -2104,24 +1839,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_gut_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "GUT 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -2135,24 +1856,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_tso_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "TSO 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -2166,24 +1873,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_pb_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "PILES BASAM 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -2197,24 +1890,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ab_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "ALCO BAN 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -2228,24 +1907,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_rso_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "RSO 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -2259,24 +1924,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_mr_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "MANI RARTAN 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -2290,24 +1941,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_noni_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "NONI 500 ML 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -2320,25 +1957,11 @@
         "name": "PLAY MORE",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_pm_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "PLAY MORE 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -2351,25 +1974,11 @@
         "name": "FOUJI",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_fj_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "FOUJI 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -2382,25 +1991,11 @@
         "name": "EYE SUTRA",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_es_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "EYE SUTRA 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -2413,25 +2008,11 @@
         "name": "ALERGY",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_alg_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "ALERGY 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -2478,24 +2059,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_tfm_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "TONIC+FM 1",
+            "price": 2950
           }
         ],
         "isActive": true,
@@ -2509,24 +2076,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_an_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "AMAR NETRAN 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -2540,24 +2093,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ag_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "AG (Aarogya Net 1)",
+            "price": 2500
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_ag_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "AG (Aarogya Net 2)",
+            "price": 5000
           }
         ],
         "isActive": true,
@@ -2571,24 +2117,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_kd_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "KD 1",
+            "price": 2870
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_kd_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "KD 2",
+            "price": 5740
           }
         ],
         "isActive": true,
@@ -2602,24 +2141,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ht_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "HT (Heigh Tonic 1)",
+            "price": 2950
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_ht_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "HT (Heigh Tonic 2)",
+            "price": 5900
           }
         ],
         "isActive": true,
@@ -2633,24 +2165,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_sg_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "SUPRAGUT 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -2664,24 +2182,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_rv_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "RAJ VILLA 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -2695,24 +2199,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_mh_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "MONEY+HCY 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -2726,24 +2216,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_pv_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "PV 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -2757,24 +2233,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ds_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "DS (Height Sutra 1)",
+            "price": 3580
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_ds_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "DS (Height Sutra 2)",
+            "price": 7160
           }
         ],
         "isActive": true,
@@ -2788,24 +2257,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_udar_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "UDAR 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -2819,24 +2274,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_gut_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "GUT 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -2850,24 +2291,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_tso_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "TSO 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -2881,24 +2308,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_pb_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "PILES BASAM 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -2912,24 +2325,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ab_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "ALCO BAN 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -2943,24 +2342,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_rso_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "RSO 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -2974,24 +2359,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_mr_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "MANI RARTAN 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -3005,24 +2376,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_noni_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "NONI 500 ML 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -3035,25 +2392,11 @@
         "name": "PLAY MORE",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_pm_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "PLAY MORE 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -3066,25 +2409,11 @@
         "name": "FOUJI",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_fj_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "FOUJI 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -3097,25 +2426,11 @@
         "name": "EYE SUTRA",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_es_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "EYE SUTRA 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -3128,25 +2443,11 @@
         "name": "ALERGY",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_alg_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "ALERGY 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -3193,24 +2494,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_tfm_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "TONIC+FM 1",
+            "price": 2950
           }
         ],
         "isActive": true,
@@ -3224,24 +2511,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_an_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "AMAR NETRAN 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -3255,24 +2528,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ag_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "AG (Aarogya Net 1)",
+            "price": 2500
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_ag_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "AG (Aarogya Net 2)",
+            "price": 5000
           }
         ],
         "isActive": true,
@@ -3286,24 +2552,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_kd_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "KD 1",
+            "price": 2870
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_kd_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "KD 2",
+            "price": 5740
           }
         ],
         "isActive": true,
@@ -3317,24 +2576,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ht_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "HT (Heigh Tonic 1)",
+            "price": 2950
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_ht_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "HT (Heigh Tonic 2)",
+            "price": 5900
           }
         ],
         "isActive": true,
@@ -3348,24 +2600,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_sg_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "SUPRAGUT 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -3379,24 +2617,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_rv_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "RAJ VILLA 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -3410,24 +2634,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_mh_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "MONEY+HCY 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -3441,24 +2651,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_pv_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "PV 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -3472,24 +2668,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ds_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "DS (Height Sutra 1)",
+            "price": 3580
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_ds_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "DS (Height Sutra 2)",
+            "price": 7160
           }
         ],
         "isActive": true,
@@ -3503,24 +2692,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_udar_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "UDAR 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -3534,24 +2709,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_gut_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "GUT 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -3565,24 +2726,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_tso_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "TSO 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -3596,24 +2743,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_pb_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "PILES BASAM 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -3627,24 +2760,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ab_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "ALCO BAN 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -3658,24 +2777,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_rso_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "RSO 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -3689,24 +2794,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_mr_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "MANI RARTAN 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -3720,24 +2811,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_noni_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "NONI 500 ML 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -3750,25 +2827,11 @@
         "name": "PLAY MORE",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_pm_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "PLAY MORE 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -3781,25 +2844,11 @@
         "name": "FOUJI",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_fj_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "FOUJI 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -3812,25 +2861,11 @@
         "name": "EYE SUTRA",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_es_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "EYE SUTRA 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -3843,25 +2878,11 @@
         "name": "ALERGY",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_alg_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "ALERGY 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -3908,24 +2929,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_tfm_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "TONIC+FM 1",
+            "price": 2950
           }
         ],
         "isActive": true,
@@ -3939,24 +2946,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_an_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "AMAR NETRAN 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -3970,24 +2963,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ag_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "AG (Aarogya Net 1)",
+            "price": 2500
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_ag_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "AG (Aarogya Net 2)",
+            "price": 5000
           }
         ],
         "isActive": true,
@@ -4001,24 +2987,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_kd_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "KD 1",
+            "price": 2870
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_kd_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "KD 2",
+            "price": 5740
           }
         ],
         "isActive": true,
@@ -4032,24 +3011,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ht_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "HT (Heigh Tonic 1)",
+            "price": 2950
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_ht_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "HT (Heigh Tonic 2)",
+            "price": 5900
           }
         ],
         "isActive": true,
@@ -4063,24 +3035,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_sg_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "SUPRAGUT 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -4094,24 +3052,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_rv_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "RAJ VILLA 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -4125,24 +3069,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_mh_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "MONEY+HCY 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -4156,24 +3086,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_pv_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "PV 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -4187,24 +3103,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ds_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "DS (Height Sutra 1)",
+            "price": 3580
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_ds_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "DS (Height Sutra 2)",
+            "price": 7160
           }
         ],
         "isActive": true,
@@ -4218,24 +3127,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_udar_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "UDAR 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -4249,24 +3144,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_gut_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "GUT 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -4280,24 +3161,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_tso_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "TSO 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -4311,24 +3178,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_pb_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "PILES BASAM 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -4342,24 +3195,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ab_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "ALCO BAN 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -4373,24 +3212,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_rso_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "RSO 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -4404,24 +3229,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_mr_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "MANI RARTAN 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -4435,24 +3246,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_noni_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "NONI 500 ML 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -4465,25 +3262,11 @@
         "name": "PLAY MORE",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_pm_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "PLAY MORE 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -4496,25 +3279,11 @@
         "name": "FOUJI",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_fj_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "FOUJI 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -4527,25 +3296,11 @@
         "name": "EYE SUTRA",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_es_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "EYE SUTRA 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -4558,25 +3313,11 @@
         "name": "ALERGY",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_alg_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "ALERGY 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -4585,719 +3326,94 @@
         "stockAllocated": 0
       }
     ],
-    "Gurgaon": [
+    "GURGAON": [
       {
-        "id": "dp_gur_p1",
-        "name": "DAMADAR",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_dmd_1",
-            "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
-          }
-        ],
-        "isActive": true,
-        "productId": "prod_1",
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_gur_p2",
-        "name": "TONIC+FM",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_dmd_1",
-            "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
-          }
-        ],
-        "isActive": true,
-        "productId": "prod_2",
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_gur_p3",
+        "id": "dp_gur_1",
         "name": "AMAR NETRAN",
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_an_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "AMAR NETRAN 1",
+            "price": 2500
           }
         ],
         "isActive": true,
-        "productId": "prod_3",
-        "currentStock": 0,
-        "stockAllocated": 0
+        "productId": "prod_an",
+        "schemePrice": 2500,
+        "currentStock": 11,
+        "stockAllocated": 11
       },
       {
-        "id": "dp_gur_p4",
-        "name": "AAROGAYA NET",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_dmd_1",
-            "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
-          }
-        ],
-        "isActive": true,
-        "productId": "prod_4",
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_gur_p5",
+        "id": "dp_gur_2",
         "name": "KADWI DAWA",
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_kd_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "KD 1",
+            "price": 2870
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_kd_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "KD 2",
+            "price": 5740
           }
         ],
         "isActive": true,
-        "productId": "prod_5",
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
+        "productId": "prod_kd",
+        "schemePrice": 2870,
+        "currentStock": 7,
+        "stockAllocated": 7
+      }
+    ],
+    "Gurgaon": [
       {
-        "id": "dp_gur_p6",
-        "name": "HEIGH TONIC",
+        "id": "dp_gur_1",
+        "name": "AMAR NETRAN",
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_an_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "AMAR NETRAN 1",
+            "price": 2500
           }
         ],
         "isActive": true,
-        "productId": "prod_6",
-        "currentStock": 0,
-        "stockAllocated": 0
+        "productId": "prod_an",
+        "schemePrice": 2500,
+        "currentStock": 10,
+        "stockAllocated": 11
       },
       {
-        "id": "dp_gur_p7",
-        "name": "SUPRAGUT",
+        "id": "dp_gur_2",
+        "name": "KADWI DAWA",
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_kd_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "KD 1",
+            "price": 2870
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_kd_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "KD 2",
+            "price": 5740
           }
         ],
         "isActive": true,
-        "productId": "prod_7",
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_gur_p8",
-        "name": "RAJ VILLA",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_dmd_1",
-            "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
-          }
-        ],
-        "isActive": true,
-        "productId": "prod_8",
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_gur_p9",
-        "name": "MONEY+HCY",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_dmd_1",
-            "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
-          }
-        ],
-        "isActive": true,
-        "productId": "prod_9",
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_gur_p10",
-        "name": "PV",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_dmd_1",
-            "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
-          }
-        ],
-        "isActive": true,
-        "productId": "prod_10",
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_gur_p11",
-        "name": "DS",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_dmd_1",
-            "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
-          }
-        ],
-        "isActive": true,
-        "productId": "prod_11",
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_gur_p12",
-        "name": "UDAR",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_dmd_1",
-            "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
-          }
-        ],
-        "isActive": true,
-        "productId": "prod_12",
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_gur_p13",
-        "name": "GUT",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_dmd_1",
-            "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
-          }
-        ],
-        "isActive": true,
-        "productId": "prod_13",
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_gur_p14",
-        "name": "TSO",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_dmd_1",
-            "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
-          }
-        ],
-        "isActive": true,
-        "productId": "prod_14",
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_gur_p15",
-        "name": "PILES BASAM",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_dmd_1",
-            "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
-          }
-        ],
-        "isActive": true,
-        "productId": "prod_15",
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_gur_p16",
-        "name": "ALCO BAN",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_dmd_1",
-            "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
-          }
-        ],
-        "isActive": true,
-        "productId": "prod_16",
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_gur_p17",
-        "name": "RSO",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_dmd_1",
-            "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
-          }
-        ],
-        "isActive": true,
-        "productId": "prod_17",
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_gur_p18",
-        "name": "MANI RARTAN",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_dmd_1",
-            "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
-          }
-        ],
-        "isActive": true,
-        "productId": "prod_18",
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_gur_p19",
-        "name": "NONI 500 ML",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_dmd_1",
-            "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
-          }
-        ],
-        "isActive": true,
-        "productId": "prod_19",
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_gur_p20",
-        "name": "PLAY MORE",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_dmd_1",
-            "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
-          }
-        ],
-        "isActive": true,
-        "productId": "prod_20",
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_gur_p21",
-        "name": "FOUJI",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_dmd_1",
-            "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
-          }
-        ],
-        "isActive": true,
-        "productId": "prod_21",
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_gur_p22",
-        "name": "EYE SUTRA",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_dmd_1",
-            "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
-          }
-        ],
-        "isActive": true,
-        "productId": "prod_22",
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_gur_p23",
-        "name": "ALERGY",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_dmd_1",
-            "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
-          }
-        ],
-        "isActive": true,
-        "productId": "prod_23",
-        "currentStock": 0,
-        "stockAllocated": 0
+        "productId": "prod_kd",
+        "schemePrice": 2870,
+        "currentStock": 7,
+        "stockAllocated": 7
       }
     ],
     "Jodhpur": [
@@ -5338,24 +3454,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_tfm_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "TONIC+FM 1",
+            "price": 2950
           }
         ],
         "isActive": true,
@@ -5369,24 +3471,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_an_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "AMAR NETRAN 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -5400,24 +3488,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ag_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "AG (Aarogya Net 1)",
+            "price": 2500
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_ag_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "AG (Aarogya Net 2)",
+            "price": 5000
           }
         ],
         "isActive": true,
@@ -5431,24 +3512,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_kd_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "KD 1",
+            "price": 2870
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_kd_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "KD 2",
+            "price": 5740
           }
         ],
         "isActive": true,
@@ -5462,24 +3536,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ht_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "HT (Heigh Tonic 1)",
+            "price": 2950
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_ht_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "HT (Heigh Tonic 2)",
+            "price": 5900
           }
         ],
         "isActive": true,
@@ -5493,24 +3560,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_sg_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "SUPRAGUT 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -5524,24 +3577,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_rv_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "RAJ VILLA 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -5555,24 +3594,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_mh_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "MONEY+HCY 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -5586,24 +3611,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_pv_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "PV 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -5617,24 +3628,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ds_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "DS (Height Sutra 1)",
+            "price": 3580
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_ds_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "DS (Height Sutra 2)",
+            "price": 7160
           }
         ],
         "isActive": true,
@@ -5648,24 +3652,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_udar_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "UDAR 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -5679,24 +3669,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_gut_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "GUT 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -5710,24 +3686,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_tso_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "TSO 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -5741,24 +3703,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_pb_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "PILES BASAM 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -5772,24 +3720,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ab_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "ALCO BAN 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -5803,24 +3737,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_rso_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "RSO 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -5834,24 +3754,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_mr_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "MANI RARTAN 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -5865,24 +3771,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_noni_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "NONI 500 ML 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -5895,25 +3787,11 @@
         "name": "PLAY MORE",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_pm_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "PLAY MORE 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -5926,25 +3804,11 @@
         "name": "FOUJI",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_fj_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "FOUJI 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -5957,25 +3821,11 @@
         "name": "EYE SUTRA",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_es_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "EYE SUTRA 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -5988,25 +3838,11 @@
         "name": "ALERGY",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_alg_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "ALERGY 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -6053,24 +3889,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_tfm_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "TONIC+FM 1",
+            "price": 2950
           }
         ],
         "isActive": true,
@@ -6084,24 +3906,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_an_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "AMAR NETRAN 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -6115,24 +3923,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ag_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "AG (Aarogya Net 1)",
+            "price": 2500
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_ag_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "AG (Aarogya Net 2)",
+            "price": 5000
           }
         ],
         "isActive": true,
@@ -6146,24 +3947,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_kd_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "KD 1",
+            "price": 2870
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_kd_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "KD 2",
+            "price": 5740
           }
         ],
         "isActive": true,
@@ -6177,24 +3971,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ht_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "HT (Heigh Tonic 1)",
+            "price": 2950
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_ht_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "HT (Heigh Tonic 2)",
+            "price": 5900
           }
         ],
         "isActive": true,
@@ -6208,24 +3995,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_sg_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "SUPRAGUT 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -6239,24 +4012,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_rv_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "RAJ VILLA 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -6270,24 +4029,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_mh_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "MONEY+HCY 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -6301,24 +4046,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_pv_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "PV 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -6332,24 +4063,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ds_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "DS (Height Sutra 1)",
+            "price": 3580
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_ds_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "DS (Height Sutra 2)",
+            "price": 7160
           }
         ],
         "isActive": true,
@@ -6363,24 +4087,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_udar_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "UDAR 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -6394,24 +4104,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_gut_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "GUT 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -6425,24 +4121,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_tso_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "TSO 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -6456,24 +4138,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_pb_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "PILES BASAM 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -6487,24 +4155,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ab_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "ALCO BAN 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -6518,24 +4172,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_rso_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "RSO 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -6549,24 +4189,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_mr_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "MANI RARTAN 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -6580,24 +4206,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_noni_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "NONI 500 ML 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -6610,25 +4222,11 @@
         "name": "PLAY MORE",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_pm_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "PLAY MORE 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -6641,25 +4239,11 @@
         "name": "FOUJI",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_fj_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "FOUJI 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -6672,25 +4256,11 @@
         "name": "EYE SUTRA",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_es_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "EYE SUTRA 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -6703,25 +4273,11 @@
         "name": "ALERGY",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_alg_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "ALERGY 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -6730,7 +4286,7 @@
         "stockAllocated": 0
       }
     ],
-    "SAHARANPUR": [
+    "Saharanpur": [
       {
         "id": "dp_sah_1",
         "name": "PLAY MORE",
@@ -6804,80 +4360,6 @@
         "stockAllocated": 12
       }
     ],
-    "Saharanpur": [
-      {
-        "id": "dp_sah_1",
-        "name": "PLAY MORE",
-        "schemes": [
-          {
-            "dc": 170,
-            "id": "sch_pm_1",
-            "qty": 1,
-            "name": "PLAY MORE 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "productId": "prod_sah_1",
-        "schemePrice": 2500,
-        "currentStock": 50,
-        "stockAllocated": 50
-      },
-      {
-        "id": "dp_sah_2",
-        "name": "FOUJI",
-        "schemes": [
-          {
-            "dc": 170,
-            "id": "sch_fj_1",
-            "qty": 1,
-            "name": "FOUJI 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "productId": "prod_sah_2",
-        "schemePrice": 2500,
-        "currentStock": 10,
-        "stockAllocated": 10
-      },
-      {
-        "id": "dp_sah_3",
-        "name": "EYE SUTRA",
-        "schemes": [
-          {
-            "dc": 170,
-            "id": "sch_es_1",
-            "qty": 1,
-            "name": "EYE SUTRA 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "productId": "prod_sah_3",
-        "schemePrice": 2500,
-        "currentStock": 15,
-        "stockAllocated": 15
-      },
-      {
-        "id": "dp_sah_4",
-        "productId": "prod_alg",
-        "name": "ALERGY",
-        "schemePrice": 2500,
-        "stockAllocated": 12,
-        "currentStock": 12,
-        "schemes": [
-          {
-            "id": "sch_alg_1",
-            "name": "ALERGY 1",
-            "qty": 1,
-            "price": 2500,
-            "dc": 170
-          }
-        ],
-        "isActive": true
-      }
-    ],
     "Chittorgarh": [
       {
         "id": "dp_chi_p1",
@@ -6916,24 +4398,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_tfm_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "TONIC+FM 1",
+            "price": 2950
           }
         ],
         "isActive": true,
@@ -6947,24 +4415,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_an_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "AMAR NETRAN 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -6978,24 +4432,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ag_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "AG (Aarogya Net 1)",
+            "price": 2500
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_ag_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "AG (Aarogya Net 2)",
+            "price": 5000
           }
         ],
         "isActive": true,
@@ -7009,24 +4456,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_kd_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "KD 1",
+            "price": 2870
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_kd_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "KD 2",
+            "price": 5740
           }
         ],
         "isActive": true,
@@ -7040,24 +4480,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ht_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "HT (Heigh Tonic 1)",
+            "price": 2950
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_ht_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "HT (Heigh Tonic 2)",
+            "price": 5900
           }
         ],
         "isActive": true,
@@ -7071,24 +4504,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_sg_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "SUPRAGUT 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -7102,24 +4521,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_rv_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "RAJ VILLA 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -7133,24 +4538,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_mh_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "MONEY+HCY 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -7164,24 +4555,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_pv_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "PV 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -7195,24 +4572,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ds_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "DS (Height Sutra 1)",
+            "price": 3580
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_ds_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "DS (Height Sutra 2)",
+            "price": 7160
           }
         ],
         "isActive": true,
@@ -7226,24 +4596,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_udar_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "UDAR 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -7257,24 +4613,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_gut_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "GUT 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -7288,24 +4630,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_tso_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "TSO 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -7319,24 +4647,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_pb_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "PILES BASAM 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -7350,24 +4664,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ab_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "ALCO BAN 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -7381,24 +4681,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_rso_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "RSO 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -7412,24 +4698,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_mr_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "MANI RARTAN 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -7443,24 +4715,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_noni_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "NONI 500 ML 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -7473,25 +4731,11 @@
         "name": "PLAY MORE",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_pm_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "PLAY MORE 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -7504,25 +4748,11 @@
         "name": "FOUJI",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_fj_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "FOUJI 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -7535,25 +4765,11 @@
         "name": "EYE SUTRA",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_es_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "EYE SUTRA 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -7566,25 +4782,11 @@
         "name": "ALERGY",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_alg_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "ALERGY 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -7631,24 +4833,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_tfm_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "TONIC+FM 1",
+            "price": 2950
           }
         ],
         "isActive": true,
@@ -7662,24 +4850,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_an_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "AMAR NETRAN 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -7693,24 +4867,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ag_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "AG (Aarogya Net 1)",
+            "price": 2500
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_ag_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "AG (Aarogya Net 2)",
+            "price": 5000
           }
         ],
         "isActive": true,
@@ -7724,24 +4891,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_kd_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "KD 1",
+            "price": 2870
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_kd_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "KD 2",
+            "price": 5740
           }
         ],
         "isActive": true,
@@ -7755,24 +4915,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ht_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "HT (Heigh Tonic 1)",
+            "price": 2950
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_ht_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "HT (Heigh Tonic 2)",
+            "price": 5900
           }
         ],
         "isActive": true,
@@ -7786,24 +4939,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_sg_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "SUPRAGUT 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -7817,24 +4956,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_rv_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "RAJ VILLA 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -7848,24 +4973,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_mh_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "MONEY+HCY 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -7879,24 +4990,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_pv_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "PV 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -7910,24 +5007,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ds_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "DS (Height Sutra 1)",
+            "price": 3580
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_ds_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "DS (Height Sutra 2)",
+            "price": 7160
           }
         ],
         "isActive": true,
@@ -7941,24 +5031,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_udar_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "UDAR 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -7972,24 +5048,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_gut_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "GUT 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -8003,24 +5065,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_tso_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "TSO 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -8034,24 +5082,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_pb_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "PILES BASAM 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -8065,24 +5099,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ab_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "ALCO BAN 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -8096,24 +5116,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_rso_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "RSO 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -8127,24 +5133,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_mr_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "MANI RARTAN 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -8158,24 +5150,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_noni_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "NONI 500 ML 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -8188,25 +5166,11 @@
         "name": "PLAY MORE",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_pm_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "PLAY MORE 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -8219,25 +5183,11 @@
         "name": "FOUJI",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_fj_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "FOUJI 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -8250,25 +5200,11 @@
         "name": "EYE SUTRA",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_es_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "EYE SUTRA 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -8281,25 +5217,11 @@
         "name": "ALERGY",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_alg_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "ALERGY 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -8346,24 +5268,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_tfm_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "TONIC+FM 1",
+            "price": 2950
           }
         ],
         "isActive": true,
@@ -8377,24 +5285,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_an_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "AMAR NETRAN 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -8408,24 +5302,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ag_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "AG (Aarogya Net 1)",
+            "price": 2500
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_ag_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "AG (Aarogya Net 2)",
+            "price": 5000
           }
         ],
         "isActive": true,
@@ -8439,24 +5326,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_kd_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "KD 1",
+            "price": 2870
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_kd_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "KD 2",
+            "price": 5740
           }
         ],
         "isActive": true,
@@ -8470,24 +5350,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ht_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "HT (Heigh Tonic 1)",
+            "price": 2950
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_ht_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "HT (Heigh Tonic 2)",
+            "price": 5900
           }
         ],
         "isActive": true,
@@ -8501,24 +5374,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_sg_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "SUPRAGUT 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -8532,24 +5391,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_rv_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "RAJ VILLA 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -8563,24 +5408,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_mh_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "MONEY+HCY 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -8594,24 +5425,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_pv_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "PV 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -8625,24 +5442,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ds_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "DS (Height Sutra 1)",
+            "price": 3580
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_ds_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "DS (Height Sutra 2)",
+            "price": 7160
           }
         ],
         "isActive": true,
@@ -8656,24 +5466,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_udar_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "UDAR 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -8687,24 +5483,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_gut_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "GUT 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -8718,24 +5500,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_tso_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "TSO 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -8749,24 +5517,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_pb_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "PILES BASAM 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -8780,24 +5534,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ab_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "ALCO BAN 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -8811,24 +5551,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_rso_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "RSO 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -8842,24 +5568,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_mr_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "MANI RARTAN 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -8873,24 +5585,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_noni_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "NONI 500 ML 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -8903,25 +5601,11 @@
         "name": "PLAY MORE",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_pm_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "PLAY MORE 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -8934,25 +5618,11 @@
         "name": "FOUJI",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_fj_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "FOUJI 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -8965,25 +5635,11 @@
         "name": "EYE SUTRA",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_es_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "EYE SUTRA 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -8996,25 +5652,11 @@
         "name": "ALERGY",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_alg_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "ALERGY 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -9061,24 +5703,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_tfm_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "TONIC+FM 1",
+            "price": 2950
           }
         ],
         "isActive": true,
@@ -9092,24 +5720,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_an_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "AMAR NETRAN 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -9123,24 +5737,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ag_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "AG (Aarogya Net 1)",
+            "price": 2500
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_ag_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "AG (Aarogya Net 2)",
+            "price": 5000
           }
         ],
         "isActive": true,
@@ -9154,24 +5761,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_kd_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "KD 1",
+            "price": 2870
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_kd_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "KD 2",
+            "price": 5740
           }
         ],
         "isActive": true,
@@ -9185,24 +5785,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ht_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "HT (Heigh Tonic 1)",
+            "price": 2950
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_ht_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "HT (Heigh Tonic 2)",
+            "price": 5900
           }
         ],
         "isActive": true,
@@ -9216,24 +5809,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_sg_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "SUPRAGUT 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -9247,24 +5826,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_rv_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "RAJ VILLA 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -9278,24 +5843,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_mh_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "MONEY+HCY 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -9309,24 +5860,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_pv_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "PV 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -9340,24 +5877,17 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ds_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
+            "name": "DS (Height Sutra 1)",
+            "price": 3580
           },
           {
             "dc": 500,
-            "id": "sch_dmd_2",
+            "id": "sch_ds_2",
             "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "DS (Height Sutra 2)",
+            "price": 7160
           }
         ],
         "isActive": true,
@@ -9371,24 +5901,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_udar_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "UDAR 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -9402,24 +5918,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_gut_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "GUT 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -9433,24 +5935,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_tso_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "TSO 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -9464,24 +5952,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_pb_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "PILES BASAM 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -9495,24 +5969,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_ab_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "ALCO BAN 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -9526,24 +5986,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_rso_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "RSO 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -9557,24 +6003,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_mr_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "MANI RARTAN 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -9588,24 +6020,10 @@
         "schemes": [
           {
             "dc": 250,
-            "id": "sch_dmd_1",
+            "id": "sch_noni_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "NONI 500 ML 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -9618,25 +6036,11 @@
         "name": "PLAY MORE",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_pm_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "PLAY MORE 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -9649,25 +6053,11 @@
         "name": "FOUJI",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_fj_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "FOUJI 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -9680,25 +6070,11 @@
         "name": "EYE SUTRA",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_es_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "EYE SUTRA 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -9711,25 +6087,11 @@
         "name": "ALERGY",
         "schemes": [
           {
-            "dc": 250,
-            "id": "sch_dmd_1",
+            "dc": 170,
+            "id": "sch_alg_1",
             "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
+            "name": "ALERGY 1",
+            "price": 2500
           }
         ],
         "isActive": true,
@@ -9738,5 +6100,6 @@
         "stockAllocated": 0
       }
     ]
-  }
+  },
+  "lastOrderTimestamp": 1787381916523
 }
