@@ -1509,8 +1509,8 @@
             <thead>
               <tr>
                 <th style="width:28px;">#</th>
-                <th>Master Product Name</th>
-                <th style="text-align:center;width:180px;">Actions</th>
+                <th>Master Product Name &amp; Classification</th>
+                <th style="text-align:center;width:240px;">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -1520,11 +1520,23 @@
                 <tr>
                   <td class="mono" style="font-size:11px;color:var(--ink-soft);">${idx + 1}</td>
                   <td class="prod-name">
-                    <strong>${escapeHtml(p.name)}</strong>
+                    <strong style="font-size:14px;">${escapeHtml(p.name)}</strong>
+                    ${p.isSpecial ? `
+                      <span style="background:#FEF3C7;color:#92400E;border:1px solid #F59E0B;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700;margin-left:8px;">
+                        ⭐ SPECIAL PRODUCT
+                      </span>
+                    ` : `
+                      <span style="background:#F1F5F9;color:#64748B;border:1px solid #CBD5E1;padding:2px 8px;border-radius:4px;font-size:11px;font-weight:600;margin-left:8px;">
+                        STANDARD PRODUCT
+                      </span>
+                    `}
                     <button class="btn-icon" onclick="promptRenameMasterProduct('${p.id}', '${escapeHtml(p.name)}')" title="Rename Product" style="font-size:11px;margin-left:6px;">✏️ Rename</button>
                   </td>
-                  <td style="text-align:center;">
-                    <button class="btn btn-danger btn-sm" onclick="promptDeleteMasterProduct('${p.id}', '${escapeHtml(p.name)}')">Delete Product</button>
+                  <td style="text-align:center;display:flex;gap:6px;justify-content:center;align-items:center;">
+                    <button class="btn btn-secondary btn-sm" onclick="toggleMasterProductSpecial('${p.id}')" title="Click to toggle special product classification">
+                      ${p.isSpecial ? '⭐ Unset Special' : '☆ Mark Special'}
+                    </button>
+                    <button class="btn btn-danger btn-sm" onclick="promptDeleteMasterProduct('${p.id}', '${escapeHtml(p.name)}')">Delete</button>
                   </td>
                 </tr>
               `).join('')}
@@ -1539,16 +1551,83 @@
     }
   }
 
-  window.promptCreateMasterProduct = async () => {
-    const name = prompt('Enter Master Product Name (e.g. PLAY MORE or EYE SUTRA):');
-    if (!name || !name.trim()) return;
+  window.promptCreateMasterProduct = () => {
+    const existing = document.getElementById('createMasterProductModal');
+    if (existing) existing.remove();
+
+    const modal = document.createElement('div');
+    modal.className = 'modal-backdrop';
+    modal.id = 'createMasterProductModal';
+    modal.innerHTML = `
+      <div class="modal-card" style="max-width:450px;background:#fff;border-radius:12px;box-shadow:0 12px 36px rgba(0,0,0,0.25);overflow:hidden;">
+        <div style="background:var(--forest-deep);color:#fff;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;">
+          <h3 style="margin:0;font-size:16px;color:#fff;">➕ Add New Master Product</h3>
+          <button class="btn-icon" onclick="document.getElementById('createMasterProductModal').remove()" style="color:#fff;font-size:16px;border:none;background:none;cursor:pointer;">✕</button>
+        </div>
+        <div style="padding:20px;">
+          <div style="margin-bottom:14px;">
+            <label class="field-label" style="font-weight:700;display:block;margin-bottom:6px;">1. Product Name *</label>
+            <input type="text" id="newMasterProdName" class="input-lg" placeholder="e.g. PLAY MORE / DAMADAR" style="width:100%;text-transform:uppercase;padding:10px;border:1.5px solid var(--line);border-radius:6px;" required autofocus>
+          </div>
+          <div style="margin-bottom:14px;">
+            <label class="field-label" style="font-weight:700;display:block;margin-bottom:6px;">2. Default Base Scheme Price (₹)</label>
+            <input type="number" id="newMasterProdPrice" class="input-lg mono" placeholder="2500" value="2500" style="width:100%;padding:10px;border:1.5px solid var(--line);border-radius:6px;">
+          </div>
+          <div style="background:#FFFBEB;border:1.5px solid #FCD34D;border-radius:8px;padding:14px;margin-bottom:18px;">
+            <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;margin:0;">
+              <input type="checkbox" id="newMasterProdSpecial" style="width:20px;height:20px;cursor:pointer;margin-top:2px;">
+              <div>
+                <strong style="color:#92400E;font-size:13.5px;">⭐ Special Product (Tick if Special)</strong>
+                <div style="font-size:11.5px;color:#B45309;margin-top:2px;line-height:1.4;">
+                  If ticked, this product will read as SPECIAL and use the SPECIAL PRODUCT DC rate (e.g. Flat ₹170 or ₹150) for the district.
+                </div>
+              </div>
+            </label>
+          </div>
+          <div style="display:flex;justify-content:flex-end;gap:10px;">
+            <button type="button" class="btn btn-secondary" onclick="document.getElementById('createMasterProductModal').remove()">Cancel</button>
+            <button type="button" class="btn btn-primary" onclick="submitCreateMasterProductModal()" style="font-weight:700;">✓ Create Product</button>
+          </div>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+  };
+
+  window.submitCreateMasterProductModal = async () => {
+    const nameInput = document.getElementById('newMasterProdName');
+    const priceInput = document.getElementById('newMasterProdPrice');
+    const specialInput = document.getElementById('newMasterProdSpecial');
+
+    const name = (nameInput ? nameInput.value : '').trim();
+    if (!name) {
+      alert('Please enter a valid product name');
+      return;
+    }
+    const defaultPrice = parseFloat(priceInput ? priceInput.value : '2500') || 2500;
+    const isSpecial = specialInput ? specialInput.checked : false;
 
     try {
       const res = await API.createMasterProduct({
-        name: name.trim()
+        name,
+        defaultPrice,
+        isSpecial
       });
+      showToast(res.message || `Created product "${name}"`, 'success');
+      const m = document.getElementById('createMasterProductModal');
+      if (m) m.remove();
+      loadAdminSchemes();
+    } catch (err) {
+      showToast(err.message, 'error');
+    }
+  };
+
+  window.toggleMasterProductSpecial = async (productId) => {
+    try {
+      const res = await API.toggleMasterProductSpecial(productId);
       showToast(res.message, 'success');
       loadAdminSchemes();
+      loadDistrictData();
     } catch (err) {
       showToast(err.message, 'error');
     }
@@ -1855,56 +1934,63 @@
     }
   };
 
-  // ================= DISTRICT DC SETTINGS =================
+  // ================= DISTRICT DC SETTINGS (TICK OPTIONS) =================
   async function loadAdminDcSettings() {
     const container = $('adminTabContent');
-    container.innerHTML = '<div style="padding:20px;">Loading District DC configurations...</div>';
+    container.innerHTML = '<div style="padding:20px;text-align:center;">Loading District DC configurations...</div>';
 
     try {
       const res = await API.getDcRules();
       const list = res.dcRules || [];
+      const dcOptions = res.dcOptions || [];
 
       let html = `
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px;flex-wrap:wrap;gap:10px;">
           <div>
-            <h3 style="margin:0;font-size:16px;">🚚 District Delivery Charge (DC) Settings</h3>
-            <span style="font-size:12px;color:var(--ink-soft);">
-              Configure DC deduction rules separately for each of the 12 districts. Changes apply to all new dealer orders.
+            <h3 style="margin:0;font-size:17px;color:var(--forest-deep);">🚚 District Delivery Charge (DC) Options</h3>
+            <span style="font-size:12.5px;color:var(--ink-soft);line-height:1.4;display:block;margin-top:3px;">
+              Select the exact DC rule option for each district below. Special products (marked ⭐ Special) will automatically receive their designated special DC rate.
             </span>
+          </div>
+          <div style="background:#FEF3C7;border:1px solid #F59E0B;border-radius:8px;padding:8px 14px;font-size:12px;color:#92400E;font-weight:600;">
+            ⭐ Special Products: PLAY MORE, FOUJI, EYE SUTRA, ALERGY, HEIGHT VEDA, etc.
           </div>
         </div>
 
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th style="width:30px;">#</th>
-                <th>District Name</th>
-                <th>Rule Type</th>
-                <th>Current DC Deduction Rule</th>
-                <th style="text-align:center;width:140px;">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              ${list.map((d, idx) => `
-                <tr>
-                  <td class="mono" style="font-size:11px;color:var(--ink-soft);">${idx + 1}</td>
-                  <td class="prod-name"><strong>${escapeHtml(d.district)}</strong></td>
-                  <td>
-                    <span class="activity-badge ${d.rule.type === 'threshold' ? 'STOCK_ADJUSTMENT' : 'CASH_SETTLEMENT'}">
-                      ${d.rule.type === 'threshold' ? 'Dual-Tier Threshold' : (d.rule.type === 'flat' ? 'Flat District Rate' : 'Custom Rate')}
-                    </span>
-                  </td>
-                  <td class="mono" style="font-size:13px;">
-                    <strong>${escapeHtml(d.description)}</strong>
-                  </td>
-                  <td style="text-align:center;">
-                    <button class="btn btn-secondary btn-sm" onclick="promptEditDistrictDc('${escapeHtml(d.district)}')">✏️ Change DC</button>
-                  </td>
-                </tr>
-              `).join('')}
-            </tbody>
-          </table>
+        <div style="display:grid;gap:16px;">
+          ${list.map((d, idx) => {
+            const activeOptId = d.optionId || (d.rule && d.rule.optionId) || 'opt_1';
+            return `
+              <div class="card" style="border:1.5px solid var(--line);border-radius:10px;padding:16px 18px;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.03);">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid #f1f5f9;flex-wrap:wrap;gap:8px;">
+                  <div style="display:flex;align-items:center;gap:10px;">
+                    <span class="mono" style="font-size:13px;font-weight:700;color:var(--ink-soft);background:#F1F5F9;padding:3px 8px;border-radius:6px;">#${idx + 1}</span>
+                    <strong style="font-size:17px;color:var(--ink);text-transform:uppercase;letter-spacing:0.5px;">📍 ${escapeHtml(d.district)}</strong>
+                  </div>
+                  <div style="font-size:12.5px;background:#EFF6FF;color:#1E40AF;padding:4px 12px;border-radius:20px;border:1px solid #BFDBFE;font-weight:600;">
+                    ✓ Active: ${escapeHtml(d.description)}
+                  </div>
+                </div>
+
+                <!-- 7 DC Selectable Tick Options in Front of District -->
+                <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(290px, 1fr));gap:10px;">
+                  ${dcOptions.map(opt => {
+                    const isChecked = activeOptId === opt.id;
+                    return `
+                      <label class="dc-option-tick-box ${isChecked ? 'active' : ''}" style="display:flex;align-items:flex-start;gap:10px;padding:10px 12px;border:2px solid ${isChecked ? 'var(--brand)' : '#e2e8f0'};border-radius:8px;background:${isChecked ? '#F0FDF4' : '#FAFAFA'};cursor:pointer;transition:all 0.15s ease;">
+                        <input type="radio" name="dc_option_${escapeHtml(d.district)}" value="${opt.id}" ${isChecked ? 'checked' : ''} onchange="setDistrictDcOption('${escapeHtml(d.district)}', '${opt.id}')" style="width:18px;height:18px;cursor:pointer;margin-top:2px;accent-color:var(--brand);">
+                        <div style="flex:1;">
+                          <div style="font-size:12px;font-weight:700;color:${isChecked ? '#166534' : '#1e293b'};line-height:1.35;">
+                            ${opt.num}. ${escapeHtml(opt.label)}
+                          </div>
+                        </div>
+                      </label>
+                    `;
+                  }).join('')}
+                </div>
+              </div>
+            `;
+          }).join('')}
         </div>
       `;
 
@@ -1914,61 +2000,15 @@
     }
   }
 
-  window.promptEditDistrictDc = async (district) => {
-    const valStr = prompt(
-      `🚚 Change Delivery Charge (DC) for ${district}:\n\n` +
-      `Enter the new DC amount in ₹ (e.g. 200, 250, 300):\n` +
-      `[Or enter 'T' to configure a 2-Tier Threshold rule]`,
-      '200'
-    );
-
-    if (valStr === null) return;
-    const cleanStr = valStr.trim();
-    if (!cleanStr) return;
-
-    if (cleanStr.toUpperCase() === 'T') {
-      const threshStr = prompt(`Enter Price Threshold in ₹ for ${district} (default 1500):`, '1500');
-      if (threshStr === null) return;
-      const threshVal = parseFloat(threshStr) || 1500;
-
-      const leStr = prompt(`DC for orders <= ₹${threshVal} (e.g. 200):`, '200');
-      if (leStr === null) return;
-      const leVal = parseFloat(leStr) || 200;
-
-      const gtStr = prompt(`DC for orders > ₹${threshVal} (e.g. 250):`, '250');
-      if (gtStr === null) return;
-      const gtVal = parseFloat(gtStr) || 250;
-
-      try {
-        const res = await API.updateDistrictDc(district, {
-          type: 'threshold',
-          threshold: threshVal,
-          le: leVal,
-          gt: gtVal
-        });
-        showToast(res.message || `DC rule updated for ${district}`, 'success');
-        if (state.adminTab === 'dc') await loadAdminDcSettings();
-        if (state.adminTab === 'dealers') await loadAdminDealers();
-        if (state.currentDistrict === district) await loadDistrictData();
-      } catch (err) {
-        showToast('Failed to update DC: ' + err.message, 'error');
-      }
-    } else {
-      const flatVal = parseFloat(cleanStr);
-      if (isNaN(flatVal) || flatVal < 0) {
-        alert('Please enter a valid positive DC amount in ₹ (e.g. 200 or 250)');
-        return;
-      }
-
-      try {
-        const res = await API.updateDistrictDc(district, { type: 'flat', value: flatVal });
-        showToast(res.message || `DC for ${district} set to Flat ₹${flatVal}`, 'success');
-        if (state.adminTab === 'dc') await loadAdminDcSettings();
-        if (state.adminTab === 'dealers') await loadAdminDealers();
-        if (state.currentDistrict === district) await loadDistrictData();
-      } catch (err) {
-        showToast('Failed to update DC: ' + err.message, 'error');
-      }
+  window.setDistrictDcOption = async (district, optionId) => {
+    try {
+      const res = await API.updateDistrictDc(district, null, optionId);
+      showToast(res.message || `DC option updated for ${district}`, 'success');
+      if (state.adminTab === 'dc') await loadAdminDcSettings();
+      if (state.adminTab === 'dealers') await loadAdminDealers();
+      if (state.currentDistrict === district) await loadDistrictData();
+    } catch (err) {
+      showToast('Failed to update DC option: ' + err.message, 'error');
     }
   };
 

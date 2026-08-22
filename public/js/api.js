@@ -405,10 +405,16 @@ const API = {
     return this.request('/admin/dc-rules');
   },
 
-  async updateDistrictDc(district, rule) {
+  async updateDistrictDc(district, rule, optionId) {
     return this.request('/admin/update-district-dc', {
       method: 'POST',
-      body: JSON.stringify({ district, rule })
+      body: JSON.stringify({ district, rule, optionId })
+    });
+  },
+
+  async toggleMasterProductSpecial(productId) {
+    return this.request(`/inventory/master-product/${encodeURIComponent(productId)}/toggle-special`, {
+      method: 'POST'
     });
   },
 

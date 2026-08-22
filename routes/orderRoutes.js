@@ -41,11 +41,13 @@ router.post(
     const master = (db.products || []).find(p => p.id === productId || p.name.toUpperCase() === (item ? item.name.toUpperCase() : ''));
     const prodName = (master && master.name) || (item && item.name) || 'Product';
 
-    // 2. Compute DC using active district rule
+    // 2. Compute DC using active district rule and isSpecial flag
     const rule = db.dcRules ? db.dcRules[district] : null;
-    let dcRate = calculateDC(rule, priceNum, prodName, district);
+    const isSpecial = (item && item.isSpecial) || (master && master.isSpecial) || false;
+    const prodObj = { name: prodName, isSpecial };
+    let dcRate = calculateDC(rule, priceNum, prodObj, district);
     if (dcRate === null || dcRate === undefined) {
-      dcRate = priceNum <= 1500 ? 200 : 250;
+      dcRate = 200;
     }
 
     const totalAmount = priceNum * orderQty;

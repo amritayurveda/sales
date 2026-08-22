@@ -37,13 +37,14 @@ router.get('/master-products', authenticateToken, (req, res) => {
 });
 
 // 4. Admin: Add a new Master Product
-// 4. Admin: Create New Master Product with Multiple Schemes
+// 4. Admin: Create New Master Product with Multiple Schemes and isSpecial Flag
 router.post('/master-product', authenticateToken, requireAdmin, async (req, res) => {
-  const { name, schemes, defaultPrice } = req.body;
+  const { name, schemes, defaultPrice, isSpecial } = req.body;
   if (!name || !name.trim()) {
     return res.status(400).json({ error: 'Product name is required' });
   }
 
+  const { isSpecialProduct } = require('../utils/dcCalculator');
   const cleanName = name.trim().toUpperCase();
   const existing = (db.products || []).find(p => p.name.toUpperCase() === cleanName);
   if (existing) {
@@ -67,9 +68,12 @@ router.post('/master-product', authenticateToken, requireAdmin, async (req, res)
     }
   ];
 
+  const productIsSpecial = (isSpecial !== undefined) ? Boolean(isSpecial) : isSpecialProduct(cleanName);
+
   const newMaster = {
     id: prodId,
     name: cleanName,
+    isSpecial: productIsSpecial,
     defaultPrice: initialSchemes[0].price,
     schemes: initialSchemes
   };
@@ -83,35 +87,40 @@ router.post('/master-product', authenticateToken, requireAdmin, async (req, res)
     req.user.role,
     null,
     'MASTER_PRODUCT_CREATED',
-    `Created Master Product "${cleanName}" with ${initialSchemes.length} schemes`
+    `Created Master Product "${cleanName}" (${productIsSpecial ? 'SPECIAL' : 'STANDARD'}) with ${initialSchemes.length} schemes`
   );
 
   await saveDb();
   res.status(201).json({ message: `Master Product "${cleanName}" created successfully`, product: newMaster });
 });
 
-// 5. Admin: Rename Master Product (updates everywhere across all districts)
+// 5. Admin: Rename / Edit Master Product (updates everywhere across all districts)
 router.put('/master-product/:id', authenticateToken, requireAdmin, async (req, res) => {
   const { id } = req.params;
-  const { name } = req.body;
-  if (!name || !name.trim()) {
-    return res.status(400).json({ error: 'New product name is required' });
-  }
+  const { name, isSpecial } = req.body;
 
-  const cleanName = name.trim().toUpperCase();
   const master = (db.products || []).find(p => p.id === id);
   if (!master) {
     return res.status(404).json({ error: 'Master product not found' });
   }
 
   const oldName = master.name;
-  master.name = cleanName;
+  if (name && name.trim()) {
+    master.name = name.trim().toUpperCase();
+  }
 
-  // Propagate rename to all district assignments
+  if (isSpecial !== undefined) {
+    master.isSpecial = Boolean(isSpecial);
+  }
+
+  // Propagate changes to all district assignments
   Object.keys(db.districtProducts || {}).forEach(dist => {
     db.districtProducts[dist].forEach(p => {
       if (p.productId === id || p.name.toUpperCase() === oldName.toUpperCase()) {
-        p.name = cleanName;
+        p.name = master.name;
+        if (isSpecial !== undefined) {
+          p.isSpecial = master.isSpecial;
+        }
       }
     });
   });
@@ -121,12 +130,47 @@ router.put('/master-product/:id', authenticateToken, requireAdmin, async (req, r
     req.user.username,
     req.user.role,
     null,
-    'MASTER_PRODUCT_RENAMED',
-    `Renamed master product "${oldName}" -> "${cleanName}"`
+    'MASTER_PRODUCT_UPDATED',
+    `Updated master product "${oldName}" -> "${master.name}" (Special: ${master.isSpecial})`
   );
 
   await saveDb();
-  res.json({ message: `Product renamed to "${cleanName}" globally`, product: master });
+  res.json({ message: `Product "${master.name}" updated globally`, product: master });
+});
+
+// 5.1 Admin: Toggle Special Product Status
+router.post('/master-product/:id/toggle-special', authenticateToken, requireAdmin, async (req, res) => {
+  const { id } = req.params;
+  const master = (db.products || []).find(p => p.id === id);
+  if (!master) {
+    return res.status(404).json({ error: 'Master product not found' });
+  }
+
+  master.isSpecial = !master.isSpecial;
+
+  // Propagate to district products
+  Object.keys(db.districtProducts || {}).forEach(dist => {
+    db.districtProducts[dist].forEach(p => {
+      if (p.productId === id || p.name.toUpperCase() === master.name.toUpperCase()) {
+        p.isSpecial = master.isSpecial;
+      }
+    });
+  });
+
+  logActivity(
+    req.user.id,
+    req.user.username,
+    req.user.role,
+    null,
+    'MASTER_PRODUCT_SPECIAL_TOGGLE',
+    `Set Special=${master.isSpecial} for "${master.name}"`
+  );
+
+  await saveDb();
+  res.json({
+    message: `Product "${master.name}" is now marked as ${master.isSpecial ? 'SPECIAL' : 'STANDARD'}`,
+    product: master
+  });
 });
 
 // 6. Admin: Manage Schemes for Master Product (Add / Edit / Delete) -> propagates to every dealer automatically
@@ -219,6 +263,7 @@ router.post('/assign-district-product', authenticateToken, requireAdmin, async (
     id: `dp_${district.toLowerCase().slice(0, 3)}_${master.id}`,
     productId: master.id,
     name: master.name,
+    isSpecial: master.isSpecial !== undefined ? Boolean(master.isSpecial) : false,
     schemePrice: (master.schemes && master.schemes[0]) ? master.schemes[0].price : master.defaultPrice,
     stockAllocated: stockNum,
     currentStock: stockNum,

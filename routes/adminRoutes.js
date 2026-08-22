@@ -499,8 +499,8 @@ router.get('/activity-logs', (req, res) => {
   });
 });
 
-// 10. Get District DC Rules
-const { DEFAULT_DC_RULES, describeRule } = require('../utils/dcCalculator');
+// 10. Get District DC Rules & Options
+const { DC_OPTIONS, DEFAULT_DC_RULES, describeRule, findDcOption } = require('../utils/dcCalculator');
 router.get('/dc-rules', (req, res) => {
   if (!db.dcRules || Object.keys(db.dcRules).length === 0) {
     db.dcRules = JSON.parse(JSON.stringify(DEFAULT_DC_RULES));
@@ -508,26 +508,51 @@ router.get('/dc-rules', (req, res) => {
 
   const activeDistricts = getDistricts();
   const list = activeDistricts.map(dist => {
-    const rule = db.dcRules[dist] || DEFAULT_DC_RULES[dist] || { type: 'flat', value: 200 };
+    const rawRule = db.dcRules[dist] || DEFAULT_DC_RULES[dist] || { optionId: 'opt_6' };
+    const opt = findDcOption(rawRule);
     return {
       district: dist,
-      rule,
-      description: describeRule(rule)
+      rule: { optionId: opt.id, ...opt },
+      optionId: opt.id,
+      description: opt.label
     };
   });
 
-  res.json({ dcRules: list });
+  res.json({
+    dcRules: list,
+    dcOptions: DC_OPTIONS
+  });
 });
 
 // 11. Admin: Update DC Rule for a District
 router.post('/update-district-dc', authenticateToken, requireAdmin, async (req, res) => {
-  const { district, rule } = req.body;
-  if (!district || !rule) {
-    return res.status(400).json({ error: 'district and rule configuration are required' });
+  const { district, rule, optionId } = req.body;
+  if (!district) {
+    return res.status(400).json({ error: 'district is required' });
   }
 
+  const optId = optionId || (rule && rule.optionId) || (rule && rule.id);
+  let resolvedOption = DC_OPTIONS.find(o => o.id === optId);
+  if (!resolvedOption && rule) {
+    resolvedOption = findDcOption(rule);
+  }
+  if (!resolvedOption) {
+    resolvedOption = DC_OPTIONS[0];
+  }
+
+  const savedRule = {
+    optionId: resolvedOption.id,
+    type: resolvedOption.type,
+    threshold: resolvedOption.threshold,
+    le: resolvedOption.le,
+    gt: resolvedOption.gt,
+    value: resolvedOption.value,
+    specialDc: resolvedOption.specialDc,
+    label: resolvedOption.label
+  };
+
   if (!db.dcRules) db.dcRules = {};
-  db.dcRules[district] = rule;
+  db.dcRules[district] = savedRule;
 
   logActivity(
     req.user.id,
@@ -535,35 +560,36 @@ router.post('/update-district-dc', authenticateToken, requireAdmin, async (req, 
     req.user.role,
     district,
     'DC_RULE_UPDATE',
-    `Updated DC rule for ${district}: ${describeRule(rule)}`
+    `Updated DC rule for ${district}: ${resolvedOption.label}`
   );
 
   await saveDb();
 
   // Save to Neon PostgreSQL dc_rules table
   try {
-    const rType = rule.type || 'flat';
-    const rVal = (rType === 'flat') ? (Number(rule.value) || 200) : null;
-    const rLe = (rType === 'threshold') ? (Number(rule.le) || 200) : null;
-    const rGt = (rType === 'threshold') ? (Number(rule.gt) || 250) : null;
-    const rThresh = (rType === 'threshold') ? (Number(rule.threshold) || 1500) : 1500;
+    const rType = resolvedOption.type || 'flat';
+    const rVal = (rType === 'flat') ? (Number(resolvedOption.value) || 200) : null;
+    const rLe = (rType === 'tiered') ? (Number(resolvedOption.le) || 200) : null;
+    const rGt = (rType === 'tiered') ? (Number(resolvedOption.gt) || 250) : null;
+    const rThresh = (rType === 'tiered') ? (Number(resolvedOption.threshold) || 1500) : 1500;
 
     await pool.query(
       `INSERT INTO dc_rules (district, rule_type, rule_val, rule_le, rule_gt, threshold, overrides)
        VALUES ($1, $2, $3, $4, $5, $6, $7)
        ON CONFLICT (district) DO UPDATE 
        SET rule_type = $2, rule_val = $3, rule_le = $4, rule_gt = $5, threshold = $6, overrides = $7`,
-      [district, rType, rVal, rLe, rGt, rThresh, JSON.stringify(rule.overrides || {})]
+      [district, rType, rVal, rLe, rGt, rThresh, JSON.stringify({ optionId: resolvedOption.id, specialDc: resolvedOption.specialDc })]
     );
   } catch (pgErr) {
     console.error('Postgres dc_rules update error:', pgErr.message);
   }
 
   res.json({
-    message: `DC rule updated for ${district}: ${describeRule(rule)}`,
+    message: `DC rule updated for ${district}: ${resolvedOption.label}`,
     district,
-    rule,
-    description: describeRule(rule)
+    rule: savedRule,
+    optionId: resolvedOption.id,
+    description: resolvedOption.label
   });
 });
 
