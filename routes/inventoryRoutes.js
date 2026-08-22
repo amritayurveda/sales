@@ -14,15 +14,17 @@ router.get('/district-day-stock/:district/:date', authenticateToken, enforceDist
 });
 
 // 2. Get raw district products and schemes
+const { getDistrictProductsSafely } = require('../utils/cashRollover');
 router.get('/district/:district', authenticateToken, enforceDistrictAccess, (req, res) => {
   const { district } = req.params;
-  const items = db.districtProducts[district] || [];
+  const items = getDistrictProductsSafely(db, district);
   // Populate latest master info
   const populated = items.map(p => {
     const master = (db.products || []).find(mp => mp.id === p.productId || mp.name.toUpperCase() === (p.name || '').toUpperCase());
     return {
       ...p,
       name: master ? master.name : p.name,
+      isSpecial: Boolean(p.isSpecial || (master && master.isSpecial)),
       schemes: (master && master.schemes) ? master.schemes : (p.schemes || [])
     };
   });

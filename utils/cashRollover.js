@@ -1,32 +1,34 @@
 // utils/cashRollover.js
 const { calculateDC } = require('./dcCalculator');
 
+function getDistrictProductsSafely(db, district) {
+  if (!db || !db.districtProducts) return [];
+  if (db.districtProducts[district] && Array.isArray(db.districtProducts[district])) {
+    return db.districtProducts[district];
+  }
+  const lower = (district || '').trim().toLowerCase();
+  for (const k of Object.keys(db.districtProducts)) {
+    if (k.trim().toLowerCase() === lower && Array.isArray(db.districtProducts[k])) {
+      return db.districtProducts[k];
+    }
+  }
+  return [];
+}
+
 /**
  * Compute day-over-day rolling cash ledger for a given district up to requested date.
- * Formula:
- * Today Opening Cash = Yesterday Closing Cash
- * Today Sales Net = Sum of (Order Price - DC)
- * Total Cash Accumulated = Today Opening Cash + Today Sales Net
- * Final Closing Cash = Total Cash Accumulated - Admin Cash Paid
- *
- * @param {Object} db - Database object
- * @param {string} district - Target district
- * @param {string} targetDate - Target date (YYYY-MM-DD)
- * @returns {Object} { opCash, todaySalesNet, totalAccumulated, adminCashPaid, closingCash, allOrders, settlements }
  */
 function computeDistrictDayCash(db, district, targetDate) {
-  // Collect all unique dates with orders or settlements for this district
-  const allOrders = (db.customerOrders || []).filter(o => o.district === district);
-  const allSettlements = (db.cashSettlements || []).filter(s => s.district === district);
+  const distName = (district || '').trim();
+  const allOrders = (db && db.customerOrders ? db.customerOrders : []).filter(o => (o.district || '').trim().toLowerCase() === distName.toLowerCase());
+  const allSettlements = (db && db.cashSettlements ? db.cashSettlements : []).filter(s => (s.district || '').trim().toLowerCase() === distName.toLowerCase());
 
   const datesSet = new Set();
-  allOrders.forEach(o => datesSet.add(o.date));
-  allSettlements.forEach(s => datesSet.add(s.date));
-  datesSet.add(targetDate);
+  allOrders.forEach(o => { if (o.date) datesSet.add(o.date); });
+  allSettlements.forEach(s => { if (s.date) datesSet.add(s.date); });
+  if (targetDate) datesSet.add(targetDate);
 
-  // Check if there is a base opening cash seeded for this district
-  const baseOpeningCash = (db.baseOpeningCash && db.baseOpeningCash[district]) ? Number(db.baseOpeningCash[district]) : 0;
-
+  const baseOpeningCash = (db && db.baseOpeningCash && db.baseOpeningCash[distName]) ? Number(db.baseOpeningCash[distName]) : 0;
   const sortedDates = Array.from(datesSet).sort();
 
   let rollingClosing = baseOpeningCash;
@@ -75,29 +77,21 @@ function computeDistrictDayCash(db, district, targetDate) {
 
 /**
  * Compute daily stock register for all products in a district on a given date.
- * Formula:
- * Quantity (Opening) = Yesterday's Closing Stock (or base stock)
- * Sale = Sum of quantities sold in customer orders for today
- * Remain (Total 1) = Quantity - Sale
- * Mila = Received / Inward stock dispatched by Admin for today
- * Closing Stock (Total 2) = Remain + Mila
  */
 function computeDistrictDayStock(db, district, targetDate) {
-  const distProducts = db.districtProducts[district] || [];
-  const allOrders = (db.customerOrders || []).filter(o => o.district === district);
-  const milaMap = db.milaStock || {}; // keyed by `${district}:${date}:${productId}`
+  const distName = (district || '').trim();
+  const distProducts = getDistrictProductsSafely(db, distName);
+  const allOrders = (db && db.customerOrders ? db.customerOrders : []).filter(o => (o.district || '').trim().toLowerCase() === distName.toLowerCase());
+  const milaMap = (db && db.milaStock) ? db.milaStock : {};
 
-  // Calculate day-by-day stock
   const result = distProducts.map(p => {
-    // 1. Initial base allocated stock
     const baseStock = Number(p.stockAllocated) || 0;
 
-    // 2. Orders before today
+    // Orders before today
     const ordersBefore = allOrders.filter(o => o.productId === p.productId && o.date < targetDate);
     const salesBefore = ordersBefore.reduce((sum, o) => sum + (Number(o.qty) || 0), 0);
 
-    // Dynamically resolve latest Master Product name & schemes
-    const master = (db.products || []).find(mp => mp.id === p.productId || mp.name.toUpperCase() === (p.name || '').toUpperCase());
+    const master = (db && db.products ? db.products : []).find(mp => mp.id === p.productId || mp.name.toUpperCase() === (p.name || '').toUpperCase());
     const prodName = master ? master.name : p.name;
     const prodSchemes = (master && master.schemes && master.schemes.length > 0) ? master.schemes : (p.schemes || []);
 
@@ -105,7 +99,7 @@ function computeDistrictDayStock(db, district, targetDate) {
     let milaBefore = 0;
     Object.keys(milaMap).forEach(key => {
       const [dist, d, pid] = key.split(':');
-      if (dist === district && d < targetDate) {
+      if ((dist || '').trim().toLowerCase() === distName.toLowerCase() && d < targetDate) {
         if (pid === p.productId || pid === p.id || pid === p.name || (master && pid === master.id)) {
           milaBefore += (Number(milaMap[key]) || 0);
         }
@@ -114,31 +108,30 @@ function computeDistrictDayStock(db, district, targetDate) {
 
     const openingStock = Math.round((baseStock - salesBefore + milaBefore) * 10) / 10;
 
-    // 3. Orders today
+    // Orders today
     const ordersToday = allOrders.filter(o => (o.productId === p.productId || o.productId === p.id || (master && o.productId === master.id)) && o.date === targetDate);
     const saleQty = ordersToday.reduce((sum, o) => sum + (Number(o.qty) || 0), 0);
 
-    // 4. Remain stock
     const remainStock = Math.round((openingStock - saleQty) * 10) / 10;
 
-    // 5. Mila inward today
+    // Mila inward today
     let milaQty = 0;
     Object.keys(milaMap).forEach(key => {
       const [dist, d, pid] = key.split(':');
-      if (dist === district && d === targetDate) {
+      if ((dist || '').trim().toLowerCase() === distName.toLowerCase() && d === targetDate) {
         if (pid === p.productId || pid === p.id || pid === p.name || (master && pid === master.id)) {
           milaQty += (Number(milaMap[key]) || 0);
         }
       }
     });
 
-    // 6. Closing stock
     const closingStock = Math.round((remainStock + milaQty) * 10) / 10;
 
     return {
       id: p.id,
       productId: p.productId,
       name: prodName,
+      isSpecial: Boolean(p.isSpecial || (master && master.isSpecial)),
       schemes: prodSchemes,
       schemePrice: p.schemePrice,
       openingStock,
@@ -149,11 +142,11 @@ function computeDistrictDayStock(db, district, targetDate) {
     };
   });
 
-  const notesKey = `${district}:${targetDate}`;
-  const inwardNote = (db.inwardNotes && db.inwardNotes[notesKey]) || '';
+  const notesKey = `${distName}:${targetDate}`;
+  const inwardNote = (db && db.inwardNotes && db.inwardNotes[notesKey]) ? db.inwardNotes[notesKey] : '';
 
   return {
-    district,
+    district: distName,
     date: targetDate,
     products: result,
     inwardNote
@@ -164,14 +157,15 @@ function computeDistrictDayStock(db, district, targetDate) {
  * Compute the full chronological historical cash ledger and itemized transaction entries for a district.
  */
 function computeDistrictFullCashHistory(db, district) {
-  const allOrders = (db.customerOrders || []).filter(o => o.district === district);
-  const allSettlements = (db.cashSettlements || []).filter(s => s.district === district);
+  const distName = (district || '').trim();
+  const allOrders = (db && db.customerOrders ? db.customerOrders : []).filter(o => (o.district || '').trim().toLowerCase() === distName.toLowerCase());
+  const allSettlements = (db && db.cashSettlements ? db.cashSettlements : []).filter(s => (s.district || '').trim().toLowerCase() === distName.toLowerCase());
 
   const datesSet = new Set();
-  allOrders.forEach(o => datesSet.add(o.date));
-  allSettlements.forEach(s => datesSet.add(s.date));
+  allOrders.forEach(o => { if (o.date) datesSet.add(o.date); });
+  allSettlements.forEach(s => { if (s.date) datesSet.add(s.date); });
 
-  const baseOpeningCash = (db.baseOpeningCash && db.baseOpeningCash[district]) ? Number(db.baseOpeningCash[district]) : 0;
+  const baseOpeningCash = (db && db.baseOpeningCash && db.baseOpeningCash[distName]) ? Number(db.baseOpeningCash[distName]) : 0;
   const sortedDates = Array.from(datesSet).sort();
 
   let rollingClosing = baseOpeningCash;
@@ -213,7 +207,6 @@ function computeDistrictFullCashHistory(db, district) {
     rollingClosing = closingCash;
   });
 
-  // Compile all individual cash transactions
   const allTransactions = [];
 
   allOrders.forEach(o => {
@@ -254,11 +247,10 @@ function computeDistrictFullCashHistory(db, district) {
     });
   });
 
-  // Sort transactions reverse chronologically (latest first)
   allTransactions.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
 
   return {
-    district,
+    district: distName,
     baseOpeningCash,
     currentClosingCash: rollingClosing,
     totals: {
@@ -268,14 +260,14 @@ function computeDistrictFullCashHistory(db, district) {
       daysCount: dailyLedger.length,
       transactionsCount: allTransactions.length
     },
-    dailyLedger: dailyLedger.reverse(), // latest day first
+    dailyLedger: dailyLedger.reverse(),
     allTransactions
   };
 }
 
 module.exports = {
+  getDistrictProductsSafely,
   computeDistrictDayCash,
   computeDistrictDayStock,
   computeDistrictFullCashHistory
 };
-
