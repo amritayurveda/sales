@@ -12,6 +12,28 @@ app.use(cors());
 app.use(express.json({ limit: '5mb' }));
 app.use(express.urlencoded({ extended: true }));
 
+// Database Initialization Middleware for Serverless & Local
+let dbReady = false;
+let dbInitPromise = null;
+app.use(async (req, res, next) => {
+  if (!dbReady) {
+    if (!dbInitPromise) {
+      dbInitPromise = initDb().then(() => {
+        dbReady = true;
+      }).catch(err => {
+        console.error('Database initialization error:', err.message);
+        dbInitPromise = null;
+      });
+    }
+    try {
+      await dbInitPromise;
+    } catch (e) {
+      // Continue to handlers
+    }
+  }
+  next();
+});
+
 // Serve static assets
 app.use(express.static(path.join(__dirname, 'public')));
 
