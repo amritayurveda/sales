@@ -3,7 +3,6 @@ const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcryptjs');
 const { DEFAULT_DC_RULES } = require('../utils/dcCalculator');
-
 const os = require('os');
 
 const isServerless = Boolean(process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME);
@@ -68,16 +67,16 @@ const EXCEL_PRODUCTS = [
   { name: "PILES BASAM", defaultStock: 0, schemes: [
     { id: "sch_pb_1", name: "PILES BASAM 1", qty: 1, price: 2500, dc: 250 }
   ]},
-  { name: "ALCO BAN", defaultStock: 2, schemes: [
+  { name: "ALCO BAN", defaultStock: 0, schemes: [
     { id: "sch_ab_1", name: "ALCO BAN 1", qty: 1, price: 2500, dc: 250 }
   ]},
-  { name: "RSO", defaultStock: 12.1, schemes: [
+  { name: "RSO", defaultStock: 0, schemes: [
     { id: "sch_rso_1", name: "RSO 1", qty: 1, price: 2500, dc: 250 }
   ]},
-  { name: "MANI RARTAN", defaultStock: 6, schemes: [
+  { name: "MANI RARTAN", defaultStock: 0, schemes: [
     { id: "sch_mr_1", name: "MANI RARTAN 1", qty: 1, price: 2500, dc: 250 }
   ]},
-  { name: "NONI 500 ML", defaultStock: 7, schemes: [
+  { name: "NONI 500 ML", defaultStock: 0, schemes: [
     { id: "sch_noni_1", name: "NONI 500 ML 1", qty: 1, price: 2500, dc: 250 }
   ]},
   { name: "PLAY MORE", defaultStock: 50, schemes: [
@@ -138,189 +137,20 @@ let db = {
   milaStock: {},
   inwardNotes: {},
   baseOpeningCash: {},
-  sales: {},
-  ledgers: {},
   activityLogs: [],
-  googleSheetsConfig: {},
-  stockTransfers: []
+  deletedDistricts: ['Rewari', 'Shamli']
 };
 
 function getDistricts() {
-  if (db.districts && Array.isArray(db.districts) && db.districts.length > 0) {
-    return db.districts;
-  }
-  return DISTRICTS;
-}
-
-async function saveDb() {
-  // 1. Try local file write in safe try/catch (won't crash or block Postgres on Vercel)
-  try {
-    if (!fs.existsSync(DATA_DIR)) {
-      fs.mkdirSync(DATA_DIR, { recursive: true });
-    }
-    const tempFile = DB_FILE + '.tmp';
-    fs.writeFileSync(tempFile, JSON.stringify(db, null, 2), 'utf8');
-    fs.renameSync(tempFile, DB_FILE);
-  } catch (fsErr) {
-    // Read-only filesystem on Vercel is expected - continue to Postgres
-  }
-
-  // 2. Persist to Neon PostgreSQL Database (Always executed & awaited)
-  try {
-    await pool.query(
-      `INSERT INTO app_state (key, value, updated_at) VALUES ('main_state', $1, NOW())
-       ON CONFLICT (key) DO UPDATE SET value = $1, updated_at = NOW()`,
-      [JSON.stringify(db)]
-    );
-  } catch (pgErr) {
-    console.error('Neon PostgreSQL saveDb error:', pgErr.message);
-  }
-}
-
-function logActivity(userId, username, role, district, action, details) {
-  const entry = {
-    id: 'act_' + Date.now() + Math.random().toString(36).slice(2, 6),
-    userId,
-    username,
-    role,
-    district: district || null,
-    action,
-    details: typeof details === 'string' ? details : JSON.stringify(details),
-    timestamp: new Date().toISOString()
-  };
-
-  if (!db.activityLogs) db.activityLogs = [];
-  db.activityLogs.unshift(entry);
-
-  if (db.activityLogs.length > 1000) {
-    db.activityLogs = db.activityLogs.slice(0, 1000);
-  }
-
-  // Insert to Neon PostgreSQL activity_logs table
-  pool.query(
-    `INSERT INTO activity_logs (id, user_id, username, role, district, action, details, created_at)
-     VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
-    [entry.id, entry.userId, entry.username, entry.role, entry.district, entry.action, entry.details, entry.timestamp]
-  ).catch(err => console.error('Neon PostgreSQL log activity error:', err.message));
-
-  saveDb();
-  return entry;
-}
-
-// Synchronous baseline load
-function loadLocalDatabase() {
-  if (fs.existsSync(DB_FILE)) {
-    try {
-      const content = fs.readFileSync(DB_FILE, 'utf8');
-      const loaded = JSON.parse(content);
-      Object.keys(db).forEach(k => delete db[k]);
-      Object.assign(db, loaded);
-      if (!db.districtProducts) db.districtProducts = {};
-      if (!db.customerOrders) db.customerOrders = [];
-      if (!db.inventoryLogs) db.inventoryLogs = [];
-      if (!db.cashSettlements) db.cashSettlements = [];
-      if (!db.milaStock) db.milaStock = {};
-      if (!db.inwardNotes) db.inwardNotes = {};
-      if (!db.baseOpeningCash) db.baseOpeningCash = {};
-      if (!db.activityLogs) db.activityLogs = [];
-      if (!db.dcRules || Object.keys(db.dcRules).length === 0) {
-        db.dcRules = JSON.parse(JSON.stringify(DEFAULT_DC_RULES));
-      }
-      if (!db.districts || !Array.isArray(db.districts) || db.districts.length === 0) {
-        db.districts = [...DISTRICTS];
-      }
-      ensureDistrictSchemes();
-    } catch (e) {
-      seedInitialData();
-    }
-  } else {
-    seedInitialData();
-  }
-}
-
-// Initial baseline load
-loadLocalDatabase();
-
-async function initDb() {
-  try {
-    // 1. Ultra-fast load from Neon PostgreSQL app_state
-    const pgRes = await pool.query("SELECT value FROM app_state WHERE key = 'main_state' LIMIT 1");
-    if (pgRes.rows.length > 0 && pgRes.rows[0].value) {
-      const loaded = typeof pgRes.rows[0].value === 'string' ? JSON.parse(pgRes.rows[0].value) : pgRes.rows[0].value;
-      if (loaded && loaded.users && loaded.users.length > 0) {
-        Object.keys(db).forEach(k => delete db[k]);
-        Object.assign(db, loaded);
-        console.log('✅ Loaded data successfully from Neon PostgreSQL database!');
-      }
-    } else {
-      // First-time DB initialization
-      await initPostgresTables();
-      await saveDb();
-      console.log('✅ Initialized & Synced clean state to Neon PostgreSQL!');
-    }
-
-    if (!db.deletedDistricts) db.deletedDistricts = [];
-
-    if (!db.districts || !Array.isArray(db.districts) || db.districts.length === 0) {
-      db.districts = [...DISTRICTS];
-    }
-
-    // Filter out any explicitly deleted districts (e.g. Rewari, Shamli)
-    db.districts = db.districts.filter(d => !db.deletedDistricts.some(dd => dd.toLowerCase() === d.toLowerCase()));
-
-    // Clean up users for deleted districts
-    if (db.users && Array.isArray(db.users)) {
-      db.users = db.users.filter(u => !u.district || !db.deletedDistricts.some(dd => dd.toLowerCase() === u.district.toLowerCase()));
-    }
-
-    // Ensure dealer accounts exist only for active, non-deleted districts
-    if (!db.users) db.users = [];
-    const salt = bcrypt.genSaltSync(10);
-    const defaultPassHash = bcrypt.hashSync('dealer123', salt);
-
-    for (const dist of db.districts) {
-      const hasUser = db.users.some(u => u.district && u.district.toUpperCase() === dist.toUpperCase());
-      if (!hasUser) {
-        const slug = `dealer_${dist.toLowerCase().replace(/[^a-z0-9]/g, '')}`;
-        const newUser = {
-          id: `u_${slug}`,
-          username: slug,
-          name: `${dist} Dealer`,
-          passwordHash: defaultPassHash,
-          role: 'dealer',
-          district: dist,
-          createdAt: new Date().toISOString()
-        };
-        db.users.push(newUser);
-        try {
-          await pool.query(
-            `INSERT INTO users (id, username, name, password_hash, role, district, created_at)
-             VALUES ($1, $2, $3, $4, $5, $6, $7)
-             ON CONFLICT (username) DO UPDATE SET district = $6`,
-            [newUser.id, newUser.username, newUser.name, newUser.passwordHash, newUser.role, newUser.district, newUser.createdAt]
-          );
-        } catch (uErr) {
-          console.error('Postgres auto dealer user insert error:', uErr.message);
-        }
-      }
-    }
-
-    if (!db.customerOrders) db.customerOrders = [];
-    if (!db.stockTransfers) db.stockTransfers = [];
-    if (!db.districtProducts) db.districtProducts = {};
-    ensureDistrictSchemes();
-  } catch (err) {
-    console.error('Neon PostgreSQL initialization check warning:', err.message);
-  }
-
-  return db;
+  const all = (db.districts && Array.isArray(db.districts) && db.districts.length > 0) ? db.districts : DISTRICTS;
+  const deleted = db.deletedDistricts || [];
+  return all.filter(d => !deleted.some(dd => dd.toLowerCase() === d.toLowerCase()));
 }
 
 function ensureDistrictSchemes() {
   if (!db.districtProducts) db.districtProducts = {};
   const activeDistricts = getDistricts();
   activeDistricts.forEach(dist => {
-    // Only populate for customized districts if not already initialized
     if (db.districtProducts[dist] === undefined || db.districtProducts[dist] === null) {
       if (dist.toUpperCase() === 'SAHARANPUR' || dist.toUpperCase() === 'MUZAFFARNAGAR') {
         const pfx = dist.toLowerCase().slice(0, 3);
@@ -353,7 +183,6 @@ function ensureDistrictSchemes() {
       }
     }
 
-    // Ensure schemes array exists on existing items
     (db.districtProducts[dist] || []).forEach(p => {
       if (!p.schemes || p.schemes.length === 0) {
         const match = EXCEL_PRODUCTS.find(ep => ep.name.toLowerCase() === p.name.toLowerCase());
@@ -370,7 +199,6 @@ function seedInitialData() {
   const defaultDealerPasswordHash = bcrypt.hashSync('dealer123', salt);
   const defaultAdminPasswordHash = bcrypt.hashSync('admin123', salt);
 
-  // 1. Users
   const users = [
     {
       id: 'u_admin',
@@ -396,7 +224,6 @@ function seedInitialData() {
     });
   });
 
-  // 2. Global Products Master
   const products = EXCEL_PRODUCTS.map((p, idx) => ({
     id: `prod_${idx + 1}`,
     name: p.name,
@@ -407,7 +234,6 @@ function seedInitialData() {
     sortOrder: idx + 1
   }));
 
-  // 3. District Products (Customized only, never dump 23 products)
   const districtProducts = {};
   DISTRICTS.forEach(dist => {
     if (dist.toUpperCase() === 'SAHARANPUR' || dist.toUpperCase() === 'MUZAFFARNAGAR') {
@@ -441,46 +267,165 @@ function seedInitialData() {
     }
   });
 
-  // 4. DC Rules
   const dcRules = JSON.parse(JSON.stringify(DEFAULT_DC_RULES));
-
-  // 5. Clean Empty State (0 Cash, 0 Stock, 0 Fake Details)
   const baseOpeningCash = {};
   const milaStock = {};
   const inwardNotes = {};
   const customerOrders = [];
   const cashSettlements = [];
-  const sales = {};
-  const ledgers = {};
   const activityLogs = [];
+
   Object.keys(db).forEach(k => delete db[k]);
   Object.assign(db, {
     users,
     products,
     districtProducts,
     dcRules,
-    customerOrders,
-    inventoryLogs: [],
-    cashSettlements,
+    districts: [...DISTRICTS],
+    baseOpeningCash,
     milaStock,
     inwardNotes,
-    baseOpeningCash,
-    sales,
-    ledgers,
-    activityLogs
+    customerOrders,
+    cashSettlements,
+    activityLogs,
+    deletedDistricts: ['Rewari', 'Shamli']
   });
 
+  saveLocalDatabase();
+}
+
+function saveLocalDatabase() {
+  try {
+    if (!fs.existsSync(DATA_DIR)) {
+      fs.mkdirSync(DATA_DIR, { recursive: true });
+    }
+    fs.writeFileSync(DB_FILE, JSON.stringify(db, null, 2), 'utf8');
+  } catch (e) {
+    // Read-only filesystem is safe
+  }
+}
+
+async function saveDb() {
+  saveLocalDatabase();
+  try {
+    await pool.query(
+      `INSERT INTO app_state (key, value, updated_at) VALUES ('main_state', $1, NOW())
+       ON CONFLICT (key) DO UPDATE SET value = $1, updated_at = NOW()`,
+      [JSON.stringify(db)]
+    );
+  } catch (pgErr) {
+    console.error('Neon PostgreSQL saveDb error:', pgErr.message);
+  }
+}
+
+function logActivity(userId, username, role, district, action, details) {
+  const entry = {
+    id: 'act_' + Date.now() + Math.random().toString(36).slice(2, 6),
+    userId,
+    username,
+    role,
+    district: district || null,
+    action,
+    details: typeof details === 'string' ? details : JSON.stringify(details),
+    timestamp: new Date().toISOString()
+  };
+
+  if (!db.activityLogs) db.activityLogs = [];
+  db.activityLogs.unshift(entry);
+
+  if (db.activityLogs.length > 1000) {
+    db.activityLogs = db.activityLogs.slice(0, 1000);
+  }
+
+  pool.query(
+    `INSERT INTO activity_logs (id, user_id, username, role, district, action, details, created_at)
+     VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
+    [entry.id, entry.userId, entry.username, entry.role, entry.district, entry.action, entry.details, entry.timestamp]
+  ).catch(err => console.error('Neon PostgreSQL log activity error:', err.message));
+
   saveDb();
-  console.log('Database successfully initialized in 100% clean state (0 cash, 0 stock).');
+  return entry;
+}
+
+function loadLocalDatabase() {
+  if (fs.existsSync(DB_FILE)) {
+    try {
+      const content = fs.readFileSync(DB_FILE, 'utf8');
+      const loaded = JSON.parse(content);
+      Object.keys(db).forEach(k => delete db[k]);
+      Object.assign(db, loaded);
+      if (!db.districtProducts) db.districtProducts = {};
+      if (!db.customerOrders) db.customerOrders = [];
+      if (!db.inventoryLogs) db.inventoryLogs = [];
+      if (!db.cashSettlements) db.cashSettlements = [];
+      if (!db.milaStock) db.milaStock = {};
+      if (!db.inwardNotes) db.inwardNotes = {};
+      if (!db.baseOpeningCash) db.baseOpeningCash = {};
+      if (!db.activityLogs) db.activityLogs = [];
+      if (!db.deletedDistricts) db.deletedDistricts = ['Rewari', 'Shamli'];
+      if (!db.dcRules || Object.keys(db.dcRules).length === 0) {
+        db.dcRules = JSON.parse(JSON.stringify(DEFAULT_DC_RULES));
+      }
+      if (!db.districts || !Array.isArray(db.districts) || db.districts.length === 0) {
+        db.districts = [...DISTRICTS];
+      }
+      ensureDistrictSchemes();
+    } catch (e) {
+      seedInitialData();
+    }
+  } else {
+    seedInitialData();
+  }
+}
+
+// Initial baseline load
+loadLocalDatabase();
+
+async function initDb() {
+  try {
+    const pgRes = await pool.query("SELECT value FROM app_state WHERE key = 'main_state' LIMIT 1");
+    if (pgRes.rows.length > 0 && pgRes.rows[0].value) {
+      const loaded = typeof pgRes.rows[0].value === 'string' ? JSON.parse(pgRes.rows[0].value) : pgRes.rows[0].value;
+      if (loaded && loaded.users && loaded.users.length > 0) {
+        Object.keys(db).forEach(k => delete db[k]);
+        Object.assign(db, loaded);
+        console.log('✅ Loaded data successfully from Neon PostgreSQL database!');
+      }
+    } else {
+      await initPostgresTables();
+      await saveDb();
+      console.log('✅ Initialized & Synced clean state to Neon PostgreSQL!');
+    }
+
+    if (!db.deletedDistricts) db.deletedDistricts = ['Rewari', 'Shamli'];
+    if (!db.districts || !Array.isArray(db.districts) || db.districts.length === 0) {
+      db.districts = [...DISTRICTS];
+    }
+    db.districts = db.districts.filter(d => !db.deletedDistricts.some(dd => dd.toLowerCase() === d.toLowerCase()));
+
+    if (db.users && Array.isArray(db.users)) {
+      db.users = db.users.filter(u => !u.district || !db.deletedDistricts.some(dd => dd.toLowerCase() === u.district.toLowerCase()));
+    }
+
+    if (!db.customerOrders) db.customerOrders = [];
+    if (!db.stockTransfers) db.stockTransfers = [];
+    if (!db.districtProducts) db.districtProducts = {};
+    ensureDistrictSchemes();
+  } catch (err) {
+    console.error('Neon PostgreSQL initialization check warning:', err.message);
+  }
+
+  return db;
 }
 
 module.exports = {
   db,
+  saveDb,
+  initDb,
+  logActivity,
   DISTRICTS,
   getDistricts,
-  DISTRICT_SLUGS,
   EXCEL_PRODUCTS,
-  initDb,
-  saveDb,
-  logActivity
+  DISTRICT_SLUGS,
+  DEFAULT_DC_RULES
 };
