@@ -23,7 +23,7 @@ router.get('/district-full-history/:district', authenticateToken, enforceDistric
 });
 
 // 2. Admin-Only: Record cash payment / settlement paid by dealer to company on a specific date
-router.post('/admin-payment', authenticateToken, requireAdmin, async (req, res) => {
+const recordPaymentHandler = async (req, res) => {
   const { district, date, amount, paymentMode, note } = req.body;
   const amtNum = Number(amount);
 
@@ -81,10 +81,13 @@ router.post('/admin-payment', authenticateToken, requireAdmin, async (req, res) 
     settlement: newSettlement,
     cashLedger: updatedCash
   });
-});
+};
+
+router.post('/admin-payment', authenticateToken, requireAdmin, recordPaymentHandler);
+router.post('/settlement', authenticateToken, requireAdmin, recordPaymentHandler);
 
 // 3. Admin-Only: Set / Override base opening cash for a district
-router.post('/base-opening-cash', authenticateToken, requireAdmin, (req, res) => {
+router.post('/base-opening-cash', authenticateToken, requireAdmin, async (req, res) => {
   const { district, baseOpeningCash } = req.body;
   const num = Number(baseOpeningCash);
   if (!district || isNaN(num)) {
@@ -103,7 +106,7 @@ router.post('/base-opening-cash', authenticateToken, requireAdmin, (req, res) =>
     `Updated base opening cash for ${district} to ₹${num}`
   );
 
-  saveDb();
+  await saveDb();
   res.json({ message: `Base opening cash updated for ${district}`, baseOpeningCash: num });
 });
 

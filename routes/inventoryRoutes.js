@@ -37,7 +37,8 @@ router.get('/master-products', authenticateToken, (req, res) => {
 });
 
 // 4. Admin: Add a new Master Product
-router.post('/master-product', authenticateToken, requireAdmin, (req, res) => {
+// 4. Admin: Create New Master Product with Multiple Schemes
+router.post('/master-product', authenticateToken, requireAdmin, async (req, res) => {
   const { name, schemes, defaultPrice } = req.body;
   if (!name || !name.trim()) {
     return res.status(400).json({ error: 'Product name is required' });
@@ -85,12 +86,12 @@ router.post('/master-product', authenticateToken, requireAdmin, (req, res) => {
     `Created Master Product "${cleanName}" with ${initialSchemes.length} schemes`
   );
 
-  saveDb();
+  await saveDb();
   res.status(201).json({ message: `Master Product "${cleanName}" created successfully`, product: newMaster });
 });
 
 // 5. Admin: Rename Master Product (updates everywhere across all districts)
-router.put('/master-product/:id', authenticateToken, requireAdmin, (req, res) => {
+router.put('/master-product/:id', authenticateToken, requireAdmin, async (req, res) => {
   const { id } = req.params;
   const { name } = req.body;
   if (!name || !name.trim()) {
@@ -124,12 +125,12 @@ router.put('/master-product/:id', authenticateToken, requireAdmin, (req, res) =>
     `Renamed master product "${oldName}" -> "${cleanName}"`
   );
 
-  saveDb();
+  await saveDb();
   res.json({ message: `Product renamed to "${cleanName}" globally`, product: master });
 });
 
 // 6. Admin: Manage Schemes for Master Product (Add / Edit / Delete) -> propagates to every dealer automatically
-router.post('/master-product/:id/scheme', authenticateToken, requireAdmin, (req, res) => {
+router.post('/master-product/:id/scheme', authenticateToken, requireAdmin, async (req, res) => {
   const { id } = req.params;
   const { action, scheme } = req.body;
   // action: 'ADD' | 'UPDATE' | 'DELETE'
@@ -164,12 +165,12 @@ router.post('/master-product/:id/scheme', authenticateToken, requireAdmin, (req,
     logActivity(req.user.id, req.user.username, req.user.role, null, 'MASTER_SCHEME_DELETE', `Deleted scheme from ${master.name}`);
   }
 
-  saveDb();
+  await saveDb();
   res.json({ message: 'Master product schemes updated', product: master });
 });
 
 // 7. Admin: Delete Master Product
-router.delete('/master-product/:id', authenticateToken, requireAdmin, (req, res) => {
+router.delete('/master-product/:id', authenticateToken, requireAdmin, async (req, res) => {
   const { id } = req.params;
   const idx = (db.products || []).findIndex(p => p.id === id);
   if (idx === -1) {
@@ -185,14 +186,14 @@ router.delete('/master-product/:id', authenticateToken, requireAdmin, (req, res)
 
   logActivity(req.user.id, req.user.username, req.user.role, null, 'MASTER_PRODUCT_DELETED', `Deleted master product "${removed.name}" globally`);
 
-  saveDb();
+  await saveDb();
   res.json({ message: `Master product "${removed.name}" deleted from catalog` });
 });
 
 // ================= DISTRICT ALLOCATION (STRICTLY FROM MASTER LIST) =================
 
 // 8. Admin: Assign Master Product to a District
-router.post('/assign-district-product', authenticateToken, requireAdmin, (req, res) => {
+router.post('/assign-district-product', authenticateToken, requireAdmin, async (req, res) => {
   const { district, masterProductId, initialStock } = req.body;
 
   if (!district || !masterProductId) {
@@ -236,7 +237,7 @@ router.post('/assign-district-product', authenticateToken, requireAdmin, (req, r
     `Assigned master product "${master.name}" to ${district} with initial stock ${stockNum}`
   );
 
-  saveDb();
+  await saveDb();
   res.status(201).json({ message: `Assigned "${master.name}" to ${district}`, product: newDistrictProduct });
 });
 
@@ -288,7 +289,7 @@ router.delete('/district/:district/product/:productId', authenticateToken, requi
 });
 
 // 10. Admin: Edit Base Stock for a Product in a District
-router.post('/adjust-base-stock', authenticateToken, requireAdmin, (req, res) => {
+router.post('/adjust-base-stock', authenticateToken, requireAdmin, async (req, res) => {
   const { district, productId, newStock } = req.body;
   const numStock = Number(newStock);
   if (!district || !productId || isNaN(numStock) || numStock < 0) {
@@ -314,12 +315,12 @@ router.post('/adjust-base-stock', authenticateToken, requireAdmin, (req, res) =>
     `Admin adjusted base stock for ${item.name} in ${district}: ${oldStock} -> ${numStock}`
   );
 
-  saveDb();
+  await saveDb();
   res.json({ message: `Stock updated for ${item.name}`, product: item });
 });
 
 // 11. Admin: Update Mila Inward Stock
-router.post('/mila-inward', authenticateToken, requireAdmin, (req, res) => {
+router.post('/mila-inward', authenticateToken, requireAdmin, async (req, res) => {
   const { district, date, productId, milaQty } = req.body;
   if (!district || !date || !productId) {
     return res.status(400).json({ error: 'district, date, and productId are required' });
@@ -348,13 +349,13 @@ router.post('/mila-inward', authenticateToken, requireAdmin, (req, res) => {
     `Updated Mila Inward stock for ${prodName} on ${date}: +${numQty}`
   );
 
-  saveDb();
+  await saveDb();
   const updatedStock = computeDistrictDayStock(db, district, date);
   res.json({ message: `Updated inward stock for ${prodName}`, dayStock: updatedStock });
 });
 
 // 12. Admin: Update Inward Notes
-router.post('/inward-notes', authenticateToken, requireAdmin, (req, res) => {
+router.post('/inward-notes', authenticateToken, requireAdmin, async (req, res) => {
   const { district, date, note } = req.body;
   if (!district || !date) {
     return res.status(400).json({ error: 'district and date are required' });
@@ -364,7 +365,7 @@ router.post('/inward-notes', authenticateToken, requireAdmin, (req, res) => {
   const notesKey = `${district}:${date}`;
   db.inwardNotes[notesKey] = note || '';
 
-  saveDb();
+  await saveDb();
   res.json({ message: 'Inward notes saved', note: db.inwardNotes[notesKey] });
 });
 

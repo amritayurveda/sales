@@ -119,7 +119,7 @@
     },
     "Alwar": {
       "type": "flat",
-      "value": 300,
+      "value": 220,
       "overrides": {}
     },
     "Rewari": {
@@ -609,9 +609,119 @@
     "Muzaffarnagar",
     "Saharanpur"
   ],
+  "lastOrder": {
+    "id": "ord_1787385785083y1i6",
+    "qty": 1,
+    "date": "2026-08-22",
+    "note": "",
+    "time": "13:33:05",
+    "dcRate": 300,
+    "orderNo": "ORD-436424",
+    "district": "Alwar",
+    "createdAt": "2026-08-22T08:03:05.083Z",
+    "netAmount": 2200,
+    "productId": "prod_1",
+    "unitPrice": 2500,
+    "schemeName": "DAMADAR 1",
+    "productName": "DAMADAR",
+    "totalAmount": 2500,
+    "customerName": "Storage Verification Customer",
+    "customerMobile": "9111122222",
+    "dealerUsername": "dealer_alwar"
+  },
   "milaStock": {},
   "inwardNotes": {},
   "activityLogs": [
+    {
+      "id": "act_1787385794501v0b3",
+      "userId": "u_admin",
+      "username": "admin",
+      "role": "admin",
+      "district": "Alwar",
+      "action": "ORDER_DELETED",
+      "details": "Admin deleted customer order #ORD-436424 (DAMADAR - ₹2500) in Alwar",
+      "timestamp": "2026-08-22T08:03:14.501Z"
+    },
+    {
+      "id": "act_1787385788770cmm7",
+      "role": "admin",
+      "action": "DC_RULE_UPDATE",
+      "userId": "u_admin",
+      "details": "Updated DC rule for Alwar: Flat ₹220 (Play More/Height Veda/Alergy/Eye Sutra: ₹150 / UK ₹170)",
+      "district": "Alwar",
+      "username": "admin",
+      "timestamp": "2026-08-22T08:03:08.770Z"
+    },
+    {
+      "id": "act_178738578822314wk",
+      "role": "admin",
+      "action": "CASH_SETTLEMENT",
+      "userId": "u_admin",
+      "details": "Collected ₹2000 payment from Alwar on 2026-08-22 (Receipt: CASH-104476)",
+      "district": "Alwar",
+      "username": "admin",
+      "timestamp": "2026-08-22T08:03:08.223Z"
+    },
+    {
+      "id": "act_1787385785083yoin",
+      "role": "dealer",
+      "action": "CUSTOMER_SALE",
+      "userId": "u_dealer_2",
+      "details": "Order ORD-436424: Sold DAMADAR (Price: ₹2500, DC: ₹300, Net: ₹2200) to Storage Verification Customer [9111122222]",
+      "district": "Alwar",
+      "username": "dealer_alwar",
+      "timestamp": "2026-08-22T08:03:05.083Z"
+    },
+    {
+      "id": "act_1787385785062ijvx",
+      "role": "dealer",
+      "action": "LOGIN",
+      "userId": "u_dealer_2",
+      "details": "User dealer_alwar (dealer - Alwar) logged in",
+      "district": "Alwar",
+      "username": "dealer_alwar",
+      "timestamp": "2026-08-22T08:03:05.062Z"
+    },
+    {
+      "id": "act_178738578487935jp",
+      "role": "admin",
+      "action": "LOGIN",
+      "userId": "u_admin",
+      "details": "User admin (admin) logged in",
+      "district": null,
+      "username": "admin",
+      "timestamp": "2026-08-22T08:03:04.879Z"
+    },
+    {
+      "id": "act_178738575046682dk",
+      "role": "dealer",
+      "action": "CUSTOMER_SALE",
+      "userId": "u_dealer_2",
+      "details": "Order ORD-476206: Sold DAMADAR (Price: ₹2500, DC: ₹300, Net: ₹2200) to Storage Verification Customer [9111122222]",
+      "district": "Alwar",
+      "username": "dealer_alwar",
+      "timestamp": "2026-08-22T08:02:30.466Z"
+    },
+    {
+      "id": "act_17873857504329xlx",
+      "role": "dealer",
+      "action": "LOGIN",
+      "userId": "u_dealer_2",
+      "details": "User dealer_alwar (dealer - Alwar) logged in",
+      "district": "Alwar",
+      "username": "dealer_alwar",
+      "timestamp": "2026-08-22T08:02:30.432Z"
+    },
+    {
+      "id": "act_1787385750108e2v0",
+      "role": "admin",
+      "action": "LOGIN",
+      "userId": "u_admin",
+      "details": "User admin (admin) logged in",
+      "district": null,
+      "username": "admin",
+      "timestamp": "2026-08-22T08:02:30.111Z"
+    },
     {
       "id": "act_178738524522806mw",
       "role": "admin",
@@ -625,6 +735,26 @@
   ],
   "inventoryLogs": [],
   "customerOrders": [
+    {
+      "id": "ord_1787385750466w9rh",
+      "orderNo": "ORD-476206",
+      "district": "Alwar",
+      "date": "2026-08-22",
+      "time": "13:32:30",
+      "productId": "prod_1",
+      "productName": "DAMADAR",
+      "schemeName": "DAMADAR (₹2,500)",
+      "qty": 1,
+      "unitPrice": 2500,
+      "dcRate": 300,
+      "totalAmount": 2500,
+      "netAmount": 2200,
+      "customerMobile": "9111122222",
+      "customerName": "Storage Verification Customer",
+      "note": "",
+      "dealerUsername": "dealer_alwar",
+      "createdAt": "2026-08-22T08:02:30.466Z"
+    },
     {
       "id": "ord_1787382109351erx2",
       "orderNo": "ORD-574125",
@@ -1018,6 +1148,17 @@
   "baseOpeningCash": {},
   "cashSettlements": [
     {
+      "id": "set_1787385788223ytpt",
+      "receiptNo": "CASH-104476",
+      "district": "Alwar",
+      "date": "2026-08-22",
+      "amount": 2000,
+      "paymentMode": "Cash",
+      "note": "Storage test payment",
+      "receivedBy": "admin",
+      "createdAt": "2026-08-22T08:03:08.223Z"
+    },
+    {
       "id": "set_17873817581259db5",
       "receiptNo": "CASH-724899",
       "district": "Gurgaon",
@@ -1039,6 +1180,10 @@
       "receivedBy": "admin",
       "createdAt": "2026-08-22T05:54:41.521Z"
     }
+  ],
+  "deletedDistricts": [
+    "Rewari",
+    "Shamli"
   ],
   "districtProducts": {
     "Kota": [
@@ -1505,7 +1650,7 @@
         ],
         "isActive": true,
         "productId": "prod_1",
-        "currentStock": 0,
+        "currentStock": 1,
         "stockAllocated": 0
       },
       {
@@ -2346,49 +2491,94 @@
         "stockAllocated": 0
       }
     ],
-    "Gurgaon": [
+    "GURGAON": [
       {
         "id": "dp_gur_1",
-        "productId": "prod_an",
         "name": "AMAR NETRAN",
-        "schemePrice": 2500,
-        "stockAllocated": 11,
-        "currentStock": 11,
         "schemes": [
           {
+            "dc": 250,
             "id": "sch_an_1",
-            "name": "AMAR NETRAN 1",
             "qty": 1,
-            "price": 2500,
-            "dc": 250
+            "name": "AMAR NETRAN 1",
+            "price": 2500
           }
         ],
-        "isActive": true
+        "isActive": true,
+        "productId": "prod_an",
+        "schemePrice": 2500,
+        "currentStock": 11,
+        "stockAllocated": 11
       },
       {
         "id": "dp_gur_2",
-        "productId": "prod_kd",
         "name": "KADWI DAWA",
-        "schemePrice": 2870,
-        "stockAllocated": 7,
-        "currentStock": 7,
         "schemes": [
           {
+            "dc": 250,
             "id": "sch_kd_1",
-            "name": "KD 1",
             "qty": 1,
-            "price": 2870,
-            "dc": 250
+            "name": "KD 1",
+            "price": 2870
           },
           {
+            "dc": 500,
             "id": "sch_kd_2",
-            "name": "KD 2",
             "qty": 2,
-            "price": 5740,
-            "dc": 500
+            "name": "KD 2",
+            "price": 5740
           }
         ],
-        "isActive": true
+        "isActive": true,
+        "productId": "prod_kd",
+        "schemePrice": 2870,
+        "currentStock": 7,
+        "stockAllocated": 7
+      }
+    ],
+    "Gurgaon": [
+      {
+        "id": "dp_gur_1",
+        "name": "AMAR NETRAN",
+        "schemes": [
+          {
+            "dc": 250,
+            "id": "sch_an_1",
+            "qty": 1,
+            "name": "AMAR NETRAN 1",
+            "price": 2500
+          }
+        ],
+        "isActive": true,
+        "productId": "prod_an",
+        "schemePrice": 2500,
+        "currentStock": 11,
+        "stockAllocated": 11
+      },
+      {
+        "id": "dp_gur_2",
+        "name": "KADWI DAWA",
+        "schemes": [
+          {
+            "dc": 250,
+            "id": "sch_kd_1",
+            "qty": 1,
+            "name": "KD 1",
+            "price": 2870
+          },
+          {
+            "dc": 500,
+            "id": "sch_kd_2",
+            "qty": 2,
+            "name": "KD 2",
+            "price": 5740
+          }
+        ],
+        "isActive": true,
+        "productId": "prod_kd",
+        "schemePrice": 2870,
+        "currentStock": 7,
+        "stockAllocated": 7
       }
     ],
     "Jodhpur": [
@@ -3261,78 +3451,152 @@
         "stockAllocated": 0
       }
     ],
-    "Saharanpur": [
+    "SAHARANPUR": [
       {
         "id": "dp_sah_1",
-        "productId": "prod_pm",
         "name": "PLAY MORE",
-        "schemePrice": 2500,
-        "stockAllocated": 50,
-        "currentStock": 50,
         "schemes": [
           {
+            "dc": 170,
             "id": "sch_pm_1",
-            "name": "PLAY MORE 1",
             "qty": 1,
-            "price": 2500,
-            "dc": 170
+            "name": "PLAY MORE 1",
+            "price": 2500
           }
         ],
-        "isActive": true
+        "isActive": true,
+        "productId": "prod_pm",
+        "schemePrice": 2500,
+        "currentStock": 50,
+        "stockAllocated": 50
       },
       {
         "id": "dp_sah_2",
-        "productId": "prod_fj",
         "name": "FOUJI",
-        "schemePrice": 2500,
-        "stockAllocated": 10,
-        "currentStock": 10,
         "schemes": [
           {
+            "dc": 170,
             "id": "sch_fj_1",
-            "name": "FOUJI 1",
             "qty": 1,
-            "price": 2500,
-            "dc": 170
+            "name": "FOUJI 1",
+            "price": 2500
           }
         ],
-        "isActive": true
+        "isActive": true,
+        "productId": "prod_fj",
+        "schemePrice": 2500,
+        "currentStock": 10,
+        "stockAllocated": 10
       },
       {
         "id": "dp_sah_3",
-        "productId": "prod_es",
         "name": "EYE SUTRA",
-        "schemePrice": 2500,
-        "stockAllocated": 15,
-        "currentStock": 15,
         "schemes": [
           {
+            "dc": 170,
             "id": "sch_es_1",
-            "name": "EYE SUTRA 1",
             "qty": 1,
-            "price": 2500,
-            "dc": 170
+            "name": "EYE SUTRA 1",
+            "price": 2500
           }
         ],
-        "isActive": true
+        "isActive": true,
+        "productId": "prod_es",
+        "schemePrice": 2500,
+        "currentStock": 15,
+        "stockAllocated": 15
       },
       {
         "id": "dp_sah_4",
-        "productId": "prod_alg",
         "name": "ALERGY",
-        "schemePrice": 2500,
-        "stockAllocated": 12,
-        "currentStock": 12,
         "schemes": [
           {
+            "dc": 170,
             "id": "sch_alg_1",
-            "name": "ALERGY 1",
             "qty": 1,
-            "price": 2500,
-            "dc": 170
+            "name": "ALERGY 1",
+            "price": 2500
           }
         ],
-        "isActive": true
+        "isActive": true,
+        "productId": "prod_alg",
+        "schemePrice": 2500,
+        "currentStock": 12,
+        "stockAllocated": 12
+      }
+    ],
+    "Saharanpur": [
+      {
+        "id": "dp_sah_1",
+        "name": "PLAY MORE",
+        "schemes": [
+          {
+            "dc": 170,
+            "id": "sch_pm_1",
+            "qty": 1,
+            "name": "PLAY MORE 1",
+            "price": 2500
+          }
+        ],
+        "isActive": true,
+        "productId": "prod_pm",
+        "schemePrice": 2500,
+        "currentStock": 50,
+        "stockAllocated": 50
+      },
+      {
+        "id": "dp_sah_2",
+        "name": "FOUJI",
+        "schemes": [
+          {
+            "dc": 170,
+            "id": "sch_fj_1",
+            "qty": 1,
+            "name": "FOUJI 1",
+            "price": 2500
+          }
+        ],
+        "isActive": true,
+        "productId": "prod_fj",
+        "schemePrice": 2500,
+        "currentStock": 10,
+        "stockAllocated": 10
+      },
+      {
+        "id": "dp_sah_3",
+        "name": "EYE SUTRA",
+        "schemes": [
+          {
+            "dc": 170,
+            "id": "sch_es_1",
+            "qty": 1,
+            "name": "EYE SUTRA 1",
+            "price": 2500
+          }
+        ],
+        "isActive": true,
+        "productId": "prod_es",
+        "schemePrice": 2500,
+        "currentStock": 15,
+        "stockAllocated": 15
+      },
+      {
+        "id": "dp_sah_4",
+        "name": "ALERGY",
+        "schemes": [
+          {
+            "dc": 170,
+            "id": "sch_alg_1",
+            "qty": 1,
+            "name": "ALERGY 1",
+            "price": 2500
+          }
+        ],
+        "isActive": true,
+        "productId": "prod_alg",
+        "schemePrice": 2500,
+        "currentStock": 12,
+        "stockAllocated": 12
       }
     ],
     "Chittorgarh": [
@@ -4205,78 +4469,152 @@
         "stockAllocated": 0
       }
     ],
-    "Muzaffarnagar": [
+    "MUZAFFARNAGAR": [
       {
         "id": "dp_sah_1",
-        "productId": "prod_pm",
         "name": "PLAY MORE",
-        "schemePrice": 2500,
-        "stockAllocated": 50,
-        "currentStock": 50,
         "schemes": [
           {
+            "dc": 170,
             "id": "sch_pm_1",
-            "name": "PLAY MORE 1",
             "qty": 1,
-            "price": 2500,
-            "dc": 170
+            "name": "PLAY MORE 1",
+            "price": 2500
           }
         ],
-        "isActive": true
+        "isActive": true,
+        "productId": "prod_pm",
+        "schemePrice": 2500,
+        "currentStock": 50,
+        "stockAllocated": 50
       },
       {
         "id": "dp_sah_2",
-        "productId": "prod_fj",
         "name": "FOUJI",
-        "schemePrice": 2500,
-        "stockAllocated": 10,
-        "currentStock": 10,
         "schemes": [
           {
+            "dc": 170,
             "id": "sch_fj_1",
-            "name": "FOUJI 1",
             "qty": 1,
-            "price": 2500,
-            "dc": 170
+            "name": "FOUJI 1",
+            "price": 2500
           }
         ],
-        "isActive": true
+        "isActive": true,
+        "productId": "prod_fj",
+        "schemePrice": 2500,
+        "currentStock": 10,
+        "stockAllocated": 10
       },
       {
         "id": "dp_sah_3",
-        "productId": "prod_es",
         "name": "EYE SUTRA",
-        "schemePrice": 2500,
-        "stockAllocated": 15,
-        "currentStock": 15,
         "schemes": [
           {
+            "dc": 170,
             "id": "sch_es_1",
-            "name": "EYE SUTRA 1",
             "qty": 1,
-            "price": 2500,
-            "dc": 170
+            "name": "EYE SUTRA 1",
+            "price": 2500
           }
         ],
-        "isActive": true
+        "isActive": true,
+        "productId": "prod_es",
+        "schemePrice": 2500,
+        "currentStock": 15,
+        "stockAllocated": 15
       },
       {
         "id": "dp_sah_4",
-        "productId": "prod_alg",
         "name": "ALERGY",
-        "schemePrice": 2500,
-        "stockAllocated": 12,
-        "currentStock": 12,
         "schemes": [
           {
+            "dc": 170,
             "id": "sch_alg_1",
-            "name": "ALERGY 1",
             "qty": 1,
-            "price": 2500,
-            "dc": 170
+            "name": "ALERGY 1",
+            "price": 2500
           }
         ],
-        "isActive": true
+        "isActive": true,
+        "productId": "prod_alg",
+        "schemePrice": 2500,
+        "currentStock": 12,
+        "stockAllocated": 12
+      }
+    ],
+    "Muzaffarnagar": [
+      {
+        "id": "dp_sah_1",
+        "name": "PLAY MORE",
+        "schemes": [
+          {
+            "dc": 170,
+            "id": "sch_pm_1",
+            "qty": 1,
+            "name": "PLAY MORE 1",
+            "price": 2500
+          }
+        ],
+        "isActive": true,
+        "productId": "prod_pm",
+        "schemePrice": 2500,
+        "currentStock": 50,
+        "stockAllocated": 50
+      },
+      {
+        "id": "dp_sah_2",
+        "name": "FOUJI",
+        "schemes": [
+          {
+            "dc": 170,
+            "id": "sch_fj_1",
+            "qty": 1,
+            "name": "FOUJI 1",
+            "price": 2500
+          }
+        ],
+        "isActive": true,
+        "productId": "prod_fj",
+        "schemePrice": 2500,
+        "currentStock": 10,
+        "stockAllocated": 10
+      },
+      {
+        "id": "dp_sah_3",
+        "name": "EYE SUTRA",
+        "schemes": [
+          {
+            "dc": 170,
+            "id": "sch_es_1",
+            "qty": 1,
+            "name": "EYE SUTRA 1",
+            "price": 2500
+          }
+        ],
+        "isActive": true,
+        "productId": "prod_es",
+        "schemePrice": 2500,
+        "currentStock": 15,
+        "stockAllocated": 15
+      },
+      {
+        "id": "dp_sah_4",
+        "name": "ALERGY",
+        "schemes": [
+          {
+            "dc": 170,
+            "id": "sch_alg_1",
+            "qty": 1,
+            "name": "ALERGY 1",
+            "price": 2500
+          }
+        ],
+        "isActive": true,
+        "productId": "prod_alg",
+        "schemePrice": 2500,
+        "currentStock": 12,
+        "stockAllocated": 12
       }
     ],
     "Udham Singh Nagar": [
@@ -4713,203 +5051,7 @@
         "currentStock": 0,
         "stockAllocated": 0
       }
-    ],
-    "SAHARANPUR": [
-      {
-        "id": "dp_sah_1",
-        "productId": "prod_pm",
-        "name": "PLAY MORE",
-        "schemePrice": 2500,
-        "stockAllocated": 50,
-        "currentStock": 50,
-        "schemes": [
-          {
-            "id": "sch_pm_1",
-            "name": "PLAY MORE 1",
-            "qty": 1,
-            "price": 2500,
-            "dc": 170
-          }
-        ],
-        "isActive": true
-      },
-      {
-        "id": "dp_sah_2",
-        "productId": "prod_fj",
-        "name": "FOUJI",
-        "schemePrice": 2500,
-        "stockAllocated": 10,
-        "currentStock": 10,
-        "schemes": [
-          {
-            "id": "sch_fj_1",
-            "name": "FOUJI 1",
-            "qty": 1,
-            "price": 2500,
-            "dc": 170
-          }
-        ],
-        "isActive": true
-      },
-      {
-        "id": "dp_sah_3",
-        "productId": "prod_es",
-        "name": "EYE SUTRA",
-        "schemePrice": 2500,
-        "stockAllocated": 15,
-        "currentStock": 15,
-        "schemes": [
-          {
-            "id": "sch_es_1",
-            "name": "EYE SUTRA 1",
-            "qty": 1,
-            "price": 2500,
-            "dc": 170
-          }
-        ],
-        "isActive": true
-      },
-      {
-        "id": "dp_sah_4",
-        "productId": "prod_alg",
-        "name": "ALERGY",
-        "schemePrice": 2500,
-        "stockAllocated": 12,
-        "currentStock": 12,
-        "schemes": [
-          {
-            "id": "sch_alg_1",
-            "name": "ALERGY 1",
-            "qty": 1,
-            "price": 2500,
-            "dc": 170
-          }
-        ],
-        "isActive": true
-      }
-    ],
-    "MUZAFFARNAGAR": [
-      {
-        "id": "dp_sah_1",
-        "productId": "prod_pm",
-        "name": "PLAY MORE",
-        "schemePrice": 2500,
-        "stockAllocated": 50,
-        "currentStock": 50,
-        "schemes": [
-          {
-            "id": "sch_pm_1",
-            "name": "PLAY MORE 1",
-            "qty": 1,
-            "price": 2500,
-            "dc": 170
-          }
-        ],
-        "isActive": true
-      },
-      {
-        "id": "dp_sah_2",
-        "productId": "prod_fj",
-        "name": "FOUJI",
-        "schemePrice": 2500,
-        "stockAllocated": 10,
-        "currentStock": 10,
-        "schemes": [
-          {
-            "id": "sch_fj_1",
-            "name": "FOUJI 1",
-            "qty": 1,
-            "price": 2500,
-            "dc": 170
-          }
-        ],
-        "isActive": true
-      },
-      {
-        "id": "dp_sah_3",
-        "productId": "prod_es",
-        "name": "EYE SUTRA",
-        "schemePrice": 2500,
-        "stockAllocated": 15,
-        "currentStock": 15,
-        "schemes": [
-          {
-            "id": "sch_es_1",
-            "name": "EYE SUTRA 1",
-            "qty": 1,
-            "price": 2500,
-            "dc": 170
-          }
-        ],
-        "isActive": true
-      },
-      {
-        "id": "dp_sah_4",
-        "productId": "prod_alg",
-        "name": "ALERGY",
-        "schemePrice": 2500,
-        "stockAllocated": 12,
-        "currentStock": 12,
-        "schemes": [
-          {
-            "id": "sch_alg_1",
-            "name": "ALERGY 1",
-            "qty": 1,
-            "price": 2500,
-            "dc": 170
-          }
-        ],
-        "isActive": true
-      }
-    ],
-    "GURGAON": [
-      {
-        "id": "dp_gur_1",
-        "productId": "prod_an",
-        "name": "AMAR NETRAN",
-        "schemePrice": 2500,
-        "stockAllocated": 11,
-        "currentStock": 11,
-        "schemes": [
-          {
-            "id": "sch_an_1",
-            "name": "AMAR NETRAN 1",
-            "qty": 1,
-            "price": 2500,
-            "dc": 250
-          }
-        ],
-        "isActive": true
-      },
-      {
-        "id": "dp_gur_2",
-        "productId": "prod_kd",
-        "name": "KADWI DAWA",
-        "schemePrice": 2870,
-        "stockAllocated": 7,
-        "currentStock": 7,
-        "schemes": [
-          {
-            "id": "sch_kd_1",
-            "name": "KD 1",
-            "qty": 1,
-            "price": 2870,
-            "dc": 250
-          },
-          {
-            "id": "sch_kd_2",
-            "name": "KD 2",
-            "qty": 2,
-            "price": 5740,
-            "dc": 500
-          }
-        ],
-        "isActive": true
-      }
     ]
   },
-  "deletedDistricts": [
-    "Rewari",
-    "Shamli"
-  ]
+  "lastOrderTimestamp": 1787385794501
 }

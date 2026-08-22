@@ -177,7 +177,7 @@ router.get('/users', (req, res) => {
 });
 
 // 4. Reset dealer password
-router.post('/reset-password', (req, res) => {
+router.post('/reset-password', async (req, res) => {
   const { userId, newPassword } = req.body;
   if (!userId || !newPassword) {
     return res.status(400).json({ error: 'userId and newPassword are required' });
@@ -192,10 +192,14 @@ router.post('/reset-password', (req, res) => {
   user.passwordHash = bcrypt.hashSync(newPassword, salt);
 
   // Update Neon PostgreSQL
-  pool.query(
-    `UPDATE users SET password_hash = $1 WHERE id = $2`,
-    [user.passwordHash, user.id]
-  ).catch(err => console.error('Postgres user password update error:', err.message));
+  try {
+    await pool.query(
+      `UPDATE users SET password_hash = $1 WHERE id = $2`,
+      [user.passwordHash, user.id]
+    );
+  } catch (err) {
+    console.error('Postgres user password update error:', err.message);
+  }
 
   logActivity(
     req.user.id,
@@ -206,7 +210,7 @@ router.post('/reset-password', (req, res) => {
     `Reset password for ${user.username} (${user.district || 'Admin'})`
   );
 
-  saveDb();
+  await saveDb();
 
   res.json({ message: `Password reset successfully for ${user.username}` });
 });
