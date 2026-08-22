@@ -99,26 +99,14 @@
             <form id="loginForm">
               <div class="form-group">
                 <label for="usernameInput">Username / Dealer ID</label>
-                <input type="text" id="usernameInput" class="form-input" placeholder="e.g. admin or dealer_chittorgarh" required autofocus>
+                <input type="text" id="usernameInput" class="form-input" placeholder="Enter your username or dealer ID" required autofocus autocomplete="username">
               </div>
               <div class="form-group">
                 <label for="passwordInput">Password</label>
-                <input type="password" id="passwordInput" class="form-input" placeholder="••••••••" required>
+                <input type="password" id="passwordInput" class="form-input" placeholder="••••••••" required autocomplete="current-password">
               </div>
-              <button type="submit" id="loginBtn" class="btn btn-primary" style="width:100%;justify-content:center;padding:10px;font-size:14px;">Sign In</button>
+              <button type="submit" id="loginBtn" class="btn btn-primary" style="width:100%;justify-content:center;padding:12px;font-size:15px;font-weight:700;">Sign In</button>
             </form>
-
-            <div class="quick-logins">
-              <div class="quick-logins-title">Quick Demo Logins</div>
-              <div class="quick-chips">
-                <button class="quick-chip" onclick="quickFill('admin', 'admin123')">🔑 Admin</button>
-                <button class="quick-chip" onclick="quickFill('dealer_chittorgarh', 'dealer123')">📍 Chittorgarh</button>
-                <button class="quick-chip" onclick="quickFill('dealer_alwar', 'dealer123')">📍 Alwar</button>
-                <button class="quick-chip" onclick="quickFill('dealer_uttarakhand', 'dealer123')">📍 Uttarakhand</button>
-                <button class="quick-chip" onclick="quickFill('dealer_kota', 'dealer123')">📍 Kota</button>
-                <button class="quick-chip" onclick="quickFill('dealer_faridabad', 'dealer123')">📍 Faridabad</button>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -148,12 +136,6 @@
           btn.textContent = 'Sign In';
         }
       }
-    };
-
-    window.quickFill = (u, p) => {
-      $('usernameInput').value = u;
-      $('passwordInput').value = p;
-      window.performLogin(u, p);
     };
 
     $('loginForm').addEventListener('submit', (e) => {
