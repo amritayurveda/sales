@@ -312,13 +312,17 @@ router.get('/district-matrix/:district', authenticateToken, requireAdmin, (req, 
     isActive: true
   }));
 
+  const todayStr = new Date().toISOString().slice(0, 10);
+  const dayStock = computeDistrictDayStock(db, district, todayStr);
   const locks = db.customStockLocks || {};
 
   const matrix = masterProducts.map(mp => {
-    const assigned = distProducts.find(dp => dp.productId === mp.id || dp.name.toUpperCase() === mp.name.toUpperCase());
+    const assigned = distProducts.find(dp => dp.productId === mp.id || (dp.name && dp.name.toUpperCase() === mp.name.toUpperCase()));
+    const liveItem = dayStock.products ? dayStock.products.find(dp => dp.productId === mp.id || (dp.name && dp.name.toUpperCase() === mp.name.toUpperCase())) : null;
     const lockKey = `${district}:${mp.id}`;
     const isLocked = locks[lockKey] !== undefined;
     const stockAllocated = assigned ? Number(assigned.stockAllocated) || 0 : (isLocked ? Number(locks[lockKey]) : 0);
+    const liveStock = liveItem ? liveItem.closingStock : (assigned ? Number(assigned.currentStock) || 0 : stockAllocated);
 
     return {
       masterId: mp.id,
@@ -329,7 +333,7 @@ router.get('/district-matrix/:district', authenticateToken, requireAdmin, (req, 
       isAssigned: Boolean(assigned),
       districtProductId: assigned ? assigned.id : null,
       stockAllocated,
-      currentStock: assigned ? Number(assigned.currentStock) || 0 : stockAllocated,
+      currentStock: liveStock,
       isCustomStockLocked: isLocked || Boolean(assigned && assigned.isCustomStockLocked)
     };
   });

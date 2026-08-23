@@ -336,6 +336,9 @@ router.post('/add-district', async (req, res) => {
 
   // 1. Add to districts
   db.districts.push(trimmedDist);
+  if (db.deletedDistricts) {
+    db.deletedDistricts = db.deletedDistricts.filter(d => d.toLowerCase() !== trimmedDist.toLowerCase());
+  }
 
   // 2. Create dealer account
   const salt = bcrypt.genSaltSync(10);
@@ -351,16 +354,27 @@ router.post('/add-district', async (req, res) => {
   };
   db.users.push(newUser);
 
-  // 3. Seed district products & schemes from Master Catalog / EXCEL_PRODUCTS
+  // 3. Seed district products & schemes from Master Catalog (db.products)
   if (!db.districtProducts) db.districtProducts = {};
-  db.districtProducts[trimmedDist] = EXCEL_PRODUCTS.map((p, idx) => ({
-    id: `dp_${trimmedDist.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 3)}_p${idx + 1}`,
-    productId: `prod_${idx + 1}`,
+  const masterList = (db.products && db.products.length > 0) ? db.products : EXCEL_PRODUCTS.map((p, idx) => ({
+    id: `prod_${idx + 1}`,
     name: p.name,
-    schemePrice: p.schemes[0].price,
-    stockAllocated: p.defaultStock,
-    currentStock: p.defaultStock,
-    schemes: JSON.parse(JSON.stringify(p.schemes)),
+    isSpecial: ['PLAY MORE', 'FOUJI', 'EYE SUTRA', 'ALERGY'].includes(p.name.toUpperCase()),
+    defaultPrice: p.schemes[0].price,
+    schemes: p.schemes,
+    isActive: true
+  }));
+
+  const pfx = trimmedDist.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 3);
+  db.districtProducts[trimmedDist] = masterList.map(m => ({
+    id: `dp_${pfx}_${m.id}`,
+    productId: m.id,
+    name: m.name,
+    isSpecial: Boolean(m.isSpecial),
+    schemePrice: (m.schemes && m.schemes[0]) ? m.schemes[0].price : (m.defaultPrice || 2500),
+    stockAllocated: m.defaultStock !== undefined ? m.defaultStock : 0,
+    currentStock: m.defaultStock !== undefined ? m.defaultStock : 0,
+    schemes: JSON.parse(JSON.stringify(m.schemes || [])),
     isActive: true
   }));
 

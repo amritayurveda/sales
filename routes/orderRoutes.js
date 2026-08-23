@@ -5,6 +5,7 @@ const { db, saveDb, logActivity } = require('../config/db');
 const { authenticateToken, enforceDistrictAccess } = require('../middleware/auth');
 const { getServerToday, enforceSameDayForDealers } = require('../middleware/sameDayCheck');
 const { calculateDC } = require('../utils/dcCalculator');
+const { getDistrictProductsSafely } = require('../utils/cashRollover');
 const { triggerLiveEventSync } = require('../services/googleSheetsSync');
 
 const { pool } = require('../config/postgres');
@@ -35,14 +36,14 @@ router.post(
     const cleanCustomerName = (customerName || 'Customer').trim();
     const orderQty = Number(qty) || 1;
 
-    // 1. Find product
-    const distProds = db.districtProducts[district] || [];
-    const item = distProds.find(p => p.productId === productId || p.id === productId);
-    const master = (db.products || []).find(p => p.id === productId || p.name.toUpperCase() === (item ? item.name.toUpperCase() : ''));
-    const prodName = (master && master.name) || (item && item.name) || 'Product';
+    // 1. Find product safely with case-insensitive district lookup
+    const distProds = getDistrictProductsSafely(db, district);
+    const item = distProds.find(p => p.productId === productId || p.id === productId || (p.name && p.name.toUpperCase() === productId.toUpperCase()));
+    const master = (db.products || []).find(p => p.id === productId || (p.name && p.name.toUpperCase() === ((item ? item.name : productId) || '').toUpperCase()));
+    const prodName = (master && master.name) || (item && item.name) || productId;
 
     // 2. Compute DC using active district rule and isSpecial flag
-    const rule = db.dcRules ? db.dcRules[district] : null;
+    const rule = (db.dcRules && (db.dcRules[district] || db.dcRules[district.toLowerCase()])) || null;
     const isSpecial = (item && item.isSpecial) || (master && master.isSpecial) || false;
     const prodObj = { name: prodName, isSpecial };
     let dcRate = calculateDC(rule, priceNum, prodObj, district);
@@ -55,7 +56,7 @@ router.post(
 
     // 3. Deduct stock
     if (item) {
-      item.currentStock = Math.max(0, (item.currentStock || 0) - orderQty);
+      item.currentStock = Math.max(0, (Number(item.currentStock) || 0) - orderQty);
     }
 
     // 3. Create Order Record
