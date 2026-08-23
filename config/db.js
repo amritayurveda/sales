@@ -138,7 +138,9 @@ let db = {
   inwardNotes: {},
   baseOpeningCash: {},
   activityLogs: [],
-  deletedDistricts: ['Rewari', 'Shamli']
+  deletedDistricts: ['Rewari', 'Shamli'],
+  mainWarehouseStock: {},
+  mainStockInwardLogs: []
 };
 
 function getDistricts() {
@@ -392,6 +394,8 @@ function loadLocalDatabase() {
       if (!db.inwardNotes) db.inwardNotes = {};
       if (!db.baseOpeningCash) db.baseOpeningCash = {};
       if (!db.activityLogs) db.activityLogs = [];
+      if (!db.mainWarehouseStock) db.mainWarehouseStock = {};
+      if (!db.mainStockInwardLogs) db.mainStockInwardLogs = [];
       if (!db.deletedDistricts) db.deletedDistricts = ['Rewari', 'Shamli'];
       if (!db.dcRules || Object.keys(db.dcRules).length === 0) {
         db.dcRules = JSON.parse(JSON.stringify(DEFAULT_DC_RULES));
@@ -440,6 +444,8 @@ async function initDb() {
     if (!db.customerOrders) db.customerOrders = [];
     if (!db.stockTransfers) db.stockTransfers = [];
     if (!db.districtProducts) db.districtProducts = {};
+    if (!db.mainWarehouseStock) db.mainWarehouseStock = {};
+    if (!db.mainStockInwardLogs) db.mainStockInwardLogs = [];
     ensureDistrictSchemes();
   } catch (err) {
     console.error('Neon PostgreSQL initialization check warning:', err.message);

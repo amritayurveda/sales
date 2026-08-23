@@ -738,6 +738,26 @@ router.post('/dispatch-stock', authenticateToken, requireAdmin, async (req, res)
     return res.status(400).json({ error: 'At least one valid product and positive quantity is required' });
   }
 
+  // Enforce Central Main Stock constraint: Transfer cannot exceed available Central Stock
+  if (!db.mainWarehouseStock) db.mainWarehouseStock = {};
+  for (const it of parsedItems) {
+    const master = (db.products || []).find(p => p.id === it.productId || (p.name && p.name.toUpperCase() === it.productName.toUpperCase()));
+    const mId = master ? master.id : it.productId;
+    const available = Number(db.mainWarehouseStock[mId]) || 0;
+    if (available < it.qty) {
+      return res.status(400).json({
+        error: `Cannot dispatch ${it.qty} units of "${it.productName}". Only ${available} units available in Central Main Warehouse. Please inward stock first before transferring to branch.`
+      });
+    }
+  }
+
+  // Deduct from Central Main Warehouse
+  for (const it of parsedItems) {
+    const master = (db.products || []).find(p => p.id === it.productId || (p.name && p.name.toUpperCase() === it.productName.toUpperCase()));
+    const mId = master ? master.id : it.productId;
+    db.mainWarehouseStock[mId] = Math.max(0, Math.round(((Number(db.mainWarehouseStock[mId]) || 0) - it.qty) * 10) / 10);
+  }
+
   const totalUnits = parsedItems.reduce((sum, it) => sum + it.qty, 0);
   const summaryTitle = parsedItems.map(i => `${i.productName} (${i.qty})`).join(', ');
 
@@ -773,7 +793,7 @@ router.post('/dispatch-stock', authenticateToken, requireAdmin, async (req, res)
     req.user.role,
     district,
     'STOCK_DISPATCHED',
-    `Dispatched ${totalUnits} units (${parsedItems.length} products: ${summaryTitle}) to ${district} [${transferNo}] (Status: In-Transit)`
+    `Dispatched ${totalUnits} units (${parsedItems.length} products: ${summaryTitle}) to ${district} [${transferNo}] (Status: In-Transit, Deducted from Central Stock)`
   );
 
   await saveDb();
@@ -969,13 +989,24 @@ router.post('/decline-stock/:transferId', authenticateToken, async (req, res) =>
   transfer.declinedAt = now.toISOString();
   transfer.declineReason = (reason || 'Declined by dealer').trim();
 
+  // Restore declined items back to Central Main Warehouse
+  if (!db.mainWarehouseStock) db.mainWarehouseStock = {};
+  const itemsToRestore = (transfer.items && Array.isArray(transfer.items) && transfer.items.length > 0) ? transfer.items : [{ productId: transfer.productId, qty: transfer.qty }];
+  itemsToRestore.forEach(it => {
+    const master = (db.products || []).find(p => p.id === it.productId || p.name.toUpperCase() === (it.productName || '').toUpperCase());
+    const mId = master ? master.id : it.productId;
+    if (mId) {
+      db.mainWarehouseStock[mId] = (Number(db.mainWarehouseStock[mId]) || 0) + (Number(it.qty) || 0);
+    }
+  });
+
   logActivity(
     req.user.id,
     req.user.username,
     req.user.role,
     transfer.district,
     'STOCK_DECLINED',
-    `Dealer ${req.user.username} declined stock consignment [${transfer.transferNo}] for ${transfer.district}. Reason: "${transfer.declineReason}"`
+    `Dealer ${req.user.username} declined stock consignment [${transfer.transferNo}] for ${transfer.district}. Reason: "${transfer.declineReason}" (Units returned to Central Stock)`
   );
 
   await saveDb();
@@ -993,9 +1024,189 @@ router.post('/decline-stock/:transferId', authenticateToken, async (req, res) =>
   }
 
   res.json({
-    message: `Stock consignment [${transfer.transferNo}] has been declined.`,
+    message: `Stock consignment [${transfer.transferNo}] has been declined and returned to Central Main Warehouse.`,
     transfer
   });
+});
+
+// 18. Admin: Central Main Warehouse Stock Summary (Live Distribution Across Central + Branches + Deliveries)
+router.get('/main-stock-summary', authenticateToken, requireAdmin, (req, res) => {
+  const masterProducts = db.products && db.products.length > 0 ? db.products : EXCEL_PRODUCTS.map((p, idx) => ({
+    id: `prod_${idx + 1}`,
+    name: p.name,
+    isSpecial: ['PLAY MORE', 'FOUJI', 'EYE SUTRA', 'ALERGY'].includes(p.name.toUpperCase()),
+    defaultPrice: p.schemes[0].price,
+    schemes: p.schemes,
+    isActive: true
+  }));
+
+  const activeDistricts = getDistricts();
+  const todayStr = new Date().toISOString().slice(0, 10);
+  if (!db.mainWarehouseStock) db.mainWarehouseStock = {};
+  if (!db.stockTransfers) db.stockTransfers = [];
+  if (!db.customerOrders) db.customerOrders = [];
+
+  // Compute live district stock for all districts
+  const districtDayStocks = {};
+  activeDistricts.forEach(dist => {
+    districtDayStocks[dist] = computeDistrictDayStock(db, dist, todayStr);
+  });
+
+  const productsSummary = masterProducts.map(mp => {
+    const mainStock = Number(db.mainWarehouseStock[mp.id]) || 0;
+
+    // In-Transit transfers waiting for dealer acceptance
+    const pendingTransfers = (db.stockTransfers || []).filter(t => t.status === 'PENDING_ACCEPTANCE');
+    let inTransitQty = 0;
+    pendingTransfers.forEach(t => {
+      if (t.items && Array.isArray(t.items)) {
+        t.items.forEach(it => {
+          if (it.productId === mp.id || (it.productName && it.productName.toUpperCase() === mp.name.toUpperCase())) {
+            inTransitQty += (Number(it.qty) || 0);
+          }
+        });
+      } else if (t.productId === mp.id || (t.productName && t.productName.toUpperCase() === mp.name.toUpperCase())) {
+        inTransitQty += (Number(t.qty) || 0);
+      }
+    });
+
+    // Branch Holding Stock breakdown
+    const branchBreakdown = {};
+    let totalBranchStock = 0;
+    activeDistricts.forEach(dist => {
+      const dStock = districtDayStocks[dist];
+      const prodItem = dStock && dStock.products ? dStock.products.find(p => p.productId === mp.id || (p.name && p.name.toUpperCase() === mp.name.toUpperCase())) : null;
+      const closing = prodItem ? Number(prodItem.closingStock) || 0 : 0;
+      branchBreakdown[dist] = closing;
+      totalBranchStock += closing;
+    });
+
+    // Delivered / Sold to customers
+    const soldOrders = (db.customerOrders || []).filter(o => o.productId === mp.id || (o.productName && o.productName.toUpperCase() === mp.name.toUpperCase()));
+    const totalDeliveredQty = soldOrders.reduce((sum, o) => sum + (Number(o.qty) || 0), 0);
+
+    const totalSystemStock = Math.round((mainStock + inTransitQty + totalBranchStock) * 10) / 10;
+    const totalPurchasedOrInwarded = Math.round((totalSystemStock + totalDeliveredQty) * 10) / 10;
+
+    return {
+      productId: mp.id,
+      name: mp.name,
+      isSpecial: Boolean(mp.isSpecial),
+      defaultPrice: mp.defaultPrice || (mp.schemes && mp.schemes[0] ? mp.schemes[0].price : 2500),
+      mainWarehouseStock: mainStock,
+      inTransitStock: inTransitQty,
+      branchStockTotal: Math.round(totalBranchStock * 10) / 10,
+      branchBreakdown,
+      totalDeliveredSales: totalDeliveredQty,
+      totalSystemStock,
+      totalPurchasedOrInwarded
+    };
+  });
+
+  const totals = {
+    totalMainStock: productsSummary.reduce((sum, p) => sum + p.mainWarehouseStock, 0),
+    totalInTransit: productsSummary.reduce((sum, p) => sum + p.inTransitStock, 0),
+    totalBranchStock: Math.round(productsSummary.reduce((sum, p) => sum + p.branchStockTotal, 0) * 10) / 10,
+    totalDeliveredSales: productsSummary.reduce((sum, p) => sum + p.totalDeliveredSales, 0),
+    totalSystemStock: Math.round(productsSummary.reduce((sum, p) => sum + p.totalSystemStock, 0) * 10) / 10
+  };
+
+  res.json({
+    products: productsSummary,
+    totals,
+    activeDistricts
+  });
+});
+
+// 19. Admin: Add / Inward Stock to Central Main Warehouse
+router.post('/inward-main-stock', authenticateToken, requireAdmin, async (req, res) => {
+  const { productId, qty, supplier, invoiceNo, note, date } = req.body;
+  const numQty = Number(qty);
+
+  if (!productId || isNaN(numQty) || numQty <= 0) {
+    return res.status(400).json({ error: 'Valid Product and positive quantity are required' });
+  }
+
+  const masterList = (db.products && db.products.length > 0) ? db.products : EXCEL_PRODUCTS.map((p, idx) => ({
+    id: `prod_${idx + 1}`,
+    name: p.name,
+    isSpecial: ['PLAY MORE', 'FOUJI', 'EYE SUTRA', 'ALERGY'].includes(p.name.toUpperCase()),
+    defaultPrice: p.schemes[0].price,
+    schemes: p.schemes,
+    isActive: true
+  }));
+
+  const master = masterList.find(p => p.id === productId || (p.name && p.name.toUpperCase() === String(productId).toUpperCase()));
+  if (!master) {
+    return res.status(404).json({ error: 'Master product not found' });
+  }
+
+  if (!db.mainWarehouseStock) db.mainWarehouseStock = {};
+  if (!db.mainStockInwardLogs) db.mainStockInwardLogs = [];
+
+  const prevStock = Number(db.mainWarehouseStock[master.id]) || 0;
+  const newStock = Math.round((prevStock + numQty) * 10) / 10;
+  db.mainWarehouseStock[master.id] = newStock;
+
+  const now = new Date();
+  const logEntry = {
+    id: 'inw_' + Date.now() + Math.random().toString(36).slice(2, 6),
+    inwardDate: date || now.toISOString().slice(0, 10),
+    productId: master.id,
+    productName: master.name,
+    qty: numQty,
+    supplier: (supplier || 'Factory / Manufacturer').trim(),
+    invoiceNo: (invoiceNo || '').trim(),
+    note: (note || '').trim(),
+    createdBy: req.user.username,
+    createdAt: now.toISOString()
+  };
+
+  db.mainStockInwardLogs.unshift(logEntry);
+
+  logActivity(
+    req.user.id,
+    req.user.username,
+    req.user.role,
+    'Central Main Warehouse',
+    'MAIN_STOCK_INWARD',
+    `Inwarded ${numQty} units of "${master.name}" into Central Main Warehouse from ${logEntry.supplier} (New Balance: ${newStock} units)`
+  );
+
+  await saveDb();
+
+  // Persist to Neon PostgreSQL tables
+  try {
+    await pool.query(
+      `INSERT INTO main_warehouse_stock (product_id, product_name, current_stock, updated_at)
+       VALUES ($1, $2, $3, $4)
+       ON CONFLICT (product_id) DO UPDATE SET current_stock = $3, updated_at = $4`,
+      [master.id, master.name, newStock, now.toISOString()]
+    );
+    await pool.query(
+      `INSERT INTO main_stock_inward_logs (id, inward_date, product_id, product_name, qty, supplier, invoice_no, note, created_by, created_at)
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+       ON CONFLICT (id) DO NOTHING`,
+      [logEntry.id, logEntry.inwardDate, logEntry.productId, logEntry.productName, logEntry.qty, logEntry.supplier, logEntry.invoiceNo, logEntry.note, logEntry.createdBy, logEntry.createdAt]
+    );
+  } catch (err) {
+    console.error('Postgres main stock inward error:', err.message);
+  }
+
+  res.status(201).json({
+    message: `Successfully inwarded ${numQty} units of "${master.name}" into Central Main Warehouse! Current Stock: ${newStock} units.`,
+    productName: master.name,
+    addedQty: numQty,
+    currentCentralStock: newStock,
+    log: logEntry
+  });
+});
+
+// 20. Admin: Get Central Stock Inward History Logs
+router.get('/main-stock-inward-logs', authenticateToken, requireAdmin, (req, res) => {
+  const limit = Number(req.query.limit) || 100;
+  const logs = (db.mainStockInwardLogs || []).slice(0, limit);
+  res.json({ logs, totalCount: (db.mainStockInwardLogs || []).length });
 });
 
 module.exports = router;

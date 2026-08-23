@@ -182,7 +182,33 @@ async function initPostgresTables() {
       ALTER TABLE stock_transfers ADD COLUMN IF NOT EXISTS decline_reason TEXT;
     `);
 
-    // 10. Key-Value Settings & State Cache Table
+    // 11. Central Main Warehouse Stock Table
+    await client.query(`
+      CREATE TABLE IF NOT EXISTS main_warehouse_stock (
+        product_id VARCHAR(64) PRIMARY KEY,
+        product_name VARCHAR(128) NOT NULL,
+        current_stock NUMERIC DEFAULT 0,
+        updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+      );
+    `);
+
+    // 12. Central Main Warehouse Inward History Logs Table
+    await client.query(`
+      CREATE TABLE IF NOT EXISTS main_stock_inward_logs (
+        id VARCHAR(64) PRIMARY KEY,
+        inward_date DATE NOT NULL,
+        product_id VARCHAR(64) NOT NULL,
+        product_name VARCHAR(128) NOT NULL,
+        qty NUMERIC NOT NULL,
+        supplier VARCHAR(128),
+        invoice_no VARCHAR(64),
+        note TEXT,
+        created_by VARCHAR(64) NOT NULL,
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+      );
+    `);
+
+    // 13. Key-Value Settings & State Cache Table
     await client.query(`
       CREATE TABLE IF NOT EXISTS app_state (
         key VARCHAR(64) PRIMARY KEY,

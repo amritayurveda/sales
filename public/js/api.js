@@ -392,6 +392,22 @@ const API = {
     });
   },
 
+  // Central Main Stock & Warehouse Management
+  async getMainStockSummary() {
+    return this.request('/inventory/main-stock-summary');
+  },
+
+  async inwardMainStock(inwardData) {
+    return this.request('/inventory/inward-main-stock', {
+      method: 'POST',
+      body: JSON.stringify(inwardData)
+    });
+  },
+
+  async getMainStockInwardLogs(limit = 100) {
+    return this.request(`/inventory/main-stock-inward-logs?limit=${limit}`);
+  },
+
   // District & Dealer Management
   async getDistricts() {
     return this.request('/admin/districts');

@@ -108,6 +108,15 @@
       "username": "dealer_saharanpur",
       "createdAt": "2026-08-22T11:05:00.305Z",
       "passwordHash": "$2a$10$ywGt15g4pipoeapCdyVj1ubn9kIiZX2SLGRbq9uvxEmSV6qjOeBK."
+    },
+    {
+      "id": "u_dealer_mt5cysxn703h",
+      "name": "jaipur",
+      "role": "dealer",
+      "district": "jaipur",
+      "username": "dealer_jaipur",
+      "createdAt": "2026-08-23T05:20:07.931Z",
+      "passwordHash": "$2a$10$06mQkBBokmpo1MZEiF1dI.7NOVr/VWPbmA51/RbzXTocrCKyyYKqu"
     }
   ],
   "dcRules": {
@@ -132,6 +141,10 @@
     },
     "Shamli": {
       "type": "custom",
+      "value": 200
+    },
+    "jaipur": {
+      "type": "flat",
       "value": 200
     },
     "Bikaner": {
@@ -666,11 +679,112 @@
     "Faridabad",
     "Gurgaon",
     "Muzaffarnagar",
-    "Saharanpur"
+    "Saharanpur",
+    "jaipur"
   ],
+  "lastOrder": {
+    "id": "ord_1787462590066rb7o",
+    "qty": 1,
+    "date": "2026-08-23",
+    "note": "",
+    "time": "05:23:10",
+    "dcRate": 200,
+    "orderNo": "ORD-297867",
+    "district": "jaipur",
+    "createdAt": "2026-08-23T05:23:10.066Z",
+    "netAmount": 3785,
+    "productId": "prod_1",
+    "unitPrice": 3985,
+    "schemeName": "DAMADAR (₹3,985)",
+    "productName": "DAMADAR",
+    "totalAmount": 3985,
+    "customerName": "Customer",
+    "customerMobile": "9636805238",
+    "dealerUsername": "dealer_jaipur"
+  },
   "milaStock": {},
   "inwardNotes": {},
   "activityLogs": [
+    {
+      "id": "act_1787462999940xukn",
+      "role": "admin",
+      "action": "STOCK_DECLINED",
+      "userId": "u_admin",
+      "details": "Dealer admin declined stock consignment [TRF-679655] for jaipur. Reason: \"Parcel damaged in transit\"",
+      "district": "jaipur",
+      "username": "admin",
+      "timestamp": "2026-08-23T05:29:59.940Z"
+    },
+    {
+      "id": "act_1787462840377e2bc",
+      "role": "admin",
+      "action": "STOCK_DISPATCHED",
+      "userId": "u_admin",
+      "details": "Dispatched 8 units (2 products: SUPRAGUT (3), PILES BASAM (5)) to jaipur [TRF-679655] (Status: In-Transit)",
+      "district": "jaipur",
+      "username": "admin",
+      "timestamp": "2026-08-23T05:27:20.377Z"
+    },
+    {
+      "id": "act_1787462590093huff",
+      "role": "dealer",
+      "action": "CUSTOMER_SALE",
+      "userId": "u_dealer_mt5cysxn703h",
+      "details": "Order ORD-297867: Sold DAMADAR (Price: ₹3985, DC: ₹200, Net: ₹3785) to Customer [9636805238]",
+      "district": "jaipur",
+      "username": "dealer_jaipur",
+      "timestamp": "2026-08-23T05:23:10.093Z"
+    },
+    {
+      "id": "act_17874624082787akl",
+      "role": "admin",
+      "action": "DISTRICT_CREATED",
+      "userId": "u_admin",
+      "details": "Added new district \"jaipur\" with dealer account \"dealer_jaipur\"",
+      "district": "jaipur",
+      "username": "admin",
+      "timestamp": "2026-08-23T05:20:08.278Z"
+    },
+    {
+      "id": "act_178745989292085ew",
+      "role": "admin",
+      "action": "LOGIN",
+      "userId": "u_admin",
+      "details": "User admin (admin) logged in",
+      "district": null,
+      "username": "admin",
+      "timestamp": "2026-08-23T04:38:12.920Z"
+    },
+    {
+      "id": "act_17874579319718f8n",
+      "role": "admin",
+      "action": "DISTRICT_PRODUCT_ASSIGNED",
+      "userId": "u_admin",
+      "details": "Assigned \"NAYAN SANJIVINI\" to Chittorgarh with stock 0",
+      "district": "Chittorgarh",
+      "username": "admin",
+      "timestamp": "2026-08-23T04:05:31.971Z"
+    },
+    {
+      "id": "act_1787457931513k2pn",
+      "role": "admin",
+      "action": "DISTRICT_PRODUCT_ASSIGNED",
+      "userId": "u_admin",
+      "details": "Assigned \"FAT MUKTI\" to Chittorgarh with stock 0",
+      "district": "Chittorgarh",
+      "username": "admin",
+      "timestamp": "2026-08-23T04:05:31.513Z"
+    },
+    {
+      "id": "act_1787457930584foo9",
+      "role": "admin",
+      "action": "DISTRICT_PRODUCT_ASSIGNED",
+      "userId": "u_admin",
+      "details": "Assigned \"HEIGHT VERDAK\" to Chittorgarh with stock 0",
+      "district": "Chittorgarh",
+      "username": "admin",
+      "timestamp": "2026-08-23T04:05:30.584Z"
+    },
     {
       "id": "act_1787457632099ohxg",
       "role": "admin",
@@ -825,6 +939,26 @@
   "inventoryLogs": [],
   "customerOrders": [
     {
+      "id": "ord_1787462590066rb7o",
+      "qty": 1,
+      "date": "2026-08-23",
+      "note": "",
+      "time": "05:23:10",
+      "dcRate": 200,
+      "orderNo": "ORD-297867",
+      "district": "jaipur",
+      "createdAt": "2026-08-23T05:23:10.066Z",
+      "netAmount": 3785,
+      "productId": "prod_1",
+      "unitPrice": 3985,
+      "schemeName": "DAMADAR (₹3,985)",
+      "productName": "DAMADAR",
+      "totalAmount": 3985,
+      "customerName": "Customer",
+      "customerMobile": "9636805238",
+      "dealerUsername": "dealer_jaipur"
+    },
+    {
       "id": "ord_17873893299563fc2",
       "qty": 1,
       "date": "2026-08-22",
@@ -906,6 +1040,38 @@
     }
   ],
   "stockTransfers": [
+    {
+      "id": "trf_1787462840377yhj6",
+      "qty": 8,
+      "note": "JFJ",
+      "items": [
+        {
+          "qty": 3,
+          "productId": "prod_7",
+          "productName": "SUPRAGUT"
+        },
+        {
+          "qty": 5,
+          "productId": "prod_15",
+          "productName": "PILES BASAM"
+        }
+      ],
+      "status": "DECLINED",
+      "district": "jaipur",
+      "challanNo": "1",
+      "productId": "prod_7",
+      "declinedAt": "2026-08-23T05:29:59.940Z",
+      "declinedBy": "admin",
+      "receivedAt": null,
+      "receivedBy": null,
+      "totalUnits": 8,
+      "transferNo": "TRF-679655",
+      "productName": "SUPRAGUT (3), PILES BASAM (5)",
+      "dispatchedAt": "2026-08-23T05:27:20.377Z",
+      "dispatchedBy": "admin",
+      "receivedDate": null,
+      "declineReason": "Parcel damaged in transit"
+    },
     {
       "id": "trf_1787315048625zvl1",
       "qty": 100,
@@ -1152,7 +1318,10 @@
   ],
   "customStockLocks": {
     "Chittorgarh:prod_1": 0,
-    "Chittorgarh:prod_mt4a8rpz6bi": 0
+    "Chittorgarh:prod_mt4a8rpz6bi": 0,
+    "Chittorgarh:prod_mt5a3vdeb76": 0,
+    "Chittorgarh:prod_mt5a43gnmq4": 0,
+    "Chittorgarh:prod_mt5a4arnfw2": 0
   },
   "deletedDistricts": [],
   "districtProducts": {
@@ -2117,6 +2286,464 @@
         "schemePrice": 2500,
         "currentStock": 0,
         "stockAllocated": 0
+      }
+    ],
+    "jaipur": [
+      {
+        "id": "dp_jai_p1",
+        "name": "DAMADAR",
+        "schemes": [
+          {
+            "dc": 250,
+            "id": "sch_dmd_1",
+            "qty": 1,
+            "name": "DMD 1",
+            "price": 3052
+          },
+          {
+            "dc": 500,
+            "id": "sch_dmd_2",
+            "qty": 2,
+            "name": "DMD 2",
+            "price": 6104
+          },
+          {
+            "dc": 750,
+            "id": "sch_dmd_3",
+            "qty": 3,
+            "name": "DMD 3",
+            "price": 9156
+          }
+        ],
+        "isActive": true,
+        "productId": "prod_1",
+        "schemePrice": 3052,
+        "currentStock": 107.1,
+        "stockAllocated": 8.1
+      },
+      {
+        "id": "dp_jai_p2",
+        "name": "TONIC+FM",
+        "schemes": [
+          {
+            "dc": 250,
+            "id": "sch_tfm_1",
+            "qty": 1,
+            "name": "TONIC+FM 1",
+            "price": 2950
+          }
+        ],
+        "isActive": true,
+        "productId": "prod_2",
+        "schemePrice": 2950,
+        "currentStock": 0.1,
+        "stockAllocated": 0.1
+      },
+      {
+        "id": "dp_jai_p3",
+        "name": "AMAR NETRAN",
+        "schemes": [
+          {
+            "dc": 250,
+            "id": "sch_an_1",
+            "qty": 1,
+            "name": "AMAR NETRAN 1",
+            "price": 2500
+          }
+        ],
+        "isActive": true,
+        "productId": "prod_3",
+        "schemePrice": 2500,
+        "currentStock": 11,
+        "stockAllocated": 11
+      },
+      {
+        "id": "dp_jai_p4",
+        "name": "AAROGAYA NET",
+        "schemes": [
+          {
+            "dc": 250,
+            "id": "sch_ag_1",
+            "qty": 1,
+            "name": "AG (Aarogya Net 1)",
+            "price": 2500
+          },
+          {
+            "dc": 500,
+            "id": "sch_ag_2",
+            "qty": 2,
+            "name": "AG (Aarogya Net 2)",
+            "price": 5000
+          }
+        ],
+        "isActive": true,
+        "productId": "prod_4",
+        "schemePrice": 2500,
+        "currentStock": 17.7,
+        "stockAllocated": 17.7
+      },
+      {
+        "id": "dp_jai_p5",
+        "name": "KADWI DAWA",
+        "schemes": [
+          {
+            "dc": 250,
+            "id": "sch_kd_1",
+            "qty": 1,
+            "name": "KD 1",
+            "price": 2870
+          },
+          {
+            "dc": 500,
+            "id": "sch_kd_2",
+            "qty": 2,
+            "name": "KD 2",
+            "price": 5740
+          }
+        ],
+        "isActive": true,
+        "productId": "prod_5",
+        "schemePrice": 2870,
+        "currentStock": 7,
+        "stockAllocated": 7
+      },
+      {
+        "id": "dp_jai_p6",
+        "name": "HEIGH TONIC",
+        "schemes": [
+          {
+            "dc": 250,
+            "id": "sch_ht_1",
+            "qty": 1,
+            "name": "HT (Heigh Tonic 1)",
+            "price": 2950
+          },
+          {
+            "dc": 500,
+            "id": "sch_ht_2",
+            "qty": 2,
+            "name": "HT (Heigh Tonic 2)",
+            "price": 5900
+          }
+        ],
+        "isActive": true,
+        "productId": "prod_6",
+        "schemePrice": 2950,
+        "currentStock": 4,
+        "stockAllocated": 4
+      },
+      {
+        "id": "dp_jai_p7",
+        "name": "SUPRAGUT",
+        "schemes": [
+          {
+            "dc": 250,
+            "id": "sch_sg_1",
+            "qty": 1,
+            "name": "SUPRAGUT 1",
+            "price": 2500
+          }
+        ],
+        "isActive": true,
+        "productId": "prod_7",
+        "schemePrice": 2500,
+        "currentStock": 0,
+        "stockAllocated": 0
+      },
+      {
+        "id": "dp_jai_p8",
+        "name": "RAJ VILLA",
+        "schemes": [
+          {
+            "dc": 250,
+            "id": "sch_rv_1",
+            "qty": 1,
+            "name": "RAJ VILLA 1",
+            "price": 2500
+          }
+        ],
+        "isActive": true,
+        "productId": "prod_8",
+        "schemePrice": 2500,
+        "currentStock": 2.4,
+        "stockAllocated": 2.4
+      },
+      {
+        "id": "dp_jai_p9",
+        "name": "MONEY+HCY",
+        "schemes": [
+          {
+            "dc": 250,
+            "id": "sch_mh_1",
+            "qty": 1,
+            "name": "MONEY+HCY 1",
+            "price": 2500
+          }
+        ],
+        "isActive": true,
+        "productId": "prod_9",
+        "schemePrice": 2500,
+        "currentStock": 4.1,
+        "stockAllocated": 4.1
+      },
+      {
+        "id": "dp_jai_p10",
+        "name": "PV",
+        "schemes": [
+          {
+            "dc": 250,
+            "id": "sch_pv_1",
+            "qty": 1,
+            "name": "PV 1",
+            "price": 2500
+          }
+        ],
+        "isActive": true,
+        "productId": "prod_10",
+        "schemePrice": 2500,
+        "currentStock": 2,
+        "stockAllocated": 2
+      },
+      {
+        "id": "dp_jai_p11",
+        "name": "DS",
+        "schemes": [
+          {
+            "dc": 250,
+            "id": "sch_ds_1",
+            "qty": 1,
+            "name": "DS (Height Sutra 1)",
+            "price": 3580
+          },
+          {
+            "dc": 500,
+            "id": "sch_ds_2",
+            "qty": 2,
+            "name": "DS (Height Sutra 2)",
+            "price": 7160
+          }
+        ],
+        "isActive": true,
+        "productId": "prod_11",
+        "schemePrice": 3580,
+        "currentStock": 6,
+        "stockAllocated": 6
+      },
+      {
+        "id": "dp_jai_p12",
+        "name": "UDAR",
+        "schemes": [
+          {
+            "dc": 250,
+            "id": "sch_udar_1",
+            "qty": 1,
+            "name": "UDAR 1",
+            "price": 2500
+          }
+        ],
+        "isActive": true,
+        "productId": "prod_12",
+        "schemePrice": 2500,
+        "currentStock": 0,
+        "stockAllocated": 0
+      },
+      {
+        "id": "dp_jai_p13",
+        "name": "GUT",
+        "schemes": [
+          {
+            "dc": 250,
+            "id": "sch_gut_1",
+            "qty": 1,
+            "name": "GUT 1",
+            "price": 2500
+          }
+        ],
+        "isActive": true,
+        "productId": "prod_13",
+        "schemePrice": 2500,
+        "currentStock": 0,
+        "stockAllocated": 0
+      },
+      {
+        "id": "dp_jai_p14",
+        "name": "TSO",
+        "schemes": [
+          {
+            "dc": 250,
+            "id": "sch_tso_1",
+            "qty": 1,
+            "name": "TSO 1",
+            "price": 2500
+          }
+        ],
+        "isActive": true,
+        "productId": "prod_14",
+        "schemePrice": 2500,
+        "currentStock": 0,
+        "stockAllocated": 0
+      },
+      {
+        "id": "dp_jai_p15",
+        "name": "PILES BASAM",
+        "schemes": [
+          {
+            "dc": 250,
+            "id": "sch_pb_1",
+            "qty": 1,
+            "name": "PILES BASAM 1",
+            "price": 2500
+          }
+        ],
+        "isActive": true,
+        "productId": "prod_15",
+        "schemePrice": 2500,
+        "currentStock": 0,
+        "stockAllocated": 0
+      },
+      {
+        "id": "dp_jai_p16",
+        "name": "ALCO BAN",
+        "schemes": [
+          {
+            "dc": 250,
+            "id": "sch_ab_1",
+            "qty": 1,
+            "name": "ALCO BAN 1",
+            "price": 2500
+          }
+        ],
+        "isActive": true,
+        "productId": "prod_16",
+        "schemePrice": 2500,
+        "currentStock": 0,
+        "stockAllocated": 0
+      },
+      {
+        "id": "dp_jai_p17",
+        "name": "RSO",
+        "schemes": [
+          {
+            "dc": 250,
+            "id": "sch_rso_1",
+            "qty": 1,
+            "name": "RSO 1",
+            "price": 2500
+          }
+        ],
+        "isActive": true,
+        "productId": "prod_17",
+        "schemePrice": 2500,
+        "currentStock": 0,
+        "stockAllocated": 0
+      },
+      {
+        "id": "dp_jai_p18",
+        "name": "MANI RARTAN",
+        "schemes": [
+          {
+            "dc": 250,
+            "id": "sch_mr_1",
+            "qty": 1,
+            "name": "MANI RARTAN 1",
+            "price": 2500
+          }
+        ],
+        "isActive": true,
+        "productId": "prod_18",
+        "schemePrice": 2500,
+        "currentStock": 0,
+        "stockAllocated": 0
+      },
+      {
+        "id": "dp_jai_p19",
+        "name": "NONI 500 ML",
+        "schemes": [
+          {
+            "dc": 250,
+            "id": "sch_noni_1",
+            "qty": 1,
+            "name": "NONI 500 ML 1",
+            "price": 2500
+          }
+        ],
+        "isActive": true,
+        "productId": "prod_19",
+        "schemePrice": 2500,
+        "currentStock": 0,
+        "stockAllocated": 0
+      },
+      {
+        "id": "dp_jai_p20",
+        "name": "PLAY MORE",
+        "schemes": [
+          {
+            "dc": 170,
+            "id": "sch_pm_1",
+            "qty": 1,
+            "name": "PLAY MORE 1",
+            "price": 2500
+          }
+        ],
+        "isActive": true,
+        "productId": "prod_20",
+        "schemePrice": 2500,
+        "currentStock": 50,
+        "stockAllocated": 50
+      },
+      {
+        "id": "dp_jai_p21",
+        "name": "FOUJI",
+        "schemes": [
+          {
+            "dc": 170,
+            "id": "sch_fj_1",
+            "qty": 1,
+            "name": "FOUJI 1",
+            "price": 2500
+          }
+        ],
+        "isActive": true,
+        "productId": "prod_21",
+        "schemePrice": 2500,
+        "currentStock": 10,
+        "stockAllocated": 10
+      },
+      {
+        "id": "dp_jai_p22",
+        "name": "EYE SUTRA",
+        "schemes": [
+          {
+            "dc": 170,
+            "id": "sch_es_1",
+            "qty": 1,
+            "name": "EYE SUTRA 1",
+            "price": 2500
+          }
+        ],
+        "isActive": true,
+        "productId": "prod_22",
+        "schemePrice": 2500,
+        "currentStock": 15,
+        "stockAllocated": 15
+      },
+      {
+        "id": "dp_jai_p23",
+        "name": "ALERGY",
+        "schemes": [
+          {
+            "dc": 170,
+            "id": "sch_alg_1",
+            "qty": 1,
+            "name": "ALERGY 1",
+            "price": 2500
+          }
+        ],
+        "isActive": true,
+        "productId": "prod_23",
+        "schemePrice": 2500,
+        "currentStock": 12,
+        "stockAllocated": 12
       }
     ],
     "BIKANER": [
@@ -4387,6 +5014,66 @@
         "schemePrice": 2500,
         "currentStock": 0,
         "stockAllocated": 0
+      },
+      {
+        "id": "dp_chi_prod_mt5a3vdeb76",
+        "name": "HEIGHT VERDAK",
+        "schemes": [
+          {
+            "dc": 250,
+            "id": "sch_prod_mt5a3vdeb76_1",
+            "qty": 1,
+            "name": "HEIGHT VERDAK 1",
+            "price": 2500
+          }
+        ],
+        "isActive": true,
+        "isSpecial": false,
+        "productId": "prod_mt5a3vdeb76",
+        "schemePrice": 2500,
+        "currentStock": 0,
+        "stockAllocated": 0,
+        "isCustomStockLocked": true
+      },
+      {
+        "id": "dp_chi_prod_mt5a43gnmq4",
+        "name": "FAT MUKTI",
+        "schemes": [
+          {
+            "dc": 250,
+            "id": "sch_prod_mt5a43gnmq4_1",
+            "qty": 1,
+            "name": "FAT MUKTI 1",
+            "price": 2500
+          }
+        ],
+        "isActive": true,
+        "isSpecial": false,
+        "productId": "prod_mt5a43gnmq4",
+        "schemePrice": 2500,
+        "currentStock": 0,
+        "stockAllocated": 0,
+        "isCustomStockLocked": true
+      },
+      {
+        "id": "dp_chi_prod_mt5a4arnfw2",
+        "name": "NAYAN SANJIVINI",
+        "schemes": [
+          {
+            "dc": 250,
+            "id": "sch_prod_mt5a4arnfw2_1",
+            "qty": 1,
+            "name": "NAYAN SANJIVINI 1",
+            "price": 2500
+          }
+        ],
+        "isActive": true,
+        "isSpecial": false,
+        "productId": "prod_mt5a4arnfw2",
+        "schemePrice": 2500,
+        "currentStock": 0,
+        "stockAllocated": 0,
+        "isCustomStockLocked": true
       }
     ],
     "UTTARAKHAND": [
@@ -6469,5 +7156,10 @@
         "stockAllocated": 0
       }
     ]
-  }
+  },
+  "lastOrderTimestamp": 1787462590093,
+  "mainWarehouseStock": {
+    "prod_1": 0
+  },
+  "mainStockInwardLogs": []
 }

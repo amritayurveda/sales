@@ -1287,6 +1287,7 @@
 
       <div class="card" style="margin-bottom:20px;">
         <div class="admin-nav">
+          <button class="admin-tab ${state.adminTab === 'main-stock' ? 'active' : ''}" onclick="switchAdminTab('main-stock')">🏢 Central Main Stock &amp; Warehouse</button>
           <button class="admin-tab ${state.adminTab === 'matrix' ? 'active' : ''}" onclick="switchAdminTab('matrix')">📊 12-District Matrix</button>
           <button class="admin-tab ${state.adminTab === 'district-products' ? 'active' : ''}" onclick="switchAdminTab('district-products')">📋 District Products &amp; Stock</button>
           <button class="admin-tab ${state.adminTab === 'dispatch' ? 'active' : ''}" onclick="switchAdminTab('dispatch')">🚚 Stock Dispatch &amp; In-Transit</button>
@@ -1300,7 +1301,9 @@
       </div>
     `;
 
-    if (state.adminTab === 'matrix') {
+    if (state.adminTab === 'main-stock') {
+      await loadAdminMainStock();
+    } else if (state.adminTab === 'matrix') {
       await loadAdminMatrix();
     } else if (state.adminTab === 'district-products') {
       await loadAdminDistrictProducts();
@@ -1322,6 +1325,420 @@
   window.switchAdminTab = (tab) => {
     state.adminTab = tab;
     renderAdminConsole();
+  };
+
+  // ================= CENTRAL MAIN STOCK & WAREHOUSE MANAGER =================
+  let mainStockSearchQuery = '';
+
+  async function loadAdminMainStock() {
+    const container = $('adminTabContent');
+    container.innerHTML = '<div style="padding:30px;text-align:center;">Loading Central Main Stock &amp; Warehouse Inventory...</div>';
+
+    try {
+      const [summaryRes, logsRes] = await Promise.all([
+        API.getMainStockSummary(),
+        API.getMainStockInwardLogs(15).catch(() => ({ logs: [] }))
+      ]);
+
+      const products = summaryRes.products || [];
+      const totals = summaryRes.totals || {};
+      const activeDistricts = summaryRes.activeDistricts || [];
+      const inwardLogs = logsRes.logs || [];
+
+      // Filter products if search query exists
+      const filteredProducts = mainStockSearchQuery ? products.filter(p => p.name.toLowerCase().includes(mainStockSearchQuery.toLowerCase())) : products;
+
+      let html = `
+        <div style="margin-bottom:20px;">
+          <!-- Top Title & Action Bar -->
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:18px;">
+            <div>
+              <h3 style="margin:0;font-size:18px;color:var(--forest-deep);display:flex;align-items:center;gap:8px;">
+                <span>🏢 Central Main Warehouse &amp; Inventory Hub</span>
+              </h3>
+              <span style="font-size:12.5px;color:var(--ink-soft);display:block;margin-top:2px;">
+                Central Stock receives all inventory from factory. Dispatches to branches strictly deduct from this Central pool.
+              </span>
+            </div>
+            <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;">
+              <button class="btn btn-primary" onclick="promptInwardMainStock()" style="font-weight:700;padding:8px 18px;font-size:13.5px;background:var(--forest-deep);border-color:var(--forest-deep);">
+                ➕ Inward Stock to Central
+              </button>
+              <button class="btn btn-secondary" onclick="switchAdminTab('dispatch')" style="font-weight:700;padding:8px 16px;">
+                🚚 Transfer Stock to Branch
+              </button>
+              <button class="btn btn-secondary" onclick="loadAdminMainStock()" title="Refresh Live Inventory">
+                🔄 Refresh
+              </button>
+            </div>
+          </div>
+
+          <!-- 4 Executive KPI Metric Cards -->
+          <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(210px, 1fr));gap:14px;margin-bottom:20px;">
+            <div class="card" style="background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:10px;padding:16px;">
+              <div style="font-size:11.5px;font-weight:700;color:#166534;text-transform:uppercase;letter-spacing:0.5px;">
+                🏢 Available Central Stock
+              </div>
+              <div class="mono" style="font-size:26px;font-weight:800;color:#14532D;margin-top:6px;">
+                ${fmt(totals.totalMainStock)} <span style="font-size:13px;font-weight:600;color:#166534;">Units</span>
+              </div>
+              <div style="font-size:11.5px;color:#15803D;margin-top:4px;">
+                At Head Office Warehouse
+              </div>
+            </div>
+
+            <div class="card" style="background:#FFFBEB;border:1.5px solid #FDE68A;border-radius:10px;padding:16px;">
+              <div style="font-size:11.5px;font-weight:700;color:#92400E;text-transform:uppercase;letter-spacing:0.5px;">
+                🚚 In-Transit to Branches
+              </div>
+              <div class="mono" style="font-size:26px;font-weight:800;color:#78350F;margin-top:6px;">
+                ${fmt(totals.totalInTransit)} <span style="font-size:13px;font-weight:600;color:#92400E;">Units</span>
+              </div>
+              <div style="font-size:11.5px;color:#B45309;margin-top:4px;">
+                Dispatched, pending dealer receipt
+              </div>
+            </div>
+
+            <div class="card" style="background:#EFF6FF;border:1.5px solid #BFDBFE;border-radius:10px;padding:16px;">
+              <div style="font-size:11.5px;font-weight:700;color:#1E40AF;text-transform:uppercase;letter-spacing:0.5px;">
+                🏪 Active Branch Stock
+              </div>
+              <div class="mono" style="font-size:26px;font-weight:800;color:#1E3A8A;margin-top:6px;">
+                ${fmt(totals.totalBranchStock)} <span style="font-size:13px;font-weight:600;color:#1E40AF;">Units</span>
+              </div>
+              <div style="font-size:11.5px;color:#2563EB;margin-top:4px;">
+                Across ${activeDistricts.length} branch registers
+              </div>
+            </div>
+
+            <div class="card" style="background:#FAF5FF;border:1.5px solid #E9D5FF;border-radius:10px;padding:16px;">
+              <div style="font-size:11.5px;font-weight:700;color:#6B21A8;text-transform:uppercase;letter-spacing:0.5px;">
+                📦 Delivered Customer Sales
+              </div>
+              <div class="mono" style="font-size:26px;font-weight:800;color:#581C87;margin-top:6px;">
+                ${fmt(totals.totalDeliveredSales)} <span style="font-size:13px;font-weight:600;color:#6B21A8;">Units</span>
+              </div>
+              <div style="font-size:11.5px;color:#7E22CE;margin-top:4px;">
+                Subtracted upon customer delivery
+              </div>
+            </div>
+          </div>
+
+          <!-- Master Inventory Distribution Matrix -->
+          <div class="card" style="margin-bottom:20px;">
+            <div class="card-header excel-head-yellow" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+              <div>
+                <h3 style="margin:0;font-size:15px;">📊 COMPLETE MASTER INVENTORY DISTRIBUTION &amp; AUDIT MATRIX</h3>
+                <span style="font-size:11.5px;color:#5C4B00;">
+                  Live tracking of Central Warehouse vs Branches vs Customer Deliveries
+                </span>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;">
+                <input 
+                  type="text" 
+                  id="mainStockSearchInp" 
+                  placeholder="🔍 Search product..." 
+                  value="${escapeHtml(mainStockSearchQuery)}" 
+                  oninput="onMainStockSearch(this.value)"
+                  style="font-size:12px;padding:5px 10px;border-radius:6px;border:1px solid #CBD5E1;width:180px;"
+                >
+              </div>
+            </div>
+
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr class="excel-head-yellow">
+                    <th style="width:30px;">#</th>
+                    <th>PRODUCT NAME</th>
+                    <th style="width:120px;text-align:center;">CLASSIFICATION</th>
+                    <th style="text-align:right;width:140px;background:#DCFCE7;color:#14532D;">🏢 CENTRAL STOCK</th>
+                    <th style="text-align:right;width:120px;background:#FEF3C7;color:#78350F;">🚚 IN-TRANSIT</th>
+                    <th style="text-align:right;width:170px;background:#DBEAFE;color:#1E3A8A;">🏪 BRANCH STOCK</th>
+                    <th style="text-align:right;width:130px;">📦 DELIVERED</th>
+                    <th style="text-align:right;width:140px;font-weight:800;">TOTAL SYSTEM</th>
+                    <th style="text-align:center;width:170px;">QUICK ACTION</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${filteredProducts.length === 0 ? `
+                    <tr><td colspan="9" style="padding:30px;text-align:center;color:var(--ink-soft);">No matching products found.</td></tr>
+                  ` : filteredProducts.map((p, idx) => {
+                    const isCentralLow = p.mainWarehouseStock <= 0;
+                    return `
+                      <tr style="${isCentralLow ? 'background:#FFFDFD;' : ''}">
+                        <td class="mono" style="font-size:11px;color:var(--ink-soft);">${idx + 1}</td>
+                        <td class="prod-name">
+                          <strong style="font-size:14px;">${escapeHtml(p.name)}</strong>
+                          <span style="font-size:11px;color:var(--ink-soft);display:block;">
+                            Base Price: ₹${fmt(p.defaultPrice)}
+                          </span>
+                        </td>
+                        <td style="text-align:center;">
+                          ${p.isSpecial ? `
+                            <span style="background:#FEF3C7;color:#92400E;border:1px solid #F59E0B;padding:2px 7px;border-radius:4px;font-size:10.5px;font-weight:700;">
+                              ⭐ SPECIAL
+                            </span>
+                          ` : `
+                            <span style="background:#F1F5F9;color:#64748B;border:1px solid #CBD5E1;padding:2px 7px;border-radius:4px;font-size:10.5px;font-weight:600;">
+                              STANDARD
+                            </span>
+                          `}
+                        </td>
+                        <td style="text-align:right;background:#F0FDF4;border-left:1px solid #DCFCE7;border-right:1px solid #DCFCE7;">
+                          <strong class="mono" style="font-size:15px;color:${isCentralLow ? 'var(--danger)' : '#15803D'};">
+                            ${fmt(p.mainWarehouseStock)}
+                          </strong>
+                          <span style="font-size:11px;color:var(--ink-soft);display:block;">
+                            ${isCentralLow ? '⚠️ Out of Central Stock' : 'Units Available'}
+                          </span>
+                        </td>
+                        <td style="text-align:right;background:#FFFBEB;border-right:1px solid #FEF3C7;">
+                          <span class="mono" style="font-size:14px;font-weight:700;color:${p.inTransitStock > 0 ? '#B45309' : 'var(--ink-soft)'};">
+                            ${p.inTransitStock > 0 ? `+${fmt(p.inTransitStock)}` : '0'}
+                          </span>
+                        </td>
+                        <td style="text-align:right;background:#EFF6FF;border-right:1px solid #DBEAFE;">
+                          <div style="display:flex;justify-content:flex-end;align-items:center;gap:6px;">
+                            <strong class="mono" style="font-size:14px;color:#1D4ED8;">
+                              ${fmt(p.branchStockTotal)}
+                            </strong>
+                            <button 
+                              class="btn btn-secondary btn-sm" 
+                              style="font-size:10.5px;padding:2px 6px;line-height:1;" 
+                              onclick="toggleProductBranchesBreakdown('${p.productId}')"
+                              title="View branch breakdown"
+                            >
+                              👁️ View Branches
+                            </button>
+                          </div>
+                        </td>
+                        <td style="text-align:right;">
+                          <strong class="mono" style="color:#6B21A8;font-size:13px;">${fmt(p.totalDeliveredSales)}</strong>
+                        </td>
+                        <td style="text-align:right;font-weight:800;">
+                          <span class="mono" style="font-size:15px;color:var(--ink);">${fmt(p.totalSystemStock)}</span>
+                        </td>
+                        <td style="text-align:center;">
+                          <div style="display:flex;gap:6px;justify-content:center;flex-wrap:wrap;">
+                            <button class="btn btn-primary btn-sm" style="font-size:11px;padding:4px 8px;font-weight:700;background:var(--forest-deep);border-color:var(--forest-deep);" onclick="promptInwardMainStock('${p.productId}')">
+                              ➕ Inward
+                            </button>
+                            <button class="btn btn-secondary btn-sm" style="font-size:11px;padding:4px 8px;font-weight:600;" onclick="switchAdminTab('dispatch')">
+                              🚚 Transfer
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                      <!-- Expandable District Breakdown Row -->
+                      <tr id="breakdown_${p.productId}" style="display:none;background:#F8FAFC;">
+                        <td colspan="9" style="padding:10px 18px;border-bottom:2px solid #CBD5E1;">
+                          <div style="font-size:12px;font-weight:700;color:var(--ink-soft);margin-bottom:8px;display:flex;justify-content:space-between;align-items:center;">
+                            <span>🏪 Active Branch Holding Breakdown for <strong>${escapeHtml(p.name)}</strong>:</span>
+                            <span class="mono" style="color:#1D4ED8;">Total Branch Stock = ${fmt(p.branchStockTotal)} Units</span>
+                          </div>
+                          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+                            ${Object.keys(p.branchBreakdown || {}).map(dist => {
+                              const q = p.branchBreakdown[dist];
+                              return `
+                                <div style="background:#FFF;border:1px solid #E2E8F0;border-radius:6px;padding:4px 10px;font-size:12px;display:flex;align-items:center;gap:6px;">
+                                  <span style="color:var(--ink);">📍 ${escapeHtml(dist)}:</span>
+                                  <strong class="mono" style="color:${q > 0 ? '#15803D' : '#94A3B8'};font-weight:700;">${q}</strong>
+                                </div>
+                              `;
+                            }).join('')}
+                          </div>
+                        </td>
+                      </tr>
+                    `;
+                  }).join('')}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Central Stock Inward History Logs -->
+          <div class="card">
+            <div class="card-header excel-head-yellow" style="display:flex;justify-content:space-between;align-items:center;">
+              <h3 style="margin:0;font-size:15px;">📥 RECENT CENTRAL WAREHOUSE INWARD HISTORY LOG</h3>
+              <span class="mono" style="font-size:12px;font-weight:700;">${inwardLogs.length} RECENT INWARD SHIPMENTS</span>
+            </div>
+            <div class="table-wrap" style="max-height:300px;">
+              <table>
+                <thead>
+                  <tr class="excel-head-yellow">
+                    <th style="width:30px;">#</th>
+                    <th>INWARD DATE</th>
+                    <th>PRODUCT NAME</th>
+                    <th style="text-align:right;">INWARD QUANTITY</th>
+                    <th>SUPPLIER / SOURCE</th>
+                    <th>INVOICE / CHALLAN #</th>
+                    <th>NOTES</th>
+                    <th>RECEIVED BY</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${inwardLogs.length === 0 ? `
+                    <tr><td colspan="8" style="padding:25px;text-align:center;color:var(--ink-soft);">No inward shipments recorded yet. Click "➕ Inward Stock to Central" to record incoming stock.</td></tr>
+                  ` : inwardLogs.map((log, idx) => `
+                    <tr>
+                      <td class="mono" style="font-size:11px;color:var(--ink-soft);">${idx + 1}</td>
+                      <td class="mono" style="font-weight:600;">${escapeHtml(log.inwardDate || log.createdAt.slice(0, 10))}</td>
+                      <td class="prod-name"><strong>${escapeHtml(log.productName)}</strong></td>
+                      <td style="text-align:right;font-weight:700;color:var(--good);" class="mono">+${fmt(log.qty)} Units</td>
+                      <td>${escapeHtml(log.supplier || 'Factory')}</td>
+                      <td>${log.invoiceNo ? `<code>${escapeHtml(log.invoiceNo)}</code>` : '—'}</td>
+                      <td style="font-size:12px;color:var(--ink-soft);">${escapeHtml(log.note || '—')}</td>
+                      <td style="font-size:11.5px;">${escapeHtml(log.createdBy || 'Admin')}</td>
+                    </tr>
+                  `).join('')}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      `;
+
+      container.innerHTML = html;
+    } catch (err) {
+      container.innerHTML = `<div style="color:var(--danger);padding:20px;">Failed to load Central Main Stock: ${err.message}</div>`;
+    }
+  }
+
+  window.onMainStockSearch = (q) => {
+    mainStockSearchQuery = q || '';
+    loadAdminMainStock();
+  };
+
+  window.toggleProductBranchesBreakdown = (pid) => {
+    const row = $(`breakdown_${pid}`);
+    if (row) {
+      row.style.display = row.style.display === 'none' ? 'table-row' : 'none';
+    }
+  };
+
+  window.promptInwardMainStock = async (preselectProductId) => {
+    try {
+      let masterProducts = [];
+      try {
+        const pRes = await API.getMasterProducts();
+        masterProducts = pRes.products || [];
+      } catch (e) {
+        masterProducts = EXCEL_PRODUCTS.map((p, idx) => ({ id: `prod_${idx + 1}`, name: p.name }));
+      }
+
+      const today = state.serverToday || getTodayDateStr();
+
+      const modalHtml = `
+        <div class="modal-overlay" id="inwardModal" style="position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);z-index:9999;display:flex;align-items:center;justify-content:center;padding:16px;">
+          <div style="background:#fff;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.25);width:100%;max-width:520px;overflow:hidden;animation:fadeIn 0.2s ease;">
+            <div style="background:var(--forest-deep);color:#fff;padding:16px 20px;display:flex;justify-content:space-between;align-items:center;">
+              <h3 style="margin:0;font-size:16.5px;color:#fff;display:flex;align-items:center;gap:8px;">
+                <span>➕ Inward Stock to Central Main Warehouse</span>
+              </h3>
+              <button onclick="closeInwardModal()" style="background:none;border:none;color:#fff;font-size:20px;cursor:pointer;">✕</button>
+            </div>
+
+            <form onsubmit="submitInwardMainStock(event)" style="padding:20px;">
+              <div style="margin-bottom:14px;">
+                <label class="field-label">1. Select Product *</label>
+                <select id="inwardProductId" class="input-lg" required style="width:100%;">
+                  <option value="">-- Choose Master Product --</option>
+                  ${masterProducts.map(p => `
+                    <option value="${p.id}" ${preselectProductId === p.id ? 'selected' : ''}>
+                      ${escapeHtml(p.name)}
+                    </option>
+                  `).join('')}
+                </select>
+              </div>
+
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
+                <div>
+                  <label class="field-label">2. Inward Quantity (Units) *</label>
+                  <input type="number" id="inwardQty" class="input-lg mono" placeholder="e.g. 500" min="1" step="1" required style="font-weight:700;width:100%;">
+                </div>
+
+                <div>
+                  <label class="field-label">3. Inward Date *</label>
+                  <input type="date" id="inwardDate" class="input-lg mono" value="${today}" required style="width:100%;">
+                </div>
+              </div>
+
+              <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:12px;margin-bottom:14px;">
+                <div>
+                  <label class="field-label">4. Supplier / Manufacturer</label>
+                  <input type="text" id="inwardSupplier" class="input-lg" placeholder="e.g. Factory Direct / Amrit Herbal" style="width:100%;">
+                </div>
+
+                <div>
+                  <label class="field-label">5. Invoice / Bill / Batch #</label>
+                  <input type="text" id="inwardInvoice" class="input-lg mono" placeholder="e.g. INV-9041" style="width:100%;">
+                </div>
+              </div>
+
+              <div style="margin-bottom:18px;">
+                <label class="field-label">6. Shipment / Receipt Note (Optional)</label>
+                <input type="text" id="inwardNote" class="form-input" placeholder="e.g. Fresh manufacturing batch received in Central Warehouse" style="width:100%;font-size:13px;padding:8px 12px;border-radius:6px;">
+              </div>
+
+              <div style="display:flex;justify-content:flex-end;gap:10px;">
+                <button type="button" class="btn btn-secondary" onclick="closeInwardModal()">Cancel</button>
+                <button type="submit" id="inwardSubmitBtn" class="btn btn-primary" style="padding:10px 22px;font-weight:700;background:var(--forest-deep);border-color:var(--forest-deep);">
+                  ➕ Add to Central Main Stock
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      `;
+
+      const existing = $('inwardModal');
+      if (existing) existing.remove();
+      document.body.insertAdjacentHTML('beforeend', modalHtml);
+    } catch (e) {
+      showToast('Error opening inward modal: ' + e.message, 'error');
+    }
+  };
+
+  window.closeInwardModal = () => {
+    const modal = $('inwardModal');
+    if (modal) modal.remove();
+  };
+
+  window.submitInwardMainStock = async (e) => {
+    e.preventDefault();
+    const btn = $('inwardSubmitBtn');
+    const productId = $('inwardProductId').value;
+    const qty = parseFloat($('inwardQty').value);
+    const date = $('inwardDate').value;
+    const supplier = ($('inwardSupplier').value || '').trim();
+    const invoiceNo = ($('inwardInvoice').value || '').trim();
+    const note = ($('inwardNote').value || '').trim();
+
+    if (!productId || isNaN(qty) || qty <= 0) {
+      alert('Please select product and enter valid quantity.');
+      return;
+    }
+
+    if (btn) {
+      btn.disabled = true;
+      btn.textContent = 'Saving to Central Stock...';
+    }
+
+    try {
+      const res = await API.inwardMainStock({ productId, qty, date, supplier, invoiceNo, note });
+      showToast(res.message, 'success');
+      closeInwardModal();
+      if (state.adminTab === 'main-stock') {
+        await loadAdminMainStock();
+      }
+    } catch (err) {
+      showToast('Failed to inward stock: ' + err.message, 'error');
+      if (btn) {
+        btn.disabled = false;
+        btn.textContent = '➕ Add to Central Main Stock';
+      }
+    }
   };
 
   async function loadAdminMatrix() {
