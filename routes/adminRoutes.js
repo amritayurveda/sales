@@ -17,7 +17,7 @@ router.get('/live-feed', (req, res) => {
 
   const todayOrders = (db.customerOrders || []).filter(o => o.date === date);
   const latestOrder = todayOrders[0] || null;
-  const lastTimestamp = db.lastOrderTimestamp || (latestOrder ? new Date(latestOrder.createdAt).getTime() : Date.now());
+  const lastTimestamp = db.lastOrderTimestamp || (latestOrder ? new Date(latestOrder.createdAt).getTime() : 0);
 
   const hasNew = (since > 0 && lastTimestamp > since);
 

@@ -317,7 +317,15 @@
               await loadAdminActivityLogs();
             }
           } else {
-            await loadDistrictData();
+            // If user is actively typing or selecting in the Add Sale form, do not destroy form DOM
+            const isFormActive = $('fastSchemeForm') && (
+              (document.activeElement && $('fastSchemeForm').contains(document.activeElement)) ||
+              ($('fastProductSelect') && $('fastProductSelect').value) ||
+              ($('fastCustomerMobile') && $('fastCustomerMobile').value)
+            );
+            if (!isFormActive) {
+              await loadDistrictData();
+            }
           }
         }
       } catch (e) {
@@ -356,6 +364,8 @@
     updateDateDisplay();
 
     try {
+      const scrollPos = window.scrollY || document.documentElement.scrollTop || 0;
+
       // 1. Parallel loading of Stock Register, Rolling Day Cash, Full Historical Ledger, and Inward Transfers
       const [stockRes, cashRes, historyRes, transfersRes] = await Promise.all([
         API.getDistrictDayStock(state.currentDistrict, state.currentDate),
@@ -373,6 +383,11 @@
 
       updateStatusBanner();
       renderExcelDashboard();
+
+      // Restore scroll position so screen never jumps down
+      if (scrollPos > 0) {
+        window.scrollTo({ top: scrollPos, behavior: 'instant' });
+      }
     } catch (err) {
       showToast('Error loading district data: ' + err.message, 'error');
       const main = $('mainContent');
@@ -1022,7 +1037,7 @@
 
     prodSel.addEventListener('change', () => {
       const pid = prodSel.value;
-      currentProduct = products.find(p => p.productId === pid);
+      currentProduct = products.find(p => p.productId === pid || p.id === pid);
 
       if (!currentProduct) {
         priceInp.value = '';
@@ -1030,11 +1045,10 @@
         return;
       }
 
-      // No default price forced: user enters price freely
-      priceInp.value = '';
-      priceInp.placeholder = 'Enter Sale Price (₹)';
+      // Pre-populate with default price (fully editable)
+      const defPrice = currentProduct.schemePrice || currentProduct.defaultPrice || (currentProduct.schemes && currentProduct.schemes[0] ? currentProduct.schemes[0].price : 2500);
+      priceInp.value = defPrice;
       updatePricePreview();
-      priceInp.focus();
     });
 
     priceInp.addEventListener('input', updatePricePreview);
