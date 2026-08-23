@@ -238,7 +238,209 @@ router.delete('/master-product/:id', authenticateToken, requireAdmin, async (req
 
 // ================= DISTRICT ALLOCATION (STRICTLY FROM MASTER LIST) =================
 
-// 8. Admin: Assign Master Product to a District
+// 7.1 Admin: Get Full Master Products Matrix for a District (with tick assignment & stock)
+router.get('/district-matrix/:district', authenticateToken, requireAdmin, (req, res) => {
+  const { district } = req.params;
+  const distProducts = getDistrictProductsSafely(db, district);
+  const masterProducts = db.products && db.products.length > 0 ? db.products : EXCEL_PRODUCTS.map((p, idx) => ({
+    id: `prod_${idx + 1}`,
+    name: p.name,
+    isSpecial: ['PLAY MORE', 'FOUJI', 'EYE SUTRA', 'ALERGY'].includes(p.name.toUpperCase()),
+    defaultPrice: p.schemes[0].price,
+    schemes: p.schemes,
+    isActive: true
+  }));
+
+  const locks = db.customStockLocks || {};
+
+  const matrix = masterProducts.map(mp => {
+    const assigned = distProducts.find(dp => dp.productId === mp.id || dp.name.toUpperCase() === mp.name.toUpperCase());
+    const lockKey = `${district}:${mp.id}`;
+    const isLocked = locks[lockKey] !== undefined;
+    const stockAllocated = assigned ? Number(assigned.stockAllocated) || 0 : (isLocked ? Number(locks[lockKey]) : 0);
+
+    return {
+      masterId: mp.id,
+      name: mp.name,
+      isSpecial: Boolean(mp.isSpecial || (assigned && assigned.isSpecial)),
+      schemes: mp.schemes || (assigned && assigned.schemes) || [],
+      defaultPrice: mp.defaultPrice || (assigned && assigned.schemePrice) || 2500,
+      isAssigned: Boolean(assigned),
+      districtProductId: assigned ? assigned.id : null,
+      stockAllocated,
+      currentStock: assigned ? Number(assigned.currentStock) || 0 : stockAllocated,
+      isCustomStockLocked: isLocked || Boolean(assigned && assigned.isCustomStockLocked)
+    };
+  });
+
+  res.json({
+    district,
+    totalMaster: masterProducts.length,
+    assignedCount: distProducts.length,
+    matrix
+  });
+});
+
+// 7.2 Admin: Toggle Single Product Assignment to a District (Tick / Untick)
+router.post('/district-product-toggle', authenticateToken, requireAdmin, async (req, res) => {
+  const { district, masterProductId, isAssigned, initialStock } = req.body;
+
+  if (!district || !masterProductId) {
+    return res.status(400).json({ error: 'District and masterProductId are required' });
+  }
+
+  if (!db.districtProducts) db.districtProducts = {};
+  if (!db.districtProducts[district]) db.districtProducts[district] = [];
+
+  const masterList = db.products && db.products.length > 0 ? db.products : EXCEL_PRODUCTS.map((p, idx) => ({
+    id: `prod_${idx + 1}`,
+    name: p.name,
+    isSpecial: ['PLAY MORE', 'FOUJI', 'EYE SUTRA', 'ALERGY'].includes(p.name.toUpperCase()),
+    defaultPrice: p.schemes[0].price,
+    schemes: p.schemes,
+    isActive: true
+  }));
+
+  const master = masterList.find(p => p.id === masterProductId || p.name.toUpperCase() === masterProductId.toUpperCase());
+  if (!master) {
+    return res.status(404).json({ error: 'Master product not found' });
+  }
+
+  const existingIdx = db.districtProducts[district].findIndex(p => p.productId === master.id || p.name.toUpperCase() === master.name.toUpperCase());
+
+  if (isAssigned) {
+    const stockNum = initialStock !== undefined && !isNaN(Number(initialStock)) ? Number(initialStock) : 0;
+    if (existingIdx === -1) {
+      const pfx = district.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 3);
+      const newDistrictProduct = {
+        id: `dp_${pfx}_${master.id}`,
+        productId: master.id,
+        name: master.name,
+        isSpecial: Boolean(master.isSpecial),
+        schemePrice: (master.schemes && master.schemes[0]) ? master.schemes[0].price : (master.defaultPrice || 2500),
+        stockAllocated: stockNum,
+        currentStock: stockNum,
+        schemes: JSON.parse(JSON.stringify(master.schemes || [])),
+        isActive: true,
+        isCustomStockLocked: true
+      };
+      db.districtProducts[district].push(newDistrictProduct);
+      if (!db.customStockLocks) db.customStockLocks = {};
+      db.customStockLocks[`${district}:${master.id}`] = stockNum;
+    } else {
+      if (initialStock !== undefined && !isNaN(Number(initialStock))) {
+        db.districtProducts[district][existingIdx].stockAllocated = stockNum;
+        db.districtProducts[district][existingIdx].currentStock = stockNum;
+        db.districtProducts[district][existingIdx].isCustomStockLocked = true;
+        if (!db.customStockLocks) db.customStockLocks = {};
+        db.customStockLocks[`${district}:${master.id}`] = stockNum;
+      }
+    }
+
+    logActivity(
+      req.user.id,
+      req.user.username,
+      req.user.role,
+      district,
+      'DISTRICT_PRODUCT_ASSIGNED',
+      `Assigned "${master.name}" to ${district} with stock ${stockNum}`
+    );
+  } else {
+    // Untick / Remove
+    if (existingIdx !== -1) {
+      db.districtProducts[district].splice(existingIdx, 1);
+      logActivity(
+        req.user.id,
+        req.user.username,
+        req.user.role,
+        district,
+        'DISTRICT_PRODUCT_UNASSIGNED',
+        `Unticked/Removed "${master.name}" from ${district}`
+      );
+    }
+  }
+
+  await saveDb();
+  res.json({
+    message: isAssigned ? `Assigned "${master.name}" to ${district}` : `Removed "${master.name}" from ${district}`,
+    assignedCount: db.districtProducts[district].length,
+    districtProducts: db.districtProducts[district]
+  });
+});
+
+// 7.3 Admin: Bulk Assign / Update Products for a District (Save All Ticks & Stocks)
+router.post('/bulk-assign-district-products', authenticateToken, requireAdmin, async (req, res) => {
+  const { district, assignments } = req.body;
+  // assignments: Array<{ productId: string, isAssigned: boolean, stockAllocated: number }>
+
+  if (!district || !Array.isArray(assignments)) {
+    return res.status(400).json({ error: 'District and assignments array required' });
+  }
+
+  if (!db.districtProducts) db.districtProducts = {};
+  if (!db.customStockLocks) db.customStockLocks = {};
+
+  const masterList = db.products && db.products.length > 0 ? db.products : EXCEL_PRODUCTS.map((p, idx) => ({
+    id: `prod_${idx + 1}`,
+    name: p.name,
+    isSpecial: ['PLAY MORE', 'FOUJI', 'EYE SUTRA', 'ALERGY'].includes(p.name.toUpperCase()),
+    defaultPrice: p.schemes[0].price,
+    schemes: p.schemes,
+    isActive: true
+  }));
+
+  const currentList = getDistrictProductsSafely(db, district);
+  const updatedList = [];
+  const pfx = district.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 3);
+
+  assignments.forEach(item => {
+    if (!item.isAssigned) return;
+
+    const master = masterList.find(p => p.id === item.productId || p.name.toUpperCase() === (item.productId || '').toUpperCase());
+    if (!master) return;
+
+    const existing = currentList.find(p => p.productId === master.id || p.name.toUpperCase() === master.name.toUpperCase());
+    const stockNum = item.stockAllocated !== undefined && !isNaN(Number(item.stockAllocated))
+      ? Number(item.stockAllocated)
+      : (existing ? Number(existing.stockAllocated) || 0 : 0);
+
+    const distProd = {
+      id: existing ? existing.id : `dp_${pfx}_${master.id}`,
+      productId: master.id,
+      name: master.name,
+      isSpecial: Boolean(master.isSpecial),
+      schemePrice: (master.schemes && master.schemes[0]) ? master.schemes[0].price : (master.defaultPrice || 2500),
+      stockAllocated: stockNum,
+      currentStock: stockNum,
+      schemes: JSON.parse(JSON.stringify(master.schemes || [])),
+      isActive: true,
+      isCustomStockLocked: true
+    };
+
+    updatedList.push(distProd);
+    db.customStockLocks[`${district}:${master.id}`] = stockNum;
+  });
+
+  db.districtProducts[district] = updatedList;
+
+  logActivity(
+    req.user.id,
+    req.user.username,
+    req.user.role,
+    district,
+    'BULK_DISTRICT_PRODUCTS_UPDATED',
+    `Updated assigned products for ${district}: ${updatedList.length} products active`
+  );
+
+  await saveDb();
+  res.json({
+    message: `Updated products and stock for ${district} (${updatedList.length} products assigned)`,
+    assignedCount: updatedList.length,
+    districtProducts: updatedList
+  });
+});
+
+// 8. Admin: Assign Master Product to a District (Single Add)
 router.post('/assign-district-product', authenticateToken, requireAdmin, async (req, res) => {
   const { district, masterProductId, initialStock } = req.body;
 
@@ -270,10 +472,13 @@ router.post('/assign-district-product', authenticateToken, requireAdmin, async (
     stockAllocated: stockNum,
     currentStock: stockNum,
     schemes: master.schemes || [],
-    isActive: true
+    isActive: true,
+    isCustomStockLocked: true
   };
 
   db.districtProducts[district].push(newDistrictProduct);
+  if (!db.customStockLocks) db.customStockLocks = {};
+  db.customStockLocks[`${district}:${master.id}`] = stockNum;
 
   logActivity(
     req.user.id,
@@ -318,6 +523,10 @@ router.delete('/district/:district/product/:productId', authenticateToken, requi
     p.name.toUpperCase() !== cleanProdId.toUpperCase()
   );
 
+  if (db.customStockLocks) {
+    delete db.customStockLocks[`${district}:${cleanProdId}`];
+  }
+
   logActivity(
     req.user.id,
     req.user.username,
@@ -335,7 +544,7 @@ router.delete('/district/:district/product/:productId', authenticateToken, requi
   });
 });
 
-// 10. Admin: Edit Base Stock for a Product in a District
+// 10. Admin: Edit Base Stock for a Product in a District (Locks Stock Permanently)
 router.post('/adjust-base-stock', authenticateToken, requireAdmin, async (req, res) => {
   const { district, productId, newStock } = req.body;
   const numStock = Number(newStock);
@@ -344,7 +553,7 @@ router.post('/adjust-base-stock', authenticateToken, requireAdmin, async (req, r
   }
 
   const items = db.districtProducts[district] || [];
-  const item = items.find(p => p.productId === productId || p.id === productId);
+  const item = items.find(p => p.productId === productId || p.id === productId || p.name.toUpperCase() === productId.toUpperCase());
   if (!item) {
     return res.status(404).json({ error: 'Product not found in this district' });
   }
@@ -352,6 +561,10 @@ router.post('/adjust-base-stock', authenticateToken, requireAdmin, async (req, r
   const oldStock = item.stockAllocated;
   item.stockAllocated = numStock;
   item.currentStock = numStock;
+  item.isCustomStockLocked = true;
+
+  if (!db.customStockLocks) db.customStockLocks = {};
+  db.customStockLocks[`${district}:${item.productId}`] = numStock;
 
   logActivity(
     req.user.id,
@@ -359,11 +572,11 @@ router.post('/adjust-base-stock', authenticateToken, requireAdmin, async (req, r
     req.user.role,
     district,
     'STOCK_ADJUSTMENT',
-    `Admin adjusted base stock for ${item.name} in ${district}: ${oldStock} -> ${numStock}`
+    `Admin adjusted base stock for ${item.name} in ${district}: ${oldStock} -> ${numStock} (Locked)`
   );
 
   await saveDb();
-  res.json({ message: `Stock updated for ${item.name}`, product: item });
+  res.json({ message: `Stock updated and permanently locked for ${item.name} (${numStock} units)`, product: item });
 });
 
 // 11. Admin: Update Mila Inward Stock

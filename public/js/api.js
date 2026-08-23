@@ -213,6 +213,24 @@ const API = {
     });
   },
 
+  async getDistrictMatrix(district) {
+    return this.request(`/inventory/district-matrix/${encodeURIComponent(district)}`);
+  },
+
+  async toggleDistrictProduct(district, masterProductId, isAssigned, initialStock) {
+    return this.request('/inventory/district-product-toggle', {
+      method: 'POST',
+      body: JSON.stringify({ district, masterProductId, isAssigned, initialStock })
+    });
+  },
+
+  async bulkAssignDistrictProducts(district, assignments) {
+    return this.request('/inventory/bulk-assign-district-products', {
+      method: 'POST',
+      body: JSON.stringify({ district, assignments })
+    });
+  },
+
   // Day Stock & Excel Register
   async getDistrictDayStock(district, date) {
     return this.request(`/inventory/district-day-stock/${encodeURIComponent(district)}/${encodeURIComponent(date)}`);
