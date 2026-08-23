@@ -37,7 +37,10 @@ app.use(async (req, res, next) => {
 // Serve static assets
 app.use(express.static(path.join(__dirname, 'public')));
 
-const fs = require('fs');
+// Health check endpoint
+app.get(['/api/health', '/health'], (req, res) => {
+  res.json({ status: 'ok', time: new Date().toISOString() });
+});
 
 // API Routes (Mounted on both /api/* and /* for full compatibility with Vercel and standalone servers)
 const authRoutes = require('./routes/authRoutes');
