@@ -617,19 +617,52 @@ router.post('/adjust-base-stock', authenticateToken, requireAdmin, async (req, r
     return res.status(400).json({ error: 'Valid positive stock number required' });
   }
 
-  const items = db.districtProducts[district] || [];
-  const item = items.find(p => p.productId === productId || p.id === productId || p.name.toUpperCase() === productId.toUpperCase());
-  if (!item) {
-    return res.status(404).json({ error: 'Product not found in this district' });
+  if (!db.districtProducts) db.districtProducts = {};
+  if (!db.customStockLocks) db.customStockLocks = {};
+
+  const masterList = (db.products && db.products.length > 0) ? db.products : EXCEL_PRODUCTS.map((p, idx) => ({
+    id: `prod_${idx + 1}`,
+    name: p.name,
+    isSpecial: ['PLAY MORE', 'FOUJI', 'EYE SUTRA', 'ALERGY'].includes(p.name.toUpperCase()),
+    defaultPrice: p.schemes[0].price,
+    schemes: p.schemes,
+    isActive: true
+  }));
+
+  const master = masterList.find(p => p.id === productId || (p.name && p.name.toUpperCase() === String(productId).toUpperCase()));
+
+  // Find or create district products list safely
+  let items = getDistrictProductsSafely(db, district);
+  let item = items.find(p => p.productId === productId || p.id === productId || (p.name && p.name.toUpperCase() === String(productId).toUpperCase()));
+
+  if (!item && master) {
+    // If not yet assigned, automatically assign it with the new locked stock
+    const pfx = district.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 3);
+    item = {
+      id: `dp_${pfx}_${master.id}`,
+      productId: master.id,
+      name: master.name,
+      isSpecial: Boolean(master.isSpecial),
+      schemePrice: (master.schemes && master.schemes[0]) ? master.schemes[0].price : (master.defaultPrice || 2500),
+      stockAllocated: numStock,
+      currentStock: numStock,
+      schemes: JSON.parse(JSON.stringify(master.schemes || [])),
+      isActive: true,
+      isCustomStockLocked: true
+    };
+    if (!db.districtProducts[district]) db.districtProducts[district] = [];
+    db.districtProducts[district].push(item);
+  } else if (item) {
+    item.stockAllocated = numStock;
+    item.currentStock = numStock;
+    item.isCustomStockLocked = true;
+  } else {
+    return res.status(404).json({ error: 'Product not found' });
   }
 
-  const oldStock = item.stockAllocated;
-  item.stockAllocated = numStock;
-  item.currentStock = numStock;
-  item.isCustomStockLocked = true;
-
-  if (!db.customStockLocks) db.customStockLocks = {};
-  db.customStockLocks[`${district}:${item.productId}`] = numStock;
+  const pId = item.productId || (master ? master.id : productId);
+  db.customStockLocks[`${district}:${pId}`] = numStock;
+  db.customStockLocks[`${district.toLowerCase()}:${pId}`] = numStock;
 
   logActivity(
     req.user.id,
@@ -637,11 +670,28 @@ router.post('/adjust-base-stock', authenticateToken, requireAdmin, async (req, r
     req.user.role,
     district,
     'STOCK_ADJUSTMENT',
-    `Admin adjusted base stock for ${item.name} in ${district}: ${oldStock} -> ${numStock} (Locked)`
+    `Admin adjusted base stock for ${item.name} in ${district}: ${numStock} units (Locked & Saved)`
   );
 
   await saveDb();
-  res.json({ message: `Stock updated and permanently locked for ${item.name} (${numStock} units)`, product: item });
+
+  // Persist to Neon PostgreSQL district_products
+  try {
+    await pool.query(
+      `INSERT INTO district_products (id, district, product_id, product_name, stock_allocated, current_stock, is_active)
+       VALUES ($1, $2, $3, $4, $5, $6, TRUE)
+       ON CONFLICT (district, product_id) DO UPDATE
+       SET stock_allocated = $5, current_stock = $6`,
+      [item.id, district, pId, item.name, numStock, numStock]
+    );
+  } catch (pgErr) {
+    console.error('Postgres district_products update error:', pgErr.message);
+  }
+
+  res.json({
+    message: `Stock for "${item.name}" updated to ${numStock} in ${district} (Permanently Saved)`,
+    product: item
+  });
 });
 
 // 11. Admin: Update Mila Inward Stock

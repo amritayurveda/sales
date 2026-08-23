@@ -2058,12 +2058,32 @@
 
   window.onDistrictStockInputChange = async (district, masterId, value) => {
     const num = parseFloat(value);
+    const input = $(`stock_${masterId}`);
     if (isNaN(num) || num < 0) {
       showToast('Please enter a valid stock quantity (0 or greater)', 'error');
       return;
     }
     try {
       const res = await API.adjustBaseStock(district, masterId, num);
+      if (input) {
+        input.style.borderColor = '#16a34a';
+        input.style.boxShadow = '0 0 0 2px rgba(22, 163, 74, 0.2)';
+        setTimeout(() => {
+          if (input) {
+            input.style.borderColor = '';
+            input.style.boxShadow = '';
+          }
+        }, 1500);
+      }
+      const chk = $(`chk_${masterId}`);
+      const chkLabel = $(`chk_label_${masterId}`);
+      if (chk && !chk.checked) {
+        chk.checked = true;
+        if (chkLabel) {
+          chkLabel.textContent = '✓ Assigned';
+          chkLabel.style.color = 'var(--good)';
+        }
+      }
       showToast(`Stock updated to ${num} for ${district} (Locked & Preserved)`, 'success');
     } catch (err) {
       showToast(err.message, 'error');
@@ -2080,6 +2100,23 @@
     }
     try {
       const res = await API.adjustBaseStock(district, masterId, num);
+      input.style.borderColor = '#16a34a';
+      input.style.boxShadow = '0 0 0 2px rgba(22, 163, 74, 0.2)';
+      setTimeout(() => {
+        if (input) {
+          input.style.borderColor = '';
+          input.style.boxShadow = '';
+        }
+      }, 1500);
+      const chk = $(`chk_${masterId}`);
+      const chkLabel = $(`chk_label_${masterId}`);
+      if (chk && !chk.checked) {
+        chk.checked = true;
+        if (chkLabel) {
+          chkLabel.textContent = '✓ Assigned';
+          chkLabel.style.color = 'var(--good)';
+        }
+      }
       showToast(res.message, 'success');
     } catch (err) {
       showToast(err.message, 'error');

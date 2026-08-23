@@ -702,9 +702,181 @@
     "customerMobile": "9636805238",
     "dealerUsername": "dealer_jaipur"
   },
-  "milaStock": {},
+  "milaStock": {
+    "Gurgaon:2026-08-23:prod_kd": 23
+  },
   "inwardNotes": {},
   "activityLogs": [
+    {
+      "id": "act_1787467231951thii",
+      "role": "admin",
+      "action": "STOCK_ADJUSTMENT",
+      "userId": "u_admin",
+      "details": "Admin adjusted base stock for TONIC+FM in jaipur: 0.1 -> 0 (Locked)",
+      "district": "jaipur",
+      "username": "admin",
+      "timestamp": "2026-08-23T06:40:31.951Z"
+    },
+    {
+      "id": "act_1787467230937t6sb",
+      "role": "admin",
+      "action": "STOCK_ADJUSTMENT",
+      "userId": "u_admin",
+      "details": "Admin adjusted base stock for AMAR NETRAN in jaipur: 11 -> 0 (Locked)",
+      "district": "jaipur",
+      "username": "admin",
+      "timestamp": "2026-08-23T06:40:30.937Z"
+    },
+    {
+      "id": "act_17874672282996clo",
+      "role": "admin",
+      "action": "STOCK_ADJUSTMENT",
+      "userId": "u_admin",
+      "details": "Admin adjusted base stock for AAROGAYA NET in jaipur: 17.7 -> 0 (Locked)",
+      "district": "jaipur",
+      "username": "admin",
+      "timestamp": "2026-08-23T06:40:28.299Z"
+    },
+    {
+      "id": "act_1787467226920uuv1",
+      "role": "admin",
+      "action": "STOCK_ADJUSTMENT",
+      "userId": "u_admin",
+      "details": "Admin adjusted base stock for KADWI DAWA in jaipur: 7 -> 0 (Locked)",
+      "district": "jaipur",
+      "username": "admin",
+      "timestamp": "2026-08-23T06:40:26.920Z"
+    },
+    {
+      "id": "act_1787467226023wvyt",
+      "role": "admin",
+      "action": "STOCK_ADJUSTMENT",
+      "userId": "u_admin",
+      "details": "Admin adjusted base stock for HEIGH TONIC in jaipur: 4 -> 0 (Locked)",
+      "district": "jaipur",
+      "username": "admin",
+      "timestamp": "2026-08-23T06:40:26.023Z"
+    },
+    {
+      "id": "act_1787467224359mbsh",
+      "role": "admin",
+      "action": "STOCK_ADJUSTMENT",
+      "userId": "u_admin",
+      "details": "Admin adjusted base stock for RAJ VILLA in jaipur: 2.4 -> 0 (Locked)",
+      "district": "jaipur",
+      "username": "admin",
+      "timestamp": "2026-08-23T06:40:24.359Z"
+    },
+    {
+      "id": "act_1787467222239qr1t",
+      "role": "admin",
+      "action": "STOCK_ADJUSTMENT",
+      "userId": "u_admin",
+      "details": "Admin adjusted base stock for MONEY+HCY in jaipur: 4.1 -> 0 (Locked)",
+      "district": "jaipur",
+      "username": "admin",
+      "timestamp": "2026-08-23T06:40:22.239Z"
+    },
+    {
+      "id": "act_1787467221017q7cm",
+      "role": "admin",
+      "action": "STOCK_ADJUSTMENT",
+      "userId": "u_admin",
+      "details": "Admin adjusted base stock for PV in jaipur: 2 -> 0 (Locked)",
+      "district": "jaipur",
+      "username": "admin",
+      "timestamp": "2026-08-23T06:40:21.017Z"
+    },
+    {
+      "id": "act_1787467219948hjpt",
+      "role": "admin",
+      "action": "STOCK_ADJUSTMENT",
+      "userId": "u_admin",
+      "details": "Admin adjusted base stock for DS in jaipur: 6 -> 0 (Locked)",
+      "district": "jaipur",
+      "username": "admin",
+      "timestamp": "2026-08-23T06:40:19.948Z"
+    },
+    {
+      "id": "act_1787467215591l5hl",
+      "role": "admin",
+      "action": "STOCK_ADJUSTMENT",
+      "userId": "u_admin",
+      "details": "Admin adjusted base stock for PLAY MORE in jaipur: 50 -> 0 (Locked)",
+      "district": "jaipur",
+      "username": "admin",
+      "timestamp": "2026-08-23T06:40:15.591Z"
+    },
+    {
+      "id": "act_1787467210817qfai",
+      "role": "admin",
+      "action": "STOCK_ADJUSTMENT",
+      "userId": "u_admin",
+      "details": "Admin adjusted base stock for FOUJI in jaipur: 10 -> 0 (Locked)",
+      "district": "jaipur",
+      "username": "admin",
+      "timestamp": "2026-08-23T06:40:10.817Z"
+    },
+    {
+      "id": "act_1787467209880yh03",
+      "role": "admin",
+      "action": "STOCK_ADJUSTMENT",
+      "userId": "u_admin",
+      "details": "Admin adjusted base stock for EYE SUTRA in jaipur: 15 -> 0 (Locked)",
+      "district": "jaipur",
+      "username": "admin",
+      "timestamp": "2026-08-23T06:40:09.880Z"
+    },
+    {
+      "id": "act_1787467207402fj3v",
+      "role": "admin",
+      "action": "STOCK_ADJUSTMENT",
+      "userId": "u_admin",
+      "details": "Admin adjusted base stock for ALERGY in jaipur: 12 -> 0 (Locked)",
+      "district": "jaipur",
+      "username": "admin",
+      "timestamp": "2026-08-23T06:40:07.402Z"
+    },
+    {
+      "id": "act_1787465830058js14",
+      "role": "admin",
+      "action": "MILA_INWARD_UPDATE",
+      "userId": "u_admin",
+      "details": "Updated Mila Inward stock for KADWI DAWA on 2026-08-23: +23",
+      "district": "Gurgaon",
+      "username": "admin",
+      "timestamp": "2026-08-23T06:17:10.058Z"
+    },
+    {
+      "id": "act_1787465787703mn6z",
+      "role": "admin",
+      "action": "STOCK_ADJUSTMENT",
+      "userId": "u_admin",
+      "details": "Admin adjusted base stock for KADWI DAWA in Gurgaon: 7 -> 30 (Locked)",
+      "district": "Gurgaon",
+      "username": "admin",
+      "timestamp": "2026-08-23T06:16:27.703Z"
+    },
+    {
+      "id": "act_1787464319673olz9",
+      "role": "admin",
+      "action": "ORDER_DELETED",
+      "userId": "u_admin",
+      "details": "Admin deleted customer order #ORD-297867 (DAMADAR - ₹3985) in jaipur",
+      "district": "jaipur",
+      "username": "admin",
+      "timestamp": "2026-08-23T05:51:59.673Z"
+    },
+    {
+      "id": "act_1787464266998zs7a",
+      "role": "admin",
+      "action": "STOCK_ADJUSTMENT",
+      "userId": "u_admin",
+      "details": "Admin adjusted base stock for DAMADAR in jaipur: 8.1 -> 0 (Locked)",
+      "district": "jaipur",
+      "username": "admin",
+      "timestamp": "2026-08-23T05:51:06.998Z"
+    },
     {
       "id": "act_1787462999940xukn",
       "role": "admin",
@@ -938,26 +1110,6 @@
   ],
   "inventoryLogs": [],
   "customerOrders": [
-    {
-      "id": "ord_1787462590066rb7o",
-      "qty": 1,
-      "date": "2026-08-23",
-      "note": "",
-      "time": "05:23:10",
-      "dcRate": 200,
-      "orderNo": "ORD-297867",
-      "district": "jaipur",
-      "createdAt": "2026-08-23T05:23:10.066Z",
-      "netAmount": 3785,
-      "productId": "prod_1",
-      "unitPrice": 3985,
-      "schemeName": "DAMADAR (₹3,985)",
-      "productName": "DAMADAR",
-      "totalAmount": 3985,
-      "customerName": "Customer",
-      "customerMobile": "9636805238",
-      "dealerUsername": "dealer_jaipur"
-    },
     {
       "id": "ord_17873893299563fc2",
       "qty": 1,
@@ -1317,11 +1469,29 @@
     }
   ],
   "customStockLocks": {
+    "jaipur:prod_1": 25,
+    "jaipur:prod_2": 14,
+    "jaipur:prod_3": 0,
+    "jaipur:prod_4": 0,
+    "jaipur:prod_5": 33,
+    "jaipur:prod_6": 0,
+    "jaipur:prod_8": 0,
+    "jaipur:prod_9": 0,
+    "jaipur:prod_10": 0,
+    "jaipur:prod_11": 0,
+    "jaipur:prod_20": 0,
+    "jaipur:prod_21": 0,
+    "jaipur:prod_22": 0,
+    "jaipur:prod_23": 0,
+    "Gurgaon:prod_kd": 30,
     "Chittorgarh:prod_1": 0,
     "Chittorgarh:prod_mt4a8rpz6bi": 0,
     "Chittorgarh:prod_mt5a3vdeb76": 0,
     "Chittorgarh:prod_mt5a43gnmq4": 0,
-    "Chittorgarh:prod_mt5a4arnfw2": 0
+    "Chittorgarh:prod_mt5a4arnfw2": 0,
+    "Jaipur:prod_1": 25,
+    "Jaipur:prod_2": 14,
+    "Jaipur:prod_5": 33
   },
   "deletedDistricts": [],
   "districtProducts": {
@@ -2318,8 +2488,9 @@
         "isActive": true,
         "productId": "prod_1",
         "schemePrice": 3052,
-        "currentStock": 107.1,
-        "stockAllocated": 8.1
+        "currentStock": 25,
+        "stockAllocated": 25,
+        "isCustomStockLocked": true
       },
       {
         "id": "dp_jai_p2",
@@ -2336,8 +2507,9 @@
         "isActive": true,
         "productId": "prod_2",
         "schemePrice": 2950,
-        "currentStock": 0.1,
-        "stockAllocated": 0.1
+        "currentStock": 14,
+        "stockAllocated": 14,
+        "isCustomStockLocked": true
       },
       {
         "id": "dp_jai_p3",
@@ -2354,8 +2526,9 @@
         "isActive": true,
         "productId": "prod_3",
         "schemePrice": 2500,
-        "currentStock": 11,
-        "stockAllocated": 11
+        "currentStock": 0,
+        "stockAllocated": 0,
+        "isCustomStockLocked": true
       },
       {
         "id": "dp_jai_p4",
@@ -2379,8 +2552,9 @@
         "isActive": true,
         "productId": "prod_4",
         "schemePrice": 2500,
-        "currentStock": 17.7,
-        "stockAllocated": 17.7
+        "currentStock": 0,
+        "stockAllocated": 0,
+        "isCustomStockLocked": true
       },
       {
         "id": "dp_jai_p5",
@@ -2404,8 +2578,9 @@
         "isActive": true,
         "productId": "prod_5",
         "schemePrice": 2870,
-        "currentStock": 7,
-        "stockAllocated": 7
+        "currentStock": 33,
+        "stockAllocated": 33,
+        "isCustomStockLocked": true
       },
       {
         "id": "dp_jai_p6",
@@ -2429,8 +2604,9 @@
         "isActive": true,
         "productId": "prod_6",
         "schemePrice": 2950,
-        "currentStock": 4,
-        "stockAllocated": 4
+        "currentStock": 0,
+        "stockAllocated": 0,
+        "isCustomStockLocked": true
       },
       {
         "id": "dp_jai_p7",
@@ -2465,8 +2641,9 @@
         "isActive": true,
         "productId": "prod_8",
         "schemePrice": 2500,
-        "currentStock": 2.4,
-        "stockAllocated": 2.4
+        "currentStock": 0,
+        "stockAllocated": 0,
+        "isCustomStockLocked": true
       },
       {
         "id": "dp_jai_p9",
@@ -2483,8 +2660,9 @@
         "isActive": true,
         "productId": "prod_9",
         "schemePrice": 2500,
-        "currentStock": 4.1,
-        "stockAllocated": 4.1
+        "currentStock": 0,
+        "stockAllocated": 0,
+        "isCustomStockLocked": true
       },
       {
         "id": "dp_jai_p10",
@@ -2501,8 +2679,9 @@
         "isActive": true,
         "productId": "prod_10",
         "schemePrice": 2500,
-        "currentStock": 2,
-        "stockAllocated": 2
+        "currentStock": 0,
+        "stockAllocated": 0,
+        "isCustomStockLocked": true
       },
       {
         "id": "dp_jai_p11",
@@ -2526,8 +2705,9 @@
         "isActive": true,
         "productId": "prod_11",
         "schemePrice": 3580,
-        "currentStock": 6,
-        "stockAllocated": 6
+        "currentStock": 0,
+        "stockAllocated": 0,
+        "isCustomStockLocked": true
       },
       {
         "id": "dp_jai_p12",
@@ -2688,8 +2868,9 @@
         "isActive": true,
         "productId": "prod_20",
         "schemePrice": 2500,
-        "currentStock": 50,
-        "stockAllocated": 50
+        "currentStock": 0,
+        "stockAllocated": 0,
+        "isCustomStockLocked": true
       },
       {
         "id": "dp_jai_p21",
@@ -2706,8 +2887,9 @@
         "isActive": true,
         "productId": "prod_21",
         "schemePrice": 2500,
-        "currentStock": 10,
-        "stockAllocated": 10
+        "currentStock": 0,
+        "stockAllocated": 0,
+        "isCustomStockLocked": true
       },
       {
         "id": "dp_jai_p22",
@@ -2724,8 +2906,9 @@
         "isActive": true,
         "productId": "prod_22",
         "schemePrice": 2500,
-        "currentStock": 15,
-        "stockAllocated": 15
+        "currentStock": 0,
+        "stockAllocated": 0,
+        "isCustomStockLocked": true
       },
       {
         "id": "dp_jai_p23",
@@ -2742,8 +2925,9 @@
         "isActive": true,
         "productId": "prod_23",
         "schemePrice": 2500,
-        "currentStock": 12,
-        "stockAllocated": 12
+        "currentStock": 0,
+        "stockAllocated": 0,
+        "isCustomStockLocked": true
       }
     ],
     "BIKANER": [
@@ -3798,8 +3982,9 @@
         "isSpecial": false,
         "productId": "prod_kd",
         "schemePrice": 2870,
-        "currentStock": 7,
-        "stockAllocated": 7
+        "currentStock": 30,
+        "stockAllocated": 30,
+        "isCustomStockLocked": true
       }
     ],
     "Jodhpur": [],
@@ -7157,7 +7342,7 @@
       }
     ]
   },
-  "lastOrderTimestamp": 1787462590093,
+  "lastOrderTimestamp": 1787464319673,
   "mainWarehouseStock": {
     "prod_1": 0
   },
