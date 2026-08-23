@@ -54,7 +54,10 @@ function enforceDistrictAccess(req, res, next) {
     return next();
   }
 
-  if (req.user.role === 'dealer' && req.user.district !== targetDistrict) {
+  const userDist = (req.user.district || '').trim().toLowerCase();
+  const targetDist = (targetDistrict || '').trim().toLowerCase();
+
+  if (req.user.role === 'dealer' && userDist !== targetDist) {
     return res.status(403).json({
       error: `Unauthorized: You only have access to district '${req.user.district}'`
     });

@@ -263,7 +263,7 @@ function ensureDistrictSchemes() {
             isActive: true
           };
         });
-      } else if (ALL_ZERO_DISTRICTS.includes(uDist)) {
+      } else {
         db.districtProducts[canonical] = masterList.map(p => ({
           id: `dp_${pfx}_${p.id}`,
           productId: p.id,
@@ -275,9 +275,27 @@ function ensureDistrictSchemes() {
           schemes: JSON.parse(JSON.stringify(p.schemes || [])),
           isActive: true
         }));
-      } else {
-        db.districtProducts[canonical] = [];
       }
+    }
+
+    // Ensure all master products are present in every district list
+    if (Array.isArray(db.districtProducts[canonical])) {
+      masterList.forEach(m => {
+        const exists = db.districtProducts[canonical].some(p => p.productId === m.id || p.name.toUpperCase() === m.name.toUpperCase());
+        if (!exists) {
+          db.districtProducts[canonical].push({
+            id: `dp_${pfx}_${m.id}`,
+            productId: m.id,
+            name: m.name,
+            isSpecial: Boolean(m.isSpecial),
+            schemePrice: (m.schemes && m.schemes[0]) ? m.schemes[0].price : (m.defaultPrice || 2500),
+            stockAllocated: 0,
+            currentStock: 0,
+            schemes: JSON.parse(JSON.stringify(m.schemes || [])),
+            isActive: true
+          });
+        }
+      });
     }
 
     // Apply any explicit custom stock locks to the district products
@@ -531,6 +549,11 @@ async function initDb() {
 
     if (db.users && Array.isArray(db.users)) {
       db.users = db.users.filter(u => !u.district || !db.deletedDistricts.some(dd => dd.toLowerCase() === u.district.toLowerCase()));
+      db.users.forEach(u => {
+        if (u.district) {
+          u.district = normalizeDistrictName(u.district);
+        }
+      });
     }
 
     if (!db.customerOrders) db.customerOrders = [];
