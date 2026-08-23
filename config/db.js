@@ -151,9 +151,18 @@ function getDistricts() {
 
 const ALL_ZERO_DISTRICTS = ['CHITTORGARH', 'ALWAR', 'BIKANER', 'UTTARAKHAND', 'UDHAM SINGH NAGAR'];
 
+function normalizeDistrictName(name) {
+  if (!name) return '';
+  const trimmed = name.trim();
+  const lower = trimmed.toLowerCase();
+  const match = DISTRICTS.find(d => d.toLowerCase() === lower);
+  if (match) return match;
+  return trimmed.replace(/\b\w/g, l => l.toUpperCase());
+}
+
 function ensureDistrictSchemes() {
   if (!db.districtProducts) db.districtProducts = {};
-  const activeDistricts = getDistricts();
+  if (!db.customStockLocks) db.customStockLocks = {};
 
   const masterList = (db.products && db.products.length > 0) ? db.products : EXCEL_PRODUCTS.map((p, idx) => ({
     id: `prod_${idx + 1}`,
@@ -164,13 +173,66 @@ function ensureDistrictSchemes() {
     isActive: true
   }));
 
-  activeDistricts.forEach(dist => {
-    const pfx = dist.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 3);
-    const uDist = dist.toUpperCase();
+  // Consolidate all district keys to canonical Title Case names
+  const normalizedDistrictProducts = {};
+  Object.keys(db.districtProducts).forEach(rawDist => {
+    const canonical = normalizeDistrictName(rawDist);
+    if (!canonical) return;
 
-    if (db.districtProducts[dist] === undefined || db.districtProducts[dist] === null) {
+    if (!normalizedDistrictProducts[canonical]) {
+      normalizedDistrictProducts[canonical] = [];
+    }
+
+    const items = db.districtProducts[rawDist];
+    if (Array.isArray(items)) {
+      items.forEach(it => {
+        const master = masterList.find(m => m.id === it.productId || m.name.toUpperCase() === (it.name || '').toUpperCase());
+        const cId = master ? master.id : it.productId;
+        const cName = master ? master.name : it.name;
+
+        const existingIdx = normalizedDistrictProducts[canonical].findIndex(p => p.productId === cId || p.name.toUpperCase() === cName.toUpperCase());
+        const stockAlloc = Number(it.stockAllocated) || 0;
+        const currStock = Number(it.currentStock) || stockAlloc;
+        const isLocked = Boolean(it.isCustomStockLocked);
+
+        if (existingIdx === -1) {
+          normalizedDistrictProducts[canonical].push({
+            id: it.id || `dp_${canonical.toLowerCase().slice(0, 3)}_${cId}`,
+            productId: cId,
+            name: cName,
+            isSpecial: master ? Boolean(master.isSpecial) : Boolean(it.isSpecial),
+            schemePrice: master ? ((master.schemes && master.schemes[0]) ? master.schemes[0].price : master.defaultPrice) : (it.schemePrice || 2500),
+            stockAllocated: stockAlloc,
+            currentStock: currStock,
+            schemes: (master && master.schemes) ? JSON.parse(JSON.stringify(master.schemes)) : (it.schemes || []),
+            isActive: it.isActive !== false,
+            isCustomStockLocked: isLocked
+          });
+        } else {
+          // If duplicate entry, merge preserving locked stock or non-zero stock
+          const existing = normalizedDistrictProducts[canonical][existingIdx];
+          if (isLocked || (!existing.isCustomStockLocked && stockAlloc > 0)) {
+            existing.stockAllocated = stockAlloc;
+            existing.currentStock = currStock;
+            existing.isCustomStockLocked = isLocked;
+          }
+        }
+      });
+    }
+  });
+
+  db.districtProducts = normalizedDistrictProducts;
+
+  const activeDistricts = getDistricts();
+
+  activeDistricts.forEach(dist => {
+    const canonical = normalizeDistrictName(dist);
+    const pfx = canonical.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 3);
+    const uDist = canonical.toUpperCase();
+
+    if (!db.districtProducts[canonical] || db.districtProducts[canonical].length === 0) {
       if (uDist === 'SAHARANPUR' || uDist === 'MUZAFFARNAGAR') {
-        db.districtProducts[dist] = SAHARANPUR_PRODUCTS.map(sp => {
+        db.districtProducts[canonical] = SAHARANPUR_PRODUCTS.map(sp => {
           const master = masterList.find(m => m.name.toUpperCase() === sp.name.toUpperCase());
           const mId = master ? master.id : `prod_${pfx}_1`;
           return {
@@ -186,7 +248,7 @@ function ensureDistrictSchemes() {
           };
         });
       } else if (uDist === 'GURGAON' || uDist === 'FARIDABAD') {
-        db.districtProducts[dist] = GURGAON_PRODUCTS.map(gp => {
+        db.districtProducts[canonical] = GURGAON_PRODUCTS.map(gp => {
           const master = masterList.find(m => m.name.toUpperCase() === gp.name.toUpperCase());
           const mId = master ? master.id : `prod_${pfx}_1`;
           return {
@@ -202,7 +264,7 @@ function ensureDistrictSchemes() {
           };
         });
       } else if (ALL_ZERO_DISTRICTS.includes(uDist)) {
-        db.districtProducts[dist] = masterList.map(p => ({
+        db.districtProducts[canonical] = masterList.map(p => ({
           id: `dp_${pfx}_${p.id}`,
           productId: p.id,
           name: p.name,
@@ -214,52 +276,27 @@ function ensureDistrictSchemes() {
           isActive: true
         }));
       } else {
-        db.districtProducts[dist] = [];
+        db.districtProducts[canonical] = [];
       }
     }
 
-    // Deduplicate any existing duplicate entries in this district
-    if (Array.isArray(db.districtProducts[dist])) {
-      const mergedMap = new Map();
-      db.districtProducts[dist].forEach(p => {
-        const master = masterList.find(m => m.id === p.productId || m.name.toUpperCase() === (p.name || '').toUpperCase());
-        const canonicalId = master ? master.id : p.productId;
-        const canonicalName = master ? master.name : p.name;
-        const key = canonicalName.toUpperCase();
-
-        const lockedVal = (db.customStockLocks && db.customStockLocks[`${dist}:${canonicalId}`] !== undefined)
-          ? Number(db.customStockLocks[`${dist}:${canonicalId}`])
-          : (p.isCustomStockLocked ? Number(p.stockAllocated) : null);
-
-        if (!mergedMap.has(key)) {
-          mergedMap.set(key, {
-            id: `dp_${pfx}_${canonicalId}`,
-            productId: canonicalId,
-            name: canonicalName,
-            isSpecial: master ? Boolean(master.isSpecial) : Boolean(p.isSpecial),
-            schemePrice: master ? ((master.schemes && master.schemes[0]) ? master.schemes[0].price : (master.defaultPrice || 2500)) : (p.schemePrice || 2500),
-            stockAllocated: lockedVal !== null ? lockedVal : (Number(p.stockAllocated) || 0),
-            currentStock: lockedVal !== null ? lockedVal : (Number(p.currentStock) || Number(p.stockAllocated) || 0),
-            schemes: (master && master.schemes) ? JSON.parse(JSON.stringify(master.schemes)) : (p.schemes || []),
-            isActive: p.isActive !== false,
-            isCustomStockLocked: lockedVal !== null || Boolean(p.isCustomStockLocked)
-          });
-        } else {
-          // Merge: if current item has a custom lock or explicit stock, update
-          const existing = mergedMap.get(key);
-          if (lockedVal !== null) {
-            existing.stockAllocated = lockedVal;
-            existing.currentStock = lockedVal;
-            existing.isCustomStockLocked = true;
-          } else if (p.isCustomStockLocked || (!existing.isCustomStockLocked && (Number(p.stockAllocated) || 0) > 0)) {
-            existing.stockAllocated = Number(p.stockAllocated) || 0;
-            existing.currentStock = Number(p.currentStock) || Number(p.stockAllocated) || 0;
-            existing.isCustomStockLocked = Boolean(p.isCustomStockLocked);
-          }
+    // Apply any explicit custom stock locks to the district products
+    if (Array.isArray(db.districtProducts[canonical])) {
+      db.districtProducts[canonical].forEach(p => {
+        const lockKey1 = `${canonical}:${p.productId}`;
+        const lockKey2 = `${canonical.toLowerCase()}:${p.productId}`;
+        if (db.customStockLocks[lockKey1] !== undefined) {
+          const val = Number(db.customStockLocks[lockKey1]);
+          p.stockAllocated = val;
+          p.currentStock = val;
+          p.isCustomStockLocked = true;
+        } else if (db.customStockLocks[lockKey2] !== undefined) {
+          const val = Number(db.customStockLocks[lockKey2]);
+          p.stockAllocated = val;
+          p.currentStock = val;
+          p.isCustomStockLocked = true;
         }
       });
-
-      db.districtProducts[dist] = Array.from(mergedMap.values());
     }
   });
 }
@@ -469,6 +506,10 @@ loadLocalDatabase();
 
 async function initDb() {
   try {
+    // 1. Always verify and initialize tables in PostgreSQL
+    await initPostgresTables();
+
+    // 2. Load latest state from PostgreSQL
     const pgRes = await pool.query("SELECT value FROM app_state WHERE key = 'main_state' LIMIT 1");
     if (pgRes.rows.length > 0 && pgRes.rows[0].value) {
       const loaded = typeof pgRes.rows[0].value === 'string' ? JSON.parse(pgRes.rows[0].value) : pgRes.rows[0].value;
@@ -478,7 +519,6 @@ async function initDb() {
         console.log('✅ Loaded data successfully from Neon PostgreSQL database!');
       }
     } else {
-      await initPostgresTables();
       await saveDb();
       console.log('✅ Initialized & Synced clean state to Neon PostgreSQL!');
     }
@@ -498,7 +538,10 @@ async function initDb() {
     if (!db.districtProducts) db.districtProducts = {};
     if (!db.mainWarehouseStock) db.mainWarehouseStock = {};
     if (!db.mainStockInwardLogs) db.mainStockInwardLogs = [];
+    if (!db.customStockLocks) db.customStockLocks = {};
+
     ensureDistrictSchemes();
+    await saveDb();
   } catch (err) {
     console.error('Neon PostgreSQL initialization check warning:', err.message);
   }

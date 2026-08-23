@@ -708,6 +708,26 @@
   "inwardNotes": {},
   "activityLogs": [
     {
+      "id": "act_1787476270762jsbp",
+      "role": "admin",
+      "action": "STOCK_ADJUSTMENT",
+      "userId": "u_admin",
+      "details": "Admin adjusted base stock for KADWI DAWA in Faridabad: 8 units (Locked & Saved)",
+      "district": "Faridabad",
+      "username": "admin",
+      "timestamp": "2026-08-23T09:11:10.762Z"
+    },
+    {
+      "id": "act_1787476265617m03i",
+      "role": "admin",
+      "action": "STOCK_ADJUSTMENT",
+      "userId": "u_admin",
+      "details": "Admin adjusted base stock for AMAR NETRAN in Faridabad: 21 units (Locked & Saved)",
+      "district": "Faridabad",
+      "username": "admin",
+      "timestamp": "2026-08-23T09:11:05.617Z"
+    },
+    {
       "id": "act_1787468366362jnit",
       "role": "admin",
       "action": "CASH_SETTLEMENT",
@@ -1714,10 +1734,10 @@
     "jaipur:prod_22": 0,
     "jaipur:prod_23": 0,
     "Gurgaon:prod_kd": 30,
-    "Faridabad:prod_3": 0,
-    "Faridabad:prod_5": 0,
-    "faridabad:prod_3": 0,
-    "faridabad:prod_5": 0,
+    "Faridabad:prod_3": 21,
+    "Faridabad:prod_5": 8,
+    "faridabad:prod_3": 21,
+    "faridabad:prod_5": 8,
     "Chittorgarh:prod_1": 0,
     "Saharanpur:prod_20": 0,
     "Saharanpur:prod_21": 0,
@@ -1745,10 +1765,15 @@
   "deletedDistricts": [],
   "districtProducts": {
     "Kota": [],
-    "ALWAR": [
+    "Alwar": [
       {
         "id": "dp_alw_p1",
+        "productId": "prod_1",
         "name": "DAMADAR",
+        "isSpecial": false,
+        "schemePrice": 3052,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -1773,15 +1798,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_1",
-        "schemePrice": 3052,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_alw_p2",
+        "productId": "prod_2",
         "name": "TONIC+FM",
+        "isSpecial": false,
+        "schemePrice": 2950,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -1792,15 +1818,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_2",
-        "schemePrice": 2950,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_alw_p3",
+        "productId": "prod_3",
         "name": "AMAR NETRAN",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -1811,15 +1838,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_3",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_alw_p4",
+        "productId": "prod_4",
         "name": "AAROGAYA NET",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -1837,15 +1865,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_4",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_alw_p5",
+        "productId": "prod_5",
         "name": "KADWI DAWA",
+        "isSpecial": false,
+        "schemePrice": 2870,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -1863,15 +1892,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_5",
-        "schemePrice": 2870,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_alw_p6",
+        "productId": "prod_6",
         "name": "HEIGH TONIC",
+        "isSpecial": false,
+        "schemePrice": 2950,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -1889,15 +1919,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_6",
-        "schemePrice": 2950,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_alw_p7",
+        "productId": "prod_7",
         "name": "SUPRAGUT",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -1908,15 +1939,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_7",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_alw_p8",
+        "productId": "prod_8",
         "name": "RAJ VILLA",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -1927,15 +1959,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_8",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_alw_p9",
+        "productId": "prod_9",
         "name": "MONEY+HCY",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -1946,15 +1979,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_9",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_alw_p10",
+        "productId": "prod_10",
         "name": "PV",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -1965,15 +1999,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_10",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_alw_p11",
+        "productId": "prod_11",
         "name": "DS",
+        "isSpecial": false,
+        "schemePrice": 3580,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -1991,15 +2026,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_11",
-        "schemePrice": 3580,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_alw_p12",
+        "productId": "prod_12",
         "name": "UDAR",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -2010,15 +2046,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_12",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_alw_p13",
+        "productId": "prod_13",
         "name": "GUT",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -2029,15 +2066,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_13",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_alw_p14",
+        "productId": "prod_14",
         "name": "TSO",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -2048,15 +2086,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_14",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_alw_p15",
+        "productId": "prod_15",
         "name": "PILES BASAM",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -2067,15 +2106,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_15",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_alw_p16",
+        "productId": "prod_16",
         "name": "ALCO BAN",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -2086,15 +2126,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_16",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_alw_p17",
+        "productId": "prod_17",
         "name": "RSO",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -2105,15 +2146,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_17",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_alw_p18",
+        "productId": "prod_18",
         "name": "MANI RARTAN",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -2124,15 +2166,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_18",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_alw_p19",
+        "productId": "prod_19",
         "name": "NONI 500 ML",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -2143,15 +2186,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_19",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_alw_p20",
+        "productId": "prod_20",
         "name": "PLAY MORE",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 170,
@@ -2162,15 +2206,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": true,
-        "productId": "prod_20",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_alw_p21",
+        "productId": "prod_21",
         "name": "FOUJI",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 170,
@@ -2181,15 +2226,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": true,
-        "productId": "prod_21",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_alw_p22",
+        "productId": "prod_22",
         "name": "EYE SUTRA",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 170,
@@ -2200,517 +2246,10 @@
           }
         ],
         "isActive": true,
-        "isSpecial": true,
-        "productId": "prod_22",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_alw_p23",
-        "name": "ALERGY",
-        "schemes": [
-          {
-            "dc": 170,
-            "id": "sch_alg_1",
-            "qty": 1,
-            "name": "ALERGY 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": true,
-        "productId": "prod_23",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
-      }
-    ],
-    "Alwar": [
-      {
-        "id": "dp_alw_prod_1",
-        "productId": "prod_1",
-        "name": "DAMADAR",
-        "isSpecial": false,
-        "schemePrice": 3052,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_dmd_1",
-            "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_alw_prod_2",
-        "productId": "prod_2",
-        "name": "TONIC+FM",
-        "isSpecial": false,
-        "schemePrice": 2950,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_tfm_1",
-            "qty": 1,
-            "name": "TONIC+FM 1",
-            "price": 2950
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_alw_prod_3",
-        "productId": "prod_3",
-        "name": "AMAR NETRAN",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_an_1",
-            "qty": 1,
-            "name": "AMAR NETRAN 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_alw_prod_4",
-        "productId": "prod_4",
-        "name": "AAROGAYA NET",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_ag_1",
-            "qty": 1,
-            "name": "AG (Aarogya Net 1)",
-            "price": 2500
-          },
-          {
-            "dc": 500,
-            "id": "sch_ag_2",
-            "qty": 2,
-            "name": "AG (Aarogya Net 2)",
-            "price": 5000
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_alw_prod_5",
-        "productId": "prod_5",
-        "name": "KADWI DAWA",
-        "isSpecial": false,
-        "schemePrice": 2870,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_kd_1",
-            "qty": 1,
-            "name": "KD 1",
-            "price": 2870
-          },
-          {
-            "dc": 500,
-            "id": "sch_kd_2",
-            "qty": 2,
-            "name": "KD 2",
-            "price": 5740
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_alw_prod_6",
-        "productId": "prod_6",
-        "name": "HEIGH TONIC",
-        "isSpecial": false,
-        "schemePrice": 2950,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_ht_1",
-            "qty": 1,
-            "name": "HT (Heigh Tonic 1)",
-            "price": 2950
-          },
-          {
-            "dc": 500,
-            "id": "sch_ht_2",
-            "qty": 2,
-            "name": "HT (Heigh Tonic 2)",
-            "price": 5900
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_alw_prod_7",
-        "productId": "prod_7",
-        "name": "SUPRAGUT",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_sg_1",
-            "qty": 1,
-            "name": "SUPRAGUT 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_alw_prod_8",
-        "productId": "prod_8",
-        "name": "RAJ VILLA",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_rv_1",
-            "qty": 1,
-            "name": "RAJ VILLA 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_alw_prod_9",
-        "productId": "prod_9",
-        "name": "MONEY+HCY",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_mh_1",
-            "qty": 1,
-            "name": "MONEY+HCY 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_alw_prod_10",
-        "productId": "prod_10",
-        "name": "PV",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_pv_1",
-            "qty": 1,
-            "name": "PV 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_alw_prod_11",
-        "productId": "prod_11",
-        "name": "DS",
-        "isSpecial": false,
-        "schemePrice": 3580,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_ds_1",
-            "qty": 1,
-            "name": "DS (Height Sutra 1)",
-            "price": 3580
-          },
-          {
-            "dc": 500,
-            "id": "sch_ds_2",
-            "qty": 2,
-            "name": "DS (Height Sutra 2)",
-            "price": 7160
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_alw_prod_12",
-        "productId": "prod_12",
-        "name": "UDAR",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_udar_1",
-            "qty": 1,
-            "name": "UDAR 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_alw_prod_13",
-        "productId": "prod_13",
-        "name": "GUT",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_gut_1",
-            "qty": 1,
-            "name": "GUT 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_alw_prod_14",
-        "productId": "prod_14",
-        "name": "TSO",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_tso_1",
-            "qty": 1,
-            "name": "TSO 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_alw_prod_15",
-        "productId": "prod_15",
-        "name": "PILES BASAM",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_pb_1",
-            "qty": 1,
-            "name": "PILES BASAM 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_alw_prod_16",
-        "productId": "prod_16",
-        "name": "ALCO BAN",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_ab_1",
-            "qty": 1,
-            "name": "ALCO BAN 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_alw_prod_17",
-        "productId": "prod_17",
-        "name": "RSO",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_rso_1",
-            "qty": 1,
-            "name": "RSO 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_alw_prod_18",
-        "productId": "prod_18",
-        "name": "MANI RARTAN",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_mr_1",
-            "qty": 1,
-            "name": "MANI RARTAN 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_alw_prod_19",
-        "productId": "prod_19",
-        "name": "NONI 500 ML",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_noni_1",
-            "qty": 1,
-            "name": "NONI 500 ML 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_alw_prod_20",
-        "productId": "prod_20",
-        "name": "PLAY MORE",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 170,
-            "id": "sch_pm_1",
-            "qty": 1,
-            "name": "PLAY MORE 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_alw_prod_21",
-        "productId": "prod_21",
-        "name": "FOUJI",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 170,
-            "id": "sch_fj_1",
-            "qty": 1,
-            "name": "FOUJI 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_alw_prod_22",
-        "productId": "prod_22",
-        "name": "EYE SUTRA",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 170,
-            "id": "sch_es_1",
-            "qty": 1,
-            "name": "EYE SUTRA 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_alw_prod_23",
         "productId": "prod_23",
         "name": "ALERGY",
         "isSpecial": false,
@@ -2730,7 +2269,7 @@
         "isCustomStockLocked": false
       }
     ],
-    "jaipur": [
+    "Jaipur": [
       {
         "id": "dp_jai_prod_1",
         "productId": "prod_1",
@@ -3234,10 +2773,15 @@
         "isCustomStockLocked": true
       }
     ],
-    "BIKANER": [
+    "Bikaner": [
       {
         "id": "dp_bik_p1",
+        "productId": "prod_1",
         "name": "DAMADAR",
+        "isSpecial": false,
+        "schemePrice": 3052,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -3262,15 +2806,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_1",
-        "schemePrice": 3052,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_bik_p2",
+        "productId": "prod_2",
         "name": "TONIC+FM",
+        "isSpecial": false,
+        "schemePrice": 2950,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -3281,15 +2826,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_2",
-        "schemePrice": 2950,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_bik_p3",
+        "productId": "prod_3",
         "name": "AMAR NETRAN",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -3300,15 +2846,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_3",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_bik_p4",
+        "productId": "prod_4",
         "name": "AAROGAYA NET",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -3326,15 +2873,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_4",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_bik_p5",
+        "productId": "prod_5",
         "name": "KADWI DAWA",
+        "isSpecial": false,
+        "schemePrice": 2870,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -3352,15 +2900,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_5",
-        "schemePrice": 2870,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_bik_p6",
+        "productId": "prod_6",
         "name": "HEIGH TONIC",
+        "isSpecial": false,
+        "schemePrice": 2950,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -3378,15 +2927,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_6",
-        "schemePrice": 2950,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_bik_p7",
+        "productId": "prod_7",
         "name": "SUPRAGUT",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -3397,15 +2947,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_7",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_bik_p8",
+        "productId": "prod_8",
         "name": "RAJ VILLA",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -3416,15 +2967,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_8",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_bik_p9",
+        "productId": "prod_9",
         "name": "MONEY+HCY",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -3435,15 +2987,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_9",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_bik_p10",
+        "productId": "prod_10",
         "name": "PV",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -3454,15 +3007,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_10",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_bik_p11",
+        "productId": "prod_11",
         "name": "DS",
+        "isSpecial": false,
+        "schemePrice": 3580,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -3480,15 +3034,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_11",
-        "schemePrice": 3580,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_bik_p12",
+        "productId": "prod_12",
         "name": "UDAR",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -3499,15 +3054,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_12",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_bik_p13",
+        "productId": "prod_13",
         "name": "GUT",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -3518,15 +3074,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_13",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_bik_p14",
+        "productId": "prod_14",
         "name": "TSO",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -3537,15 +3094,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_14",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_bik_p15",
+        "productId": "prod_15",
         "name": "PILES BASAM",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -3556,15 +3114,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_15",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_bik_p16",
+        "productId": "prod_16",
         "name": "ALCO BAN",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -3575,15 +3134,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_16",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_bik_p17",
+        "productId": "prod_17",
         "name": "RSO",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -3594,15 +3154,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_17",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_bik_p18",
+        "productId": "prod_18",
         "name": "MANI RARTAN",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -3613,15 +3174,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_18",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_bik_p19",
+        "productId": "prod_19",
         "name": "NONI 500 ML",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -3632,15 +3194,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_19",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_bik_p20",
+        "productId": "prod_20",
         "name": "PLAY MORE",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 170,
@@ -3651,15 +3214,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": true,
-        "productId": "prod_20",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_bik_p21",
+        "productId": "prod_21",
         "name": "FOUJI",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 170,
@@ -3670,15 +3234,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": true,
-        "productId": "prod_21",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_bik_p22",
+        "productId": "prod_22",
         "name": "EYE SUTRA",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 170,
@@ -3689,517 +3254,10 @@
           }
         ],
         "isActive": true,
-        "isSpecial": true,
-        "productId": "prod_22",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_bik_p23",
-        "name": "ALERGY",
-        "schemes": [
-          {
-            "dc": 170,
-            "id": "sch_alg_1",
-            "qty": 1,
-            "name": "ALERGY 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": true,
-        "productId": "prod_23",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
-      }
-    ],
-    "Bikaner": [
-      {
-        "id": "dp_bik_prod_1",
-        "productId": "prod_1",
-        "name": "DAMADAR",
-        "isSpecial": false,
-        "schemePrice": 3052,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_dmd_1",
-            "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_bik_prod_2",
-        "productId": "prod_2",
-        "name": "TONIC+FM",
-        "isSpecial": false,
-        "schemePrice": 2950,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_tfm_1",
-            "qty": 1,
-            "name": "TONIC+FM 1",
-            "price": 2950
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_bik_prod_3",
-        "productId": "prod_3",
-        "name": "AMAR NETRAN",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_an_1",
-            "qty": 1,
-            "name": "AMAR NETRAN 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_bik_prod_4",
-        "productId": "prod_4",
-        "name": "AAROGAYA NET",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_ag_1",
-            "qty": 1,
-            "name": "AG (Aarogya Net 1)",
-            "price": 2500
-          },
-          {
-            "dc": 500,
-            "id": "sch_ag_2",
-            "qty": 2,
-            "name": "AG (Aarogya Net 2)",
-            "price": 5000
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_bik_prod_5",
-        "productId": "prod_5",
-        "name": "KADWI DAWA",
-        "isSpecial": false,
-        "schemePrice": 2870,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_kd_1",
-            "qty": 1,
-            "name": "KD 1",
-            "price": 2870
-          },
-          {
-            "dc": 500,
-            "id": "sch_kd_2",
-            "qty": 2,
-            "name": "KD 2",
-            "price": 5740
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_bik_prod_6",
-        "productId": "prod_6",
-        "name": "HEIGH TONIC",
-        "isSpecial": false,
-        "schemePrice": 2950,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_ht_1",
-            "qty": 1,
-            "name": "HT (Heigh Tonic 1)",
-            "price": 2950
-          },
-          {
-            "dc": 500,
-            "id": "sch_ht_2",
-            "qty": 2,
-            "name": "HT (Heigh Tonic 2)",
-            "price": 5900
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_bik_prod_7",
-        "productId": "prod_7",
-        "name": "SUPRAGUT",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_sg_1",
-            "qty": 1,
-            "name": "SUPRAGUT 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_bik_prod_8",
-        "productId": "prod_8",
-        "name": "RAJ VILLA",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_rv_1",
-            "qty": 1,
-            "name": "RAJ VILLA 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_bik_prod_9",
-        "productId": "prod_9",
-        "name": "MONEY+HCY",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_mh_1",
-            "qty": 1,
-            "name": "MONEY+HCY 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_bik_prod_10",
-        "productId": "prod_10",
-        "name": "PV",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_pv_1",
-            "qty": 1,
-            "name": "PV 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_bik_prod_11",
-        "productId": "prod_11",
-        "name": "DS",
-        "isSpecial": false,
-        "schemePrice": 3580,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_ds_1",
-            "qty": 1,
-            "name": "DS (Height Sutra 1)",
-            "price": 3580
-          },
-          {
-            "dc": 500,
-            "id": "sch_ds_2",
-            "qty": 2,
-            "name": "DS (Height Sutra 2)",
-            "price": 7160
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_bik_prod_12",
-        "productId": "prod_12",
-        "name": "UDAR",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_udar_1",
-            "qty": 1,
-            "name": "UDAR 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_bik_prod_13",
-        "productId": "prod_13",
-        "name": "GUT",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_gut_1",
-            "qty": 1,
-            "name": "GUT 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_bik_prod_14",
-        "productId": "prod_14",
-        "name": "TSO",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_tso_1",
-            "qty": 1,
-            "name": "TSO 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_bik_prod_15",
-        "productId": "prod_15",
-        "name": "PILES BASAM",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_pb_1",
-            "qty": 1,
-            "name": "PILES BASAM 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_bik_prod_16",
-        "productId": "prod_16",
-        "name": "ALCO BAN",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_ab_1",
-            "qty": 1,
-            "name": "ALCO BAN 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_bik_prod_17",
-        "productId": "prod_17",
-        "name": "RSO",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_rso_1",
-            "qty": 1,
-            "name": "RSO 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_bik_prod_18",
-        "productId": "prod_18",
-        "name": "MANI RARTAN",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_mr_1",
-            "qty": 1,
-            "name": "MANI RARTAN 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_bik_prod_19",
-        "productId": "prod_19",
-        "name": "NONI 500 ML",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_noni_1",
-            "qty": 1,
-            "name": "NONI 500 ML 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_bik_prod_20",
-        "productId": "prod_20",
-        "name": "PLAY MORE",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 170,
-            "id": "sch_pm_1",
-            "qty": 1,
-            "name": "PLAY MORE 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_bik_prod_21",
-        "productId": "prod_21",
-        "name": "FOUJI",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 170,
-            "id": "sch_fj_1",
-            "qty": 1,
-            "name": "FOUJI 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_bik_prod_22",
-        "productId": "prod_22",
-        "name": "EYE SUTRA",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 170,
-            "id": "sch_es_1",
-            "qty": 1,
-            "name": "EYE SUTRA 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_bik_prod_23",
         "productId": "prod_23",
         "name": "ALERGY",
         "isSpecial": false,
@@ -4217,58 +3275,11 @@
         ],
         "isActive": true,
         "isCustomStockLocked": false
-      }
-    ],
-    "GURGAON": [
-      {
-        "id": "dp_gur_1",
-        "name": "AMAR NETRAN",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_an_1",
-            "qty": 1,
-            "name": "AMAR NETRAN 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_an",
-        "schemePrice": 2500,
-        "currentStock": 11,
-        "stockAllocated": 11
-      },
-      {
-        "id": "dp_gur_2",
-        "name": "KADWI DAWA",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_kd_1",
-            "qty": 1,
-            "name": "KD 1",
-            "price": 2870
-          },
-          {
-            "dc": 500,
-            "id": "sch_kd_2",
-            "qty": 2,
-            "name": "KD 2",
-            "price": 5740
-          }
-        ],
-        "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_kd",
-        "schemePrice": 2870,
-        "currentStock": 7,
-        "stockAllocated": 7
       }
     ],
     "Gurgaon": [
       {
-        "id": "dp_gur_prod_3",
+        "id": "dp_gur_1",
         "productId": "prod_3",
         "name": "AMAR NETRAN",
         "isSpecial": false,
@@ -4288,7 +3299,7 @@
         "isCustomStockLocked": true
       },
       {
-        "id": "dp_gur_prod_5",
+        "id": "dp_gur_2",
         "productId": "prod_5",
         "name": "KADWI DAWA",
         "isSpecial": false,
@@ -4404,62 +3415,15 @@
         "isCustomStockLocked": true
       }
     ],
-    "FARIDABAD": [
-      {
-        "id": "dp_gur_1",
-        "name": "AMAR NETRAN",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_an_1",
-            "qty": 1,
-            "name": "AMAR NETRAN 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_an",
-        "schemePrice": 2500,
-        "currentStock": 11,
-        "stockAllocated": 11
-      },
-      {
-        "id": "dp_gur_2",
-        "name": "KADWI DAWA",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_kd_1",
-            "qty": 1,
-            "name": "KD 1",
-            "price": 2870
-          },
-          {
-            "dc": 500,
-            "id": "sch_kd_2",
-            "qty": 2,
-            "name": "KD 2",
-            "price": 5740
-          }
-        ],
-        "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_kd",
-        "schemePrice": 2870,
-        "currentStock": 7,
-        "stockAllocated": 7
-      }
-    ],
     "Faridabad": [
       {
-        "id": "dp_far_prod_3",
+        "id": "dp_gur_1",
         "productId": "prod_3",
         "name": "AMAR NETRAN",
         "isSpecial": false,
         "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
+        "stockAllocated": 21,
+        "currentStock": 21,
         "schemes": [
           {
             "dc": 250,
@@ -4473,13 +3437,13 @@
         "isCustomStockLocked": true
       },
       {
-        "id": "dp_far_prod_5",
+        "id": "dp_gur_2",
         "productId": "prod_5",
         "name": "KADWI DAWA",
         "isSpecial": false,
         "schemePrice": 2870,
-        "stockAllocated": 0,
-        "currentStock": 0,
+        "stockAllocated": 8,
+        "currentStock": 8,
         "schemes": [
           {
             "dc": 250,
@@ -4498,89 +3462,11 @@
         ],
         "isActive": true,
         "isCustomStockLocked": true
-      }
-    ],
-    "SAHARANPUR": [
-      {
-        "id": "dp_sah_1",
-        "name": "PLAY MORE",
-        "schemes": [
-          {
-            "dc": 170,
-            "id": "sch_pm_1",
-            "qty": 1,
-            "name": "PLAY MORE 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": true,
-        "productId": "prod_pm",
-        "schemePrice": 2500,
-        "currentStock": 50,
-        "stockAllocated": 50
-      },
-      {
-        "id": "dp_sah_2",
-        "name": "FOUJI",
-        "schemes": [
-          {
-            "dc": 170,
-            "id": "sch_fj_1",
-            "qty": 1,
-            "name": "FOUJI 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": true,
-        "productId": "prod_fj",
-        "schemePrice": 2500,
-        "currentStock": 10,
-        "stockAllocated": 10
-      },
-      {
-        "id": "dp_sah_3",
-        "name": "EYE SUTRA",
-        "schemes": [
-          {
-            "dc": 170,
-            "id": "sch_es_1",
-            "qty": 1,
-            "name": "EYE SUTRA 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": true,
-        "productId": "prod_es",
-        "schemePrice": 2500,
-        "currentStock": 15,
-        "stockAllocated": 15
-      },
-      {
-        "id": "dp_sah_4",
-        "name": "ALERGY",
-        "schemes": [
-          {
-            "dc": 170,
-            "id": "sch_alg_1",
-            "qty": 1,
-            "name": "ALERGY 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": true,
-        "productId": "prod_alg",
-        "schemePrice": 2500,
-        "currentStock": 12,
-        "stockAllocated": 12
       }
     ],
     "Saharanpur": [
       {
-        "id": "dp_sah_prod_20",
+        "id": "dp_sah_1",
         "productId": "prod_20",
         "name": "PLAY MORE",
         "isSpecial": false,
@@ -4600,7 +3486,7 @@
         "isCustomStockLocked": true
       },
       {
-        "id": "dp_sah_prod_21",
+        "id": "dp_sah_2",
         "productId": "prod_21",
         "name": "FOUJI",
         "isSpecial": false,
@@ -4620,7 +3506,7 @@
         "isCustomStockLocked": true
       },
       {
-        "id": "dp_sah_prod_22",
+        "id": "dp_sah_3",
         "productId": "prod_22",
         "name": "EYE SUTRA",
         "isSpecial": false,
@@ -4640,7 +3526,7 @@
         "isCustomStockLocked": true
       },
       {
-        "id": "dp_sah_prod_23",
+        "id": "dp_sah_4",
         "productId": "prod_23",
         "name": "ALERGY",
         "isSpecial": false,
@@ -4658,492 +3544,11 @@
         ],
         "isActive": true,
         "isCustomStockLocked": true
-      }
-    ],
-    "CHITTORGARH": [
-      {
-        "id": "dp_chi_p1",
-        "name": "DAMADAR",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_dmd_1",
-            "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
-          }
-        ],
-        "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_1",
-        "schemePrice": 3052,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_chi_p2",
-        "name": "TONIC+FM",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_tfm_1",
-            "qty": 1,
-            "name": "TONIC+FM 1",
-            "price": 2950
-          }
-        ],
-        "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_2",
-        "schemePrice": 2950,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_chi_p3",
-        "name": "AMAR NETRAN",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_an_1",
-            "qty": 1,
-            "name": "AMAR NETRAN 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_3",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_chi_p4",
-        "name": "AAROGAYA NET",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_ag_1",
-            "qty": 1,
-            "name": "AG (Aarogya Net 1)",
-            "price": 2500
-          },
-          {
-            "dc": 500,
-            "id": "sch_ag_2",
-            "qty": 2,
-            "name": "AG (Aarogya Net 2)",
-            "price": 5000
-          }
-        ],
-        "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_4",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_chi_p5",
-        "name": "KADWI DAWA",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_kd_1",
-            "qty": 1,
-            "name": "KD 1",
-            "price": 2870
-          },
-          {
-            "dc": 500,
-            "id": "sch_kd_2",
-            "qty": 2,
-            "name": "KD 2",
-            "price": 5740
-          }
-        ],
-        "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_5",
-        "schemePrice": 2870,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_chi_p6",
-        "name": "HEIGH TONIC",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_ht_1",
-            "qty": 1,
-            "name": "HT (Heigh Tonic 1)",
-            "price": 2950
-          },
-          {
-            "dc": 500,
-            "id": "sch_ht_2",
-            "qty": 2,
-            "name": "HT (Heigh Tonic 2)",
-            "price": 5900
-          }
-        ],
-        "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_6",
-        "schemePrice": 2950,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_chi_p7",
-        "name": "SUPRAGUT",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_sg_1",
-            "qty": 1,
-            "name": "SUPRAGUT 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_7",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_chi_p8",
-        "name": "RAJ VILLA",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_rv_1",
-            "qty": 1,
-            "name": "RAJ VILLA 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_8",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_chi_p9",
-        "name": "MONEY+HCY",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_mh_1",
-            "qty": 1,
-            "name": "MONEY+HCY 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_9",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_chi_p10",
-        "name": "PV",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_pv_1",
-            "qty": 1,
-            "name": "PV 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_10",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_chi_p11",
-        "name": "DS",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_ds_1",
-            "qty": 1,
-            "name": "DS (Height Sutra 1)",
-            "price": 3580
-          },
-          {
-            "dc": 500,
-            "id": "sch_ds_2",
-            "qty": 2,
-            "name": "DS (Height Sutra 2)",
-            "price": 7160
-          }
-        ],
-        "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_11",
-        "schemePrice": 3580,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_chi_p12",
-        "name": "UDAR",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_udar_1",
-            "qty": 1,
-            "name": "UDAR 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_12",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_chi_p13",
-        "name": "GUT",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_gut_1",
-            "qty": 1,
-            "name": "GUT 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_13",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_chi_p14",
-        "name": "TSO",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_tso_1",
-            "qty": 1,
-            "name": "TSO 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_14",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_chi_p15",
-        "name": "PILES BASAM",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_pb_1",
-            "qty": 1,
-            "name": "PILES BASAM 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_15",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_chi_p16",
-        "name": "ALCO BAN",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_ab_1",
-            "qty": 1,
-            "name": "ALCO BAN 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_16",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_chi_p17",
-        "name": "RSO",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_rso_1",
-            "qty": 1,
-            "name": "RSO 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_17",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_chi_p18",
-        "name": "MANI RARTAN",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_mr_1",
-            "qty": 1,
-            "name": "MANI RARTAN 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_18",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_chi_p19",
-        "name": "NONI 500 ML",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_noni_1",
-            "qty": 1,
-            "name": "NONI 500 ML 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_19",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_chi_p20",
-        "name": "PLAY MORE",
-        "schemes": [
-          {
-            "dc": 170,
-            "id": "sch_pm_1",
-            "qty": 1,
-            "name": "PLAY MORE 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": true,
-        "productId": "prod_20",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_chi_p21",
-        "name": "FOUJI",
-        "schemes": [
-          {
-            "dc": 170,
-            "id": "sch_fj_1",
-            "qty": 1,
-            "name": "FOUJI 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": true,
-        "productId": "prod_21",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_chi_p22",
-        "name": "EYE SUTRA",
-        "schemes": [
-          {
-            "dc": 170,
-            "id": "sch_es_1",
-            "qty": 1,
-            "name": "EYE SUTRA 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": true,
-        "productId": "prod_22",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_chi_p23",
-        "name": "ALERGY",
-        "schemes": [
-          {
-            "dc": 170,
-            "id": "sch_alg_1",
-            "qty": 1,
-            "name": "ALERGY 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": true,
-        "productId": "prod_23",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
       }
     ],
     "Chittorgarh": [
       {
-        "id": "dp_chi_prod_1",
+        "id": "dp_chi_p1",
         "productId": "prod_1",
         "name": "DAMADAR",
         "isSpecial": false,
@@ -5177,7 +3582,7 @@
         "isCustomStockLocked": true
       },
       {
-        "id": "dp_chi_prod_2",
+        "id": "dp_chi_p2",
         "productId": "prod_2",
         "name": "TONIC+FM",
         "isSpecial": false,
@@ -5197,7 +3602,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_chi_prod_3",
+        "id": "dp_chi_p3",
         "productId": "prod_3",
         "name": "AMAR NETRAN",
         "isSpecial": false,
@@ -5217,7 +3622,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_chi_prod_4",
+        "id": "dp_chi_p4",
         "productId": "prod_4",
         "name": "AAROGAYA NET",
         "isSpecial": false,
@@ -5244,7 +3649,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_chi_prod_5",
+        "id": "dp_chi_p5",
         "productId": "prod_5",
         "name": "KADWI DAWA",
         "isSpecial": false,
@@ -5271,7 +3676,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_chi_prod_6",
+        "id": "dp_chi_p6",
         "productId": "prod_6",
         "name": "HEIGH TONIC",
         "isSpecial": false,
@@ -5298,7 +3703,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_chi_prod_7",
+        "id": "dp_chi_p7",
         "productId": "prod_7",
         "name": "SUPRAGUT",
         "isSpecial": false,
@@ -5318,7 +3723,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_chi_prod_8",
+        "id": "dp_chi_p8",
         "productId": "prod_8",
         "name": "RAJ VILLA",
         "isSpecial": false,
@@ -5338,7 +3743,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_chi_prod_9",
+        "id": "dp_chi_p9",
         "productId": "prod_9",
         "name": "MONEY+HCY",
         "isSpecial": false,
@@ -5358,7 +3763,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_chi_prod_10",
+        "id": "dp_chi_p10",
         "productId": "prod_10",
         "name": "PV",
         "isSpecial": false,
@@ -5378,7 +3783,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_chi_prod_11",
+        "id": "dp_chi_p11",
         "productId": "prod_11",
         "name": "DS",
         "isSpecial": false,
@@ -5405,7 +3810,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_chi_prod_12",
+        "id": "dp_chi_p12",
         "productId": "prod_12",
         "name": "UDAR",
         "isSpecial": false,
@@ -5425,7 +3830,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_chi_prod_13",
+        "id": "dp_chi_p13",
         "productId": "prod_13",
         "name": "GUT",
         "isSpecial": false,
@@ -5445,7 +3850,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_chi_prod_14",
+        "id": "dp_chi_p14",
         "productId": "prod_14",
         "name": "TSO",
         "isSpecial": false,
@@ -5465,7 +3870,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_chi_prod_15",
+        "id": "dp_chi_p15",
         "productId": "prod_15",
         "name": "PILES BASAM",
         "isSpecial": false,
@@ -5485,7 +3890,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_chi_prod_16",
+        "id": "dp_chi_p16",
         "productId": "prod_16",
         "name": "ALCO BAN",
         "isSpecial": false,
@@ -5505,7 +3910,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_chi_prod_17",
+        "id": "dp_chi_p17",
         "productId": "prod_17",
         "name": "RSO",
         "isSpecial": false,
@@ -5525,7 +3930,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_chi_prod_18",
+        "id": "dp_chi_p18",
         "productId": "prod_18",
         "name": "MANI RARTAN",
         "isSpecial": false,
@@ -5545,7 +3950,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_chi_prod_19",
+        "id": "dp_chi_p19",
         "productId": "prod_19",
         "name": "NONI 500 ML",
         "isSpecial": false,
@@ -5565,7 +3970,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_chi_prod_20",
+        "id": "dp_chi_p20",
         "productId": "prod_20",
         "name": "PLAY MORE",
         "isSpecial": false,
@@ -5585,7 +3990,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_chi_prod_21",
+        "id": "dp_chi_p21",
         "productId": "prod_21",
         "name": "FOUJI",
         "isSpecial": false,
@@ -5605,7 +4010,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_chi_prod_22",
+        "id": "dp_chi_p22",
         "productId": "prod_22",
         "name": "EYE SUTRA",
         "isSpecial": false,
@@ -5625,7 +4030,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_chi_prod_23",
+        "id": "dp_chi_p23",
         "productId": "prod_23",
         "name": "ALERGY",
         "isSpecial": false,
@@ -5705,10 +4110,15 @@
         "isCustomStockLocked": true
       }
     ],
-    "UTTARAKHAND": [
+    "Uttarakhand": [
       {
         "id": "dp_utt_p1",
+        "productId": "prod_1",
         "name": "DAMADAR",
+        "isSpecial": false,
+        "schemePrice": 3052,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -5733,15 +4143,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_1",
-        "schemePrice": 3052,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_utt_p2",
+        "productId": "prod_2",
         "name": "TONIC+FM",
+        "isSpecial": false,
+        "schemePrice": 2950,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -5752,15 +4163,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_2",
-        "schemePrice": 2950,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_utt_p3",
+        "productId": "prod_3",
         "name": "AMAR NETRAN",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -5771,15 +4183,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_3",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_utt_p4",
+        "productId": "prod_4",
         "name": "AAROGAYA NET",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -5797,15 +4210,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_4",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_utt_p5",
+        "productId": "prod_5",
         "name": "KADWI DAWA",
+        "isSpecial": false,
+        "schemePrice": 2870,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -5823,15 +4237,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_5",
-        "schemePrice": 2870,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_utt_p6",
+        "productId": "prod_6",
         "name": "HEIGH TONIC",
+        "isSpecial": false,
+        "schemePrice": 2950,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -5849,15 +4264,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_6",
-        "schemePrice": 2950,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_utt_p7",
+        "productId": "prod_7",
         "name": "SUPRAGUT",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -5868,15 +4284,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_7",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_utt_p8",
+        "productId": "prod_8",
         "name": "RAJ VILLA",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -5887,15 +4304,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_8",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_utt_p9",
+        "productId": "prod_9",
         "name": "MONEY+HCY",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -5906,15 +4324,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_9",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_utt_p10",
+        "productId": "prod_10",
         "name": "PV",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -5925,15 +4344,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_10",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_utt_p11",
+        "productId": "prod_11",
         "name": "DS",
+        "isSpecial": false,
+        "schemePrice": 3580,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -5951,15 +4371,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_11",
-        "schemePrice": 3580,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_utt_p12",
+        "productId": "prod_12",
         "name": "UDAR",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -5970,15 +4391,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_12",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_utt_p13",
+        "productId": "prod_13",
         "name": "GUT",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -5989,15 +4411,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_13",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_utt_p14",
+        "productId": "prod_14",
         "name": "TSO",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -6008,15 +4431,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_14",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_utt_p15",
+        "productId": "prod_15",
         "name": "PILES BASAM",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -6027,15 +4451,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_15",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_utt_p16",
+        "productId": "prod_16",
         "name": "ALCO BAN",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -6046,15 +4471,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_16",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_utt_p17",
+        "productId": "prod_17",
         "name": "RSO",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -6065,15 +4491,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_17",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_utt_p18",
+        "productId": "prod_18",
         "name": "MANI RARTAN",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -6084,15 +4511,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_18",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_utt_p19",
+        "productId": "prod_19",
         "name": "NONI 500 ML",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 250,
@@ -6103,15 +4531,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_19",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_utt_p20",
+        "productId": "prod_20",
         "name": "PLAY MORE",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 170,
@@ -6122,15 +4551,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": true,
-        "productId": "prod_20",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_utt_p21",
+        "productId": "prod_21",
         "name": "FOUJI",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 170,
@@ -6141,15 +4571,16 @@
           }
         ],
         "isActive": true,
-        "isSpecial": true,
-        "productId": "prod_21",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_utt_p22",
+        "productId": "prod_22",
         "name": "EYE SUTRA",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 170,
@@ -6160,517 +4591,10 @@
           }
         ],
         "isActive": true,
-        "isSpecial": true,
-        "productId": "prod_22",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_utt_p23",
-        "name": "ALERGY",
-        "schemes": [
-          {
-            "dc": 170,
-            "id": "sch_alg_1",
-            "qty": 1,
-            "name": "ALERGY 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": true,
-        "productId": "prod_23",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
-      }
-    ],
-    "Uttarakhand": [
-      {
-        "id": "dp_utt_prod_1",
-        "productId": "prod_1",
-        "name": "DAMADAR",
-        "isSpecial": false,
-        "schemePrice": 3052,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_dmd_1",
-            "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_utt_prod_2",
-        "productId": "prod_2",
-        "name": "TONIC+FM",
-        "isSpecial": false,
-        "schemePrice": 2950,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_tfm_1",
-            "qty": 1,
-            "name": "TONIC+FM 1",
-            "price": 2950
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_utt_prod_3",
-        "productId": "prod_3",
-        "name": "AMAR NETRAN",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_an_1",
-            "qty": 1,
-            "name": "AMAR NETRAN 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_utt_prod_4",
-        "productId": "prod_4",
-        "name": "AAROGAYA NET",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_ag_1",
-            "qty": 1,
-            "name": "AG (Aarogya Net 1)",
-            "price": 2500
-          },
-          {
-            "dc": 500,
-            "id": "sch_ag_2",
-            "qty": 2,
-            "name": "AG (Aarogya Net 2)",
-            "price": 5000
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_utt_prod_5",
-        "productId": "prod_5",
-        "name": "KADWI DAWA",
-        "isSpecial": false,
-        "schemePrice": 2870,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_kd_1",
-            "qty": 1,
-            "name": "KD 1",
-            "price": 2870
-          },
-          {
-            "dc": 500,
-            "id": "sch_kd_2",
-            "qty": 2,
-            "name": "KD 2",
-            "price": 5740
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_utt_prod_6",
-        "productId": "prod_6",
-        "name": "HEIGH TONIC",
-        "isSpecial": false,
-        "schemePrice": 2950,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_ht_1",
-            "qty": 1,
-            "name": "HT (Heigh Tonic 1)",
-            "price": 2950
-          },
-          {
-            "dc": 500,
-            "id": "sch_ht_2",
-            "qty": 2,
-            "name": "HT (Heigh Tonic 2)",
-            "price": 5900
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_utt_prod_7",
-        "productId": "prod_7",
-        "name": "SUPRAGUT",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_sg_1",
-            "qty": 1,
-            "name": "SUPRAGUT 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_utt_prod_8",
-        "productId": "prod_8",
-        "name": "RAJ VILLA",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_rv_1",
-            "qty": 1,
-            "name": "RAJ VILLA 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_utt_prod_9",
-        "productId": "prod_9",
-        "name": "MONEY+HCY",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_mh_1",
-            "qty": 1,
-            "name": "MONEY+HCY 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_utt_prod_10",
-        "productId": "prod_10",
-        "name": "PV",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_pv_1",
-            "qty": 1,
-            "name": "PV 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_utt_prod_11",
-        "productId": "prod_11",
-        "name": "DS",
-        "isSpecial": false,
-        "schemePrice": 3580,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_ds_1",
-            "qty": 1,
-            "name": "DS (Height Sutra 1)",
-            "price": 3580
-          },
-          {
-            "dc": 500,
-            "id": "sch_ds_2",
-            "qty": 2,
-            "name": "DS (Height Sutra 2)",
-            "price": 7160
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_utt_prod_12",
-        "productId": "prod_12",
-        "name": "UDAR",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_udar_1",
-            "qty": 1,
-            "name": "UDAR 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_utt_prod_13",
-        "productId": "prod_13",
-        "name": "GUT",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_gut_1",
-            "qty": 1,
-            "name": "GUT 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_utt_prod_14",
-        "productId": "prod_14",
-        "name": "TSO",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_tso_1",
-            "qty": 1,
-            "name": "TSO 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_utt_prod_15",
-        "productId": "prod_15",
-        "name": "PILES BASAM",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_pb_1",
-            "qty": 1,
-            "name": "PILES BASAM 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_utt_prod_16",
-        "productId": "prod_16",
-        "name": "ALCO BAN",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_ab_1",
-            "qty": 1,
-            "name": "ALCO BAN 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_utt_prod_17",
-        "productId": "prod_17",
-        "name": "RSO",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_rso_1",
-            "qty": 1,
-            "name": "RSO 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_utt_prod_18",
-        "productId": "prod_18",
-        "name": "MANI RARTAN",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_mr_1",
-            "qty": 1,
-            "name": "MANI RARTAN 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_utt_prod_19",
-        "productId": "prod_19",
-        "name": "NONI 500 ML",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_noni_1",
-            "qty": 1,
-            "name": "NONI 500 ML 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_utt_prod_20",
-        "productId": "prod_20",
-        "name": "PLAY MORE",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 170,
-            "id": "sch_pm_1",
-            "qty": 1,
-            "name": "PLAY MORE 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_utt_prod_21",
-        "productId": "prod_21",
-        "name": "FOUJI",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 170,
-            "id": "sch_fj_1",
-            "qty": 1,
-            "name": "FOUJI 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_utt_prod_22",
-        "productId": "prod_22",
-        "name": "EYE SUTRA",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 170,
-            "id": "sch_es_1",
-            "qty": 1,
-            "name": "EYE SUTRA 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": false
-      },
-      {
-        "id": "dp_utt_prod_23",
         "productId": "prod_23",
         "name": "ALERGY",
         "isSpecial": false,
@@ -6688,89 +4612,11 @@
         ],
         "isActive": true,
         "isCustomStockLocked": false
-      }
-    ],
-    "MUZAFFARNAGAR": [
-      {
-        "id": "dp_sah_1",
-        "name": "PLAY MORE",
-        "schemes": [
-          {
-            "dc": 170,
-            "id": "sch_pm_1",
-            "qty": 1,
-            "name": "PLAY MORE 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": true,
-        "productId": "prod_pm",
-        "schemePrice": 2500,
-        "currentStock": 50,
-        "stockAllocated": 50
-      },
-      {
-        "id": "dp_sah_2",
-        "name": "FOUJI",
-        "schemes": [
-          {
-            "dc": 170,
-            "id": "sch_fj_1",
-            "qty": 1,
-            "name": "FOUJI 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": true,
-        "productId": "prod_fj",
-        "schemePrice": 2500,
-        "currentStock": 10,
-        "stockAllocated": 10
-      },
-      {
-        "id": "dp_sah_3",
-        "name": "EYE SUTRA",
-        "schemes": [
-          {
-            "dc": 170,
-            "id": "sch_es_1",
-            "qty": 1,
-            "name": "EYE SUTRA 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": true,
-        "productId": "prod_es",
-        "schemePrice": 2500,
-        "currentStock": 15,
-        "stockAllocated": 15
-      },
-      {
-        "id": "dp_sah_4",
-        "name": "ALERGY",
-        "schemes": [
-          {
-            "dc": 170,
-            "id": "sch_alg_1",
-            "qty": 1,
-            "name": "ALERGY 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": true,
-        "productId": "prod_alg",
-        "schemePrice": 2500,
-        "currentStock": 12,
-        "stockAllocated": 12
       }
     ],
     "Muzaffarnagar": [
       {
-        "id": "dp_muz_prod_20",
+        "id": "dp_sah_1",
         "productId": "prod_20",
         "name": "PLAY MORE",
         "isSpecial": false,
@@ -6790,7 +4636,7 @@
         "isCustomStockLocked": true
       },
       {
-        "id": "dp_muz_prod_21",
+        "id": "dp_sah_2",
         "productId": "prod_21",
         "name": "FOUJI",
         "isSpecial": false,
@@ -6810,7 +4656,7 @@
         "isCustomStockLocked": true
       },
       {
-        "id": "dp_muz_prod_22",
+        "id": "dp_sah_3",
         "productId": "prod_22",
         "name": "EYE SUTRA",
         "isSpecial": false,
@@ -6830,7 +4676,7 @@
         "isCustomStockLocked": true
       },
       {
-        "id": "dp_muz_prod_23",
+        "id": "dp_sah_4",
         "productId": "prod_23",
         "name": "ALERGY",
         "isSpecial": false,
@@ -6848,492 +4694,11 @@
         ],
         "isActive": true,
         "isCustomStockLocked": true
-      }
-    ],
-    "UDHAM SINGH NAGAR": [
-      {
-        "id": "dp_udh_p1",
-        "name": "DAMADAR",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_dmd_1",
-            "qty": 1,
-            "name": "DMD 1",
-            "price": 3052
-          },
-          {
-            "dc": 500,
-            "id": "sch_dmd_2",
-            "qty": 2,
-            "name": "DMD 2",
-            "price": 6104
-          },
-          {
-            "dc": 750,
-            "id": "sch_dmd_3",
-            "qty": 3,
-            "name": "DMD 3",
-            "price": 9156
-          }
-        ],
-        "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_1",
-        "schemePrice": 3052,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_udh_p2",
-        "name": "TONIC+FM",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_tfm_1",
-            "qty": 1,
-            "name": "TONIC+FM 1",
-            "price": 2950
-          }
-        ],
-        "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_2",
-        "schemePrice": 2950,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_udh_p3",
-        "name": "AMAR NETRAN",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_an_1",
-            "qty": 1,
-            "name": "AMAR NETRAN 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_3",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_udh_p4",
-        "name": "AAROGAYA NET",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_ag_1",
-            "qty": 1,
-            "name": "AG (Aarogya Net 1)",
-            "price": 2500
-          },
-          {
-            "dc": 500,
-            "id": "sch_ag_2",
-            "qty": 2,
-            "name": "AG (Aarogya Net 2)",
-            "price": 5000
-          }
-        ],
-        "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_4",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_udh_p5",
-        "name": "KADWI DAWA",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_kd_1",
-            "qty": 1,
-            "name": "KD 1",
-            "price": 2870
-          },
-          {
-            "dc": 500,
-            "id": "sch_kd_2",
-            "qty": 2,
-            "name": "KD 2",
-            "price": 5740
-          }
-        ],
-        "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_5",
-        "schemePrice": 2870,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_udh_p6",
-        "name": "HEIGH TONIC",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_ht_1",
-            "qty": 1,
-            "name": "HT (Heigh Tonic 1)",
-            "price": 2950
-          },
-          {
-            "dc": 500,
-            "id": "sch_ht_2",
-            "qty": 2,
-            "name": "HT (Heigh Tonic 2)",
-            "price": 5900
-          }
-        ],
-        "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_6",
-        "schemePrice": 2950,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_udh_p7",
-        "name": "SUPRAGUT",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_sg_1",
-            "qty": 1,
-            "name": "SUPRAGUT 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_7",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_udh_p8",
-        "name": "RAJ VILLA",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_rv_1",
-            "qty": 1,
-            "name": "RAJ VILLA 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_8",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_udh_p9",
-        "name": "MONEY+HCY",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_mh_1",
-            "qty": 1,
-            "name": "MONEY+HCY 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_9",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_udh_p10",
-        "name": "PV",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_pv_1",
-            "qty": 1,
-            "name": "PV 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_10",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_udh_p11",
-        "name": "DS",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_ds_1",
-            "qty": 1,
-            "name": "DS (Height Sutra 1)",
-            "price": 3580
-          },
-          {
-            "dc": 500,
-            "id": "sch_ds_2",
-            "qty": 2,
-            "name": "DS (Height Sutra 2)",
-            "price": 7160
-          }
-        ],
-        "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_11",
-        "schemePrice": 3580,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_udh_p12",
-        "name": "UDAR",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_udar_1",
-            "qty": 1,
-            "name": "UDAR 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_12",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_udh_p13",
-        "name": "GUT",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_gut_1",
-            "qty": 1,
-            "name": "GUT 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_13",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_udh_p14",
-        "name": "TSO",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_tso_1",
-            "qty": 1,
-            "name": "TSO 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_14",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_udh_p15",
-        "name": "PILES BASAM",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_pb_1",
-            "qty": 1,
-            "name": "PILES BASAM 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_15",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_udh_p16",
-        "name": "ALCO BAN",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_ab_1",
-            "qty": 1,
-            "name": "ALCO BAN 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_16",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_udh_p17",
-        "name": "RSO",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_rso_1",
-            "qty": 1,
-            "name": "RSO 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_17",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_udh_p18",
-        "name": "MANI RARTAN",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_mr_1",
-            "qty": 1,
-            "name": "MANI RARTAN 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_18",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_udh_p19",
-        "name": "NONI 500 ML",
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_noni_1",
-            "qty": 1,
-            "name": "NONI 500 ML 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": false,
-        "productId": "prod_19",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_udh_p20",
-        "name": "PLAY MORE",
-        "schemes": [
-          {
-            "dc": 170,
-            "id": "sch_pm_1",
-            "qty": 1,
-            "name": "PLAY MORE 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": true,
-        "productId": "prod_20",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_udh_p21",
-        "name": "FOUJI",
-        "schemes": [
-          {
-            "dc": 170,
-            "id": "sch_fj_1",
-            "qty": 1,
-            "name": "FOUJI 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": true,
-        "productId": "prod_21",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_udh_p22",
-        "name": "EYE SUTRA",
-        "schemes": [
-          {
-            "dc": 170,
-            "id": "sch_es_1",
-            "qty": 1,
-            "name": "EYE SUTRA 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": true,
-        "productId": "prod_22",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
-      },
-      {
-        "id": "dp_udh_p23",
-        "name": "ALERGY",
-        "schemes": [
-          {
-            "dc": 170,
-            "id": "sch_alg_1",
-            "qty": 1,
-            "name": "ALERGY 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isSpecial": true,
-        "productId": "prod_23",
-        "schemePrice": 2500,
-        "currentStock": 0,
-        "stockAllocated": 0
       }
     ],
     "Udham Singh Nagar": [
       {
-        "id": "dp_udh_prod_1",
+        "id": "dp_udh_p1",
         "productId": "prod_1",
         "name": "DAMADAR",
         "isSpecial": false,
@@ -7367,7 +4732,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_udh_prod_2",
+        "id": "dp_udh_p2",
         "productId": "prod_2",
         "name": "TONIC+FM",
         "isSpecial": false,
@@ -7387,7 +4752,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_udh_prod_3",
+        "id": "dp_udh_p3",
         "productId": "prod_3",
         "name": "AMAR NETRAN",
         "isSpecial": false,
@@ -7407,7 +4772,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_udh_prod_4",
+        "id": "dp_udh_p4",
         "productId": "prod_4",
         "name": "AAROGAYA NET",
         "isSpecial": false,
@@ -7434,7 +4799,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_udh_prod_5",
+        "id": "dp_udh_p5",
         "productId": "prod_5",
         "name": "KADWI DAWA",
         "isSpecial": false,
@@ -7461,7 +4826,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_udh_prod_6",
+        "id": "dp_udh_p6",
         "productId": "prod_6",
         "name": "HEIGH TONIC",
         "isSpecial": false,
@@ -7488,7 +4853,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_udh_prod_7",
+        "id": "dp_udh_p7",
         "productId": "prod_7",
         "name": "SUPRAGUT",
         "isSpecial": false,
@@ -7508,7 +4873,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_udh_prod_8",
+        "id": "dp_udh_p8",
         "productId": "prod_8",
         "name": "RAJ VILLA",
         "isSpecial": false,
@@ -7528,7 +4893,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_udh_prod_9",
+        "id": "dp_udh_p9",
         "productId": "prod_9",
         "name": "MONEY+HCY",
         "isSpecial": false,
@@ -7548,7 +4913,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_udh_prod_10",
+        "id": "dp_udh_p10",
         "productId": "prod_10",
         "name": "PV",
         "isSpecial": false,
@@ -7568,7 +4933,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_udh_prod_11",
+        "id": "dp_udh_p11",
         "productId": "prod_11",
         "name": "DS",
         "isSpecial": false,
@@ -7595,7 +4960,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_udh_prod_12",
+        "id": "dp_udh_p12",
         "productId": "prod_12",
         "name": "UDAR",
         "isSpecial": false,
@@ -7615,7 +4980,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_udh_prod_13",
+        "id": "dp_udh_p13",
         "productId": "prod_13",
         "name": "GUT",
         "isSpecial": false,
@@ -7635,7 +5000,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_udh_prod_14",
+        "id": "dp_udh_p14",
         "productId": "prod_14",
         "name": "TSO",
         "isSpecial": false,
@@ -7655,7 +5020,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_udh_prod_15",
+        "id": "dp_udh_p15",
         "productId": "prod_15",
         "name": "PILES BASAM",
         "isSpecial": false,
@@ -7675,7 +5040,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_udh_prod_16",
+        "id": "dp_udh_p16",
         "productId": "prod_16",
         "name": "ALCO BAN",
         "isSpecial": false,
@@ -7695,7 +5060,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_udh_prod_17",
+        "id": "dp_udh_p17",
         "productId": "prod_17",
         "name": "RSO",
         "isSpecial": false,
@@ -7715,7 +5080,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_udh_prod_18",
+        "id": "dp_udh_p18",
         "productId": "prod_18",
         "name": "MANI RARTAN",
         "isSpecial": false,
@@ -7735,7 +5100,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_udh_prod_19",
+        "id": "dp_udh_p19",
         "productId": "prod_19",
         "name": "NONI 500 ML",
         "isSpecial": false,
@@ -7755,7 +5120,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_udh_prod_20",
+        "id": "dp_udh_p20",
         "productId": "prod_20",
         "name": "PLAY MORE",
         "isSpecial": false,
@@ -7775,7 +5140,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_udh_prod_21",
+        "id": "dp_udh_p21",
         "productId": "prod_21",
         "name": "FOUJI",
         "isSpecial": false,
@@ -7795,7 +5160,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_udh_prod_22",
+        "id": "dp_udh_p22",
         "productId": "prod_22",
         "name": "EYE SUTRA",
         "isSpecial": false,
@@ -7815,7 +5180,7 @@
         "isCustomStockLocked": false
       },
       {
-        "id": "dp_udh_prod_23",
+        "id": "dp_udh_p23",
         "productId": "prod_23",
         "name": "ALERGY",
         "isSpecial": false,
