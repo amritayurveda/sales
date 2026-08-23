@@ -703,11 +703,80 @@
     "dealerUsername": "dealer_jaipur"
   },
   "milaStock": {
-    "Jaipur:2026-08-23:prod_1": 25,
     "Gurgaon:2026-08-23:prod_kd": 23
   },
   "inwardNotes": {},
   "activityLogs": [
+    {
+      "id": "act_1787486648102uvh2",
+      "role": "dealer",
+      "action": "LOGIN",
+      "userId": "u_dealer_8",
+      "details": "User dealer_faridabad (dealer - Faridabad) logged in",
+      "district": "Faridabad",
+      "username": "dealer_faridabad",
+      "timestamp": "2026-08-23T12:04:08.102Z"
+    },
+    {
+      "id": "act_17874866376338dko",
+      "role": "admin",
+      "action": "DISTRICT_PRODUCT_ASSIGNED",
+      "userId": "u_admin",
+      "details": "Assigned \"KADWI DAWA\" to Faridabad with stock 8",
+      "district": "Faridabad",
+      "username": "admin",
+      "timestamp": "2026-08-23T12:03:57.633Z"
+    },
+    {
+      "id": "act_17874866365447cpm",
+      "role": "admin",
+      "action": "DISTRICT_PRODUCT_ASSIGNED",
+      "userId": "u_admin",
+      "details": "Assigned \"AMAR NETRAN\" to Faridabad with stock 21",
+      "district": "Faridabad",
+      "username": "admin",
+      "timestamp": "2026-08-23T12:03:56.544Z"
+    },
+    {
+      "id": "act_1787486633083lhme",
+      "role": "admin",
+      "action": "BULK_DISTRICT_PRODUCTS_UPDATED",
+      "userId": "u_admin",
+      "details": "Updated assigned products for Faridabad: 0 products active",
+      "district": "Faridabad",
+      "username": "admin",
+      "timestamp": "2026-08-23T12:03:53.083Z"
+    },
+    {
+      "id": "act_1787486605998yivo",
+      "role": "admin",
+      "action": "STOCK_ADJUSTMENT",
+      "userId": "u_admin",
+      "details": "Admin adjusted base stock for KADWI DAWA in jaipur: 0 units (Locked & Saved)",
+      "district": "jaipur",
+      "username": "admin",
+      "timestamp": "2026-08-23T12:03:25.998Z"
+    },
+    {
+      "id": "act_17874866050022o6q",
+      "role": "admin",
+      "action": "STOCK_ADJUSTMENT",
+      "userId": "u_admin",
+      "details": "Admin adjusted base stock for TONIC+FM in jaipur: 0 units (Locked & Saved)",
+      "district": "jaipur",
+      "username": "admin",
+      "timestamp": "2026-08-23T12:03:25.002Z"
+    },
+    {
+      "id": "act_1787486602798b3ml",
+      "role": "admin",
+      "action": "STOCK_ADJUSTMENT",
+      "userId": "u_admin",
+      "details": "Admin adjusted base stock for DAMADAR in jaipur: 0 units (Locked & Saved)",
+      "district": "jaipur",
+      "username": "admin",
+      "timestamp": "2026-08-23T12:03:22.798Z"
+    },
     {
       "id": "act_1787479226154qanw",
       "role": "admin",
@@ -1944,6 +2013,72 @@
   ],
   "stockTransfers": [
     {
+      "id": "tr_test_1787487094232",
+      "date": "2026-08-23",
+      "items": [
+        {
+          "qty": 25,
+          "productId": "prod_1",
+          "productName": "DAMADAR"
+        }
+      ],
+      "notes": "Urgent Jaipur Stock",
+      "status": "received",
+      "createdAt": "2026-08-23T12:11:34.233Z",
+      "createdBy": "admin",
+      "driverName": "Ramesh Express",
+      "receivedAt": "2026-08-23T12:11:34.544Z",
+      "receivedBy": "dealer_jaipur",
+      "toDistrict": "Jaipur",
+      "transferNo": "TR-TEST-99",
+      "driverMobile": "9876543210",
+      "fromLocation": "Central Warehouse"
+    },
+    {
+      "id": "tr_test_1787486958360",
+      "date": "2026-08-23",
+      "items": [
+        {
+          "qty": 25,
+          "productId": "prod_1",
+          "productName": "DAMADAR"
+        }
+      ],
+      "notes": "Urgent Jaipur Stock",
+      "status": "received",
+      "createdAt": "2026-08-23T12:09:18.360Z",
+      "createdBy": "admin",
+      "driverName": "Ramesh Express",
+      "receivedAt": "2026-08-23T12:09:18.926Z",
+      "receivedBy": "dealer_jaipur",
+      "toDistrict": "Jaipur",
+      "transferNo": "TR-TEST-99",
+      "driverMobile": "9876543210",
+      "fromLocation": "Central Warehouse"
+    },
+    {
+      "id": "tr_test_1787486902676",
+      "date": "2026-08-23",
+      "items": [
+        {
+          "qty": 25,
+          "productId": "prod_1",
+          "productName": "DAMADAR"
+        }
+      ],
+      "notes": "Urgent Jaipur Stock",
+      "status": "received",
+      "createdAt": "2026-08-23T12:08:22.676Z",
+      "createdBy": "admin",
+      "driverName": "Ramesh Express",
+      "receivedAt": "2026-08-23T12:08:22.981Z",
+      "receivedBy": "dealer_jaipur",
+      "toDistrict": "Jaipur",
+      "transferNo": "TR-TEST-99",
+      "driverMobile": "9876543210",
+      "fromLocation": "Central Warehouse"
+    },
+    {
       "id": "tr_test_1787486510014",
       "date": "2026-08-23",
       "items": [
@@ -2253,14 +2388,14 @@
     }
   ],
   "customStockLocks": {
-    "Jaipur:prod_1": 45,
+    "Jaipur:prod_1": 25,
     "Jaipur:prod_2": 14,
     "Jaipur:prod_5": 33,
-    "jaipur:prod_1": 0,
-    "jaipur:prod_2": 0,
+    "jaipur:prod_1": 25,
+    "jaipur:prod_2": 14,
     "jaipur:prod_3": 0,
     "jaipur:prod_4": 0,
-    "jaipur:prod_5": 0,
+    "jaipur:prod_5": 33,
     "jaipur:prod_6": 0,
     "jaipur:prod_8": 0,
     "jaipur:prod_9": 0,
@@ -2273,7 +2408,6 @@
     "gurgaon:prod_5": 0,
     "jaipur:prod_10": 0,
     "jaipur:prod_11": 0,
-    "jaipur:prod_20": 0,
     "jaipur:prod_21": 0,
     "jaipur:prod_22": 0,
     "jaipur:prod_23": 0,
@@ -3450,8 +3584,8 @@
         "name": "DAMADAR",
         "isSpecial": false,
         "schemePrice": 3052,
-        "stockAllocated": 45,
-        "currentStock": 45,
+        "stockAllocated": 25,
+        "currentStock": 25,
         "schemes": [
           {
             "dc": 250,
@@ -3872,8 +4006,8 @@
         "name": "PLAY MORE",
         "isSpecial": false,
         "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
+        "stockAllocated": 20,
+        "currentStock": 20,
         "schemes": [
           {
             "dc": 170,
@@ -3884,7 +4018,7 @@
           }
         ],
         "isActive": true,
-        "isCustomStockLocked": true
+        "isCustomStockLocked": false
       },
       {
         "id": "dp_jai_prod_21",
@@ -9086,9 +9220,45 @@
   },
   "lastOrderTimestamp": 1787464319673,
   "mainWarehouseStock": {
-    "prod_1": 75
+    "prod_1": 300
   },
   "mainStockInwardLogs": [
+    {
+      "id": "inw_test_1787487093911",
+      "qty": 100,
+      "note": "E2E Test Batch",
+      "supplier": "Ayurveda Factory HQ",
+      "createdAt": "2026-08-23T12:11:33.911Z",
+      "createdBy": "admin",
+      "invoiceNo": "INV-TEST-001",
+      "productId": "prod_1",
+      "inwardDate": "2026-08-23",
+      "productName": "DAMADAR"
+    },
+    {
+      "id": "inw_test_1787486957520",
+      "qty": 100,
+      "note": "E2E Test Batch",
+      "supplier": "Ayurveda Factory HQ",
+      "createdAt": "2026-08-23T12:09:17.520Z",
+      "createdBy": "admin",
+      "invoiceNo": "INV-TEST-001",
+      "productId": "prod_1",
+      "inwardDate": "2026-08-23",
+      "productName": "DAMADAR"
+    },
+    {
+      "id": "inw_test_1787486901881",
+      "qty": 100,
+      "note": "E2E Test Batch",
+      "supplier": "Ayurveda Factory HQ",
+      "createdAt": "2026-08-23T12:08:21.881Z",
+      "createdBy": "admin",
+      "invoiceNo": "INV-TEST-001",
+      "productId": "prod_1",
+      "inwardDate": "2026-08-23",
+      "productName": "DAMADAR"
+    },
     {
       "id": "inw_test_1787486509372",
       "qty": 100,
@@ -9101,5 +9271,6 @@
       "inwardDate": "2026-08-23",
       "productName": "DAMADAR"
     }
-  ]
+  ],
+  "unassignedDistrictProducts": {}
 }

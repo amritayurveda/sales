@@ -194,6 +194,12 @@ function ensureDistrictSchemes() {
         const stockAlloc = Number(it.stockAllocated) || 0;
         const currStock = Number(it.currentStock) || stockAlloc;
         const isLocked = Boolean(it.isCustomStockLocked);
+        const unassignedKey1 = `${canonical}:${cId}`;
+        const unassignedKey2 = `${canonical}:${cName.toUpperCase()}`;
+        const isExplicitlyUnassigned = Boolean(
+          db.unassignedDistrictProducts && (db.unassignedDistrictProducts[unassignedKey1] || db.unassignedDistrictProducts[unassignedKey2])
+        );
+        const isActive = isExplicitlyUnassigned ? false : (it.isActive !== false);
 
         if (existingIdx === -1) {
           normalizedDistrictProducts[canonical].push({
@@ -205,12 +211,15 @@ function ensureDistrictSchemes() {
             stockAllocated: stockAlloc,
             currentStock: currStock,
             schemes: (master && master.schemes) ? JSON.parse(JSON.stringify(master.schemes)) : (it.schemes || []),
-            isActive: it.isActive !== false,
+            isActive,
             isCustomStockLocked: isLocked
           });
         } else {
           // If duplicate entry, merge preserving locked stock or non-zero stock
           const existing = normalizedDistrictProducts[canonical][existingIdx];
+          if (!isActive) {
+            existing.isActive = false;
+          }
           if (isLocked || (!existing.isCustomStockLocked && stockAlloc > 0)) {
             existing.stockAllocated = stockAlloc;
             existing.currentStock = currStock;
@@ -281,8 +290,14 @@ function ensureDistrictSchemes() {
     // Ensure all master products are present in every district list
     if (Array.isArray(db.districtProducts[canonical])) {
       masterList.forEach(m => {
-        const exists = db.districtProducts[canonical].some(p => p.productId === m.id || p.name.toUpperCase() === m.name.toUpperCase());
-        if (!exists) {
+        const unassignedKey1 = `${canonical}:${m.id}`;
+        const unassignedKey2 = `${canonical}:${m.name.toUpperCase()}`;
+        const isExplicitlyUnassigned = Boolean(
+          db.unassignedDistrictProducts && (db.unassignedDistrictProducts[unassignedKey1] || db.unassignedDistrictProducts[unassignedKey2])
+        );
+
+        const existing = db.districtProducts[canonical].find(p => p.productId === m.id || p.name.toUpperCase() === m.name.toUpperCase());
+        if (!existing) {
           db.districtProducts[canonical].push({
             id: `dp_${pfx}_${m.id}`,
             productId: m.id,
@@ -292,8 +307,10 @@ function ensureDistrictSchemes() {
             stockAllocated: 0,
             currentStock: 0,
             schemes: JSON.parse(JSON.stringify(m.schemes || [])),
-            isActive: true
+            isActive: !isExplicitlyUnassigned
           });
+        } else if (isExplicitlyUnassigned || existing.isActive === false) {
+          existing.isActive = false;
         }
       });
     }
@@ -301,6 +318,23 @@ function ensureDistrictSchemes() {
     // Apply any explicit custom stock locks to the district products
     if (Array.isArray(db.districtProducts[canonical])) {
       db.districtProducts[canonical].forEach(p => {
+        const unKey1 = `${canonical}:${p.productId}`;
+        const unKey2 = `${canonical}:${(p.name || '').toUpperCase()}`;
+        const isExplicitlyUnassigned = Boolean(
+          p.isActive === false ||
+          (db.unassignedDistrictProducts && (db.unassignedDistrictProducts[unKey1] || db.unassignedDistrictProducts[unKey2]))
+        );
+
+        if (isExplicitlyUnassigned) {
+          p.isActive = false;
+          p.stockAllocated = 0;
+          p.currentStock = 0;
+          p.isCustomStockLocked = false;
+          delete db.customStockLocks[`${canonical}:${p.productId}`];
+          delete db.customStockLocks[`${canonical.toLowerCase()}:${p.productId}`];
+          return;
+        }
+
         const lockKey1 = `${canonical}:${p.productId}`;
         const lockKey2 = `${canonical.toLowerCase()}:${p.productId}`;
         if (db.customStockLocks[lockKey1] !== undefined) {
@@ -562,6 +596,7 @@ async function initDb() {
     if (!db.mainWarehouseStock) db.mainWarehouseStock = {};
     if (!db.mainStockInwardLogs) db.mainStockInwardLogs = [];
     if (!db.customStockLocks) db.customStockLocks = {};
+    if (!db.unassignedDistrictProducts) db.unassignedDistrictProducts = {};
 
     ensureDistrictSchemes();
     await saveDb();
