@@ -1441,6 +1441,9 @@
               </span>
             </div>
             <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+              <button class="btn btn-primary btn-sm" onclick="promptCreateMasterProduct()" style="font-weight:700;">
+                ➕ Create New Product
+              </button>
               <button class="btn btn-secondary btn-sm" onclick="bulkToggleDistrictProducts('${escapeHtml(currentAdminDistrict)}', true)">
                 ✅ Tick All (${totalMaster})
               </button>
@@ -1908,7 +1911,7 @@
             <label class="field-label" style="font-weight:700;display:block;margin-bottom:6px;">2. Default Base Scheme Price (₹)</label>
             <input type="number" id="newMasterProdPrice" class="input-lg mono" placeholder="2500" value="2500" style="width:100%;padding:10px;border:1.5px solid var(--line);border-radius:6px;">
           </div>
-          <div style="background:#FFFBEB;border:1.5px solid #FCD34D;border-radius:8px;padding:14px;margin-bottom:18px;">
+          <div style="background:#FFFBEB;border:1.5px solid #FCD34D;border-radius:8px;padding:14px;margin-bottom:14px;">
             <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;margin:0;">
               <input type="checkbox" id="newMasterProdSpecial" style="width:20px;height:20px;cursor:pointer;margin-top:2px;">
               <div>
@@ -1919,9 +1922,22 @@
               </div>
             </label>
           </div>
+
+          <div style="background:#F0FDF4;border:1.5px solid #86EFAC;border-radius:8px;padding:14px;margin-bottom:18px;">
+            <label style="display:flex;align-items:flex-start;gap:10px;cursor:pointer;margin:0;">
+              <input type="checkbox" id="newMasterProdAutoAssign" checked style="width:20px;height:20px;cursor:pointer;margin-top:2px;">
+              <div>
+                <strong style="color:#166534;font-size:13.5px;">📍 Auto-Assign to Districts (0 Stock)</strong>
+                <div style="font-size:11.5px;color:#15803D;margin-top:2px;line-height:1.4;">
+                  Adds this product immediately to Chittorgarh, Alwar, Bikaner, Uttarakhand, and Udham Singh Nagar with 0 stock.
+                </div>
+              </div>
+            </label>
+          </div>
+
           <div style="display:flex;justify-content:flex-end;gap:10px;">
             <button type="button" class="btn btn-secondary" onclick="document.getElementById('createMasterProductModal').remove()">Cancel</button>
-            <button type="button" class="btn btn-primary" onclick="submitCreateMasterProductModal()" style="font-weight:700;">✓ Create Product</button>
+            <button type="button" class="btn btn-primary" onclick="submitCreateMasterProductModal()" style="font-weight:700;">✓ Create &amp; Save Product</button>
           </div>
         </div>
       </div>
@@ -1933,6 +1949,7 @@
     const nameInput = document.getElementById('newMasterProdName');
     const priceInput = document.getElementById('newMasterProdPrice');
     const specialInput = document.getElementById('newMasterProdSpecial');
+    const autoAssignInput = document.getElementById('newMasterProdAutoAssign');
 
     const name = (nameInput ? nameInput.value : '').trim();
     if (!name) {
@@ -1941,17 +1958,21 @@
     }
     const defaultPrice = parseFloat(priceInput ? priceInput.value : '2500') || 2500;
     const isSpecial = specialInput ? specialInput.checked : false;
+    const assignToAllZeroDistricts = autoAssignInput ? autoAssignInput.checked : false;
 
     try {
       const res = await API.createMasterProduct({
         name,
         defaultPrice,
-        isSpecial
+        isSpecial,
+        assignToAllZeroDistricts
       });
       showToast(res.message || `Created product "${name}"`, 'success');
       const m = document.getElementById('createMasterProductModal');
       if (m) m.remove();
-      loadAdminSchemes();
+      if (state.adminTab === 'schemes') await loadAdminSchemes();
+      if (state.adminTab === 'district-products') await loadAdminDistrictProducts();
+      await loadDistrictData();
     } catch (err) {
       showToast(err.message, 'error');
     }
@@ -1961,8 +1982,9 @@
     try {
       const res = await API.toggleMasterProductSpecial(productId);
       showToast(res.message, 'success');
-      loadAdminSchemes();
-      loadDistrictData();
+      if (state.adminTab === 'schemes') await loadAdminSchemes();
+      if (state.adminTab === 'district-products') await loadAdminDistrictProducts();
+      await loadDistrictData();
     } catch (err) {
       showToast(err.message, 'error');
     }
@@ -1975,8 +1997,9 @@
     try {
       const res = await API.renameMasterProduct(id, newName.trim());
       showToast(res.message, 'success');
-      loadAdminSchemes();
-      loadDistrictData();
+      if (state.adminTab === 'schemes') await loadAdminSchemes();
+      if (state.adminTab === 'district-products') await loadAdminDistrictProducts();
+      await loadDistrictData();
     } catch (err) {
       showToast(err.message, 'error');
     }
@@ -1991,20 +2014,22 @@
     try {
       const res = await API.renameMasterProduct(id, prodName, newPrice);
       showToast('Product price updated', 'success');
-      loadAdminSchemes();
-      loadDistrictData();
+      if (state.adminTab === 'schemes') await loadAdminSchemes();
+      if (state.adminTab === 'district-products') await loadAdminDistrictProducts();
+      await loadDistrictData();
     } catch (err) {
       showToast(err.message, 'error');
     }
   };
 
   window.promptDeleteMasterProduct = async (id, prodName) => {
-    if (!confirm(`Are you sure you want to delete "${prodName}" from the Master Catalog?\n\nThis will remove it from all districts.`)) return;
+    if (!confirm(`Are you sure you want to delete "${prodName}" from the Master Catalog?\n\nThis will permanently remove it from the catalog and all districts.`)) return;
     try {
       const res = await API.deleteMasterProduct(id);
-      showToast(res.message, 'info');
-      loadAdminSchemes();
-      loadDistrictData();
+      showToast(res.message || `Deleted "${prodName}" from Master Catalog`, 'info');
+      if (state.adminTab === 'schemes') await loadAdminSchemes();
+      if (state.adminTab === 'district-products') await loadAdminDistrictProducts();
+      await loadDistrictData();
     } catch (err) {
       showToast(err.message, 'error');
     }
@@ -2014,8 +2039,9 @@
     if (!confirm(`Are you sure you want to remove "${prodName}" from ${state.currentDistrict}?`)) return;
     try {
       const res = await API.deleteDistrictProduct(state.currentDistrict, productId);
-      showToast(res.message, 'info');
-      loadAdminSchemes();
+      showToast(res.message || `Removed "${prodName}" from ${state.currentDistrict}`, 'info');
+      if (state.adminTab === 'district-products') await loadAdminDistrictProducts();
+      await loadDistrictData();
     } catch (err) {
       showToast(err.message, 'error');
     }

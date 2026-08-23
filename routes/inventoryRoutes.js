@@ -83,6 +83,39 @@ router.post('/master-product', authenticateToken, requireAdmin, async (req, res)
   if (!db.products) db.products = [];
   db.products.push(newMaster);
 
+  if (db.deletedMasterProducts) {
+    db.deletedMasterProducts = db.deletedMasterProducts.filter(n => n.toUpperCase() !== cleanName);
+  }
+
+  // Auto-assign to requested districts (or all 0-stock districts if requested)
+  const targetDistricts = req.body.assignToDistricts || (req.body.assignToAllZeroDistricts ? ['Chittorgarh', 'Alwar', 'Bikaner', 'Uttarakhand', 'Udham Singh Nagar'] : []);
+  if (Array.isArray(targetDistricts) && targetDistricts.length > 0) {
+    if (!db.districtProducts) db.districtProducts = {};
+    if (!db.customStockLocks) db.customStockLocks = {};
+
+    targetDistricts.forEach(dist => {
+      if (!db.districtProducts[dist]) db.districtProducts[dist] = [];
+      const alreadyHas = db.districtProducts[dist].some(p => p.productId === prodId || (p.name || '').toUpperCase() === cleanName);
+      if (!alreadyHas) {
+        const pfx = dist.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 3);
+        const distStock = Number(req.body.initialStock) || 0;
+        db.districtProducts[dist].push({
+          id: `dp_${pfx}_${prodId}`,
+          productId: prodId,
+          name: cleanName,
+          isSpecial: productIsSpecial,
+          schemePrice: newMaster.defaultPrice,
+          stockAllocated: distStock,
+          currentStock: distStock,
+          schemes: JSON.parse(JSON.stringify(initialSchemes)),
+          isActive: true,
+          isCustomStockLocked: true
+        });
+        db.customStockLocks[`${dist}:${prodId}`] = distStock;
+      }
+    });
+  }
+
   logActivity(
     req.user.id,
     req.user.username,
@@ -93,7 +126,10 @@ router.post('/master-product', authenticateToken, requireAdmin, async (req, res)
   );
 
   await saveDb();
-  res.status(201).json({ message: `Master Product "${cleanName}" created successfully`, product: newMaster });
+  res.status(201).json({ 
+    message: `Master Product "${cleanName}" created successfully${targetDistricts.length > 0 ? ` and assigned to ${targetDistricts.join(', ')}` : ''}`, 
+    product: newMaster 
+  });
 });
 
 // 5. Admin: Rename / Edit Master Product (updates everywhere across all districts)
@@ -218,22 +254,40 @@ router.post('/master-product/:id/scheme', authenticateToken, requireAdmin, async
 // 7. Admin: Delete Master Product
 router.delete('/master-product/:id', authenticateToken, requireAdmin, async (req, res) => {
   const { id } = req.params;
-  const idx = (db.products || []).findIndex(p => p.id === id);
+  const cleanId = (id || '').trim();
+  const idx = (db.products || []).findIndex(p => 
+    p.id === cleanId || 
+    (p.name || '').toUpperCase() === cleanId.toUpperCase()
+  );
   if (idx === -1) {
     return res.status(404).json({ error: 'Master product not found' });
   }
 
   const removed = db.products.splice(idx, 1)[0];
+  const removedName = (removed.name || '').toUpperCase();
+
+  if (!db.deletedMasterProducts) db.deletedMasterProducts = [];
+  if (!db.deletedMasterProducts.includes(removedName)) {
+    db.deletedMasterProducts.push(removedName);
+  }
 
   // Remove from all district assignments
   Object.keys(db.districtProducts || {}).forEach(dist => {
-    db.districtProducts[dist] = db.districtProducts[dist].filter(p => p.productId !== id && p.name.toUpperCase() !== removed.name.toUpperCase());
+    db.districtProducts[dist] = (db.districtProducts[dist] || []).filter(p => 
+      p.productId !== removed.id && 
+      p.id !== removed.id && 
+      (p.name || '').toUpperCase() !== removedName
+    );
+    if (db.customStockLocks) {
+      delete db.customStockLocks[`${dist}:${removed.id}`];
+      delete db.customStockLocks[`${dist}:${cleanId}`];
+    }
   });
 
   logActivity(req.user.id, req.user.username, req.user.role, null, 'MASTER_PRODUCT_DELETED', `Deleted master product "${removed.name}" globally`);
 
   await saveDb();
-  res.json({ message: `Master product "${removed.name}" deleted from catalog` });
+  res.json({ message: `Master product "${removed.name}" deleted from catalog and all districts` });
 });
 
 // ================= DISTRICT ALLOCATION (STRICTLY FROM MASTER LIST) =================

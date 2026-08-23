@@ -610,19 +610,49 @@
       "defaultPrice": 2500
     },
     {
-      "id": "prod_mt4a8rpz6bi",
-      "name": "AYURVEDA SPECIAL HERB",
+      "id": "prod_mt5a3vdeb76",
+      "name": "HEIGHT VERDAK",
       "schemes": [
         {
           "dc": 250,
-          "id": "sch_prod_mt4a8rpz6bi_1",
+          "id": "sch_prod_mt5a3vdeb76_1",
           "qty": 1,
-          "name": "AYURVEDA SPECIAL HERB 1",
-          "price": 3000
+          "name": "HEIGHT VERDAK 1",
+          "price": 2500
         }
       ],
-      "isSpecial": true,
-      "defaultPrice": 3000
+      "isSpecial": false,
+      "defaultPrice": 2500
+    },
+    {
+      "id": "prod_mt5a43gnmq4",
+      "name": "FAT MUKTI",
+      "schemes": [
+        {
+          "dc": 250,
+          "id": "sch_prod_mt5a43gnmq4_1",
+          "qty": 1,
+          "name": "FAT MUKTI 1",
+          "price": 2500
+        }
+      ],
+      "isSpecial": false,
+      "defaultPrice": 2500
+    },
+    {
+      "id": "prod_mt5a4arnfw2",
+      "name": "NAYAN SANJIVINI",
+      "schemes": [
+        {
+          "dc": 250,
+          "id": "sch_prod_mt5a4arnfw2_1",
+          "qty": 1,
+          "name": "NAYAN SANJIVINI 1",
+          "price": 2500
+        }
+      ],
+      "isSpecial": false,
+      "defaultPrice": 2500
     }
   ],
   "districts": [
@@ -641,6 +671,76 @@
   "milaStock": {},
   "inwardNotes": {},
   "activityLogs": [
+    {
+      "id": "act_1787457632099ohxg",
+      "role": "admin",
+      "action": "MASTER_PRODUCT_DELETED",
+      "userId": "u_admin",
+      "details": "Deleted master product \"AYURVEDA SPECIAL HERB\" globally",
+      "district": null,
+      "username": "admin",
+      "timestamp": "2026-08-23T04:00:32.099Z"
+    },
+    {
+      "id": "act_17874576254757nr8",
+      "role": "admin",
+      "action": "MASTER_PRODUCT_CREATED",
+      "userId": "u_admin",
+      "details": "Created Master Product \"NAYAN SANJIVINI\" (STANDARD) with 1 schemes",
+      "district": null,
+      "username": "admin",
+      "timestamp": "2026-08-23T04:00:25.475Z"
+    },
+    {
+      "id": "act_1787457616008xkb1",
+      "role": "admin",
+      "action": "MASTER_PRODUCT_CREATED",
+      "userId": "u_admin",
+      "details": "Created Master Product \"FAT MUKTI\" (STANDARD) with 1 schemes",
+      "district": null,
+      "username": "admin",
+      "timestamp": "2026-08-23T04:00:16.008Z"
+    },
+    {
+      "id": "act_1787457605522xw98",
+      "role": "admin",
+      "action": "MASTER_PRODUCT_CREATED",
+      "userId": "u_admin",
+      "details": "Created Master Product \"HEIGHT VERDAK\" (STANDARD) with 1 schemes",
+      "district": null,
+      "username": "admin",
+      "timestamp": "2026-08-23T04:00:05.522Z"
+    },
+    {
+      "id": "act_1787457446370er5p",
+      "role": "admin",
+      "action": "STOCK_ADJUSTMENT",
+      "userId": "u_admin",
+      "details": "Admin adjusted base stock for DAMADAR in Chittorgarh: 45.5 -> 0 (Locked)",
+      "district": "Chittorgarh",
+      "username": "admin",
+      "timestamp": "2026-08-23T03:57:26.370Z"
+    },
+    {
+      "id": "act_1787457438850ntko",
+      "role": "admin",
+      "action": "DISTRICT_PRODUCT_UNASSIGNED",
+      "userId": "u_admin",
+      "details": "Unticked/Removed \"AYURVEDA SPECIAL HERB\" from Chittorgarh",
+      "district": "Chittorgarh",
+      "username": "admin",
+      "timestamp": "2026-08-23T03:57:18.850Z"
+    },
+    {
+      "id": "act_1787457435109kry1",
+      "role": "admin",
+      "action": "DISTRICT_PRODUCT_ASSIGNED",
+      "userId": "u_admin",
+      "details": "Assigned \"AYURVEDA SPECIAL HERB\" to Chittorgarh with stock 0",
+      "district": "Chittorgarh",
+      "username": "admin",
+      "timestamp": "2026-08-23T03:57:15.109Z"
+    },
     {
       "id": "act_1787401059504shcw",
       "role": "admin",
@@ -1051,7 +1151,8 @@
     }
   ],
   "customStockLocks": {
-    "Chittorgarh:prod_1": 0
+    "Chittorgarh:prod_1": 0,
+    "Chittorgarh:prod_mt4a8rpz6bi": 0
   },
   "deletedDistricts": [],
   "districtProducts": {
@@ -3837,8 +3938,8 @@
         "isSpecial": false,
         "productId": "prod_1",
         "schemePrice": 3052,
-        "currentStock": 45.5,
-        "stockAllocated": 45.5,
+        "currentStock": 0,
+        "stockAllocated": 0,
         "isCustomStockLocked": true
       },
       {
