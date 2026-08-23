@@ -354,8 +354,11 @@ router.post('/district-product-toggle', authenticateToken, requireAdmin, async (
     return res.status(400).json({ error: 'District and masterProductId are required' });
   }
 
+  const { normalizeDistrictName } = require('../config/db');
+  const canonicalDist = normalizeDistrictName ? normalizeDistrictName(district) : district;
+
   if (!db.districtProducts) db.districtProducts = {};
-  if (!db.districtProducts[district]) db.districtProducts[district] = [];
+  if (!db.districtProducts[canonicalDist]) db.districtProducts[canonicalDist] = [];
 
   const masterList = db.products && db.products.length > 0 ? db.products : EXCEL_PRODUCTS.map((p, idx) => ({
     id: `prod_${idx + 1}`,
@@ -371,12 +374,12 @@ router.post('/district-product-toggle', authenticateToken, requireAdmin, async (
     return res.status(404).json({ error: 'Master product not found' });
   }
 
-  const existingIdx = db.districtProducts[district].findIndex(p => p.productId === master.id || p.name.toUpperCase() === master.name.toUpperCase());
+  const existingIdx = db.districtProducts[canonicalDist].findIndex(p => p.productId === master.id || p.name.toUpperCase() === master.name.toUpperCase());
 
   if (isAssigned) {
     const stockNum = initialStock !== undefined && !isNaN(Number(initialStock)) ? Number(initialStock) : 0;
     if (existingIdx === -1) {
-      const pfx = district.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 3);
+      const pfx = canonicalDist.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 3);
       const newDistrictProduct = {
         id: `dp_${pfx}_${master.id}`,
         productId: master.id,
@@ -389,16 +392,16 @@ router.post('/district-product-toggle', authenticateToken, requireAdmin, async (
         isActive: true,
         isCustomStockLocked: true
       };
-      db.districtProducts[district].push(newDistrictProduct);
+      db.districtProducts[canonicalDist].push(newDistrictProduct);
       if (!db.customStockLocks) db.customStockLocks = {};
-      db.customStockLocks[`${district}:${master.id}`] = stockNum;
+      db.customStockLocks[`${canonicalDist}:${master.id}`] = stockNum;
     } else {
       if (initialStock !== undefined && !isNaN(Number(initialStock))) {
-        db.districtProducts[district][existingIdx].stockAllocated = stockNum;
-        db.districtProducts[district][existingIdx].currentStock = stockNum;
-        db.districtProducts[district][existingIdx].isCustomStockLocked = true;
+        db.districtProducts[canonicalDist][existingIdx].stockAllocated = stockNum;
+        db.districtProducts[canonicalDist][existingIdx].currentStock = stockNum;
+        db.districtProducts[canonicalDist][existingIdx].isCustomStockLocked = true;
         if (!db.customStockLocks) db.customStockLocks = {};
-        db.customStockLocks[`${district}:${master.id}`] = stockNum;
+        db.customStockLocks[`${canonicalDist}:${master.id}`] = stockNum;
       }
     }
 
@@ -406,30 +409,30 @@ router.post('/district-product-toggle', authenticateToken, requireAdmin, async (
       req.user.id,
       req.user.username,
       req.user.role,
-      district,
+      canonicalDist,
       'DISTRICT_PRODUCT_ASSIGNED',
-      `Assigned "${master.name}" to ${district} with stock ${stockNum}`
+      `Assigned "${master.name}" to ${canonicalDist} with stock ${stockNum}`
     );
   } else {
     // Untick / Remove
     if (existingIdx !== -1) {
-      db.districtProducts[district].splice(existingIdx, 1);
+      db.districtProducts[canonicalDist].splice(existingIdx, 1);
       logActivity(
         req.user.id,
         req.user.username,
         req.user.role,
-        district,
+        canonicalDist,
         'DISTRICT_PRODUCT_UNASSIGNED',
-        `Unticked/Removed "${master.name}" from ${district}`
+        `Unticked/Removed "${master.name}" from ${canonicalDist}`
       );
     }
   }
 
   await saveDb();
   res.json({
-    message: isAssigned ? `Assigned "${master.name}" to ${district}` : `Removed "${master.name}" from ${district}`,
-    assignedCount: db.districtProducts[district].length,
-    districtProducts: db.districtProducts[district]
+    message: isAssigned ? `Assigned "${master.name}" to ${canonicalDist}` : `Removed "${master.name}" from ${canonicalDist}`,
+    assignedCount: db.districtProducts[canonicalDist].length,
+    districtProducts: db.districtProducts[canonicalDist]
   });
 });
 
@@ -441,6 +444,9 @@ router.post('/bulk-assign-district-products', authenticateToken, requireAdmin, a
   if (!district || !Array.isArray(assignments)) {
     return res.status(400).json({ error: 'District and assignments array required' });
   }
+
+  const { normalizeDistrictName } = require('../config/db');
+  const canonicalDist = normalizeDistrictName ? normalizeDistrictName(district) : district;
 
   if (!db.districtProducts) db.districtProducts = {};
   if (!db.customStockLocks) db.customStockLocks = {};
@@ -454,9 +460,9 @@ router.post('/bulk-assign-district-products', authenticateToken, requireAdmin, a
     isActive: true
   }));
 
-  const currentList = getDistrictProductsSafely(db, district);
+  const currentList = getDistrictProductsSafely(db, canonicalDist);
   const updatedList = [];
-  const pfx = district.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 3);
+  const pfx = canonicalDist.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 3);
 
   assignments.forEach(item => {
     if (!item.isAssigned) return;
@@ -483,23 +489,23 @@ router.post('/bulk-assign-district-products', authenticateToken, requireAdmin, a
     };
 
     updatedList.push(distProd);
-    db.customStockLocks[`${district}:${master.id}`] = stockNum;
+    db.customStockLocks[`${canonicalDist}:${master.id}`] = stockNum;
   });
 
-  db.districtProducts[district] = updatedList;
+  db.districtProducts[canonicalDist] = updatedList;
 
   logActivity(
     req.user.id,
     req.user.username,
     req.user.role,
-    district,
+    canonicalDist,
     'BULK_DISTRICT_PRODUCTS_UPDATED',
-    `Updated assigned products for ${district}: ${updatedList.length} products active`
+    `Updated assigned products for ${canonicalDist}: ${updatedList.length} products active`
   );
 
   await saveDb();
   res.json({
-    message: `Updated products and stock for ${district} (${updatedList.length} products assigned)`,
+    message: `Updated products and stock for ${canonicalDist} (${updatedList.length} products assigned)`,
     assignedCount: updatedList.length,
     districtProducts: updatedList
   });
@@ -617,6 +623,9 @@ router.post('/adjust-base-stock', authenticateToken, requireAdmin, async (req, r
     return res.status(400).json({ error: 'Valid positive stock number required' });
   }
 
+  const { normalizeDistrictName } = require('../config/db');
+  const canonicalDist = normalizeDistrictName ? normalizeDistrictName(district) : district;
+
   if (!db.districtProducts) db.districtProducts = {};
   if (!db.customStockLocks) db.customStockLocks = {};
 
@@ -632,12 +641,12 @@ router.post('/adjust-base-stock', authenticateToken, requireAdmin, async (req, r
   const master = masterList.find(p => p.id === productId || (p.name && p.name.toUpperCase() === String(productId).toUpperCase()));
 
   // Find or create district products list safely
-  let items = getDistrictProductsSafely(db, district);
+  let items = getDistrictProductsSafely(db, canonicalDist);
   let item = items.find(p => p.productId === productId || p.id === productId || (p.name && p.name.toUpperCase() === String(productId).toUpperCase()));
 
   if (!item && master) {
     // If not yet assigned, automatically assign it with the new locked stock
-    const pfx = district.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 3);
+    const pfx = canonicalDist.toLowerCase().replace(/[^a-z0-9]/g, '').slice(0, 3);
     item = {
       id: `dp_${pfx}_${master.id}`,
       productId: master.id,
@@ -650,8 +659,8 @@ router.post('/adjust-base-stock', authenticateToken, requireAdmin, async (req, r
       isActive: true,
       isCustomStockLocked: true
     };
-    if (!db.districtProducts[district]) db.districtProducts[district] = [];
-    db.districtProducts[district].push(item);
+    if (!db.districtProducts[canonicalDist]) db.districtProducts[canonicalDist] = [];
+    db.districtProducts[canonicalDist].push(item);
   } else if (item) {
     item.stockAllocated = numStock;
     item.currentStock = numStock;
@@ -661,16 +670,16 @@ router.post('/adjust-base-stock', authenticateToken, requireAdmin, async (req, r
   }
 
   const pId = item.productId || (master ? master.id : productId);
-  db.customStockLocks[`${district}:${pId}`] = numStock;
-  db.customStockLocks[`${district.toLowerCase()}:${pId}`] = numStock;
+  db.customStockLocks[`${canonicalDist}:${pId}`] = numStock;
+  db.customStockLocks[`${canonicalDist.toLowerCase()}:${pId}`] = numStock;
 
   logActivity(
     req.user.id,
     req.user.username,
     req.user.role,
-    district,
+    canonicalDist,
     'STOCK_ADJUSTMENT',
-    `Admin adjusted base stock for ${item.name} in ${district}: ${numStock} units (Locked & Saved)`
+    `Admin adjusted base stock for ${item.name} in ${canonicalDist}: ${numStock} units (Locked & Saved)`
   );
 
   await saveDb();
@@ -682,14 +691,14 @@ router.post('/adjust-base-stock', authenticateToken, requireAdmin, async (req, r
        VALUES ($1, $2, $3, $4, $5, $6, TRUE)
        ON CONFLICT (district, product_id) DO UPDATE
        SET stock_allocated = $5, current_stock = $6`,
-      [item.id, district, pId, item.name, numStock, numStock]
+      [item.id, canonicalDist, pId, item.name, numStock, numStock]
     );
   } catch (pgErr) {
     console.error('Postgres district_products update error:', pgErr.message);
   }
 
   res.json({
-    message: `Stock for "${item.name}" updated to ${numStock} in ${district} (Permanently Saved)`,
+    message: `Stock for "${item.name}" updated to ${numStock} in ${canonicalDist} (Permanently Saved)`,
     product: item
   });
 });

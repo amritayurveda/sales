@@ -2003,7 +2003,7 @@
                         </button>
                       </div>
                     </td>
-                    <td style="text-align:right;" class="mono tot">
+                    <td style="text-align:right;" class="mono tot" id="live_stock_${p.masterId}">
                       ${p.isAssigned ? `${fmt(p.currentStock)}` : '—'}
                     </td>
                     <td style="text-align:center;">
@@ -2033,6 +2033,7 @@
     const label = $(`chk_label_${masterId}`);
     const stockInput = $(`stock_${masterId}`);
     const row = $(`row_${masterId}`);
+    const liveCell = $(`live_stock_${masterId}`);
 
     if (label) {
       label.textContent = isChecked ? '✓ Assigned' : '○ Off';
@@ -2047,6 +2048,9 @@
     }
 
     const stockVal = stockInput ? (parseFloat(stockInput.value) || 0) : 0;
+    if (liveCell) {
+      liveCell.textContent = isChecked ? fmt(stockVal) : '—';
+    }
 
     try {
       const res = await API.toggleDistrictProduct(district, masterId, isChecked, stockVal);
@@ -2059,6 +2063,7 @@
   window.onDistrictStockInputChange = async (district, masterId, value) => {
     const num = parseFloat(value);
     const input = $(`stock_${masterId}`);
+    const liveCell = $(`live_stock_${masterId}`);
     if (isNaN(num) || num < 0) {
       showToast('Please enter a valid stock quantity (0 or greater)', 'error');
       return;
@@ -2066,6 +2071,8 @@
     try {
       const res = await API.adjustBaseStock(district, masterId, num);
       if (input) {
+        input.value = num;
+        input.setAttribute('value', num);
         input.style.borderColor = '#16a34a';
         input.style.boxShadow = '0 0 0 2px rgba(22, 163, 74, 0.2)';
         setTimeout(() => {
@@ -2074,6 +2081,9 @@
             input.style.boxShadow = '';
           }
         }, 1500);
+      }
+      if (liveCell) {
+        liveCell.textContent = fmt(num);
       }
       const chk = $(`chk_${masterId}`);
       const chkLabel = $(`chk_label_${masterId}`);
@@ -2092,6 +2102,7 @@
 
   window.saveSingleDistrictStock = async (district, masterId) => {
     const input = $(`stock_${masterId}`);
+    const liveCell = $(`live_stock_${masterId}`);
     if (!input) return;
     const num = parseFloat(input.value);
     if (isNaN(num) || num < 0) {
@@ -2100,6 +2111,8 @@
     }
     try {
       const res = await API.adjustBaseStock(district, masterId, num);
+      input.value = num;
+      input.setAttribute('value', num);
       input.style.borderColor = '#16a34a';
       input.style.boxShadow = '0 0 0 2px rgba(22, 163, 74, 0.2)';
       setTimeout(() => {
@@ -2108,6 +2121,9 @@
           input.style.boxShadow = '';
         }
       }, 1500);
+      if (liveCell) {
+        liveCell.textContent = fmt(num);
+      }
       const chk = $(`chk_${masterId}`);
       const chkLabel = $(`chk_label_${masterId}`);
       if (chk && !chk.checked) {

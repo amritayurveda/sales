@@ -708,6 +708,36 @@
   "inwardNotes": {},
   "activityLogs": [
     {
+      "id": "act_1787476646830btpw",
+      "role": "admin",
+      "action": "STOCK_ADJUSTMENT",
+      "userId": "u_admin",
+      "details": "Admin adjusted base stock for TONIC+FM in jaipur: 0 units (Locked & Saved)",
+      "district": "jaipur",
+      "username": "admin",
+      "timestamp": "2026-08-23T09:17:26.830Z"
+    },
+    {
+      "id": "act_1787476635736tfiz",
+      "role": "admin",
+      "action": "STOCK_ADJUSTMENT",
+      "userId": "u_admin",
+      "details": "Admin adjusted base stock for DAMADAR in jaipur: 0 units (Locked & Saved)",
+      "district": "jaipur",
+      "username": "admin",
+      "timestamp": "2026-08-23T09:17:15.736Z"
+    },
+    {
+      "id": "act_17874765640976328",
+      "role": "admin",
+      "action": "STOCK_ADJUSTMENT",
+      "userId": "u_admin",
+      "details": "Admin adjusted base stock for TONIC+FM in jaipur: 0 units (Locked & Saved)",
+      "district": "jaipur",
+      "username": "admin",
+      "timestamp": "2026-08-23T09:16:04.097Z"
+    },
+    {
       "id": "act_1787476270762jsbp",
       "role": "admin",
       "action": "STOCK_ADJUSTMENT",
