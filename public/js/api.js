@@ -397,6 +397,16 @@ const API = {
     return this.request('/admin/districts');
   },
 
+  async getDistrictsList() {
+    try {
+      const res = await this.getDistricts();
+      const list = (res.districts || []).map(d => typeof d === 'string' ? d : d.name);
+      return { districts: list };
+    } catch (e) {
+      return { districts: [] };
+    }
+  },
+
   async addDistrict(district, username, password, name, dcRate) {
     return this.request('/admin/add-district', {
       method: 'POST',

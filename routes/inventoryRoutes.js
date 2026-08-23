@@ -5,6 +5,13 @@ const { db, saveDb, logActivity } = require('../config/db');
 const { pool } = require('../config/postgres');
 const { authenticateToken, requireAdmin, enforceDistrictAccess } = require('../middleware/auth');
 const { computeDistrictDayStock } = require('../utils/cashRollover');
+const { getDistricts } = require('../config/db');
+
+// 0. Get list of active districts
+router.get('/districts-list', authenticateToken, (req, res) => {
+  const activeDistricts = getDistricts();
+  res.json({ districts: activeDistricts });
+});
 
 // 1. Get complete Daily Stock Register matching Excel table for a district and date
 router.get('/district-day-stock/:district/:date', authenticateToken, enforceDistrictAccess, (req, res) => {

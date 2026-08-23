@@ -70,6 +70,12 @@
         state.serverToday = res.serverToday || getTodayDateStr();
         state.currentDate = state.serverToday; // Auto-select today date for everyone
         state.dealerView = 'home';
+        try {
+          const dRes = await API.getDistrictsList();
+          if (dRes && dRes.districts && dRes.districts.length > 0) {
+            state.districts = dRes.districts.filter(d => !['rewari', 'shamli'].includes(d.toLowerCase()));
+          }
+        } catch (de) {}
         if (state.user.role === 'dealer' && state.user.district) {
           state.currentDistrict = state.user.district;
         }
@@ -1425,12 +1431,13 @@
         const dRes = await API.getDistrictsList();
         districts = (dRes.districts || []).filter(d => !['rewari', 'shamli'].includes(d.toLowerCase()));
       } catch (e) {
-        districts = ['Chittorgarh', 'Alwar', 'Bikaner', 'Uttarakhand', 'Udham Singh Nagar', 'Faridabad', 'Gurgaon', 'Muzaffarnagar', 'Saharanpur', 'Jodhpur', 'Kota'];
+        districts = (state.districts || []).filter(d => !['rewari', 'shamli'].includes(d.toLowerCase()));
       }
 
       if (!districts || districts.length === 0) {
-        districts = ['Chittorgarh', 'Alwar', 'Bikaner', 'Uttarakhand', 'Udham Singh Nagar', 'Faridabad', 'Gurgaon', 'Muzaffarnagar', 'Saharanpur', 'Jodhpur', 'Kota'];
+        districts = (state.districts || []).filter(d => !['rewari', 'shamli'].includes(d.toLowerCase()));
       }
+      state.districts = districts;
 
       if (selectedDistrict) {
         currentAdminDistrict = selectedDistrict;
@@ -2245,10 +2252,19 @@
     try {
       const res = await API.addDistrict(district, username, password, name, dcRate);
       showToast(res.message, 'success');
+      
+      try {
+        const dRes = await API.getDistrictsList();
+        if (dRes && dRes.districts && dRes.districts.length > 0) {
+          state.districts = dRes.districts.filter(d => !['rewari', 'shamli'].includes(d.toLowerCase()));
+        }
+      } catch (de) {}
+
       await loadAdminDealers();
       renderAdminDistrictStrip();
     } catch (err) {
       showToast(err.message, 'error');
+    } finally {
       if (btn) {
         btn.disabled = false;
         btn.textContent = '➕ Create District & Dealer Account';
