@@ -708,6 +708,16 @@
   "inwardNotes": {},
   "activityLogs": [
     {
+      "id": "act_1787468366362jnit",
+      "role": "admin",
+      "action": "CASH_SETTLEMENT",
+      "userId": "u_admin",
+      "details": "Collected ₹2000 payment from Alwar on 2026-08-23 (Receipt: CASH-518336)",
+      "district": "Alwar",
+      "username": "admin",
+      "timestamp": "2026-08-23T06:59:26.362Z"
+    },
+    {
       "id": "act_1787467458343zxla",
       "role": "admin",
       "action": "STOCK_ADJUSTMENT",
@@ -1635,6 +1645,17 @@
   "baseOpeningCash": {},
   "cashSettlements": [
     {
+      "id": "set_1787468366362gozc",
+      "date": "2026-08-23",
+      "note": "Admin collected cash payment",
+      "amount": 2000,
+      "district": "Alwar",
+      "createdAt": "2026-08-23T06:59:26.362Z",
+      "receiptNo": "CASH-518336",
+      "receivedBy": "admin",
+      "paymentMode": "Cash Deposit"
+    },
+    {
       "id": "set_1787385788223ytpt",
       "date": "2026-08-22",
       "note": "Storage test payment",
@@ -1672,11 +1693,11 @@
     "Jaipur:prod_1": 25,
     "Jaipur:prod_2": 14,
     "Jaipur:prod_5": 33,
-    "jaipur:prod_1": 0,
-    "jaipur:prod_2": 0,
+    "jaipur:prod_1": 25,
+    "jaipur:prod_2": 14,
     "jaipur:prod_3": 0,
     "jaipur:prod_4": 0,
-    "jaipur:prod_5": 0,
+    "jaipur:prod_5": 33,
     "jaipur:prod_6": 0,
     "jaipur:prod_8": 0,
     "jaipur:prod_9": 0,
@@ -2716,8 +2737,8 @@
         "name": "DAMADAR",
         "isSpecial": false,
         "schemePrice": 3052,
-        "stockAllocated": 0,
-        "currentStock": 0,
+        "stockAllocated": 25,
+        "currentStock": 25,
         "schemes": [
           {
             "dc": 250,
@@ -2750,8 +2771,8 @@
         "name": "TONIC+FM",
         "isSpecial": false,
         "schemePrice": 2950,
-        "stockAllocated": 0,
-        "currentStock": 0,
+        "stockAllocated": 14,
+        "currentStock": 14,
         "schemes": [
           {
             "dc": 250,
@@ -2817,8 +2838,8 @@
         "name": "KADWI DAWA",
         "isSpecial": false,
         "schemePrice": 2870,
-        "stockAllocated": 0,
-        "currentStock": 0,
+        "stockAllocated": 33,
+        "currentStock": 33,
         "schemes": [
           {
             "dc": 250,
