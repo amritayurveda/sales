@@ -76,6 +76,18 @@ const DC_OPTIONS = [
     type: "flat",
     value: 150,
     specialDc: 150
+  },
+  {
+    id: "opt_8",
+    num: 8,
+    name: "Option 8",
+    label: "≤₹1500: ₹200 , >₹1500: ₹250 , SPECIAL PRODUCT = FLAT 200",
+    shortLabel: "≤1500: ₹200 | >1500: ₹250 | Special: ₹200",
+    type: "tiered",
+    threshold: 1500,
+    le: 200,
+    gt: 250,
+    specialDc: 200
   }
 ];
 
@@ -147,6 +159,7 @@ function findDcOption(rule) {
     const gt = Number(rule.gt) || 250;
     const sp = Number(rule.specialDc) || (rule.overrides && Object.values(rule.overrides)[0]) || 170;
     if (gt === 270) return DC_OPTIONS.find(o => o.id === 'opt_3');
+    if (sp === 200) return DC_OPTIONS.find(o => o.id === 'opt_8');
     if (sp === 150) return DC_OPTIONS.find(o => o.id === 'opt_2');
     return DC_OPTIONS.find(o => o.id === 'opt_1');
   }
