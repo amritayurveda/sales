@@ -125,22 +125,28 @@ function computeDistrictDayStock(db, district, targetDate) {
       return false;
     };
 
-    // Orders before today
-    const ordersBefore = allOrders.filter(o => isMatch(o.productId, o.productName) && o.date < targetDate);
-    const salesBefore = ordersBefore.reduce((sum, o) => sum + (Number(o.qty) || 0), 0);
+    // Opening Stock calculation:
+    // If the admin explicitly set and locked the stock, use baseStock directly as the opening baseline for the ledger
+    let openingStock;
+    if (p.isCustomStockLocked) {
+      openingStock = Math.max(0, baseStock);
+    } else {
+      // Orders before today
+      const ordersBefore = allOrders.filter(o => isMatch(o.productId, o.productName) && o.date < targetDate);
+      const salesBefore = ordersBefore.reduce((sum, o) => sum + (Number(o.qty) || 0), 0);
 
-    // Mila inward before today
-    let milaBefore = 0;
-    Object.keys(milaMap).forEach(key => {
-      const [dist, d, pid] = key.split(':');
-      if ((dist || '').trim().toLowerCase() === distName.toLowerCase() && d < targetDate) {
-        if (isMatch(pid, null)) {
-          milaBefore += (Number(milaMap[key]) || 0);
+      // Mila inward before today
+      let milaBefore = 0;
+      Object.keys(milaMap).forEach(key => {
+        const [dist, d, pid] = key.split(':');
+        if ((dist || '').trim().toLowerCase() === distName.toLowerCase() && d < targetDate) {
+          if (isMatch(pid, null)) {
+            milaBefore += (Number(milaMap[key]) || 0);
+          }
         }
-      }
-    });
-
-    const openingStock = Math.max(0, Math.round((baseStock - salesBefore + milaBefore) * 10) / 10);
+      });
+      openingStock = Math.max(0, Math.round((baseStock - salesBefore + milaBefore) * 10) / 10);
+    }
 
     // Orders today
     const ordersToday = allOrders.filter(o => isMatch(o.productId, o.productName) && o.date === targetDate);

@@ -708,6 +708,36 @@
   "inwardNotes": {},
   "activityLogs": [
     {
+      "id": "act_1787476918950803r",
+      "role": "admin",
+      "action": "STOCK_ADJUSTMENT",
+      "userId": "u_admin",
+      "details": "Admin adjusted base stock for KADWI DAWA in jaipur: 0 units (Locked & Saved)",
+      "district": "jaipur",
+      "username": "admin",
+      "timestamp": "2026-08-23T09:21:58.950Z"
+    },
+    {
+      "id": "act_1787476914797ehq5",
+      "role": "admin",
+      "action": "STOCK_ADJUSTMENT",
+      "userId": "u_admin",
+      "details": "Admin adjusted base stock for TONIC+FM in jaipur: 0 units (Locked & Saved)",
+      "district": "jaipur",
+      "username": "admin",
+      "timestamp": "2026-08-23T09:21:54.797Z"
+    },
+    {
+      "id": "act_1787476909055sh4c",
+      "role": "admin",
+      "action": "STOCK_ADJUSTMENT",
+      "userId": "u_admin",
+      "details": "Admin adjusted base stock for DAMADAR in jaipur: 0 units (Locked & Saved)",
+      "district": "jaipur",
+      "username": "admin",
+      "timestamp": "2026-08-23T09:21:49.055Z"
+    },
+    {
       "id": "act_1787476646830btpw",
       "role": "admin",
       "action": "STOCK_ADJUSTMENT",
@@ -1740,17 +1770,18 @@
     }
   ],
   "customStockLocks": {
-    "Jaipur:prod_1": 25,
+    "Jaipur:prod_1": 30,
     "Jaipur:prod_2": 14,
     "Jaipur:prod_5": 33,
-    "jaipur:prod_1": 25,
-    "jaipur:prod_2": 14,
+    "jaipur:prod_1": 0,
+    "jaipur:prod_2": 0,
     "jaipur:prod_3": 0,
     "jaipur:prod_4": 0,
-    "jaipur:prod_5": 33,
+    "jaipur:prod_5": 0,
     "jaipur:prod_6": 0,
     "jaipur:prod_8": 0,
     "jaipur:prod_9": 0,
+    "Gurgaon:prod_1": 0,
     "Gurgaon:prod_3": 0,
     "Gurgaon:prod_5": 0,
     "Jodhpur:prod_3": 0,
@@ -2306,8 +2337,8 @@
         "name": "DAMADAR",
         "isSpecial": false,
         "schemePrice": 3052,
-        "stockAllocated": 25,
-        "currentStock": 25,
+        "stockAllocated": 30,
+        "currentStock": 30,
         "schemes": [
           {
             "dc": 250,
@@ -3350,6 +3381,40 @@
             "qty": 2,
             "name": "KD 2",
             "price": 5740
+          }
+        ],
+        "isActive": true,
+        "isCustomStockLocked": true
+      },
+      {
+        "id": "dp_gur_prod_1",
+        "productId": "prod_1",
+        "name": "DAMADAR",
+        "isSpecial": false,
+        "schemePrice": 3052,
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "schemes": [
+          {
+            "dc": 250,
+            "id": "sch_dmd_1",
+            "qty": 1,
+            "name": "DMD 1",
+            "price": 3052
+          },
+          {
+            "dc": 500,
+            "id": "sch_dmd_2",
+            "qty": 2,
+            "name": "DMD 2",
+            "price": 6104
+          },
+          {
+            "dc": 750,
+            "id": "sch_dmd_3",
+            "qty": 3,
+            "name": "DMD 3",
+            "price": 9156
           }
         ],
         "isActive": true,
