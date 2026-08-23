@@ -24,6 +24,7 @@
     dayCash: null,
     customerOrders: [],
     isReadOnly: false,
+    currentView: 'district', // 'district' | 'admin'
     dealerView: 'home',
     adminTab: 'matrix',
     adminOverviewData: null,
@@ -244,7 +245,8 @@
 
     if ($('adminConsoleBtn')) {
       $('adminConsoleBtn').addEventListener('click', () => {
-        state.adminTab = 'matrix';
+        state.currentView = 'admin';
+        state.adminTab = state.adminTab || 'matrix';
         renderAdminConsole();
       });
     }
@@ -257,9 +259,10 @@
     const list = (state.districts && state.districts.length > 0) ? state.districts : DISTRICTS;
     list.forEach(dist => {
       const pill = document.createElement('button');
-      pill.className = 'dist-pill' + (dist === state.currentDistrict ? ' active' : '');
+      pill.className = 'dist-pill' + (dist === state.currentDistrict && state.currentView === 'district' ? ' active' : '');
       pill.textContent = dist;
       pill.addEventListener('click', () => {
+        state.currentView = 'district';
         state.currentDistrict = dist;
         renderAdminDistrictStrip();
         loadDistrictData();
@@ -306,9 +309,13 @@
             showToast(`⚡ New Sale in ${ord.district}! #${ord.orderNo}: ${ord.productName} (₹${fmt(ord.unitPrice)})`, 'success');
           }
 
-          // Real-time instantaneous auto-refresh
-          if (state.user.role === 'admin' && state.adminTab === 'matrix' && $('adminOverviewMatrixBody')) {
-            await loadAdminOverview();
+          // Real-time instantaneous auto-refresh without kicking user out of admin view
+          if (state.currentView === 'admin') {
+            if (state.adminTab === 'matrix' && $('adminOverviewMatrixBody')) {
+              await loadAdminMatrix();
+            } else if (state.adminTab === 'activity') {
+              await loadAdminActivityLogs();
+            }
           } else {
             await loadDistrictData();
           }
@@ -336,7 +343,13 @@
     if (!newDate) return;
     state.currentDate = newDate;
     updateDateDisplay();
-    await loadDistrictData();
+    if (state.currentView === 'admin') {
+      if (state.adminTab === 'matrix') await loadAdminMatrix();
+      else if (state.adminTab === 'dispatch') await loadAdminDispatch();
+      else if (state.adminTab === 'district-products') await loadAdminDistrictProducts();
+    } else {
+      await loadDistrictData();
+    }
   }
 
   async function loadDistrictData() {
@@ -1229,12 +1242,29 @@
     }
   };
 
-  window.promptDeleteDistrictProduct = window.promptAdminDeleteDistrictProduct;
+  window.returnToDistrictDashboard = () => {
+    state.currentView = 'district';
+    renderAdminDistrictStrip();
+    loadDistrictData();
+  };
 
   // ================= ADMIN CONSOLE =================
   async function renderAdminConsole() {
+    state.currentView = 'admin';
     const main = $('mainContent');
     main.innerHTML = `
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;background:#FAFBF6;border:1px solid var(--line);border-radius:10px;padding:12px 18px;flex-wrap:wrap;gap:10px;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <button class="btn btn-secondary" onclick="returnToDistrictDashboard()" style="font-weight:700;padding:7px 16px;">
+            ← Back to Daily Sales Register
+          </button>
+          <span style="font-size:16px;font-weight:700;color:var(--forest-deep);">⚙️ Administrator Control Center</span>
+        </div>
+        <div style="font-size:12.5px;color:var(--ink-soft);">
+          Viewing Date: <span class="mono" style="font-weight:700;color:var(--ink);">${state.currentDate}</span> • Signed In: <strong>${escapeHtml(state.user.name || state.user.username)}</strong>
+        </div>
+      </div>
+
       <div class="card" style="margin-bottom:20px;">
         <div class="admin-nav">
           <button class="admin-tab ${state.adminTab === 'matrix' ? 'active' : ''}" onclick="switchAdminTab('matrix')">📊 12-District Matrix</button>
