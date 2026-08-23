@@ -32,7 +32,7 @@ const API = {
 
       const data = await response.json().catch(() => ({}));
 
-      if (response.status === 401 || (response.status === 403 && endpoint.startsWith('/auth/'))) {
+      if (response.status === 401 && endpoint === '/auth/me') {
         this.setToken(null);
         window.dispatchEvent(new CustomEvent('auth:unauthorized'));
         throw new Error(data.error || 'Session expired. Please log in again.');

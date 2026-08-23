@@ -32,7 +32,7 @@ const API = {
 
       const data = await response.json().catch(() => ({}));
 
-      if (response.status === 401 || (response.status === 403 && endpoint.startsWith('/auth/'))) {
+      if (response.status === 401 && endpoint === '/auth/me') {
         this.setToken(null);
         window.dispatchEvent(new CustomEvent('auth:unauthorized'));
         throw new Error(data.error || 'Session expired. Please log in again.');
@@ -210,6 +210,24 @@ const API = {
     return this.request('/inventory/assign-district-product', {
       method: 'POST',
       body: JSON.stringify({ district, masterProductId, initialStock })
+    });
+  },
+
+  async getDistrictMatrix(district) {
+    return this.request(`/inventory/district-matrix/${encodeURIComponent(district)}`);
+  },
+
+  async toggleDistrictProduct(district, masterProductId, isAssigned, initialStock) {
+    return this.request('/inventory/district-product-toggle', {
+      method: 'POST',
+      body: JSON.stringify({ district, masterProductId, isAssigned, initialStock })
+    });
+  },
+
+  async bulkAssignDistrictProducts(district, assignments) {
+    return this.request('/inventory/bulk-assign-district-products', {
+      method: 'POST',
+      body: JSON.stringify({ district, assignments })
     });
   },
 

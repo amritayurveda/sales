@@ -62,8 +62,11 @@ app.use(['/api/orders', '/orders'], orderRoutes);
 app.use(['/api/cash', '/cash'], cashRoutes);
 app.use(['/api/sheets', '/sheets'], sheetsRoutes);
 
-// Safe Fallback to index.html for SPA
+// Safe Fallback to index.html for SPA (Never send meta refresh)
 app.get('*', (req, res) => {
+  if (req.path.startsWith('/api/')) {
+    return res.status(404).json({ error: 'API route not found' });
+  }
   const publicIndex = path.join(__dirname, 'public', 'index.html');
   const rootIndex = path.join(__dirname, 'index.html');
   if (fs.existsSync(publicIndex)) {
@@ -71,7 +74,7 @@ app.get('*', (req, res) => {
   } else if (fs.existsSync(rootIndex)) {
     return res.sendFile(rootIndex);
   } else {
-    return res.status(200).send(`<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=/index.html"></head><body>Loading Sales Register Pro...</body></html>`);
+    return res.status(404).send('Not Found');
   }
 });
 

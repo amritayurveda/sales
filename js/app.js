@@ -24,6 +24,7 @@
     dayCash: null,
     customerOrders: [],
     isReadOnly: false,
+    currentView: 'district', // 'district' | 'admin'
     dealerView: 'home',
     adminTab: 'matrix',
     adminOverviewData: null,
@@ -244,7 +245,8 @@
 
     if ($('adminConsoleBtn')) {
       $('adminConsoleBtn').addEventListener('click', () => {
-        state.adminTab = 'matrix';
+        state.currentView = 'admin';
+        state.adminTab = state.adminTab || 'matrix';
         renderAdminConsole();
       });
     }
@@ -257,9 +259,10 @@
     const list = (state.districts && state.districts.length > 0) ? state.districts : DISTRICTS;
     list.forEach(dist => {
       const pill = document.createElement('button');
-      pill.className = 'dist-pill' + (dist === state.currentDistrict ? ' active' : '');
+      pill.className = 'dist-pill' + (dist === state.currentDistrict && state.currentView === 'district' ? ' active' : '');
       pill.textContent = dist;
       pill.addEventListener('click', () => {
+        state.currentView = 'district';
         state.currentDistrict = dist;
         renderAdminDistrictStrip();
         loadDistrictData();
@@ -306,9 +309,13 @@
             showToast(`⚡ New Sale in ${ord.district}! #${ord.orderNo}: ${ord.productName} (₹${fmt(ord.unitPrice)})`, 'success');
           }
 
-          // Real-time instantaneous auto-refresh
-          if (state.user.role === 'admin' && state.adminTab === 'matrix' && $('adminOverviewMatrixBody')) {
-            await loadAdminOverview();
+          // Real-time instantaneous auto-refresh without kicking user out of admin view
+          if (state.currentView === 'admin') {
+            if (state.adminTab === 'matrix' && $('adminOverviewMatrixBody')) {
+              await loadAdminMatrix();
+            } else if (state.adminTab === 'activity') {
+              await loadAdminActivityLogs();
+            }
           } else {
             await loadDistrictData();
           }
@@ -336,7 +343,13 @@
     if (!newDate) return;
     state.currentDate = newDate;
     updateDateDisplay();
-    await loadDistrictData();
+    if (state.currentView === 'admin') {
+      if (state.adminTab === 'matrix') await loadAdminMatrix();
+      else if (state.adminTab === 'dispatch') await loadAdminDispatch();
+      else if (state.adminTab === 'district-products') await loadAdminDistrictProducts();
+    } else {
+      await loadDistrictData();
+    }
   }
 
   async function loadDistrictData() {
@@ -1172,17 +1185,17 @@
   };
 
   window.promptAdminEditStock = async (productId, prodName, currentStock) => {
-    const stockStr = prompt(`Set total base allocated stock for ${prodName} in ${state.currentDistrict}:`, currentStock);
-    if (!stockStr) return;
+    const stockStr = prompt(`Set total base allocated opening stock for "${prodName}" in ${state.currentDistrict}:\n\n(Once edited, this stock quantity is permanently locked and will never automatically reset)`, currentStock !== undefined ? currentStock : 0);
+    if (stockStr === null) return;
     const newStock = parseFloat(stockStr);
     if (isNaN(newStock) || newStock < 0) {
-      alert('Please enter a valid stock number');
+      alert('Please enter a valid stock number (0 or greater)');
       return;
     }
 
     try {
       const res = await API.adjustBaseStock(state.currentDistrict, productId, newStock);
-      showToast(res.message, 'success');
+      showToast(res.message || `Stock set to ${newStock} for "${prodName}" (Locked)`, 'success');
       await loadDistrictData();
     } catch (err) {
       showToast(err.message, 'error');
@@ -1229,15 +1242,33 @@
     }
   };
 
-  window.promptDeleteDistrictProduct = window.promptAdminDeleteDistrictProduct;
+  window.returnToDistrictDashboard = () => {
+    state.currentView = 'district';
+    renderAdminDistrictStrip();
+    loadDistrictData();
+  };
 
   // ================= ADMIN CONSOLE =================
   async function renderAdminConsole() {
+    state.currentView = 'admin';
     const main = $('mainContent');
     main.innerHTML = `
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;background:#FAFBF6;border:1px solid var(--line);border-radius:10px;padding:12px 18px;flex-wrap:wrap;gap:10px;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <button class="btn btn-secondary" onclick="returnToDistrictDashboard()" style="font-weight:700;padding:7px 16px;">
+            ← Back to Daily Sales Register
+          </button>
+          <span style="font-size:16px;font-weight:700;color:var(--forest-deep);">⚙️ Administrator Control Center</span>
+        </div>
+        <div style="font-size:12.5px;color:var(--ink-soft);">
+          Viewing Date: <span class="mono" style="font-weight:700;color:var(--ink);">${state.currentDate}</span> • Signed In: <strong>${escapeHtml(state.user.name || state.user.username)}</strong>
+        </div>
+      </div>
+
       <div class="card" style="margin-bottom:20px;">
         <div class="admin-nav">
           <button class="admin-tab ${state.adminTab === 'matrix' ? 'active' : ''}" onclick="switchAdminTab('matrix')">📊 12-District Matrix</button>
+          <button class="admin-tab ${state.adminTab === 'district-products' ? 'active' : ''}" onclick="switchAdminTab('district-products')">📋 District Products &amp; Stock</button>
           <button class="admin-tab ${state.adminTab === 'dispatch' ? 'active' : ''}" onclick="switchAdminTab('dispatch')">🚚 Stock Dispatch &amp; In-Transit</button>
           <button class="admin-tab ${state.adminTab === 'sheets' ? 'active' : ''}" onclick="switchAdminTab('sheets')">📈 Google Sheets Database</button>
           <button class="admin-tab ${state.adminTab === 'schemes' ? 'active' : ''}" onclick="switchAdminTab('schemes')">📦 Master Product &amp; Prices</button>
@@ -1251,6 +1282,8 @@
 
     if (state.adminTab === 'matrix') {
       await loadAdminMatrix();
+    } else if (state.adminTab === 'district-products') {
+      await loadAdminDistrictProducts();
     } else if (state.adminTab === 'dispatch') {
       await loadAdminDispatch();
     } else if (state.adminTab === 'sheets') {
@@ -1363,6 +1396,308 @@
     state.currentDistrict = dist;
     renderAdminDistrictStrip();
     loadDistrictData();
+  };
+
+  // ================= DISTRICT PRODUCTS & STOCK MANAGER TAB =================
+  let currentAdminDistrict = null;
+
+  async function loadAdminDistrictProducts(selectedDistrict) {
+    const container = $('adminTabContent');
+    container.innerHTML = '<div style="padding:30px;text-align:center;">Loading District Products &amp; Stock Matrix...</div>';
+
+    try {
+      let districts = [];
+      try {
+        const dRes = await API.getDistrictsList();
+        districts = (dRes.districts || []).filter(d => !['rewari', 'shamli'].includes(d.toLowerCase()));
+      } catch (e) {
+        districts = ['Chittorgarh', 'Alwar', 'Bikaner', 'Uttarakhand', 'Udham Singh Nagar', 'Faridabad', 'Gurgaon', 'Muzaffarnagar', 'Saharanpur', 'Jodhpur', 'Kota'];
+      }
+
+      if (!districts || districts.length === 0) {
+        districts = ['Chittorgarh', 'Alwar', 'Bikaner', 'Uttarakhand', 'Udham Singh Nagar', 'Faridabad', 'Gurgaon', 'Muzaffarnagar', 'Saharanpur', 'Jodhpur', 'Kota'];
+      }
+
+      if (selectedDistrict) {
+        currentAdminDistrict = selectedDistrict;
+      } else if (!currentAdminDistrict || !districts.includes(currentAdminDistrict)) {
+        currentAdminDistrict = state.currentDistrict && districts.includes(state.currentDistrict) ? state.currentDistrict : districts[0];
+      }
+
+      const data = await API.getDistrictMatrix(currentAdminDistrict);
+      const matrix = data.matrix || [];
+      const assignedCount = data.assignedCount !== undefined ? data.assignedCount : matrix.filter(p => p.isAssigned).length;
+      const totalMaster = data.totalMaster || matrix.length;
+
+      let html = `
+        <div style="margin-bottom:16px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:14px;">
+            <div>
+              <h3 style="margin:0;font-size:17px;display:flex;align-items:center;gap:8px;">
+                <span>📋 District Product Assignment &amp; Stock Manager</span>
+              </h3>
+              <span style="font-size:12px;color:var(--ink-soft);">
+                Tick/Untick products to assign/unassign for each district. Edit base allocated stock directly — once edited, stock is permanently preserved and locked.
+              </span>
+            </div>
+            <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+              <button class="btn btn-secondary btn-sm" onclick="bulkToggleDistrictProducts('${escapeHtml(currentAdminDistrict)}', true)">
+                ✅ Tick All (${totalMaster})
+              </button>
+              <button class="btn btn-secondary btn-sm" onclick="bulkToggleDistrictProducts('${escapeHtml(currentAdminDistrict)}', false)">
+                ❌ Untick All
+              </button>
+              <button class="btn btn-primary btn-sm" onclick="saveAllDistrictProductAssignments('${escapeHtml(currentAdminDistrict)}')" style="font-weight:700;">
+                💾 Save All Changes
+              </button>
+            </div>
+          </div>
+
+          <!-- District Selector Pills -->
+          <div style="background:#FAFBF6;border:1px solid var(--line);border-radius:8px;padding:12px 14px;margin-bottom:16px;">
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px;">
+              Select District to Manage:
+            </div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;">
+              ${districts.map(d => `
+                <button 
+                  class="btn ${d === currentAdminDistrict ? 'btn-primary' : 'btn-secondary'} btn-sm" 
+                  style="border-radius:20px;font-size:12.5px;padding:5px 14px;${d === currentAdminDistrict ? 'box-shadow:0 2px 6px rgba(0,0,0,0.15);font-weight:700;' : ''}"
+                  onclick="loadAdminDistrictProducts('${escapeHtml(d)}')"
+                >
+                  ${d === currentAdminDistrict ? '📍 ' : ''}${escapeHtml(d)}
+                </button>
+              `).join('')}
+            </div>
+          </div>
+
+          <!-- Selected District Summary Strip -->
+          <div style="background:#FFF9D2;border:1px solid #E6D57E;border-radius:8px;padding:12px 16px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+            <div>
+              <span style="font-size:14px;font-weight:700;color:#745B00;">
+                📍 Active District: <span style="font-size:15px;color:var(--ink);">${escapeHtml(currentAdminDistrict)}</span>
+              </span>
+              <span style="margin-left:12px;background:#fff;padding:3px 10px;border-radius:12px;border:1px solid #E6D57E;font-size:12px;font-weight:700;color:#745B00;">
+                ${assignedCount} of ${totalMaster} Products Assigned
+              </span>
+            </div>
+            <div style="font-size:12px;color:#8E6526;">
+              💡 <em>Tick checkbox to assign. Type in stock quantity and click 💾 to lock base stock.</em>
+            </div>
+          </div>
+
+          <!-- Interactive Products Table -->
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr class="excel-head-yellow">
+                  <th style="width:120px;text-align:center;">ASSIGN (TICK)</th>
+                  <th style="width:30px;">#</th>
+                  <th>MASTER PRODUCT NAME</th>
+                  <th style="width:140px;text-align:center;">CLASSIFICATION</th>
+                  <th style="text-align:right;width:180px;">BASE ALLOCATED STOCK</th>
+                  <th style="text-align:right;width:120px;">LIVE STOCK</th>
+                  <th style="text-align:center;width:110px;">STATUS</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${matrix.map((p, idx) => `
+                  <tr id="row_${p.masterId}" style="${p.isAssigned ? 'background:#FAFBF6;' : 'opacity:0.75;'}">
+                    <td style="text-align:center;">
+                      <label style="display:inline-flex;align-items:center;gap:6px;cursor:pointer;margin:0;font-weight:700;font-size:12px;">
+                        <input 
+                          type="checkbox" 
+                          id="chk_${p.masterId}" 
+                          class="district-prod-chk" 
+                          data-prod-id="${p.masterId}" 
+                          data-prod-name="${escapeHtml(p.name)}" 
+                          ${p.isAssigned ? 'checked' : ''} 
+                          style="width:18px;height:18px;cursor:pointer;"
+                          onchange="onToggleDistrictProductCheck('${escapeHtml(currentAdminDistrict)}', '${p.masterId}', this.checked)"
+                        >
+                        <span id="chk_label_${p.masterId}" style="color:${p.isAssigned ? 'var(--good)' : 'var(--ink-soft)'};">
+                          ${p.isAssigned ? '✓ Assigned' : '○ Off'}
+                        </span>
+                      </label>
+                    </td>
+                    <td class="mono" style="font-size:11px;color:var(--ink-soft);">${idx + 1}</td>
+                    <td class="prod-name">
+                      <strong style="font-size:13.5px;">${escapeHtml(p.name)}</strong>
+                      <span style="font-size:11px;color:var(--ink-soft);display:block;">
+                        Master Base Price: ₹${fmt(p.defaultPrice)}
+                      </span>
+                    </td>
+                    <td style="text-align:center;">
+                      ${p.isSpecial ? `
+                        <span style="background:#FEF3C7;color:#92400E;border:1px solid #F59E0B;padding:2px 7px;border-radius:4px;font-size:10.5px;font-weight:700;">
+                          ⭐ SPECIAL
+                        </span>
+                      ` : `
+                        <span style="background:#F1F5F9;color:#64748B;border:1px solid #CBD5E1;padding:2px 7px;border-radius:4px;font-size:10.5px;font-weight:600;">
+                          STANDARD
+                        </span>
+                      `}
+                    </td>
+                    <td style="text-align:right;">
+                      <div style="display:inline-flex;align-items:center;gap:6px;">
+                        <input 
+                          type="number" 
+                          min="0" 
+                          step="0.1" 
+                          id="stock_${p.masterId}" 
+                          class="mono input-field district-stock-input" 
+                          style="width:90px;text-align:right;padding:4px 8px;font-size:13px;font-weight:700;background:#fff;" 
+                          value="${p.stockAllocated}" 
+                          ${!p.isAssigned ? 'disabled' : ''}
+                          onchange="onDistrictStockInputChange('${escapeHtml(currentAdminDistrict)}', '${p.masterId}', this.value)"
+                        >
+                        <button 
+                          class="btn btn-secondary btn-sm" 
+                          style="padding:3px 7px;font-size:11px;" 
+                          onclick="saveSingleDistrictStock('${escapeHtml(currentAdminDistrict)}', '${p.masterId}')" 
+                          title="Save & Lock Stock for this product"
+                          ${!p.isAssigned ? 'disabled' : ''}
+                        >
+                          💾
+                        </button>
+                      </div>
+                    </td>
+                    <td style="text-align:right;" class="mono tot">
+                      ${p.isAssigned ? `${fmt(p.currentStock)}` : '—'}
+                    </td>
+                    <td style="text-align:center;">
+                      ${p.isAssigned ? `
+                        <span class="stock-pill in-stock" style="font-size:10px;">🟢 Active</span>
+                      ` : `
+                        <span class="stock-pill out-stock" style="font-size:10px;background:#F1F5F9;color:#64748B;border-color:#CBD5E1;">⚪ Unassigned</span>
+                      `}
+                    </td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      `;
+
+      container.innerHTML = html;
+    } catch (err) {
+      container.innerHTML = `<div style="color:var(--danger);padding:20px;">Failed to load district products matrix: ${err.message}</div>`;
+    }
+  }
+
+  window.loadAdminDistrictProducts = loadAdminDistrictProducts;
+
+  window.onToggleDistrictProductCheck = async (district, masterId, isChecked) => {
+    const label = $(`chk_label_${masterId}`);
+    const stockInput = $(`stock_${masterId}`);
+    const row = $(`row_${masterId}`);
+
+    if (label) {
+      label.textContent = isChecked ? '✓ Assigned' : '○ Off';
+      label.style.color = isChecked ? 'var(--good)' : 'var(--ink-soft)';
+    }
+    if (stockInput) {
+      stockInput.disabled = !isChecked;
+    }
+    if (row) {
+      row.style.background = isChecked ? '#FAFBF6' : '#FFF';
+      row.style.opacity = isChecked ? '1' : '0.75';
+    }
+
+    const stockVal = stockInput ? (parseFloat(stockInput.value) || 0) : 0;
+
+    try {
+      const res = await API.toggleDistrictProduct(district, masterId, isChecked, stockVal);
+      showToast(res.message, isChecked ? 'success' : 'info');
+    } catch (err) {
+      showToast(err.message, 'error');
+    }
+  };
+
+  window.onDistrictStockInputChange = async (district, masterId, value) => {
+    const num = parseFloat(value);
+    if (isNaN(num) || num < 0) {
+      showToast('Please enter a valid stock quantity (0 or greater)', 'error');
+      return;
+    }
+    try {
+      const res = await API.adjustBaseStock(district, masterId, num);
+      showToast(`Stock updated to ${num} for ${district} (Locked & Preserved)`, 'success');
+    } catch (err) {
+      showToast(err.message, 'error');
+    }
+  };
+
+  window.saveSingleDistrictStock = async (district, masterId) => {
+    const input = $(`stock_${masterId}`);
+    if (!input) return;
+    const num = parseFloat(input.value);
+    if (isNaN(num) || num < 0) {
+      showToast('Please enter a valid positive stock number', 'error');
+      return;
+    }
+    try {
+      const res = await API.adjustBaseStock(district, masterId, num);
+      showToast(res.message, 'success');
+    } catch (err) {
+      showToast(err.message, 'error');
+    }
+  };
+
+  window.bulkToggleDistrictProducts = async (district, assignAll) => {
+    const checkboxes = document.querySelectorAll('.district-prod-chk');
+    const assignments = [];
+
+    checkboxes.forEach(chk => {
+      chk.checked = assignAll;
+      const pid = chk.getAttribute('data-prod-id');
+      const stockInp = $(`stock_${pid}`);
+      if (stockInp) stockInp.disabled = !assignAll;
+      const label = $(`chk_label_${pid}`);
+      if (label) {
+        label.textContent = assignAll ? '✓ Assigned' : '○ Off';
+        label.style.color = assignAll ? 'var(--good)' : 'var(--ink-soft)';
+      }
+      const stockVal = stockInp ? (parseFloat(stockInp.value) || 0) : 0;
+      assignments.push({
+        productId: pid,
+        isAssigned: assignAll,
+        stockAllocated: stockVal
+      });
+    });
+
+    try {
+      const res = await API.bulkAssignDistrictProducts(district, assignments);
+      showToast(res.message, 'success');
+      loadAdminDistrictProducts(district);
+    } catch (err) {
+      showToast(err.message, 'error');
+    }
+  };
+
+  window.saveAllDistrictProductAssignments = async (district) => {
+    const checkboxes = document.querySelectorAll('.district-prod-chk');
+    const assignments = [];
+
+    checkboxes.forEach(chk => {
+      const pid = chk.getAttribute('data-prod-id');
+      const stockInp = $(`stock_${pid}`);
+      const stockVal = stockInp ? (parseFloat(stockInp.value) || 0) : 0;
+      assignments.push({
+        productId: pid,
+        isAssigned: chk.checked,
+        stockAllocated: stockVal
+      });
+    });
+
+    try {
+      const res = await API.bulkAssignDistrictProducts(district, assignments);
+      showToast(res.message, 'success');
+      loadAdminDistrictProducts(district);
+    } catch (err) {
+      showToast(err.message, 'error');
+    }
   };
 
   async function loadAdminSheets() {
