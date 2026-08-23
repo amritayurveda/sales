@@ -3,16 +3,36 @@ const { calculateDC } = require('./dcCalculator');
 
 function getDistrictProductsSafely(db, district) {
   if (!db || !db.districtProducts) return [];
+  let rawList = [];
   if (db.districtProducts[district] && Array.isArray(db.districtProducts[district])) {
-    return db.districtProducts[district];
-  }
-  const lower = (district || '').trim().toLowerCase();
-  for (const k of Object.keys(db.districtProducts)) {
-    if (k.trim().toLowerCase() === lower && Array.isArray(db.districtProducts[k])) {
-      return db.districtProducts[k];
+    rawList = db.districtProducts[district];
+  } else {
+    const lower = (district || '').trim().toLowerCase();
+    for (const k of Object.keys(db.districtProducts)) {
+      if (k.trim().toLowerCase() === lower && Array.isArray(db.districtProducts[k])) {
+        rawList = db.districtProducts[k];
+        break;
+      }
     }
   }
-  return [];
+
+  // Deduplicate products by normalized product name so no district ever has double entries
+  const seen = new Map();
+  rawList.forEach(item => {
+    if (!item || !item.name) return;
+    const key = item.name.trim().toUpperCase();
+    if (!seen.has(key)) {
+      seen.set(key, item);
+    } else {
+      const existing = seen.get(key);
+      // Prefer the entry with custom stock lock or non-zero stock
+      if (item.isCustomStockLocked || (!existing.isCustomStockLocked && (Number(item.stockAllocated) || 0) > 0)) {
+        seen.set(key, item);
+      }
+    }
+  });
+
+  return Array.from(seen.values());
 }
 
 /**
@@ -83,33 +103,47 @@ function computeDistrictDayStock(db, district, targetDate) {
   const distProducts = getDistrictProductsSafely(db, distName);
   const allOrders = (db && db.customerOrders ? db.customerOrders : []).filter(o => (o.district || '').trim().toLowerCase() === distName.toLowerCase());
   const milaMap = (db && db.milaStock) ? db.milaStock : {};
+  const masterList = (db && db.products && db.products.length > 0) ? db.products : [];
 
   const result = distProducts.map(p => {
     const baseStock = Number(p.stockAllocated) || 0;
-
-    // Orders before today
-    const ordersBefore = allOrders.filter(o => o.productId === p.productId && o.date < targetDate);
-    const salesBefore = ordersBefore.reduce((sum, o) => sum + (Number(o.qty) || 0), 0);
-
-    const master = (db && db.products ? db.products : []).find(mp => mp.id === p.productId || mp.name.toUpperCase() === (p.name || '').toUpperCase());
+    const master = masterList.find(mp => mp.id === p.productId || mp.name.toUpperCase() === (p.name || '').toUpperCase());
     const prodName = master ? master.name : p.name;
     const prodSchemes = (master && master.schemes && master.schemes.length > 0) ? master.schemes : (p.schemes || []);
+    const canonicalId = master ? master.id : p.productId;
+
+    const isMatch = (orderPid, orderPname) => {
+      if (!orderPid && !orderPname) return false;
+      if (orderPid && (orderPid === p.productId || orderPid === p.id || orderPid === canonicalId)) return true;
+      if (orderPname && orderPname.trim().toUpperCase() === prodName.trim().toUpperCase()) return true;
+      if (orderPid) {
+        const orderMaster = masterList.find(m => m.id === orderPid || m.name.toUpperCase() === orderPid.toUpperCase());
+        if (orderMaster && (orderMaster.id === canonicalId || orderMaster.name.toUpperCase() === prodName.trim().toUpperCase())) {
+          return true;
+        }
+      }
+      return false;
+    };
+
+    // Orders before today
+    const ordersBefore = allOrders.filter(o => isMatch(o.productId, o.productName) && o.date < targetDate);
+    const salesBefore = ordersBefore.reduce((sum, o) => sum + (Number(o.qty) || 0), 0);
 
     // Mila inward before today
     let milaBefore = 0;
     Object.keys(milaMap).forEach(key => {
       const [dist, d, pid] = key.split(':');
       if ((dist || '').trim().toLowerCase() === distName.toLowerCase() && d < targetDate) {
-        if (pid === p.productId || pid === p.id || pid === p.name || (master && pid === master.id)) {
+        if (isMatch(pid, null)) {
           milaBefore += (Number(milaMap[key]) || 0);
         }
       }
     });
 
-    const openingStock = Math.round((baseStock - salesBefore + milaBefore) * 10) / 10;
+    const openingStock = Math.max(0, Math.round((baseStock - salesBefore + milaBefore) * 10) / 10);
 
     // Orders today
-    const ordersToday = allOrders.filter(o => (o.productId === p.productId || o.productId === p.id || (master && o.productId === master.id)) && o.date === targetDate);
+    const ordersToday = allOrders.filter(o => isMatch(o.productId, o.productName) && o.date === targetDate);
     const saleQty = ordersToday.reduce((sum, o) => sum + (Number(o.qty) || 0), 0);
 
     const remainStock = Math.round((openingStock - saleQty) * 10) / 10;
@@ -119,7 +153,7 @@ function computeDistrictDayStock(db, district, targetDate) {
     Object.keys(milaMap).forEach(key => {
       const [dist, d, pid] = key.split(':');
       if ((dist || '').trim().toLowerCase() === distName.toLowerCase() && d === targetDate) {
-        if (pid === p.productId || pid === p.id || pid === p.name || (master && pid === master.id)) {
+        if (isMatch(pid, null)) {
           milaQty += (Number(milaMap[key]) || 0);
         }
       }
@@ -129,7 +163,7 @@ function computeDistrictDayStock(db, district, targetDate) {
 
     return {
       id: p.id,
-      productId: p.productId,
+      productId: canonicalId,
       name: prodName,
       isSpecial: Boolean(p.isSpecial || (master && master.isSpecial)),
       schemes: prodSchemes,
@@ -138,7 +172,8 @@ function computeDistrictDayStock(db, district, targetDate) {
       saleQty,
       remainStock,
       milaQty,
-      closingStock
+      closingStock,
+      isCustomStockLocked: Boolean(p.isCustomStockLocked)
     };
   });
 
