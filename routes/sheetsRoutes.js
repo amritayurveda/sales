@@ -31,7 +31,7 @@ router.get('/config', authenticateToken, (req, res) => {
 });
 
 // 2. Admin: Update Google Sheets Webhook URL
-router.post('/config', authenticateToken, requireAdmin, (req, res) => {
+router.post('/config', authenticateToken, requireAdmin, async (req, res) => {
   const { webhookUrl, autoSync } = req.body;
 
   if (!db.googleSheetsConfig) db.googleSheetsConfig = {};
@@ -49,7 +49,7 @@ router.post('/config', authenticateToken, requireAdmin, (req, res) => {
     `Updated Google Sheets Webhook configuration: ${webhookUrl || 'None'}`
   );
 
-  saveDb();
+  await saveDb();
 
   res.json({
     message: 'Google Sheets configuration updated successfully',

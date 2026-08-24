@@ -142,7 +142,7 @@ async function syncAllDistrictsToSheets(date) {
   db.googleSheetsConfig.lastSyncTimestamp = new Date().toISOString();
   db.googleSheetsConfig.lastSyncDate = date;
   db.googleSheetsConfig.webhookUrl = webhookUrl;
-  saveDb();
+  await saveDb();
 
   return {
     spreadsheetId: GOOGLE_SHEET_ID,

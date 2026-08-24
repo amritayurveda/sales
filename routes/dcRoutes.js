@@ -49,7 +49,7 @@ router.post('/calculate', authenticateToken, (req, res) => {
 });
 
 // Update DC rule (Admin can update all; Dealers can update their custom rate if custom rule)
-router.put('/:district', authenticateToken, (req, res) => {
+router.put('/:district', authenticateToken, async (req, res) => {
   const { district } = req.params;
   const { rule, customRate } = req.body;
 
@@ -73,7 +73,7 @@ router.put('/:district', authenticateToken, (req, res) => {
     }
   }
 
-  saveDb();
+  await saveDb();
   res.json({
     message: `DC rule updated for ${district}`,
     rule: db.dcRules[district],

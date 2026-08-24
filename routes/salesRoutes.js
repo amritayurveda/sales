@@ -29,7 +29,7 @@ router.post(
   authenticateToken,
   enforceDistrictAccess,
   enforceSameDayForDealers,
-  (req, res) => {
+  async (req, res) => {
     const { district, date } = req.params;
     const { entries } = req.body;
 
@@ -50,7 +50,7 @@ router.post(
       `Saved sales register for ${district} on ${date}`
     );
 
-    saveDb();
+    await saveDb();
 
     res.json({
       message: 'Sales register saved successfully',
@@ -67,7 +67,7 @@ router.post(
   authenticateToken,
   enforceDistrictAccess,
   enforceSameDayForDealers,
-  (req, res) => {
+  async (req, res) => {
     const { district, date } = req.params;
     const { productId, qty, sale, transfer, price } = req.body;
 
@@ -87,7 +87,7 @@ router.post(
       price: Number(price) || 0
     };
 
-    saveDb();
+    await saveDb();
 
     res.json({
       message: 'Product entry updated',

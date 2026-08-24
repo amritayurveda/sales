@@ -36,7 +36,7 @@ router.post(
   authenticateToken,
   enforceDistrictAccess,
   enforceSameDayForDealers,
-  (req, res) => {
+  async (req, res) => {
     const { district, date } = req.params;
     const { label, type, amount, sign } = req.body;
 
@@ -70,7 +70,7 @@ router.post(
     }
 
     db.ledgers[key].push(newEntry);
-    saveDb();
+    await saveDb();
 
     res.status(201).json({
       message: 'Ledger entry added',
@@ -87,7 +87,7 @@ router.post(
   authenticateToken,
   enforceDistrictAccess,
   enforceSameDayForDealers,
-  (req, res) => {
+  async (req, res) => {
     const { district, date } = req.params;
     const { price, productName } = req.body;
 
@@ -120,7 +120,7 @@ router.post(
     }
 
     db.ledgers[key].push(newEntry);
-    saveDb();
+    await saveDb();
 
     res.status(201).json({
       message: 'Auto DC entry added to ledger',
@@ -137,7 +137,7 @@ router.delete(
   authenticateToken,
   enforceDistrictAccess,
   enforceSameDayForDealers,
-  (req, res) => {
+  async (req, res) => {
     const { district, date, id } = req.params;
     const key = `${district}:${date}`;
 
@@ -152,7 +152,7 @@ router.delete(
       return res.status(404).json({ error: 'Ledger entry not found' });
     }
 
-    saveDb();
+    await saveDb();
 
     res.json({
       message: 'Entry removed',

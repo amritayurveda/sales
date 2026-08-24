@@ -98,27 +98,14 @@ function computeDistrictDayCash(db, district, targetDate) {
 /**
  * Compute daily stock register for all products in a district on a given date.
  */
-function computeDistrictDayStock(db, district, targetDate, onlyActive = true) {
+function computeDistrictDayStock(db, district, targetDate) {
   const distName = (district || '').trim();
   const distProducts = getDistrictProductsSafely(db, distName);
   const allOrders = (db && db.customerOrders ? db.customerOrders : []).filter(o => (o.district || '').trim().toLowerCase() === distName.toLowerCase());
   const milaMap = (db && db.milaStock) ? db.milaStock : {};
   const masterList = (db && db.products && db.products.length > 0) ? db.products : [];
-  const unassignedMap = (db && db.unassignedDistrictProducts) ? db.unassignedDistrictProducts : {};
 
-  const isUnassigned = (p) => {
-    const k1 = `${distName}:${p.productId}`;
-    const k2 = `${distName}:${(p.name || '').toUpperCase()}`;
-    const k3 = `${distName.toLowerCase()}:${p.productId}`;
-    const k4 = `${distName.toLowerCase()}:${(p.name || '').toUpperCase()}`;
-    return Boolean(unassignedMap[k1] || unassignedMap[k2] || unassignedMap[k3] || unassignedMap[k4]);
-  };
-
-  const productsToCompute = onlyActive
-    ? distProducts.filter(p => p.isActive !== false && !isUnassigned(p))
-    : distProducts;
-
-  const result = productsToCompute.map(p => {
+  const result = distProducts.map(p => {
     const baseStock = Number(p.stockAllocated) || 0;
     const master = masterList.find(mp => mp.id === p.productId || mp.name.toUpperCase() === (p.name || '').toUpperCase());
     const prodName = master ? master.name : p.name;

@@ -12,15 +12,6 @@ async function testSimultaneousStockSync() {
   // 1. Set Jaipur DAMADAR to 30
   const jaipurItems = getDistrictProductsSafely(db, 'Jaipur');
   let jDamadar = jaipurItems.find(p => p.name === 'DAMADAR');
-  // Clear any existing test mila/orders for clean comparison
-  if (db.milaStock) {
-    delete db.milaStock['Jaipur:2026-08-23:prod_1'];
-    delete db.milaStock['Gurgaon:2026-08-23:prod_1'];
-  }
-  if (db.customerOrders) {
-    db.customerOrders = db.customerOrders.filter(o => o.productId !== 'prod_1');
-  }
-
   assert.ok(jDamadar, 'DAMADAR must exist in Jaipur');
   jDamadar.stockAllocated = 30;
   jDamadar.currentStock = 30;

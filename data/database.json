@@ -708,526 +708,6 @@
   "inwardNotes": {},
   "activityLogs": [
     {
-      "id": "act_1787486648102uvh2",
-      "role": "dealer",
-      "action": "LOGIN",
-      "userId": "u_dealer_8",
-      "details": "User dealer_faridabad (dealer - Faridabad) logged in",
-      "district": "Faridabad",
-      "username": "dealer_faridabad",
-      "timestamp": "2026-08-23T12:04:08.102Z"
-    },
-    {
-      "id": "act_17874866376338dko",
-      "role": "admin",
-      "action": "DISTRICT_PRODUCT_ASSIGNED",
-      "userId": "u_admin",
-      "details": "Assigned \"KADWI DAWA\" to Faridabad with stock 8",
-      "district": "Faridabad",
-      "username": "admin",
-      "timestamp": "2026-08-23T12:03:57.633Z"
-    },
-    {
-      "id": "act_17874866365447cpm",
-      "role": "admin",
-      "action": "DISTRICT_PRODUCT_ASSIGNED",
-      "userId": "u_admin",
-      "details": "Assigned \"AMAR NETRAN\" to Faridabad with stock 21",
-      "district": "Faridabad",
-      "username": "admin",
-      "timestamp": "2026-08-23T12:03:56.544Z"
-    },
-    {
-      "id": "act_1787486633083lhme",
-      "role": "admin",
-      "action": "BULK_DISTRICT_PRODUCTS_UPDATED",
-      "userId": "u_admin",
-      "details": "Updated assigned products for Faridabad: 0 products active",
-      "district": "Faridabad",
-      "username": "admin",
-      "timestamp": "2026-08-23T12:03:53.083Z"
-    },
-    {
-      "id": "act_1787486605998yivo",
-      "role": "admin",
-      "action": "STOCK_ADJUSTMENT",
-      "userId": "u_admin",
-      "details": "Admin adjusted base stock for KADWI DAWA in jaipur: 0 units (Locked & Saved)",
-      "district": "jaipur",
-      "username": "admin",
-      "timestamp": "2026-08-23T12:03:25.998Z"
-    },
-    {
-      "id": "act_17874866050022o6q",
-      "role": "admin",
-      "action": "STOCK_ADJUSTMENT",
-      "userId": "u_admin",
-      "details": "Admin adjusted base stock for TONIC+FM in jaipur: 0 units (Locked & Saved)",
-      "district": "jaipur",
-      "username": "admin",
-      "timestamp": "2026-08-23T12:03:25.002Z"
-    },
-    {
-      "id": "act_1787486602798b3ml",
-      "role": "admin",
-      "action": "STOCK_ADJUSTMENT",
-      "userId": "u_admin",
-      "details": "Admin adjusted base stock for DAMADAR in jaipur: 0 units (Locked & Saved)",
-      "district": "jaipur",
-      "username": "admin",
-      "timestamp": "2026-08-23T12:03:22.798Z"
-    },
-    {
-      "id": "act_1787479226154qanw",
-      "role": "admin",
-      "action": "DISTRICT_PRODUCT_ASSIGNED",
-      "userId": "u_admin",
-      "details": "Assigned \"KADWI DAWA\" to Faridabad with stock 8",
-      "district": "Faridabad",
-      "username": "admin",
-      "timestamp": "2026-08-23T10:00:26.154Z"
-    },
-    {
-      "id": "act_17874792232233xj9",
-      "role": "admin",
-      "action": "DISTRICT_PRODUCT_ASSIGNED",
-      "userId": "u_admin",
-      "details": "Assigned \"AMAR NETRAN\" to Faridabad with stock 21",
-      "district": "Faridabad",
-      "username": "admin",
-      "timestamp": "2026-08-23T10:00:23.223Z"
-    },
-    {
-      "id": "act_1787479220918kak0",
-      "role": "admin",
-      "action": "BULK_DISTRICT_PRODUCTS_UPDATED",
-      "userId": "u_admin",
-      "details": "Updated assigned products for Faridabad: 0 products active",
-      "district": "Faridabad",
-      "username": "admin",
-      "timestamp": "2026-08-23T10:00:20.918Z"
-    },
-    {
-      "id": "act_17874792105441qzk",
-      "role": "admin",
-      "action": "DISTRICT_PRODUCT_ASSIGNED",
-      "userId": "u_admin",
-      "details": "Assigned \"KADWI DAWA\" to Gurgaon with stock 0",
-      "district": "Gurgaon",
-      "username": "admin",
-      "timestamp": "2026-08-23T10:00:10.544Z"
-    },
-    {
-      "id": "act_17874792079569dbr",
-      "role": "admin",
-      "action": "DISTRICT_PRODUCT_ASSIGNED",
-      "userId": "u_admin",
-      "details": "Assigned \"AMAR NETRAN\" to Gurgaon with stock 0",
-      "district": "Gurgaon",
-      "username": "admin",
-      "timestamp": "2026-08-23T10:00:07.956Z"
-    },
-    {
-      "id": "act_1787479204979gp8j",
-      "role": "admin",
-      "action": "BULK_DISTRICT_PRODUCTS_UPDATED",
-      "userId": "u_admin",
-      "details": "Updated assigned products for Gurgaon: 0 products active",
-      "district": "Gurgaon",
-      "username": "admin",
-      "timestamp": "2026-08-23T10:00:04.979Z"
-    },
-    {
-      "id": "act_1787479153166aqaw",
-      "role": "admin",
-      "action": "STOCK_ADJUSTMENT",
-      "userId": "u_admin",
-      "details": "Admin adjusted base stock for KADWI DAWA in jaipur: 0 units (Locked & Saved)",
-      "district": "jaipur",
-      "username": "admin",
-      "timestamp": "2026-08-23T09:59:13.166Z"
-    },
-    {
-      "id": "act_17874791518421b9g",
-      "role": "admin",
-      "action": "STOCK_ADJUSTMENT",
-      "userId": "u_admin",
-      "details": "Admin adjusted base stock for TONIC+FM in jaipur: 0 units (Locked & Saved)",
-      "district": "jaipur",
-      "username": "admin",
-      "timestamp": "2026-08-23T09:59:11.842Z"
-    },
-    {
-      "id": "act_1787479150644lmxr",
-      "role": "admin",
-      "action": "STOCK_ADJUSTMENT",
-      "userId": "u_admin",
-      "details": "Admin adjusted base stock for DAMADAR in jaipur: 0 units (Locked & Saved)",
-      "district": "jaipur",
-      "username": "admin",
-      "timestamp": "2026-08-23T09:59:10.644Z"
-    },
-    {
-      "id": "act_1787478156387wsun",
-      "role": "admin",
-      "action": "DISTRICT_PRODUCT_ASSIGNED",
-      "userId": "u_admin",
-      "details": "Assigned \"NAYAN SANJIVINI\" to Saharanpur with stock 0",
-      "district": "Saharanpur",
-      "username": "admin",
-      "timestamp": "2026-08-23T09:42:36.387Z"
-    },
-    {
-      "id": "act_1787478156015r38l",
-      "role": "admin",
-      "action": "DISTRICT_PRODUCT_ASSIGNED",
-      "userId": "u_admin",
-      "details": "Assigned \"FAT MUKTI\" to Saharanpur with stock 0",
-      "district": "Saharanpur",
-      "username": "admin",
-      "timestamp": "2026-08-23T09:42:36.015Z"
-    },
-    {
-      "id": "act_1787478155562hjp5",
-      "role": "admin",
-      "action": "DISTRICT_PRODUCT_ASSIGNED",
-      "userId": "u_admin",
-      "details": "Assigned \"HEIGHT VERDAK\" to Saharanpur with stock 0",
-      "district": "Saharanpur",
-      "username": "admin",
-      "timestamp": "2026-08-23T09:42:35.562Z"
-    },
-    {
-      "id": "act_1787478155324fv7c",
-      "role": "admin",
-      "action": "DISTRICT_PRODUCT_ASSIGNED",
-      "userId": "u_admin",
-      "details": "Assigned \"ALERGY\" to Saharanpur with stock 0",
-      "district": "Saharanpur",
-      "username": "admin",
-      "timestamp": "2026-08-23T09:42:35.324Z"
-    },
-    {
-      "id": "act_17874781546568g9m",
-      "role": "admin",
-      "action": "DISTRICT_PRODUCT_ASSIGNED",
-      "userId": "u_admin",
-      "details": "Assigned \"EYE SUTRA\" to Saharanpur with stock 0",
-      "district": "Saharanpur",
-      "username": "admin",
-      "timestamp": "2026-08-23T09:42:34.656Z"
-    },
-    {
-      "id": "act_1787478154065m01p",
-      "role": "admin",
-      "action": "DISTRICT_PRODUCT_ASSIGNED",
-      "userId": "u_admin",
-      "details": "Assigned \"FOUJI\" to Saharanpur with stock 0",
-      "district": "Saharanpur",
-      "username": "admin",
-      "timestamp": "2026-08-23T09:42:34.065Z"
-    },
-    {
-      "id": "act_17874781534670k0h",
-      "role": "admin",
-      "action": "DISTRICT_PRODUCT_ASSIGNED",
-      "userId": "u_admin",
-      "details": "Assigned \"PLAY MORE\" to Saharanpur with stock 0",
-      "district": "Saharanpur",
-      "username": "admin",
-      "timestamp": "2026-08-23T09:42:33.467Z"
-    },
-    {
-      "id": "act_1787478150328l4vk",
-      "role": "admin",
-      "action": "BULK_DISTRICT_PRODUCTS_UPDATED",
-      "userId": "u_admin",
-      "details": "Updated assigned products for Saharanpur: 0 products active",
-      "district": "Saharanpur",
-      "username": "admin",
-      "timestamp": "2026-08-23T09:42:30.328Z"
-    },
-    {
-      "id": "act_17874781446595w5h",
-      "role": "admin",
-      "action": "DISTRICT_PRODUCT_ASSIGNED",
-      "userId": "u_admin",
-      "details": "Assigned \"NAYAN SANJIVINI\" to Muzaffarnagar with stock 0",
-      "district": "Muzaffarnagar",
-      "username": "admin",
-      "timestamp": "2026-08-23T09:42:24.659Z"
-    },
-    {
-      "id": "act_17874781440094zqv",
-      "role": "admin",
-      "action": "DISTRICT_PRODUCT_ASSIGNED",
-      "userId": "u_admin",
-      "details": "Assigned \"FAT MUKTI\" to Muzaffarnagar with stock 0",
-      "district": "Muzaffarnagar",
-      "username": "admin",
-      "timestamp": "2026-08-23T09:42:24.009Z"
-    },
-    {
-      "id": "act_17874781434546tib",
-      "role": "admin",
-      "action": "DISTRICT_PRODUCT_ASSIGNED",
-      "userId": "u_admin",
-      "details": "Assigned \"HEIGHT VERDAK\" to Muzaffarnagar with stock 0",
-      "district": "Muzaffarnagar",
-      "username": "admin",
-      "timestamp": "2026-08-23T09:42:23.454Z"
-    },
-    {
-      "id": "act_17874781427384uap",
-      "role": "admin",
-      "action": "DISTRICT_PRODUCT_ASSIGNED",
-      "userId": "u_admin",
-      "details": "Assigned \"ALERGY\" to Muzaffarnagar with stock 0",
-      "district": "Muzaffarnagar",
-      "username": "admin",
-      "timestamp": "2026-08-23T09:42:22.738Z"
-    },
-    {
-      "id": "act_17874781419748l58",
-      "role": "admin",
-      "action": "DISTRICT_PRODUCT_ASSIGNED",
-      "userId": "u_admin",
-      "details": "Assigned \"EYE SUTRA\" to Muzaffarnagar with stock 0",
-      "district": "Muzaffarnagar",
-      "username": "admin",
-      "timestamp": "2026-08-23T09:42:21.974Z"
-    },
-    {
-      "id": "act_1787478140978nzrf",
-      "role": "admin",
-      "action": "DISTRICT_PRODUCT_ASSIGNED",
-      "userId": "u_admin",
-      "details": "Assigned \"FOUJI\" to Muzaffarnagar with stock 0",
-      "district": "Muzaffarnagar",
-      "username": "admin",
-      "timestamp": "2026-08-23T09:42:20.978Z"
-    },
-    {
-      "id": "act_1787478140386w895",
-      "role": "admin",
-      "action": "DISTRICT_PRODUCT_ASSIGNED",
-      "userId": "u_admin",
-      "details": "Assigned \"PLAY MORE\" to Muzaffarnagar with stock 0",
-      "district": "Muzaffarnagar",
-      "username": "admin",
-      "timestamp": "2026-08-23T09:42:20.386Z"
-    },
-    {
-      "id": "act_1787478136392ufus",
-      "role": "admin",
-      "action": "BULK_DISTRICT_PRODUCTS_UPDATED",
-      "userId": "u_admin",
-      "details": "Updated assigned products for Muzaffarnagar: 0 products active",
-      "district": "Muzaffarnagar",
-      "username": "admin",
-      "timestamp": "2026-08-23T09:42:16.392Z"
-    },
-    {
-      "id": "act_1787478118314rhhm",
-      "role": "admin",
-      "action": "DISTRICT_PRODUCT_ASSIGNED",
-      "userId": "u_admin",
-      "details": "Assigned \"KADWI DAWA\" to Gurgaon with stock 0",
-      "district": "Gurgaon",
-      "username": "admin",
-      "timestamp": "2026-08-23T09:41:58.314Z"
-    },
-    {
-      "id": "act_1787478116848bk4k",
-      "role": "admin",
-      "action": "DISTRICT_PRODUCT_ASSIGNED",
-      "userId": "u_admin",
-      "details": "Assigned \"AMAR NETRAN\" to Gurgaon with stock 0",
-      "district": "Gurgaon",
-      "username": "admin",
-      "timestamp": "2026-08-23T09:41:56.848Z"
-    },
-    {
-      "id": "act_17874781115553grl",
-      "role": "admin",
-      "action": "BULK_DISTRICT_PRODUCTS_UPDATED",
-      "userId": "u_admin",
-      "details": "Updated assigned products for Gurgaon: 0 products active",
-      "district": "Gurgaon",
-      "username": "admin",
-      "timestamp": "2026-08-23T09:41:51.555Z"
-    },
-    {
-      "id": "act_1787478102138kxrq",
-      "role": "admin",
-      "action": "DISTRICT_PRODUCT_ASSIGNED",
-      "userId": "u_admin",
-      "details": "Assigned \"NAYAN SANJIVINI\" to Jodhpur with stock 0",
-      "district": "Jodhpur",
-      "username": "admin",
-      "timestamp": "2026-08-23T09:41:42.138Z"
-    },
-    {
-      "id": "act_1787478101464omdn",
-      "role": "admin",
-      "action": "DISTRICT_PRODUCT_ASSIGNED",
-      "userId": "u_admin",
-      "details": "Assigned \"FAT MUKTI\" to Jodhpur with stock 0",
-      "district": "Jodhpur",
-      "username": "admin",
-      "timestamp": "2026-08-23T09:41:41.464Z"
-    },
-    {
-      "id": "act_1787478100828me9c",
-      "role": "admin",
-      "action": "DISTRICT_PRODUCT_ASSIGNED",
-      "userId": "u_admin",
-      "details": "Assigned \"HEIGHT VERDAK\" to Jodhpur with stock 0",
-      "district": "Jodhpur",
-      "username": "admin",
-      "timestamp": "2026-08-23T09:41:40.828Z"
-    },
-    {
-      "id": "act_1787478094763xum4",
-      "role": "admin",
-      "action": "DISTRICT_PRODUCT_ASSIGNED",
-      "userId": "u_admin",
-      "details": "Assigned \"KADWI DAWA\" to Jodhpur with stock 0",
-      "district": "Jodhpur",
-      "username": "admin",
-      "timestamp": "2026-08-23T09:41:34.763Z"
-    },
-    {
-      "id": "act_1787478093613t39e",
-      "role": "admin",
-      "action": "DISTRICT_PRODUCT_ASSIGNED",
-      "userId": "u_admin",
-      "details": "Assigned \"AMAR NETRAN\" to Jodhpur with stock 0",
-      "district": "Jodhpur",
-      "username": "admin",
-      "timestamp": "2026-08-23T09:41:33.613Z"
-    },
-    {
-      "id": "act_1787478090739yv43",
-      "role": "admin",
-      "action": "BULK_DISTRICT_PRODUCTS_UPDATED",
-      "userId": "u_admin",
-      "details": "Updated assigned products for Jodhpur: 0 products active",
-      "district": "Jodhpur",
-      "username": "admin",
-      "timestamp": "2026-08-23T09:41:30.739Z"
-    },
-    {
-      "id": "act_1787478077995fcrt",
-      "role": "admin",
-      "action": "DISTRICT_PRODUCT_ASSIGNED",
-      "userId": "u_admin",
-      "details": "Assigned \"KADWI DAWA\" to Faridabad with stock 8",
-      "district": "Faridabad",
-      "username": "admin",
-      "timestamp": "2026-08-23T09:41:17.995Z"
-    },
-    {
-      "id": "act_1787478076827x2om",
-      "role": "admin",
-      "action": "DISTRICT_PRODUCT_ASSIGNED",
-      "userId": "u_admin",
-      "details": "Assigned \"AMAR NETRAN\" to Faridabad with stock 21",
-      "district": "Faridabad",
-      "username": "admin",
-      "timestamp": "2026-08-23T09:41:16.827Z"
-    },
-    {
-      "id": "act_1787478073325ekgk",
-      "role": "admin",
-      "action": "BULK_DISTRICT_PRODUCTS_UPDATED",
-      "userId": "u_admin",
-      "details": "Updated assigned products for Faridabad: 0 products active",
-      "district": "Faridabad",
-      "username": "admin",
-      "timestamp": "2026-08-23T09:41:13.325Z"
-    },
-    {
-      "id": "act_1787478070981lgqr",
-      "role": "admin",
-      "action": "DISTRICT_PRODUCT_UNASSIGNED",
-      "userId": "u_admin",
-      "details": "Unticked/Removed \"PV\" from Faridabad",
-      "district": "Faridabad",
-      "username": "admin",
-      "timestamp": "2026-08-23T09:41:10.981Z"
-    },
-    {
-      "id": "act_1787478070557qqtu",
-      "role": "admin",
-      "action": "DISTRICT_PRODUCT_UNASSIGNED",
-      "userId": "u_admin",
-      "details": "Unticked/Removed \"MONEY+HCY\" from Faridabad",
-      "district": "Faridabad",
-      "username": "admin",
-      "timestamp": "2026-08-23T09:41:10.557Z"
-    },
-    {
-      "id": "act_1787478070100mmqq",
-      "role": "admin",
-      "action": "DISTRICT_PRODUCT_UNASSIGNED",
-      "userId": "u_admin",
-      "details": "Unticked/Removed \"RAJ VILLA\" from Faridabad",
-      "district": "Faridabad",
-      "username": "admin",
-      "timestamp": "2026-08-23T09:41:10.100Z"
-    },
-    {
-      "id": "act_1787478069490s930",
-      "role": "admin",
-      "action": "DISTRICT_PRODUCT_UNASSIGNED",
-      "userId": "u_admin",
-      "details": "Unticked/Removed \"SUPRAGUT\" from Faridabad",
-      "district": "Faridabad",
-      "username": "admin",
-      "timestamp": "2026-08-23T09:41:09.490Z"
-    },
-    {
-      "id": "act_1787478068509st9v",
-      "role": "admin",
-      "action": "DISTRICT_PRODUCT_UNASSIGNED",
-      "userId": "u_admin",
-      "details": "Unticked/Removed \"HEIGH TONIC\" from Faridabad",
-      "district": "Faridabad",
-      "username": "admin",
-      "timestamp": "2026-08-23T09:41:08.509Z"
-    },
-    {
-      "id": "act_1787478067356g7rh",
-      "role": "admin",
-      "action": "DISTRICT_PRODUCT_UNASSIGNED",
-      "userId": "u_admin",
-      "details": "Unticked/Removed \"AAROGAYA NET\" from Faridabad",
-      "district": "Faridabad",
-      "username": "admin",
-      "timestamp": "2026-08-23T09:41:07.356Z"
-    },
-    {
-      "id": "act_1787478066160kygv",
-      "role": "admin",
-      "action": "DISTRICT_PRODUCT_UNASSIGNED",
-      "userId": "u_admin",
-      "details": "Unticked/Removed \"TONIC+FM\" from Faridabad",
-      "district": "Faridabad",
-      "username": "admin",
-      "timestamp": "2026-08-23T09:41:06.160Z"
-    },
-    {
-      "id": "act_1787478065676ib88",
-      "role": "admin",
-      "action": "DISTRICT_PRODUCT_UNASSIGNED",
-      "userId": "u_admin",
-      "details": "Unticked/Removed \"DAMADAR\" from Faridabad",
-      "district": "Faridabad",
-      "username": "admin",
-      "timestamp": "2026-08-23T09:41:05.676Z"
-    },
-    {
       "id": "act_1787477488579kw52",
       "role": "admin",
       "action": "PRODUCT_DELETED",
@@ -2013,94 +1493,6 @@
   ],
   "stockTransfers": [
     {
-      "id": "tr_test_1787487094232",
-      "date": "2026-08-23",
-      "items": [
-        {
-          "qty": 25,
-          "productId": "prod_1",
-          "productName": "DAMADAR"
-        }
-      ],
-      "notes": "Urgent Jaipur Stock",
-      "status": "received",
-      "createdAt": "2026-08-23T12:11:34.233Z",
-      "createdBy": "admin",
-      "driverName": "Ramesh Express",
-      "receivedAt": "2026-08-23T12:11:34.544Z",
-      "receivedBy": "dealer_jaipur",
-      "toDistrict": "Jaipur",
-      "transferNo": "TR-TEST-99",
-      "driverMobile": "9876543210",
-      "fromLocation": "Central Warehouse"
-    },
-    {
-      "id": "tr_test_1787486958360",
-      "date": "2026-08-23",
-      "items": [
-        {
-          "qty": 25,
-          "productId": "prod_1",
-          "productName": "DAMADAR"
-        }
-      ],
-      "notes": "Urgent Jaipur Stock",
-      "status": "received",
-      "createdAt": "2026-08-23T12:09:18.360Z",
-      "createdBy": "admin",
-      "driverName": "Ramesh Express",
-      "receivedAt": "2026-08-23T12:09:18.926Z",
-      "receivedBy": "dealer_jaipur",
-      "toDistrict": "Jaipur",
-      "transferNo": "TR-TEST-99",
-      "driverMobile": "9876543210",
-      "fromLocation": "Central Warehouse"
-    },
-    {
-      "id": "tr_test_1787486902676",
-      "date": "2026-08-23",
-      "items": [
-        {
-          "qty": 25,
-          "productId": "prod_1",
-          "productName": "DAMADAR"
-        }
-      ],
-      "notes": "Urgent Jaipur Stock",
-      "status": "received",
-      "createdAt": "2026-08-23T12:08:22.676Z",
-      "createdBy": "admin",
-      "driverName": "Ramesh Express",
-      "receivedAt": "2026-08-23T12:08:22.981Z",
-      "receivedBy": "dealer_jaipur",
-      "toDistrict": "Jaipur",
-      "transferNo": "TR-TEST-99",
-      "driverMobile": "9876543210",
-      "fromLocation": "Central Warehouse"
-    },
-    {
-      "id": "tr_test_1787486510014",
-      "date": "2026-08-23",
-      "items": [
-        {
-          "qty": 25,
-          "productId": "prod_1",
-          "productName": "DAMADAR"
-        }
-      ],
-      "notes": "Urgent Jaipur Stock",
-      "status": "received",
-      "createdAt": "2026-08-23T12:01:50.014Z",
-      "createdBy": "admin",
-      "driverName": "Ramesh Express",
-      "receivedAt": "2026-08-23T12:01:50.365Z",
-      "receivedBy": "dealer_jaipur",
-      "toDistrict": "Jaipur",
-      "transferNo": "TR-TEST-99",
-      "driverMobile": "9876543210",
-      "fromLocation": "Central Warehouse"
-    },
-    {
       "id": "trf_1787462840377yhj6",
       "qty": 8,
       "note": "JFJ",
@@ -2388,7 +1780,7 @@
     }
   ],
   "customStockLocks": {
-    "Jaipur:prod_1": 25,
+    "Jaipur:prod_1": 30,
     "Jaipur:prod_2": 14,
     "Jaipur:prod_5": 33,
     "jaipur:prod_1": 25,
@@ -2408,6 +1800,7 @@
     "gurgaon:prod_5": 0,
     "jaipur:prod_10": 0,
     "jaipur:prod_11": 0,
+    "jaipur:prod_20": 0,
     "jaipur:prod_21": 0,
     "jaipur:prod_22": 0,
     "jaipur:prod_23": 0,
@@ -2435,17 +1828,10 @@
     "muzaffarnagar:prod_23": 0,
     "Jodhpur:prod_mt5a3vdeb76": 0,
     "Jodhpur:prod_mt5a43gnmq4": 0,
-    "Jodhpur:prod_mt5a4arnfw2": 0,
-    "Saharanpur:prod_mt5a3vdeb76": 0,
-    "Saharanpur:prod_mt5a43gnmq4": 0,
-    "Saharanpur:prod_mt5a4arnfw2": 0,
     "Chittorgarh:prod_mt4a8rpz6bi": 0,
     "Chittorgarh:prod_mt5a3vdeb76": 0,
     "Chittorgarh:prod_mt5a43gnmq4": 0,
-    "Chittorgarh:prod_mt5a4arnfw2": 0,
-    "Muzaffarnagar:prod_mt5a3vdeb76": 0,
-    "Muzaffarnagar:prod_mt5a43gnmq4": 0,
-    "Muzaffarnagar:prod_mt5a4arnfw2": 0
+    "Chittorgarh:prod_mt5a4arnfw2": 0
   },
   "deletedDistricts": [],
   "districtProducts": {
@@ -3584,8 +2970,8 @@
         "name": "DAMADAR",
         "isSpecial": false,
         "schemePrice": 3052,
-        "stockAllocated": 25,
-        "currentStock": 25,
+        "stockAllocated": 30,
+        "currentStock": 30,
         "schemes": [
           {
             "dc": 250,
@@ -4006,8 +3392,8 @@
         "name": "PLAY MORE",
         "isSpecial": false,
         "schemePrice": 2500,
-        "stockAllocated": 20,
-        "currentStock": 20,
+        "stockAllocated": 0,
+        "currentStock": 0,
         "schemes": [
           {
             "dc": 170,
@@ -4018,7 +3404,7 @@
           }
         ],
         "isActive": true,
-        "isCustomStockLocked": false
+        "isCustomStockLocked": true
       },
       {
         "id": "dp_jai_prod_21",
@@ -4707,7 +4093,7 @@
     ],
     "Gurgaon": [
       {
-        "id": "dp_gur_prod_3",
+        "id": "dp_gur_1",
         "productId": "prod_3",
         "name": "AMAR NETRAN",
         "isSpecial": false,
@@ -4727,7 +4113,7 @@
         "isCustomStockLocked": true
       },
       {
-        "id": "dp_gur_prod_5",
+        "id": "dp_gur_2",
         "productId": "prod_5",
         "name": "KADWI DAWA",
         "isSpecial": false,
@@ -5358,26 +4744,6 @@
         "isCustomStockLocked": true
       },
       {
-        "id": "dp_jod_prod_mt5a4arnfw2",
-        "productId": "prod_mt5a4arnfw2",
-        "name": "NAYAN SANJIVINI",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_prod_mt5a4arnfw2_1",
-            "qty": 1,
-            "name": "NAYAN SANJIVINI 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": true
-      },
-      {
         "id": "dp_jod_prod_1",
         "productId": "prod_1",
         "name": "DAMADAR",
@@ -5831,11 +5197,31 @@
         ],
         "isActive": true,
         "isCustomStockLocked": false
+      },
+      {
+        "id": "dp_jod_prod_mt5a4arnfw2",
+        "productId": "prod_mt5a4arnfw2",
+        "name": "NAYAN SANJIVINI",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "schemes": [
+          {
+            "dc": 250,
+            "id": "sch_prod_mt5a4arnfw2_1",
+            "qty": 1,
+            "name": "NAYAN SANJIVINI 1",
+            "price": 2500
+          }
+        ],
+        "isActive": true,
+        "isCustomStockLocked": false
       }
     ],
     "Faridabad": [
       {
-        "id": "dp_far_prod_3",
+        "id": "dp_gur_1",
         "productId": "prod_3",
         "name": "AMAR NETRAN",
         "isSpecial": false,
@@ -5855,7 +5241,7 @@
         "isCustomStockLocked": true
       },
       {
-        "id": "dp_far_prod_5",
+        "id": "dp_gur_2",
         "productId": "prod_5",
         "name": "KADWI DAWA",
         "isSpecial": false,
@@ -6399,7 +5785,7 @@
     ],
     "Saharanpur": [
       {
-        "id": "dp_sah_prod_20",
+        "id": "dp_sah_1",
         "productId": "prod_20",
         "name": "PLAY MORE",
         "isSpecial": false,
@@ -6419,7 +5805,7 @@
         "isCustomStockLocked": true
       },
       {
-        "id": "dp_sah_prod_21",
+        "id": "dp_sah_2",
         "productId": "prod_21",
         "name": "FOUJI",
         "isSpecial": false,
@@ -6439,7 +5825,7 @@
         "isCustomStockLocked": true
       },
       {
-        "id": "dp_sah_prod_22",
+        "id": "dp_sah_3",
         "productId": "prod_22",
         "name": "EYE SUTRA",
         "isSpecial": false,
@@ -6459,7 +5845,7 @@
         "isCustomStockLocked": true
       },
       {
-        "id": "dp_sah_prod_23",
+        "id": "dp_sah_4",
         "productId": "prod_23",
         "name": "ALERGY",
         "isSpecial": false,
@@ -6472,66 +5858,6 @@
             "id": "sch_alg_1",
             "qty": 1,
             "name": "ALERGY 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": true
-      },
-      {
-        "id": "dp_sah_prod_mt5a3vdeb76",
-        "productId": "prod_mt5a3vdeb76",
-        "name": "HEIGHT VERDAK",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_prod_mt5a3vdeb76_1",
-            "qty": 1,
-            "name": "HEIGHT VERDAK 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": true
-      },
-      {
-        "id": "dp_sah_prod_mt5a43gnmq4",
-        "productId": "prod_mt5a43gnmq4",
-        "name": "FAT MUKTI",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_prod_mt5a43gnmq4_1",
-            "qty": 1,
-            "name": "FAT MUKTI 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": true
-      },
-      {
-        "id": "dp_sah_prod_mt5a4arnfw2",
-        "productId": "prod_mt5a4arnfw2",
-        "name": "NAYAN SANJIVINI",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_prod_mt5a4arnfw2_1",
-            "qty": 1,
-            "name": "NAYAN SANJIVINI 1",
             "price": 2500
           }
         ],
@@ -6954,6 +6280,66 @@
             "id": "sch_noni_1",
             "qty": 1,
             "name": "NONI 500 ML 1",
+            "price": 2500
+          }
+        ],
+        "isActive": true,
+        "isCustomStockLocked": false
+      },
+      {
+        "id": "dp_sah_prod_mt5a3vdeb76",
+        "productId": "prod_mt5a3vdeb76",
+        "name": "HEIGHT VERDAK",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "schemes": [
+          {
+            "dc": 250,
+            "id": "sch_prod_mt5a3vdeb76_1",
+            "qty": 1,
+            "name": "HEIGHT VERDAK 1",
+            "price": 2500
+          }
+        ],
+        "isActive": true,
+        "isCustomStockLocked": false
+      },
+      {
+        "id": "dp_sah_prod_mt5a43gnmq4",
+        "productId": "prod_mt5a43gnmq4",
+        "name": "FAT MUKTI",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "schemes": [
+          {
+            "dc": 250,
+            "id": "sch_prod_mt5a43gnmq4_1",
+            "qty": 1,
+            "name": "FAT MUKTI 1",
+            "price": 2500
+          }
+        ],
+        "isActive": true,
+        "isCustomStockLocked": false
+      },
+      {
+        "id": "dp_sah_prod_mt5a4arnfw2",
+        "productId": "prod_mt5a4arnfw2",
+        "name": "NAYAN SANJIVINI",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "schemes": [
+          {
+            "dc": 250,
+            "id": "sch_prod_mt5a4arnfw2_1",
+            "qty": 1,
+            "name": "NAYAN SANJIVINI 1",
             "price": 2500
           }
         ],
@@ -8091,7 +7477,7 @@
     ],
     "Muzaffarnagar": [
       {
-        "id": "dp_muz_prod_20",
+        "id": "dp_sah_1",
         "productId": "prod_20",
         "name": "PLAY MORE",
         "isSpecial": false,
@@ -8111,7 +7497,7 @@
         "isCustomStockLocked": true
       },
       {
-        "id": "dp_muz_prod_21",
+        "id": "dp_sah_2",
         "productId": "prod_21",
         "name": "FOUJI",
         "isSpecial": false,
@@ -8131,7 +7517,7 @@
         "isCustomStockLocked": true
       },
       {
-        "id": "dp_muz_prod_22",
+        "id": "dp_sah_3",
         "productId": "prod_22",
         "name": "EYE SUTRA",
         "isSpecial": false,
@@ -8151,7 +7537,7 @@
         "isCustomStockLocked": true
       },
       {
-        "id": "dp_muz_prod_23",
+        "id": "dp_sah_4",
         "productId": "prod_23",
         "name": "ALERGY",
         "isSpecial": false,
@@ -8164,66 +7550,6 @@
             "id": "sch_alg_1",
             "qty": 1,
             "name": "ALERGY 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": true
-      },
-      {
-        "id": "dp_muz_prod_mt5a3vdeb76",
-        "productId": "prod_mt5a3vdeb76",
-        "name": "HEIGHT VERDAK",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_prod_mt5a3vdeb76_1",
-            "qty": 1,
-            "name": "HEIGHT VERDAK 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": true
-      },
-      {
-        "id": "dp_muz_prod_mt5a43gnmq4",
-        "productId": "prod_mt5a43gnmq4",
-        "name": "FAT MUKTI",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_prod_mt5a43gnmq4_1",
-            "qty": 1,
-            "name": "FAT MUKTI 1",
-            "price": 2500
-          }
-        ],
-        "isActive": true,
-        "isCustomStockLocked": true
-      },
-      {
-        "id": "dp_muz_prod_mt5a4arnfw2",
-        "productId": "prod_mt5a4arnfw2",
-        "name": "NAYAN SANJIVINI",
-        "isSpecial": false,
-        "schemePrice": 2500,
-        "stockAllocated": 0,
-        "currentStock": 0,
-        "schemes": [
-          {
-            "dc": 250,
-            "id": "sch_prod_mt5a4arnfw2_1",
-            "qty": 1,
-            "name": "NAYAN SANJIVINI 1",
             "price": 2500
           }
         ],
@@ -8646,6 +7972,66 @@
             "id": "sch_noni_1",
             "qty": 1,
             "name": "NONI 500 ML 1",
+            "price": 2500
+          }
+        ],
+        "isActive": true,
+        "isCustomStockLocked": false
+      },
+      {
+        "id": "dp_muz_prod_mt5a3vdeb76",
+        "productId": "prod_mt5a3vdeb76",
+        "name": "HEIGHT VERDAK",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "schemes": [
+          {
+            "dc": 250,
+            "id": "sch_prod_mt5a3vdeb76_1",
+            "qty": 1,
+            "name": "HEIGHT VERDAK 1",
+            "price": 2500
+          }
+        ],
+        "isActive": true,
+        "isCustomStockLocked": false
+      },
+      {
+        "id": "dp_muz_prod_mt5a43gnmq4",
+        "productId": "prod_mt5a43gnmq4",
+        "name": "FAT MUKTI",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "schemes": [
+          {
+            "dc": 250,
+            "id": "sch_prod_mt5a43gnmq4_1",
+            "qty": 1,
+            "name": "FAT MUKTI 1",
+            "price": 2500
+          }
+        ],
+        "isActive": true,
+        "isCustomStockLocked": false
+      },
+      {
+        "id": "dp_muz_prod_mt5a4arnfw2",
+        "productId": "prod_mt5a4arnfw2",
+        "name": "NAYAN SANJIVINI",
+        "isSpecial": false,
+        "schemePrice": 2500,
+        "stockAllocated": 0,
+        "currentStock": 0,
+        "schemes": [
+          {
+            "dc": 250,
+            "id": "sch_prod_mt5a4arnfw2_1",
+            "qty": 1,
+            "name": "NAYAN SANJIVINI 1",
             "price": 2500
           }
         ],
@@ -9220,57 +8606,7 @@
   },
   "lastOrderTimestamp": 1787464319673,
   "mainWarehouseStock": {
-    "prod_1": 300
+    "prod_1": 0
   },
-  "mainStockInwardLogs": [
-    {
-      "id": "inw_test_1787487093911",
-      "qty": 100,
-      "note": "E2E Test Batch",
-      "supplier": "Ayurveda Factory HQ",
-      "createdAt": "2026-08-23T12:11:33.911Z",
-      "createdBy": "admin",
-      "invoiceNo": "INV-TEST-001",
-      "productId": "prod_1",
-      "inwardDate": "2026-08-23",
-      "productName": "DAMADAR"
-    },
-    {
-      "id": "inw_test_1787486957520",
-      "qty": 100,
-      "note": "E2E Test Batch",
-      "supplier": "Ayurveda Factory HQ",
-      "createdAt": "2026-08-23T12:09:17.520Z",
-      "createdBy": "admin",
-      "invoiceNo": "INV-TEST-001",
-      "productId": "prod_1",
-      "inwardDate": "2026-08-23",
-      "productName": "DAMADAR"
-    },
-    {
-      "id": "inw_test_1787486901881",
-      "qty": 100,
-      "note": "E2E Test Batch",
-      "supplier": "Ayurveda Factory HQ",
-      "createdAt": "2026-08-23T12:08:21.881Z",
-      "createdBy": "admin",
-      "invoiceNo": "INV-TEST-001",
-      "productId": "prod_1",
-      "inwardDate": "2026-08-23",
-      "productName": "DAMADAR"
-    },
-    {
-      "id": "inw_test_1787486509372",
-      "qty": 100,
-      "note": "E2E Test Batch",
-      "supplier": "Ayurveda Factory HQ",
-      "createdAt": "2026-08-23T12:01:49.373Z",
-      "createdBy": "admin",
-      "invoiceNo": "INV-TEST-001",
-      "productId": "prod_1",
-      "inwardDate": "2026-08-23",
-      "productName": "DAMADAR"
-    }
-  ],
-  "unassignedDistrictProducts": {}
+  "mainStockInwardLogs": []
 }
